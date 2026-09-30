@@ -1,0 +1,37 @@
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_Cb7AidiecEHEFZQsPayiYHgcrNRu",
+    "url": "https://awakenwithmeheck-3c2r5b5ag-dhruv-yadavs-projects-2d5ef84a.vercel.app",
+    "productionUrl": "https://awakenwithmeheck.vercel.app",
+    "inspectorUrl": "https://vercel.com/dhruv-yadavs-projects-2d5ef84a/awakenwithmeheck/Cb7AidiecEHEFZQsPayiYHgcrNRu",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_Cb7AidiecEHEFZQsPayiYHgcrNRu",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    },
+    "deploymentProtection": [
+      "vercel_authentication"
+    ]
+  },
+  "message": "Deployment awakenwithmeheck-3c2r5b5ag-dhruv-yadavs-projects-2d5ef84a.vercel.app ready. Production URL: https://awakenwithmeheck.vercel.app",
+  "next": [
+    {
+      "command": "vercel curl https://awakenwithmeheck.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect awakenwithmeheck-3c2r5b5ag-dhruv-yadavs-projects-2d5ef84a.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

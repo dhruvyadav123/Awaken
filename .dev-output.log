@@ -13,3 +13,8 @@ Creating turbopack project {
 }
 
 ○ Compiling / ...
+ GET / 200 in 13.8s (next.js: 11.5s, application-code: 2.3s)
+ GET /workshops 200 in 13.7s (next.js: 11.6s, application-code: 2.1s)
+ GET /shop 200 in 2.8s (next.js: 1931ms, application-code: 894ms)
+ GET /cart 200 in 1318ms (next.js: 1102ms, application-code: 216ms)
+ GET / 200 in 324ms (next.js: 27ms, application-code: 297ms)
