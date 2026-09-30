@@ -1,0 +1,15 @@
+
+> awakenwithme@0.1.0 dev
+> next dev
+
+▲ Next.js 16.3.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://172.19.240.1:3000
+✓ Ready in 2.7s
+✓ Running next.config.mjs took 119ms
+Creating turbopack project {
+  dir: 'C:\\Users\\DELL\\Desktop\\awaken\\awakenwithmeheck',
+  testMode: true
+}
+
+○ Compiling / ...

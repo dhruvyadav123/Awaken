@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 920" role="img" aria-labelledby="cover-title cover-description">
+  <title id="cover-title">Choices and Voices of Children by Meheck Mukherjee</title>
+  <desc id="cover-description">An original concept cover with a branching tree and a group of children beneath it.</desc>
+  <defs>
+    <pattern id="paper" width="18" height="18" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="3" r=".8" fill="#354737" opacity=".08"/>
+      <circle cx="13" cy="12" r=".65" fill="#b96e52" opacity=".09"/>
+    </pattern>
+  </defs>
+  <rect width="700" height="920" fill="#f3ead8"/>
+  <rect width="700" height="920" fill="url(#paper)"/>
+  <path d="M0 0h700v18H0z" fill="#354737"/>
+  <text x="350" y="76" text-anchor="middle" fill="#53624a" font-family="Georgia,serif" font-size="18" letter-spacing="4">A BOOK OF CHILDREN</text>
+  <text x="350" y="164" text-anchor="middle" fill="#2f4436" font-family="Georgia,serif" font-size="48" letter-spacing="1">CHOICES AND VOICES</text>
+  <text x="350" y="222" text-anchor="middle" fill="#2f4436" font-family="Georgia,serif" font-size="51" letter-spacing="2">OF CHILDREN</text>
+  <path d="M350 280v194M350 334 234 288m116 46 115-50m-115 101-136-10m136 10 137-8" fill="none" stroke="#547259" stroke-linecap="round" stroke-width="13"/>
+  <path d="M350 458c-9 33-15 58-17 97h34c-2-39-8-64-17-97Z" fill="#795a43"/>
+  <path d="M350 462 218 490m132-26 140 27" fill="none" stroke="#795a43" stroke-linecap="round" stroke-width="10"/>
+  <g stroke="#f3ead8" stroke-width="8">
+    <circle cx="226" cy="285" r="54" fill="#c97a5c"/>
+    <circle cx="468" cy="286" r="61" fill="#82928a"/>
+    <circle cx="196" cy="424" r="45" fill="#d6a44e"/>
+    <circle cx="505" cy="426" r="49" fill="#7282a3"/>
+    <circle cx="350" cy="368" r="58" fill="#d5a482"/>
+  </g>
+  <g fill="#354737">
+    <path d="M177 277q2-47 49-48 47 4 52 45-19-14-41-13-32 2-60 16Z"/>
+    <path d="M422 275q5-47 48-50 49 4 57 45-27-10-48-7-31 3-57 12Z"/>
+    <path d="M155 420q6-37 42-39 36 2 43 35-21-8-41-5-21 2-44 9Z"/>
+    <path d="M458 417q4-43 47-44 40 2 47 41-27-8-45-5-28 2-49 8Z"/>
+    <path d="M295 352q5-48 56-49 51 5 58 45-24-12-51-9-32 2-63 13Z"/>
+  </g>
+  <g fill="#493a32">
+    <circle cx="209" cy="292" r="4"/><circle cx="242" cy="292" r="4"/><path d="M210 309q14 13 29 0" fill="none" stroke="#493a32" stroke-linecap="round" stroke-width="4"/>
+    <circle cx="452" cy="294" r="4"/><circle cx="485" cy="294" r="4"/><path d="M453 311q14 13 29 0" fill="none" stroke="#493a32" stroke-linecap="round" stroke-width="4"/>
+    <circle cx="182" cy="428" r="3.5"/><circle cx="207" cy="428" r="3.5"/><path d="M183 442q11 10 22 0" fill="none" stroke="#493a32" stroke-linecap="round" stroke-width="3.5"/>
+    <circle cx="493" cy="433" r="3.5"/><circle cx="520" cy="433" r="3.5"/><path d="M494 447q11 10 22 0" fill="none" stroke="#493a32" stroke-linecap="round" stroke-width="3.5"/>
+    <circle cx="335" cy="373" r="4"/><circle cx="367" cy="373" r="4"/><path d="M336 391q14 12 28 0" fill="none" stroke="#493a32" stroke-linecap="round" stroke-width="4"/>
+  </g>
+  <path d="M102 547q91-48 174 0 78-38 149 0 87-42 173 4v157H102Z" fill="#8da081"/>
+  <path d="M102 604q91-40 174 0 78-32 149 0 87-36 173 4v100H102Z" fill="#657c64"/>
+  <g fill="#f0ca73">
+    <path d="M137 528h14v28h-14zM548 527h14v28h-14zM312 518h14v27h-14z"/>
+    <circle cx="144" cy="516" r="12"/><circle cx="555" cy="514" r="12"/><circle cx="319" cy="508" r="12"/>
+  </g>
+  <path d="M0 756h700v164H0z" fill="#354737"/>
+  <path d="M48 781h604" stroke="#c7a966" stroke-width="2"/>
+  <text x="350" y="832" text-anchor="middle" fill="#f3ead8" font-family="Georgia,serif" font-size="25" letter-spacing="3">MEHECK MUKHERJEE</text>
+  <text x="350" y="874" text-anchor="middle" fill="#d7ddce" font-family="Arial,sans-serif" font-size="13" letter-spacing="4">EBOOK EDITION</text>
+</svg>

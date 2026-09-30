@@ -1,0 +1,5 @@
+﻿import ContentPage from "../../components/common/ContentPage";
+import { pages } from "../../data/site-pages";
+export const metadata = { title: "Journal | Awaken With Meheck" };
+export default function JournalPage() { return <ContentPage heroImage={{src:"/images/pages/journal-hero.png",alt:"An open journal and tea on a sunlit wooden table"}} eyebrow="Journal" title="A few thoughtful places to begin." description="Short reflections for noticing, pausing, and making room in an ordinary day." primaryAction={{label:"Start a practice",href:"/meditations"}} cards={[{tag:"NOTICE",title:"A small reflection",body:"What has been asking for your attention lately? Take a minute to write without editing yourself.",href:"/meditations",label:"Try it now"},{tag:"RETURN",title:"Make space to return",body:"A practice becomes useful when it has a place in your real life. Start with a moment you can repeat.",href:"/classes",label:"Explore learning"}]} sections={[{heading:"Read at your own pace",body:"New journal entries will be added as the Awaken library grows. For now, use these prompts as a quiet place to begin."}]} />; }
+
