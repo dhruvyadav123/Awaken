@@ -48,6 +48,7 @@ export default function ContentPage({
               alt={heroImage.alt}
               fill
               priority
+              quality={90}
               sizes="100vw"
               className="object-cover object-center"
             />
@@ -74,6 +75,7 @@ export default function ContentPage({
               alt="Meheck from Awaken With Me"
               fill
               priority
+              quality={90}
               sizes="48vw"
               className="object-contain object-bottom"
             />
@@ -187,8 +189,22 @@ export default function ContentPage({
               {cards.map((card, index) => (
                 <article
                   key={`${card.title}-${index}`}
-                  className="group relative min-h-[320px] overflow-hidden rounded-2xl border border-[#e8e2df] bg-white p-7 shadow-[0_12px_35px_rgba(31,25,35,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#d9ccd9] hover:shadow-[0_20px_50px_rgba(31,25,35,0.08)] sm:p-8"
+                  className={`group relative min-h-[320px] overflow-hidden rounded-2xl border border-[#e8e2df] bg-white shadow-[0_12px_35px_rgba(31,25,35,0.04)] transition-all duration-300 hover:-translate-y-1 hover:border-[#d9ccd9] hover:shadow-[0_20px_50px_rgba(31,25,35,0.08)] ${card.image ? "p-0" : "p-7 sm:p-8"}`}
                 >
+                  {card.image && card.href ? (
+                    <Link href={card.href} aria-label={`Read ${card.title}`} className="relative block aspect-[16/9] overflow-hidden">
+                      <Image
+                        src={card.image.src}
+                        alt={card.image.alt}
+                        fill
+                        quality={90}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      />
+                    </Link>
+                  ) : null}
+
+                  <div className={card.image ? "relative p-7 sm:p-8" : ""}>
                   <div className="absolute right-7 top-7 flex h-16 w-16 items-center justify-center rounded-full bg-[#f5edf4] text-2xl text-[#754f7d]">
                     {index === 0 ? "♧" : index === 1 ? "♡" : "♢"}
                   </div>
@@ -226,6 +242,7 @@ export default function ContentPage({
                       </span>
                     </PageLink>
                   ) : null}
+                  </div>
                 </article>
               ))}
             </div>

@@ -1,3 +1,593 @@
-⚠ Warning: Next.js ignored package-lock.json in C:\Users\DELL because it is outside the current Git repository (C:\Users\DELL\Desktop\awaken\awakenwithmeheck).
- To use this directory, set `turbopack.root` in your Next.js config.
+⚠ Slow filesystem detected. The benchmark took 296ms. If \\?\C:\Users\DELL\Desktop\awaken\awakenwithmeheck\.next\dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+⨯ ./src/components/common/OpeningSplash.jsx:4:1
+Error: Module not found: Can't resolve './OpeningSplash.css'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useEffect, useState } [36mfrom[0m [32m'react'[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [32m'./OpeningSplash.css'[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mOpeningSplash[0m() {
+  [90m7 |[0m   [36mconst[0m [isVisible, setIsVisible] = useState([36mtrue[0m);
 
+
+
+Import trace:
+  Server Component:
+    ./src/components/common/OpeningSplash.jsx
+    ./src/app/page.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/common/OpeningSplash.jsx:4:1
+Error: Module not found: Can't resolve './OpeningSplash.css'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useEffect, useState } [36mfrom[0m [32m'react'[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [32m'./OpeningSplash.css'[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mOpeningSplash[0m() {
+  [90m7 |[0m   [36mconst[0m [isVisible, setIsVisible] = useState([36mtrue[0m);
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/common/OpeningSplash.jsx
+    ./src/app/page.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/common/OpeningSplash.jsx:4:1
+Error: Module not found: Can't resolve './OpeningSplash.css'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useEffect, useState } [36mfrom[0m [32m'react'[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [32m'./OpeningSplash.css'[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mOpeningSplash[0m() {
+  [90m7 |[0m   [36mconst[0m [isVisible, setIsVisible] = useState([36mtrue[0m);
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/common/OpeningSplash.jsx
+    ./src/app/page.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/common/OpeningSplash.jsx:4:1
+Error: Module not found: Can't resolve './OpeningSplash.css'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useEffect, useState } [36mfrom[0m [32m'react'[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [32m'./OpeningSplash.css'[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mOpeningSplash[0m() {
+  [90m7 |[0m   [36mconst[0m [isVisible, setIsVisible] = useState([36mtrue[0m);
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/common/OpeningSplash.jsx
+    ./src/app/page.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/common/OpeningSplash.jsx:4:1
+Error: Module not found: Can't resolve './OpeningSplash.css'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useEffect, useState } [36mfrom[0m [32m'react'[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [32m'./OpeningSplash.css'[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mOpeningSplash[0m() {
+  [90m7 |[0m   [36mconst[0m [isVisible, setIsVisible] = useState([36mtrue[0m);
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/common/OpeningSplash.jsx
+    ./src/app/page.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/common/OpeningSplash.jsx:4:1
+Error: Module not found: Can't resolve './OpeningSplash.css'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useEffect, useState } [36mfrom[0m [32m'react'[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [32m'./OpeningSplash.css'[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mOpeningSplash[0m() {
+  [90m7 |[0m   [36mconst[0m [isVisible, setIsVisible] = useState([36mtrue[0m);
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/common/OpeningSplash.jsx
+    ./src/app/page.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/common/OpeningSplash.jsx:4:1
+Error: Module not found: Can't resolve './OpeningSplash.css'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useEffect, useState } [36mfrom[0m [32m'react'[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [32m'./OpeningSplash.css'[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mOpeningSplash[0m() {
+  [90m7 |[0m   [36mconst[0m [isVisible, setIsVisible] = useState([36mtrue[0m);
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/common/OpeningSplash.jsx
+    ./src/app/page.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+⨯ ./src/components/common/OpeningSplash.jsx:4:1
+Error: Module not found: Can't resolve './OpeningSplash.css'
+  [90m2 |[0m
+  [90m3 |[0m [36mimport[0m { useEffect, useState } [36mfrom[0m [32m'react'[0m;
+[31m[1m>[0m [90m4 |[0m [36mimport[0m [32m'./OpeningSplash.css'[0m;
+  [90m  |[0m [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+  [90m5 |[0m
+  [90m6 |[0m [36mexport[0m [36mdefault[0m [36mfunction[0m [33mOpeningSplash[0m() {
+  [90m7 |[0m   [36mconst[0m [isVisible, setIsVisible] = useState([36mtrue[0m);
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/common/OpeningSplash.jsx
+    ./src/app/page.js
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/app/home.css:4:2572
+Error: Parsing CSS source code failed
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Expected identifier in class selector, got AtKeyword("keyframes")
+
+Generated code of PostCSS transform of file content of src/app/home.css:
+./src/app/home.css:4:2572
+  2 | ...
+  3 | ...
+> 4 | ...imation:splashLoad 2s ease-in-out infinite}.@keyframes splashPulse{0%,100%{transform:sca...
+    |                                                ^
+  5 | ...
+  6 | ...
+  7 | ...
+
+Import trace:
+  Client Component Browser:
+    ./src/app/home.css [Client Component Browser]
+    ./src/app/page.js [Server Component] 
+[browser] ./src/components/common/OpeningSplash.jsx:4:1
+Error: Module not found: Can't resolve './OpeningSplash.css'
+  2 |
+  3 | import { useEffect, useState } from 'react';
+> 4 | import './OpeningSplash.css';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  5 |
+  6 | export default function OpeningSplash() {
+  7 |   const [isVisible, setIsVisible] = useState(true);
+
+Import trace:
+  Server Component:
+    ./src/components/common/OpeningSplash.jsx
+    ./src/app/page.js
+
+https://nextjs.org/docs/messages/module-not-found 
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+[browser] Uncaught Error: Internal Next.js error: Router action dispatched before initialization.
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.
+[browser] THREE.Clock: This module has been deprecated. Please use THREE.Timer instead.

@@ -37,7 +37,7 @@ export default function ClassesPage() {
 					<p className="mt-[23px] font-[Georgia,serif] text-[13px] italic text-[#7c897e]">At your pace. In your own way.</p>
 				</div>
 				<figure className="relative m-0 aspect-[4/4.7] min-w-0 overflow-hidden rounded-[5px] bg-[#e5e9e0] max-[680px]:aspect-[1/1.05] max-[680px]:w-[min(100%,390px)] max-[680px]:justify-self-center [&_img]:object-contain [&_img]:object-bottom [&_img]:mix-blend-multiply [&_figcaption]:absolute [&_figcaption]:right-[14px] [&_figcaption]:bottom-[14px] [&_figcaption]:bg-white/90 [&_figcaption]:px-[10px] [&_figcaption]:py-2 [&_figcaption]:text-[10px] [&_figcaption]:font-semibold [&_figcaption]:text-[#375241]">
-					<Image src="/images/hero/meheck.png" alt="Meheck in a yellow and blue sari" fill priority sizes="(max-width: 760px) 100vw, 42vw" />
+					<Image src="/images/hero/meheck.png" alt="Meheck in a yellow and blue sari" fill priority quality={90} sizes="(max-width: 760px) 100vw, 42vw" />
 					<figcaption>Awaken With Meheck</figcaption>
 				</figure>
 			</div>

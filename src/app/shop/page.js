@@ -185,6 +185,7 @@ export default function ShopPage() {
               alt={`Cover of ${book.title} by ${book.author}`}
               width={700}
               height={920}
+              quality={90}
               priority
               className="relative z-10 mx-auto block h-auto w-[74%] rounded-[2px] object-cover shadow-[0_22px_55px_rgba(37,56,43,0.20)] max-[760px]:w-[78%]"
             />

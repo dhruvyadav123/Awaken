@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { persistSession } from "@/lib/session";
 
 export default function AuthForm({ mode }) {
   const isSignUp = mode === "signup";
@@ -37,14 +38,19 @@ export default function AuthForm({ mode }) {
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.error || "We could not complete that request. Please try again.");
-      if (isSignUp) {
-        setMessage(result.message || "Your account request is complete. Check your email for the next step.");
-        setMessageType("success");
-        form.reset();
-      } else {
-        router.push(result.redirectTo || "/profile");
-        router.refresh();
+
+      if (result.user) {
+        persistSession(result.user);
       }
+
+      if (result.message) {
+        setMessage(result.message);
+        setMessageType("success");
+      }
+
+      form.reset();
+      router.push(result.redirectTo || "/profile");
+      router.refresh();
     } catch (error) {
       setMessage(error.message || "We could not connect. Please try again in a moment.");
       setMessageType("error");

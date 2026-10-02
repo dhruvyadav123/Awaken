@@ -1,0 +1,10016 @@
+/* =========================================================
+   AWAKEN
+   CINEMATIC MORNING RIVER SPLASH
+========================================================= */
+
+.morning-splash {
+  position: fixed;
+}
+
+.awaken-opening {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100dvh;
+
+  overflow: hidden;
+
+  background: #d9e5e5;
+
+  isolation: isolate;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.75s ease;
+}
+
+/* =========================================================
+   EXIT
+========================================================= */
+
+.awaken-opening--exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.awaken-opening--exit .awaken-scene {
+  transform: scale(1.035);
+}
+
+.awaken-opening--exit .awaken-opening__content {
+  opacity: 0;
+
+  transform:
+    translateY(-18px)
+    scale(0.985);
+}
+
+/* =========================================================
+   SCENE
+========================================================= */
+
+.awaken-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #b9d8e8 0%,
+      #dbe8e6 30%,
+      #edd0a1 64%,
+      #82664c 100%
+    );
+
+  transform: scale(1);
+
+  transition:
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   POSTER FALLBACK
+========================================================= */
+
+.awaken-scene__poster {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(107, 150, 184, 0.05),
+      rgba(255, 220, 168, 0.07) 50%,
+      rgba(45, 54, 43, 0.12)
+    ),
+    url('/images/awaken-morning-river.webp');
+
+  background-position: center 52%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transform: scale(1.025);
+}
+
+/* =========================================================
+   REAL VIDEO
+========================================================= */
+
+.awaken-scene__video {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 52%;
+
+  opacity: 0;
+
+  filter:
+    saturate(0.94)
+    contrast(0.97)
+    brightness(1.035)
+    sepia(0.025);
+
+  transform: scale(1.022);
+
+  transition: opacity 0.8s ease;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.awaken-opening--video-ready .awaken-scene__video {
+  opacity: 1;
+}
+
+/* =========================================================
+   SKY LIGHT
+========================================================= */
+
+.awaken-scene__sky {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 29%,
+      rgba(255, 252, 230, 0.32) 0%,
+      rgba(255, 227, 179, 0.17) 19%,
+      rgba(255, 208, 144, 0.06) 37%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(151, 201, 231, 0.06) 0%,
+      rgba(255, 235, 199, 0.05) 48%,
+      transparent 75%
+    );
+}
+
+/* =========================================================
+   SUN
+========================================================= */
+
+.awaken-sun {
+  position: absolute;
+
+  top: 29%;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 360px;
+  height: 360px;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+}
+
+.awaken-sun__core {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 63px;
+  height: 63px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 247, 0.96) 0%,
+      rgba(255, 247, 213, 0.94) 27%,
+      rgba(255, 216, 157, 0.79) 54%,
+      rgba(255, 185, 103, 0.22) 73%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 25px rgba(255, 240, 190, 0.7),
+    0 0 75px rgba(255, 201, 118, 0.4),
+    0 0 150px rgba(255, 188, 104, 0.18);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunBreath 5.5s ease-in-out infinite;
+}
+
+.awaken-sun__halo {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255, 231, 191, 0.12);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunHalo 6s ease-in-out infinite;
+}
+
+.awaken-sun__halo--inner {
+  width: 110px;
+  height: 110px;
+}
+
+.awaken-sun__halo--middle {
+  width: 210px;
+  height: 210px;
+
+  opacity: 0.52;
+
+  animation-delay: -2s;
+}
+
+.awaken-sun__halo--outer {
+  width: 330px;
+  height: 330px;
+
+  opacity: 0.28;
+
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   LIGHT RAYS
+========================================================= */
+
+.awaken-scene__light-rays {
+  position: absolute;
+
+  top: 25%;
+  left: 50%;
+
+  z-index: 2;
+
+  width: 85vw;
+  height: 78vh;
+
+  pointer-events: none;
+
+  opacity: 0.33;
+
+  background:
+    conic-gradient(
+      from 247deg,
+      transparent 0deg,
+      rgba(255, 238, 204, 0.13) 5deg,
+      transparent 11deg,
+      transparent 27deg,
+      rgba(255, 235, 196, 0.08) 32deg,
+      transparent 43deg,
+      transparent 63deg,
+      rgba(255, 238, 204, 0.1) 68deg,
+      transparent 76deg
+    );
+
+  filter: blur(4px);
+
+  transform:
+    translate(-50%, -15%)
+    rotate(3deg);
+
+  mask-image:
+    radial-gradient(
+      circle,
+      #000 0%,
+      rgba(0, 0, 0, 0.75) 39%,
+      transparent 75%
+    );
+
+  animation:
+    awakenRayMove 9s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   MIST
+========================================================= */
+
+.awaken-mist {
+  position: absolute;
+
+  z-index: 5;
+
+  height: 145px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.31),
+      rgba(245, 248, 243, 0.13) 48%,
+      transparent 73%
+    );
+
+  filter: blur(24px);
+}
+
+.awaken-mist--far {
+  bottom: 38%;
+  left: 12%;
+
+  width: 76vw;
+
+  opacity: 0.23;
+
+  animation:
+    awakenMistFar 28s ease-in-out infinite alternate;
+}
+
+.awaken-mist--left {
+  bottom: 22%;
+  left: -25%;
+
+  width: 82vw;
+
+  opacity: 0.48;
+
+  animation:
+    awakenMistLeft 21s ease-in-out infinite alternate;
+}
+
+.awaken-mist--right {
+  right: -29%;
+  bottom: 18%;
+
+  width: 79vw;
+
+  opacity: 0.38;
+
+  animation:
+    awakenMistRight 24s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   RIVER
+========================================================= */
+
+.awaken-river {
+  position: absolute;
+
+  left: 50%;
+  bottom: -9%;
+
+  z-index: 4;
+
+  width: min(77vw, 1180px);
+  height: 61%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0.72;
+
+  transform:
+    translateX(-50%)
+    perspective(950px)
+    rotateX(61deg);
+
+  transform-origin: center bottom;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.25) 10%,
+      #000 31%,
+      #000 80%,
+      transparent 100%
+    );
+}
+
+/* water movement texture */
+
+.awaken-river::before {
+  position: absolute;
+  inset: -12%;
+
+  content: "";
+
+  opacity: 0.42;
+
+  background:
+    repeating-linear-gradient(
+      112deg,
+      transparent 0 27px,
+      rgba(255, 255, 255, 0.055) 29px,
+      transparent 31px 59px
+    );
+
+  animation:
+    awakenRiverTexture 7s linear infinite;
+}
+
+/* =========================================================
+   SUN REFLECTION ON WATER
+========================================================= */
+
+.awaken-river__sun-path {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 32%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 252, 227, 0.64) 0%,
+      rgba(255, 236, 194, 0.42) 28%,
+      rgba(255, 219, 157, 0.23) 57%,
+      rgba(255, 213, 144, 0.08) 78%,
+      transparent 100%
+    );
+
+  clip-path:
+    polygon(
+      47% 0%,
+      53% 0%,
+      62% 20%,
+      70% 41%,
+      84% 69%,
+      100% 100%,
+      0 100%,
+      16% 69%,
+      30% 41%,
+      38% 20%
+    );
+
+  filter: blur(8px);
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenRiverLight 4.7s ease-in-out infinite;
+}
+
+/* =========================================================
+   WATER WAVES
+========================================================= */
+
+.awaken-river__wave {
+  position: absolute;
+
+  left: 50%;
+
+  display: block;
+
+  height: 13px;
+
+  border-radius: 50%;
+
+  filter: blur(2px);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 248, 220, 0.46),
+      rgba(255, 226, 173, 0.17),
+      transparent
+    );
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenWaterWave 4.5s ease-in-out infinite;
+}
+
+.awaken-river__wave--1 {
+  top: 16%;
+  width: 19%;
+}
+
+.awaken-river__wave--2 {
+  top: 31%;
+  width: 33%;
+
+  animation-delay: -0.7s;
+}
+
+.awaken-river__wave--3 {
+  top: 48%;
+  width: 49%;
+
+  animation-delay: -1.5s;
+}
+
+.awaken-river__wave--4 {
+  top: 66%;
+  width: 67%;
+
+  animation-delay: -2.3s;
+}
+
+.awaken-river__wave--5 {
+  top: 83%;
+  width: 86%;
+
+  animation-delay: -3.2s;
+}
+
+/* =========================================================
+   WATER SPARKLES
+========================================================= */
+
+.awaken-river__sparkles {
+  position: absolute;
+  inset: 0;
+}
+
+.awaken-river__sparkles i {
+  position: absolute;
+
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #fff8da;
+
+  box-shadow:
+    0 0 7px rgba(255, 247, 208, 0.9),
+    0 0 16px rgba(255, 220, 151, 0.58);
+
+  animation:
+    awakenWaterSpark 2.8s ease-in-out infinite;
+}
+
+.awaken-river__sparkles i:nth-child(1) {
+  top: 24%;
+  left: 49%;
+}
+
+.awaken-river__sparkles i:nth-child(2) {
+  top: 38%;
+  left: 53%;
+  animation-delay: -0.4s;
+}
+
+.awaken-river__sparkles i:nth-child(3) {
+  top: 52%;
+  left: 45%;
+  animation-delay: -0.9s;
+}
+
+.awaken-river__sparkles i:nth-child(4) {
+  top: 61%;
+  left: 57%;
+  animation-delay: -1.4s;
+}
+
+.awaken-river__sparkles i:nth-child(5) {
+  top: 72%;
+  left: 39%;
+  animation-delay: -1.9s;
+}
+
+.awaken-river__sparkles i:nth-child(6) {
+  top: 78%;
+  left: 54%;
+  animation-delay: -2.3s;
+}
+
+.awaken-river__sparkles i:nth-child(7) {
+  top: 87%;
+  left: 46%;
+  animation-delay: -1.2s;
+}
+
+.awaken-river__sparkles i:nth-child(8) {
+  top: 68%;
+  left: 50%;
+  animation-delay: -2.6s;
+}
+
+/* =========================================================
+   FOREGROUND
+========================================================= */
+
+.awaken-scene__foreground {
+  position: absolute;
+
+  bottom: -12%;
+
+  z-index: 6;
+
+  width: 48vw;
+  height: 41%;
+
+  pointer-events: none;
+
+  opacity: 0.18;
+
+  filter: blur(7px);
+
+  background:
+    radial-gradient(
+      ellipse at bottom,
+      rgba(35, 50, 39, 0.95),
+      rgba(48, 66, 48, 0.45) 43%,
+      transparent 71%
+    );
+}
+
+.awaken-scene__foreground--left {
+  left: -13%;
+
+  transform: rotate(9deg);
+}
+
+.awaken-scene__foreground--right {
+  right: -13%;
+
+  transform: rotate(-9deg);
+}
+
+/* =========================================================
+   COLOR GRADING
+========================================================= */
+
+.awaken-scene__warm-grade {
+  position: absolute;
+  inset: 0;
+
+  z-index: 7;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(191, 224, 239, 0.025) 0%,
+      rgba(255, 230, 193, 0.045) 42%,
+      rgba(244, 193, 126, 0.035) 67%,
+      rgba(40, 48, 39, 0.1) 100%
+    );
+}
+
+.awaken-scene__vignette {
+  position: absolute;
+  inset: 0;
+
+  z-index: 8;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(36, 49, 43, 0.13),
+      transparent 19%,
+      transparent 81%,
+      rgba(36, 49, 43, 0.11)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(46, 71, 87, 0.05),
+      transparent 27%,
+      transparent 69%,
+      rgba(29, 37, 30, 0.18)
+    );
+}
+
+/* =========================================================
+   BIRDS
+========================================================= */
+
+.awaken-bird-field {
+  position: absolute;
+  inset: 0;
+
+  z-index: 15;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-bird {
+  --bird-scale: 1;
+
+  position: absolute;
+
+  left: 108%;
+
+  width: 38px;
+  height: 20px;
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(
+      0 2px 2px
+      rgba(28, 34, 30, 0.14)
+    );
+
+  animation:
+    awakenBirdTravel 16s linear infinite;
+}
+
+.awaken-bird__wing {
+  position: absolute;
+
+  top: 8px;
+
+  display: block;
+
+  width: 21px;
+  height: 10px;
+
+  border-top:
+    2px solid
+    rgba(33, 40, 35, 0.81);
+}
+
+.awaken-bird__wing--left {
+  right: 18px;
+
+  border-radius: 100% 15% 0 0;
+
+  transform-origin: right center;
+
+  animation:
+    awakenBirdWingLeft 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird__wing--right {
+  left: 18px;
+
+  border-radius: 15% 100% 0 0;
+
+  transform-origin: left center;
+
+  animation:
+    awakenBirdWingRight 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird--1 {
+  top: 19%;
+
+  --bird-scale: 0.94;
+
+  animation-duration: 17s;
+  animation-delay: -1s;
+}
+
+.awaken-bird--2 {
+  top: 25%;
+
+  --bird-scale: 0.67;
+
+  animation-duration: 20s;
+  animation-delay: -7s;
+}
+
+.awaken-bird--3 {
+  top: 15%;
+
+  --bird-scale: 0.46;
+
+  animation-duration: 24s;
+  animation-delay: -12s;
+}
+
+.awaken-bird--4 {
+  top: 32%;
+
+  --bird-scale: 0.72;
+
+  animation-duration: 19s;
+  animation-delay: -14s;
+}
+
+.awaken-bird--5 {
+  top: 22%;
+
+  --bird-scale: 0.38;
+
+  animation-duration: 26s;
+  animation-delay: -18s;
+}
+
+.awaken-bird--6 {
+  top: 29%;
+
+  --bird-scale: 0.53;
+
+  animation-duration: 22s;
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   FLOWER PETALS
+========================================================= */
+
+.awaken-petals {
+  position: absolute;
+  inset: 0;
+
+  z-index: 17;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-petal {
+  position: absolute;
+
+  top: -10%;
+
+  width: 14px;
+  height: 22px;
+
+  opacity: 0;
+
+  animation:
+    awakenPetalFall 12s linear infinite;
+}
+
+.awaken-petal i {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius:
+    80% 20% 80% 20%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(246, 209, 167, 0.8),
+      rgba(216, 156, 104, 0.52)
+    );
+
+  box-shadow:
+    0 2px 6px
+    rgba(117, 76, 44, 0.12);
+
+  animation:
+    awakenPetalSpin 3s ease-in-out infinite alternate;
+}
+
+.awaken-petal--1 {
+  left: 7%;
+  animation-delay: -2s;
+  animation-duration: 13s;
+}
+
+.awaken-petal--2 {
+  left: 21%;
+  animation-delay: -9s;
+  animation-duration: 16s;
+
+  transform: scale(0.7);
+}
+
+.awaken-petal--3 {
+  left: 73%;
+  animation-delay: -5s;
+  animation-duration: 15s;
+
+  transform: scale(0.58);
+}
+
+.awaken-petal--4 {
+  left: 88%;
+  animation-delay: -11s;
+  animation-duration: 18s;
+}
+
+.awaken-petal--5 {
+  left: 58%;
+  animation-delay: -14s;
+  animation-duration: 20s;
+
+  transform: scale(0.5);
+}
+
+.awaken-petal--6 {
+  left: 36%;
+  animation-delay: -7s;
+  animation-duration: 19s;
+
+  transform: scale(0.6);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.awaken-opening__content {
+  position: relative;
+
+  z-index: 30;
+
+  display: flex;
+
+  width: min(92vw, 720px);
+
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  animation:
+    awakenContentEnter
+    1.15s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+/* =========================================================
+   FLOWER LOGO
+========================================================= */
+
+.awaken-flower {
+  position: relative;
+
+  width: 166px;
+  height: 145px;
+
+  margin-bottom: 2px;
+}
+
+.awaken-flower__svg {
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 145px;
+
+  overflow: visible;
+
+  transform: translateX(-50%);
+
+  filter:
+    drop-shadow(
+      0 10px 15px
+      rgba(92, 61, 36, 0.12)
+    );
+}
+
+.awaken-flower__halo {
+  position: absolute;
+
+  top: 5px;
+  left: 50%;
+
+  z-index: 1;
+
+  width: 118px;
+  height: 118px;
+
+  border:
+    1px solid
+    rgba(159, 112, 70, 0.28);
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenFlowerHalo 5.2s ease-in-out infinite;
+}
+
+.awaken-flower__halo--inner {
+  top: 17px;
+
+  width: 94px;
+  height: 94px;
+
+  border-color:
+    rgba(171, 123, 78, 0.11);
+
+  animation-delay: -2.5s;
+}
+
+.awaken-flower__star {
+  position: absolute;
+
+  top: -3px;
+  left: 50%;
+
+  z-index: 4;
+
+  width: 13px;
+  height: 13px;
+
+  background: #bf824c;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      59% 40%,
+      100% 50%,
+      59% 60%,
+      50% 100%,
+      41% 60%,
+      0% 50%,
+      41% 40%
+    );
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(216, 162, 105, 0.64)
+    );
+
+  animation:
+    awakenStarPulse 2.8s ease-in-out infinite;
+}
+
+.awaken-flower__spark {
+  position: absolute;
+
+  z-index: 4;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: #c38a55;
+
+  box-shadow:
+    0 0 10px
+    rgba(214, 163, 109, 0.55);
+}
+
+.awaken-flower__spark--1 {
+  top: 23px;
+  left: 47%;
+
+  width: 4px;
+  height: 4px;
+
+  animation:
+    awakenSpark 2.7s ease-in-out infinite;
+}
+
+.awaken-flower__spark--2 {
+  top: 35px;
+  left: 54%;
+
+  width: 3px;
+  height: 3px;
+
+  animation:
+    awakenSpark 2.7s -1.2s ease-in-out infinite;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.awaken-opening__copy {
+  text-shadow:
+    0 4px 22px
+    rgba(255, 246, 224, 0.38);
+}
+
+.awaken-opening__eyebrow {
+  margin: 0 0 10px;
+
+  color:
+    rgba(92, 78, 59, 0.78);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.43em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__title {
+  margin: 0;
+
+  color: #5f503b;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(4.5rem, 9.2vw, 7.8rem);
+
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+
+  text-shadow:
+    0 1px 0
+    rgba(255, 255, 255, 0.45),
+    0 9px 28px
+    rgba(69, 51, 37, 0.11);
+}
+
+.awaken-opening__tagline {
+  display: flex;
+
+  margin-top: 24px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  color:
+    rgba(85, 79, 59, 0.82);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(8px, 0.9vw, 11px);
+
+  font-weight: 600;
+
+  letter-spacing: 0.26em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__tagline i {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(172, 115, 68, 0.61);
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.awaken-opening__loader {
+  position: relative;
+
+  width: min(235px, 54vw);
+  height: 2px;
+
+  margin-top: 32px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(91, 78, 56, 0.15);
+}
+
+.awaken-opening__loader span {
+  display: block;
+
+  width: 42%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ba7947,
+      #e8bb80,
+      #ba7947,
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(190, 119, 66, 0.39);
+
+  animation:
+    awakenLoader 2.35s ease-in-out infinite;
+}
+
+.awaken-opening__loading-copy {
+  margin: 13px 0 0;
+
+  color:
+    rgba(68, 68, 53, 0.67);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__dots {
+  display: inline-block;
+
+  width: 14px;
+
+  overflow: hidden;
+
+  vertical-align: bottom;
+
+  animation:
+    awakenDots 1.4s steps(4, end) infinite;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.awaken-opening__footer {
+  position: absolute;
+
+  right: 20px;
+  bottom: 25px;
+  left: 20px;
+
+  z-index: 31;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  opacity: 0;
+
+  animation:
+    awakenFooterEnter 1s 0.65s forwards;
+}
+
+.awaken-opening__footer p {
+  margin: 0;
+
+  color:
+    rgba(255, 245, 225, 0.69);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    0 2px 10px
+    rgba(30, 31, 26, 0.42);
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__footer-line {
+  width: 35px;
+  height: 1px;
+
+  background:
+    rgba(255, 244, 221, 0.33);
+}
+
+.awaken-opening__footer-mark {
+  display: grid;
+
+  width: 7px;
+  height: 7px;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(255, 241, 214, 0.56);
+
+  transform: rotate(45deg);
+}
+
+.awaken-opening__footer-mark span {
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: #fff1d5;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes awakenContentEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(-2vh)
+      scale(1);
+  }
+}
+
+@keyframes awakenSunBreath {
+  0%,
+  100% {
+    opacity: 0.82;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenSunHalo {
+  0%,
+  100% {
+    opacity: 0.3;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.7;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.05);
+  }
+}
+
+@keyframes awakenRayMove {
+  from {
+    opacity: 0.24;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(0deg)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 0.44;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(7deg)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenMistLeft {
+  from {
+    transform:
+      translateX(-10%)
+      scaleX(0.92);
+  }
+
+  to {
+    transform:
+      translateX(25%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenMistRight {
+  from {
+    transform:
+      translateX(13%)
+      scaleX(1.05);
+  }
+
+  to {
+    transform:
+      translateX(-24%)
+      scaleX(0.92);
+  }
+}
+
+@keyframes awakenMistFar {
+  from {
+    transform:
+      translateX(-12%)
+      scale(0.95);
+  }
+
+  to {
+    transform:
+      translateX(15%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenRiverTexture {
+  from {
+    transform:
+      translate3d(-50px, -40px, 0);
+  }
+
+  to {
+    transform:
+      translate3d(90px, 95px, 0);
+  }
+}
+
+@keyframes awakenRiverLight {
+  0%,
+  100% {
+    opacity: 0.43;
+
+    transform:
+      translateX(-50%)
+      scaleX(0.83);
+  }
+
+  50% {
+    opacity: 0.8;
+
+    transform:
+      translateX(-50%)
+      scaleX(1.13);
+  }
+}
+
+@keyframes awakenWaterWave {
+  0%,
+  100% {
+    opacity: 0.12;
+
+    transform:
+      translateX(-56%)
+      scaleX(0.72);
+  }
+
+  50% {
+    opacity: 0.72;
+
+    transform:
+      translateX(-44%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenWaterSpark {
+  0%,
+  100% {
+    opacity: 0;
+
+    transform: scale(0.55);
+  }
+
+  43% {
+    opacity: 0.9;
+
+    transform: scale(1.3);
+  }
+
+  68% {
+    opacity: 0.24;
+
+    transform: scale(0.8);
+  }
+}
+
+@keyframes awakenBirdTravel {
+  0% {
+    left: 108%;
+
+    opacity: 0;
+
+    transform:
+      translateY(0)
+      scale(var(--bird-scale));
+  }
+
+  8% {
+    opacity: 0.82;
+  }
+
+  25% {
+    transform:
+      translateY(-14px)
+      scale(var(--bird-scale));
+  }
+
+  49% {
+    transform:
+      translateY(6px)
+      scale(var(--bird-scale));
+  }
+
+  73% {
+    transform:
+      translateY(-18px)
+      scale(var(--bird-scale));
+  }
+
+  92% {
+    opacity: 0.72;
+  }
+
+  100% {
+    left: -12%;
+
+    opacity: 0;
+
+    transform:
+      translateY(-4px)
+      scale(var(--bird-scale));
+  }
+}
+
+@keyframes awakenBirdWingLeft {
+  from {
+    transform: rotate(5deg);
+  }
+
+  to {
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes awakenBirdWingRight {
+  from {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes awakenPetalFall {
+  0% {
+    top: -10%;
+
+    opacity: 0;
+
+    transform:
+      translateX(0)
+      rotate(0deg);
+  }
+
+  10% {
+    opacity: 0.52;
+  }
+
+  35% {
+    transform:
+      translateX(42px)
+      rotate(80deg);
+  }
+
+  65% {
+    transform:
+      translateX(-28px)
+      rotate(180deg);
+  }
+
+  90% {
+    opacity: 0.37;
+  }
+
+  100% {
+    top: 112%;
+
+    opacity: 0;
+
+    transform:
+      translateX(54px)
+      rotate(300deg);
+  }
+}
+
+@keyframes awakenPetalSpin {
+  from {
+    transform:
+      rotateY(0deg)
+      rotateZ(-12deg);
+  }
+
+  to {
+    transform:
+      rotateY(70deg)
+      rotateZ(18deg);
+  }
+}
+
+@keyframes awakenFlowerHalo {
+  0%,
+  100% {
+    opacity: 0.46;
+
+    transform:
+      translateX(-50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.9;
+
+    transform:
+      translateX(-50%)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenStarPulse {
+  0%,
+  100% {
+    opacity: 0.47;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(0.72);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(1.16);
+  }
+}
+
+@keyframes awakenSpark {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes awakenLoader {
+  0% {
+    transform: translateX(-130%);
+  }
+
+  53% {
+    transform: translateX(115%);
+  }
+
+  100% {
+    transform: translateX(180%);
+  }
+}
+
+@keyframes awakenDots {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 14px;
+  }
+}
+
+@keyframes awakenFooterEnter {
+  from {
+    opacity: 0;
+
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 0.88;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   LAPTOP / TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .awaken-river {
+    width: 98vw;
+  }
+
+  .awaken-sun {
+    top: 28%;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .awaken-scene__poster,
+  .awaken-scene__video {
+    object-position: 54% center;
+    background-position: 54% center;
+  }
+
+  .awaken-sun {
+    top: 25%;
+
+    width: 280px;
+    height: 280px;
+  }
+
+  .awaken-sun__core {
+    width: 52px;
+    height: 52px;
+  }
+
+  .awaken-sun__halo--inner {
+    width: 92px;
+    height: 92px;
+  }
+
+  .awaken-sun__halo--middle {
+    width: 165px;
+    height: 165px;
+  }
+
+  .awaken-sun__halo--outer {
+    width: 250px;
+    height: 250px;
+  }
+
+  .awaken-opening__content {
+    width: calc(100% - 34px);
+  }
+
+  .awaken-flower {
+    width: 132px;
+    height: 116px;
+  }
+
+  .awaken-flower__svg {
+    width: 112px;
+  }
+
+  .awaken-flower__halo {
+    width: 94px;
+    height: 94px;
+  }
+
+  .awaken-flower__halo--inner {
+    top: 15px;
+
+    width: 74px;
+    height: 74px;
+  }
+
+  .awaken-flower__star {
+    width: 11px;
+    height: 11px;
+  }
+
+  .awaken-opening__eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.32em;
+  }
+
+  .awaken-opening__title {
+    font-size: 4rem;
+  }
+
+  .awaken-opening__tagline {
+    margin-top: 18px;
+
+    gap: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.19em;
+  }
+
+  .awaken-opening__tagline i {
+    width: 3px;
+    height: 3px;
+  }
+
+  .awaken-opening__loader {
+    width: 178px;
+
+    margin-top: 26px;
+  }
+
+  .awaken-opening__loading-copy {
+    font-size: 7px;
+
+    letter-spacing: 0.11em;
+  }
+
+  .awaken-river {
+    bottom: -4%;
+
+    width: 148vw;
+    height: 53%;
+  }
+
+  .awaken-mist--left,
+  .awaken-mist--right {
+    width: 125vw;
+  }
+
+  .awaken-bird {
+    width: 30px;
+  }
+
+  .awaken-bird__wing {
+    width: 17px;
+
+    border-top-width: 1.5px;
+  }
+
+  .awaken-bird__wing--left {
+    right: 14px;
+  }
+
+  .awaken-bird__wing--right {
+    left: 14px;
+  }
+
+  .awaken-petal {
+    opacity: 0.55;
+
+    transform: scale(0.7);
+  }
+
+  .awaken-opening__footer {
+    bottom: 18px;
+
+    gap: 7px;
+  }
+
+  .awaken-opening__footer p {
+    font-size: 6px;
+
+    letter-spacing: 0.1em;
+  }
+
+  .awaken-opening__footer-line {
+    width: 18px;
+  }
+
+  .awaken-opening__footer-mark {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .awaken-opening__title {
+    font-size: 3.45rem;
+  }
+
+  .awaken-flower {
+    transform: scale(0.9);
+  }
+
+  .awaken-opening__tagline {
+    font-size: 6.5px;
+  }
+
+  .awaken-opening__footer-line {
+    display: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .awaken-opening *,
+  .awaken-opening *::before,
+  .awaken-opening *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .awaken-scene__video {
+    display: none;
+  }
+
+  .awaken-scene__poster {
+    transform: none;
+  }
+
+  .awaken-petals,
+  .awaken-bird-field {
+    display: none;
+  }
+}/* =========================================================
+   AWAKEN
+   CINEMATIC MORNING RIVER SPLASH
+========================================================= */
+
+.morning-splash {
+  position: fixed;
+}
+
+.awaken-opening {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100dvh;
+
+  overflow: hidden;
+
+  background: #d9e5e5;
+
+  isolation: isolate;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.75s ease;
+}
+
+/* =========================================================
+   EXIT
+========================================================= */
+
+.awaken-opening--exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.awaken-opening--exit .awaken-scene {
+  transform: scale(1.035);
+}
+
+.awaken-opening--exit .awaken-opening__content {
+  opacity: 0;
+
+  transform:
+    translateY(-18px)
+    scale(0.985);
+}
+
+/* =========================================================
+   SCENE
+========================================================= */
+
+.awaken-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #b9d8e8 0%,
+      #dbe8e6 30%,
+      #edd0a1 64%,
+      #82664c 100%
+    );
+
+  transform: scale(1);
+
+  transition:
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   POSTER FALLBACK
+========================================================= */
+
+.awaken-scene__poster {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(107, 150, 184, 0.05),
+      rgba(255, 220, 168, 0.07) 50%,
+      rgba(45, 54, 43, 0.12)
+    ),
+    url('/images/awaken-morning-river.webp');
+
+  background-position: center 52%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transform: scale(1.025);
+}
+
+/* =========================================================
+   REAL VIDEO
+========================================================= */
+
+.awaken-scene__video {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 52%;
+
+  opacity: 0;
+
+  filter:
+    saturate(0.94)
+    contrast(0.97)
+    brightness(1.035)
+    sepia(0.025);
+
+  transform: scale(1.022);
+
+  transition: opacity 0.8s ease;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.awaken-opening--video-ready .awaken-scene__video {
+  opacity: 1;
+}
+
+/* =========================================================
+   SKY LIGHT
+========================================================= */
+
+.awaken-scene__sky {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 29%,
+      rgba(255, 252, 230, 0.32) 0%,
+      rgba(255, 227, 179, 0.17) 19%,
+      rgba(255, 208, 144, 0.06) 37%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(151, 201, 231, 0.06) 0%,
+      rgba(255, 235, 199, 0.05) 48%,
+      transparent 75%
+    );
+}
+
+/* =========================================================
+   SUN
+========================================================= */
+
+.awaken-sun {
+  position: absolute;
+
+  top: 29%;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 360px;
+  height: 360px;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+}
+
+.awaken-sun__core {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 63px;
+  height: 63px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 247, 0.96) 0%,
+      rgba(255, 247, 213, 0.94) 27%,
+      rgba(255, 216, 157, 0.79) 54%,
+      rgba(255, 185, 103, 0.22) 73%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 25px rgba(255, 240, 190, 0.7),
+    0 0 75px rgba(255, 201, 118, 0.4),
+    0 0 150px rgba(255, 188, 104, 0.18);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunBreath 5.5s ease-in-out infinite;
+}
+
+.awaken-sun__halo {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255, 231, 191, 0.12);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunHalo 6s ease-in-out infinite;
+}
+
+.awaken-sun__halo--inner {
+  width: 110px;
+  height: 110px;
+}
+
+.awaken-sun__halo--middle {
+  width: 210px;
+  height: 210px;
+
+  opacity: 0.52;
+
+  animation-delay: -2s;
+}
+
+.awaken-sun__halo--outer {
+  width: 330px;
+  height: 330px;
+
+  opacity: 0.28;
+
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   LIGHT RAYS
+========================================================= */
+
+.awaken-scene__light-rays {
+  position: absolute;
+
+  top: 25%;
+  left: 50%;
+
+  z-index: 2;
+
+  width: 85vw;
+  height: 78vh;
+
+  pointer-events: none;
+
+  opacity: 0.33;
+
+  background:
+    conic-gradient(
+      from 247deg,
+      transparent 0deg,
+      rgba(255, 238, 204, 0.13) 5deg,
+      transparent 11deg,
+      transparent 27deg,
+      rgba(255, 235, 196, 0.08) 32deg,
+      transparent 43deg,
+      transparent 63deg,
+      rgba(255, 238, 204, 0.1) 68deg,
+      transparent 76deg
+    );
+
+  filter: blur(4px);
+
+  transform:
+    translate(-50%, -15%)
+    rotate(3deg);
+
+  mask-image:
+    radial-gradient(
+      circle,
+      #000 0%,
+      rgba(0, 0, 0, 0.75) 39%,
+      transparent 75%
+    );
+
+  animation:
+    awakenRayMove 9s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   MIST
+========================================================= */
+
+.awaken-mist {
+  position: absolute;
+
+  z-index: 5;
+
+  height: 145px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.31),
+      rgba(245, 248, 243, 0.13) 48%,
+      transparent 73%
+    );
+
+  filter: blur(24px);
+}
+
+.awaken-mist--far {
+  bottom: 38%;
+  left: 12%;
+
+  width: 76vw;
+
+  opacity: 0.23;
+
+  animation:
+    awakenMistFar 28s ease-in-out infinite alternate;
+}
+
+.awaken-mist--left {
+  bottom: 22%;
+  left: -25%;
+
+  width: 82vw;
+
+  opacity: 0.48;
+
+  animation:
+    awakenMistLeft 21s ease-in-out infinite alternate;
+}
+
+.awaken-mist--right {
+  right: -29%;
+  bottom: 18%;
+
+  width: 79vw;
+
+  opacity: 0.38;
+
+  animation:
+    awakenMistRight 24s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   RIVER
+========================================================= */
+
+.awaken-river {
+  position: absolute;
+
+  left: 50%;
+  bottom: -9%;
+
+  z-index: 4;
+
+  width: min(77vw, 1180px);
+  height: 61%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0.72;
+
+  transform:
+    translateX(-50%)
+    perspective(950px)
+    rotateX(61deg);
+
+  transform-origin: center bottom;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.25) 10%,
+      #000 31%,
+      #000 80%,
+      transparent 100%
+    );
+}
+
+/* water movement texture */
+
+.awaken-river::before {
+  position: absolute;
+  inset: -12%;
+
+  content: "";
+
+  opacity: 0.42;
+
+  background:
+    repeating-linear-gradient(
+      112deg,
+      transparent 0 27px,
+      rgba(255, 255, 255, 0.055) 29px,
+      transparent 31px 59px
+    );
+
+  animation:
+    awakenRiverTexture 7s linear infinite;
+}
+
+/* =========================================================
+   SUN REFLECTION ON WATER
+========================================================= */
+
+.awaken-river__sun-path {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 32%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 252, 227, 0.64) 0%,
+      rgba(255, 236, 194, 0.42) 28%,
+      rgba(255, 219, 157, 0.23) 57%,
+      rgba(255, 213, 144, 0.08) 78%,
+      transparent 100%
+    );
+
+  clip-path:
+    polygon(
+      47% 0%,
+      53% 0%,
+      62% 20%,
+      70% 41%,
+      84% 69%,
+      100% 100%,
+      0 100%,
+      16% 69%,
+      30% 41%,
+      38% 20%
+    );
+
+  filter: blur(8px);
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenRiverLight 4.7s ease-in-out infinite;
+}
+
+/* =========================================================
+   WATER WAVES
+========================================================= */
+
+.awaken-river__wave {
+  position: absolute;
+
+  left: 50%;
+
+  display: block;
+
+  height: 13px;
+
+  border-radius: 50%;
+
+  filter: blur(2px);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 248, 220, 0.46),
+      rgba(255, 226, 173, 0.17),
+      transparent
+    );
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenWaterWave 4.5s ease-in-out infinite;
+}
+
+.awaken-river__wave--1 {
+  top: 16%;
+  width: 19%;
+}
+
+.awaken-river__wave--2 {
+  top: 31%;
+  width: 33%;
+
+  animation-delay: -0.7s;
+}
+
+.awaken-river__wave--3 {
+  top: 48%;
+  width: 49%;
+
+  animation-delay: -1.5s;
+}
+
+.awaken-river__wave--4 {
+  top: 66%;
+  width: 67%;
+
+  animation-delay: -2.3s;
+}
+
+.awaken-river__wave--5 {
+  top: 83%;
+  width: 86%;
+
+  animation-delay: -3.2s;
+}
+
+/* =========================================================
+   WATER SPARKLES
+========================================================= */
+
+.awaken-river__sparkles {
+  position: absolute;
+  inset: 0;
+}
+
+.awaken-river__sparkles i {
+  position: absolute;
+
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #fff8da;
+
+  box-shadow:
+    0 0 7px rgba(255, 247, 208, 0.9),
+    0 0 16px rgba(255, 220, 151, 0.58);
+
+  animation:
+    awakenWaterSpark 2.8s ease-in-out infinite;
+}
+
+.awaken-river__sparkles i:nth-child(1) {
+  top: 24%;
+  left: 49%;
+}
+
+.awaken-river__sparkles i:nth-child(2) {
+  top: 38%;
+  left: 53%;
+  animation-delay: -0.4s;
+}
+
+.awaken-river__sparkles i:nth-child(3) {
+  top: 52%;
+  left: 45%;
+  animation-delay: -0.9s;
+}
+
+.awaken-river__sparkles i:nth-child(4) {
+  top: 61%;
+  left: 57%;
+  animation-delay: -1.4s;
+}
+
+.awaken-river__sparkles i:nth-child(5) {
+  top: 72%;
+  left: 39%;
+  animation-delay: -1.9s;
+}
+
+.awaken-river__sparkles i:nth-child(6) {
+  top: 78%;
+  left: 54%;
+  animation-delay: -2.3s;
+}
+
+.awaken-river__sparkles i:nth-child(7) {
+  top: 87%;
+  left: 46%;
+  animation-delay: -1.2s;
+}
+
+.awaken-river__sparkles i:nth-child(8) {
+  top: 68%;
+  left: 50%;
+  animation-delay: -2.6s;
+}
+
+/* =========================================================
+   FOREGROUND
+========================================================= */
+
+.awaken-scene__foreground {
+  position: absolute;
+
+  bottom: -12%;
+
+  z-index: 6;
+
+  width: 48vw;
+  height: 41%;
+
+  pointer-events: none;
+
+  opacity: 0.18;
+
+  filter: blur(7px);
+
+  background:
+    radial-gradient(
+      ellipse at bottom,
+      rgba(35, 50, 39, 0.95),
+      rgba(48, 66, 48, 0.45) 43%,
+      transparent 71%
+    );
+}
+
+.awaken-scene__foreground--left {
+  left: -13%;
+
+  transform: rotate(9deg);
+}
+
+.awaken-scene__foreground--right {
+  right: -13%;
+
+  transform: rotate(-9deg);
+}
+
+/* =========================================================
+   COLOR GRADING
+========================================================= */
+
+.awaken-scene__warm-grade {
+  position: absolute;
+  inset: 0;
+
+  z-index: 7;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(191, 224, 239, 0.025) 0%,
+      rgba(255, 230, 193, 0.045) 42%,
+      rgba(244, 193, 126, 0.035) 67%,
+      rgba(40, 48, 39, 0.1) 100%
+    );
+}
+
+.awaken-scene__vignette {
+  position: absolute;
+  inset: 0;
+
+  z-index: 8;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(36, 49, 43, 0.13),
+      transparent 19%,
+      transparent 81%,
+      rgba(36, 49, 43, 0.11)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(46, 71, 87, 0.05),
+      transparent 27%,
+      transparent 69%,
+      rgba(29, 37, 30, 0.18)
+    );
+}
+
+/* =========================================================
+   BIRDS
+========================================================= */
+
+.awaken-bird-field {
+  position: absolute;
+  inset: 0;
+
+  z-index: 15;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-bird {
+  --bird-scale: 1;
+
+  position: absolute;
+
+  left: 108%;
+
+  width: 38px;
+  height: 20px;
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(
+      0 2px 2px
+      rgba(28, 34, 30, 0.14)
+    );
+
+  animation:
+    awakenBirdTravel 16s linear infinite;
+}
+
+.awaken-bird__wing {
+  position: absolute;
+
+  top: 8px;
+
+  display: block;
+
+  width: 21px;
+  height: 10px;
+
+  border-top:
+    2px solid
+    rgba(33, 40, 35, 0.81);
+}
+
+.awaken-bird__wing--left {
+  right: 18px;
+
+  border-radius: 100% 15% 0 0;
+
+  transform-origin: right center;
+
+  animation:
+    awakenBirdWingLeft 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird__wing--right {
+  left: 18px;
+
+  border-radius: 15% 100% 0 0;
+
+  transform-origin: left center;
+
+  animation:
+    awakenBirdWingRight 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird--1 {
+  top: 19%;
+
+  --bird-scale: 0.94;
+
+  animation-duration: 17s;
+  animation-delay: -1s;
+}
+
+.awaken-bird--2 {
+  top: 25%;
+
+  --bird-scale: 0.67;
+
+  animation-duration: 20s;
+  animation-delay: -7s;
+}
+
+.awaken-bird--3 {
+  top: 15%;
+
+  --bird-scale: 0.46;
+
+  animation-duration: 24s;
+  animation-delay: -12s;
+}
+
+.awaken-bird--4 {
+  top: 32%;
+
+  --bird-scale: 0.72;
+
+  animation-duration: 19s;
+  animation-delay: -14s;
+}
+
+.awaken-bird--5 {
+  top: 22%;
+
+  --bird-scale: 0.38;
+
+  animation-duration: 26s;
+  animation-delay: -18s;
+}
+
+.awaken-bird--6 {
+  top: 29%;
+
+  --bird-scale: 0.53;
+
+  animation-duration: 22s;
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   FLOWER PETALS
+========================================================= */
+
+.awaken-petals {
+  position: absolute;
+  inset: 0;
+
+  z-index: 17;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-petal {
+  position: absolute;
+
+  top: -10%;
+
+  width: 14px;
+  height: 22px;
+
+  opacity: 0;
+
+  animation:
+    awakenPetalFall 12s linear infinite;
+}
+
+.awaken-petal i {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius:
+    80% 20% 80% 20%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(246, 209, 167, 0.8),
+      rgba(216, 156, 104, 0.52)
+    );
+
+  box-shadow:
+    0 2px 6px
+    rgba(117, 76, 44, 0.12);
+
+  animation:
+    awakenPetalSpin 3s ease-in-out infinite alternate;
+}
+
+.awaken-petal--1 {
+  left: 7%;
+  animation-delay: -2s;
+  animation-duration: 13s;
+}
+
+.awaken-petal--2 {
+  left: 21%;
+  animation-delay: -9s;
+  animation-duration: 16s;
+
+  transform: scale(0.7);
+}
+
+.awaken-petal--3 {
+  left: 73%;
+  animation-delay: -5s;
+  animation-duration: 15s;
+
+  transform: scale(0.58);
+}
+
+.awaken-petal--4 {
+  left: 88%;
+  animation-delay: -11s;
+  animation-duration: 18s;
+}
+
+.awaken-petal--5 {
+  left: 58%;
+  animation-delay: -14s;
+  animation-duration: 20s;
+
+  transform: scale(0.5);
+}
+
+.awaken-petal--6 {
+  left: 36%;
+  animation-delay: -7s;
+  animation-duration: 19s;
+
+  transform: scale(0.6);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.awaken-opening__content {
+  position: relative;
+
+  z-index: 30;
+
+  display: flex;
+
+  width: min(92vw, 720px);
+
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  animation:
+    awakenContentEnter
+    1.15s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+/* =========================================================
+   FLOWER LOGO
+========================================================= */
+
+.awaken-flower {
+  position: relative;
+
+  width: 166px;
+  height: 145px;
+
+  margin-bottom: 2px;
+}
+
+.awaken-flower__svg {
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 145px;
+
+  overflow: visible;
+
+  transform: translateX(-50%);
+
+  filter:
+    drop-shadow(
+      0 10px 15px
+      rgba(92, 61, 36, 0.12)
+    );
+}
+
+.awaken-flower__halo {
+  position: absolute;
+
+  top: 5px;
+  left: 50%;
+
+  z-index: 1;
+
+  width: 118px;
+  height: 118px;
+
+  border:
+    1px solid
+    rgba(159, 112, 70, 0.28);
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenFlowerHalo 5.2s ease-in-out infinite;
+}
+
+.awaken-flower__halo--inner {
+  top: 17px;
+
+  width: 94px;
+  height: 94px;
+
+  border-color:
+    rgba(171, 123, 78, 0.11);
+
+  animation-delay: -2.5s;
+}
+
+.awaken-flower__star {
+  position: absolute;
+
+  top: -3px;
+  left: 50%;
+
+  z-index: 4;
+
+  width: 13px;
+  height: 13px;
+
+  background: #bf824c;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      59% 40%,
+      100% 50%,
+      59% 60%,
+      50% 100%,
+      41% 60%,
+      0% 50%,
+      41% 40%
+    );
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(216, 162, 105, 0.64)
+    );
+
+  animation:
+    awakenStarPulse 2.8s ease-in-out infinite;
+}
+
+.awaken-flower__spark {
+  position: absolute;
+
+  z-index: 4;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: #c38a55;
+
+  box-shadow:
+    0 0 10px
+    rgba(214, 163, 109, 0.55);
+}
+
+.awaken-flower__spark--1 {
+  top: 23px;
+  left: 47%;
+
+  width: 4px;
+  height: 4px;
+
+  animation:
+    awakenSpark 2.7s ease-in-out infinite;
+}
+
+.awaken-flower__spark--2 {
+  top: 35px;
+  left: 54%;
+
+  width: 3px;
+  height: 3px;
+
+  animation:
+    awakenSpark 2.7s -1.2s ease-in-out infinite;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.awaken-opening__copy {
+  text-shadow:
+    0 4px 22px
+    rgba(255, 246, 224, 0.38);
+}
+
+.awaken-opening__eyebrow {
+  margin: 0 0 10px;
+
+  color:
+    rgba(92, 78, 59, 0.78);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.43em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__title {
+  margin: 0;
+
+  color: #5f503b;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(4.5rem, 9.2vw, 7.8rem);
+
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+
+  text-shadow:
+    0 1px 0
+    rgba(255, 255, 255, 0.45),
+    0 9px 28px
+    rgba(69, 51, 37, 0.11);
+}
+
+.awaken-opening__tagline {
+  display: flex;
+
+  margin-top: 24px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  color:
+    rgba(85, 79, 59, 0.82);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(8px, 0.9vw, 11px);
+
+  font-weight: 600;
+
+  letter-spacing: 0.26em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__tagline i {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(172, 115, 68, 0.61);
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.awaken-opening__loader {
+  position: relative;
+
+  width: min(235px, 54vw);
+  height: 2px;
+
+  margin-top: 32px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(91, 78, 56, 0.15);
+}
+
+.awaken-opening__loader span {
+  display: block;
+
+  width: 42%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ba7947,
+      #e8bb80,
+      #ba7947,
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(190, 119, 66, 0.39);
+
+  animation:
+    awakenLoader 2.35s ease-in-out infinite;
+}
+
+.awaken-opening__loading-copy {
+  margin: 13px 0 0;
+
+  color:
+    rgba(68, 68, 53, 0.67);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__dots {
+  display: inline-block;
+
+  width: 14px;
+
+  overflow: hidden;
+
+  vertical-align: bottom;
+
+  animation:
+    awakenDots 1.4s steps(4, end) infinite;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.awaken-opening__footer {
+  position: absolute;
+
+  right: 20px;
+  bottom: 25px;
+  left: 20px;
+
+  z-index: 31;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  opacity: 0;
+
+  animation:
+    awakenFooterEnter 1s 0.65s forwards;
+}
+
+.awaken-opening__footer p {
+  margin: 0;
+
+  color:
+    rgba(255, 245, 225, 0.69);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    0 2px 10px
+    rgba(30, 31, 26, 0.42);
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__footer-line {
+  width: 35px;
+  height: 1px;
+
+  background:
+    rgba(255, 244, 221, 0.33);
+}
+
+.awaken-opening__footer-mark {
+  display: grid;
+
+  width: 7px;
+  height: 7px;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(255, 241, 214, 0.56);
+
+  transform: rotate(45deg);
+}
+
+.awaken-opening__footer-mark span {
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: #fff1d5;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes awakenContentEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(-2vh)
+      scale(1);
+  }
+}
+
+@keyframes awakenSunBreath {
+  0%,
+  100% {
+    opacity: 0.82;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenSunHalo {
+  0%,
+  100% {
+    opacity: 0.3;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.7;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.05);
+  }
+}
+
+@keyframes awakenRayMove {
+  from {
+    opacity: 0.24;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(0deg)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 0.44;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(7deg)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenMistLeft {
+  from {
+    transform:
+      translateX(-10%)
+      scaleX(0.92);
+  }
+
+  to {
+    transform:
+      translateX(25%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenMistRight {
+  from {
+    transform:
+      translateX(13%)
+      scaleX(1.05);
+  }
+
+  to {
+    transform:
+      translateX(-24%)
+      scaleX(0.92);
+  }
+}
+
+@keyframes awakenMistFar {
+  from {
+    transform:
+      translateX(-12%)
+      scale(0.95);
+  }
+
+  to {
+    transform:
+      translateX(15%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenRiverTexture {
+  from {
+    transform:
+      translate3d(-50px, -40px, 0);
+  }
+
+  to {
+    transform:
+      translate3d(90px, 95px, 0);
+  }
+}
+
+@keyframes awakenRiverLight {
+  0%,
+  100% {
+    opacity: 0.43;
+
+    transform:
+      translateX(-50%)
+      scaleX(0.83);
+  }
+
+  50% {
+    opacity: 0.8;
+
+    transform:
+      translateX(-50%)
+      scaleX(1.13);
+  }
+}
+
+@keyframes awakenWaterWave {
+  0%,
+  100% {
+    opacity: 0.12;
+
+    transform:
+      translateX(-56%)
+      scaleX(0.72);
+  }
+
+  50% {
+    opacity: 0.72;
+
+    transform:
+      translateX(-44%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenWaterSpark {
+  0%,
+  100% {
+    opacity: 0;
+
+    transform: scale(0.55);
+  }
+
+  43% {
+    opacity: 0.9;
+
+    transform: scale(1.3);
+  }
+
+  68% {
+    opacity: 0.24;
+
+    transform: scale(0.8);
+  }
+}
+
+@keyframes awakenBirdTravel {
+  0% {
+    left: 108%;
+
+    opacity: 0;
+
+    transform:
+      translateY(0)
+      scale(var(--bird-scale));
+  }
+
+  8% {
+    opacity: 0.82;
+  }
+
+  25% {
+    transform:
+      translateY(-14px)
+      scale(var(--bird-scale));
+  }
+
+  49% {
+    transform:
+      translateY(6px)
+      scale(var(--bird-scale));
+  }
+
+  73% {
+    transform:
+      translateY(-18px)
+      scale(var(--bird-scale));
+  }
+
+  92% {
+    opacity: 0.72;
+  }
+
+  100% {
+    left: -12%;
+
+    opacity: 0;
+
+    transform:
+      translateY(-4px)
+      scale(var(--bird-scale));
+  }
+}
+
+@keyframes awakenBirdWingLeft {
+  from {
+    transform: rotate(5deg);
+  }
+
+  to {
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes awakenBirdWingRight {
+  from {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes awakenPetalFall {
+  0% {
+    top: -10%;
+
+    opacity: 0;
+
+    transform:
+      translateX(0)
+      rotate(0deg);
+  }
+
+  10% {
+    opacity: 0.52;
+  }
+
+  35% {
+    transform:
+      translateX(42px)
+      rotate(80deg);
+  }
+
+  65% {
+    transform:
+      translateX(-28px)
+      rotate(180deg);
+  }
+
+  90% {
+    opacity: 0.37;
+  }
+
+  100% {
+    top: 112%;
+
+    opacity: 0;
+
+    transform:
+      translateX(54px)
+      rotate(300deg);
+  }
+}
+
+@keyframes awakenPetalSpin {
+  from {
+    transform:
+      rotateY(0deg)
+      rotateZ(-12deg);
+  }
+
+  to {
+    transform:
+      rotateY(70deg)
+      rotateZ(18deg);
+  }
+}
+
+@keyframes awakenFlowerHalo {
+  0%,
+  100% {
+    opacity: 0.46;
+
+    transform:
+      translateX(-50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.9;
+
+    transform:
+      translateX(-50%)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenStarPulse {
+  0%,
+  100% {
+    opacity: 0.47;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(0.72);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(1.16);
+  }
+}
+
+@keyframes awakenSpark {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes awakenLoader {
+  0% {
+    transform: translateX(-130%);
+  }
+
+  53% {
+    transform: translateX(115%);
+  }
+
+  100% {
+    transform: translateX(180%);
+  }
+}
+
+@keyframes awakenDots {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 14px;
+  }
+}
+
+@keyframes awakenFooterEnter {
+  from {
+    opacity: 0;
+
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 0.88;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   LAPTOP / TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .awaken-river {
+    width: 98vw;
+  }
+
+  .awaken-sun {
+    top: 28%;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .awaken-scene__poster,
+  .awaken-scene__video {
+    object-position: 54% center;
+    background-position: 54% center;
+  }
+
+  .awaken-sun {
+    top: 25%;
+
+    width: 280px;
+    height: 280px;
+  }
+
+  .awaken-sun__core {
+    width: 52px;
+    height: 52px;
+  }
+
+  .awaken-sun__halo--inner {
+    width: 92px;
+    height: 92px;
+  }
+
+  .awaken-sun__halo--middle {
+    width: 165px;
+    height: 165px;
+  }
+
+  .awaken-sun__halo--outer {
+    width: 250px;
+    height: 250px;
+  }
+
+  .awaken-opening__content {
+    width: calc(100% - 34px);
+  }
+
+  .awaken-flower {
+    width: 132px;
+    height: 116px;
+  }
+
+  .awaken-flower__svg {
+    width: 112px;
+  }
+
+  .awaken-flower__halo {
+    width: 94px;
+    height: 94px;
+  }
+
+  .awaken-flower__halo--inner {
+    top: 15px;
+
+    width: 74px;
+    height: 74px;
+  }
+
+  .awaken-flower__star {
+    width: 11px;
+    height: 11px;
+  }
+
+  .awaken-opening__eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.32em;
+  }
+
+  .awaken-opening__title {
+    font-size: 4rem;
+  }
+
+  .awaken-opening__tagline {
+    margin-top: 18px;
+
+    gap: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.19em;
+  }
+
+  .awaken-opening__tagline i {
+    width: 3px;
+    height: 3px;
+  }
+
+  .awaken-opening__loader {
+    width: 178px;
+
+    margin-top: 26px;
+  }
+
+  .awaken-opening__loading-copy {
+    font-size: 7px;
+
+    letter-spacing: 0.11em;
+  }
+
+  .awaken-river {
+    bottom: -4%;
+
+    width: 148vw;
+    height: 53%;
+  }
+
+  .awaken-mist--left,
+  .awaken-mist--right {
+    width: 125vw;
+  }
+
+  .awaken-bird {
+    width: 30px;
+  }
+
+  .awaken-bird__wing {
+    width: 17px;
+
+    border-top-width: 1.5px;
+  }
+
+  .awaken-bird__wing--left {
+    right: 14px;
+  }
+
+  .awaken-bird__wing--right {
+    left: 14px;
+  }
+
+  .awaken-petal {
+    opacity: 0.55;
+
+    transform: scale(0.7);
+  }
+
+  .awaken-opening__footer {
+    bottom: 18px;
+
+    gap: 7px;
+  }
+
+  .awaken-opening__footer p {
+    font-size: 6px;
+
+    letter-spacing: 0.1em;
+  }
+
+  .awaken-opening__footer-line {
+    width: 18px;
+  }
+
+  .awaken-opening__footer-mark {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .awaken-opening__title {
+    font-size: 3.45rem;
+  }
+
+  .awaken-flower {
+    transform: scale(0.9);
+  }
+
+  .awaken-opening__tagline {
+    font-size: 6.5px;
+  }
+
+  .awaken-opening__footer-line {
+    display: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .awaken-opening *,
+  .awaken-opening *::before,
+  .awaken-opening *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .awaken-scene__video {
+    display: none;
+  }
+
+  .awaken-scene__poster {
+    transform: none;
+  }
+
+  .awaken-petals,
+  .awaken-bird-field {
+    display: none;
+  }
+}/* =========================================================
+   AWAKEN
+   CINEMATIC MORNING RIVER SPLASH
+========================================================= */
+
+.morning-splash {
+  position: fixed;
+}
+
+.awaken-opening {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100dvh;
+
+  overflow: hidden;
+
+  background: #d9e5e5;
+
+  isolation: isolate;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.75s ease;
+}
+
+/* =========================================================
+   EXIT
+========================================================= */
+
+.awaken-opening--exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.awaken-opening--exit .awaken-scene {
+  transform: scale(1.035);
+}
+
+.awaken-opening--exit .awaken-opening__content {
+  opacity: 0;
+
+  transform:
+    translateY(-18px)
+    scale(0.985);
+}
+
+/* =========================================================
+   SCENE
+========================================================= */
+
+.awaken-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #b9d8e8 0%,
+      #dbe8e6 30%,
+      #edd0a1 64%,
+      #82664c 100%
+    );
+
+  transform: scale(1);
+
+  transition:
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   POSTER FALLBACK
+========================================================= */
+
+.awaken-scene__poster {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(107, 150, 184, 0.05),
+      rgba(255, 220, 168, 0.07) 50%,
+      rgba(45, 54, 43, 0.12)
+    ),
+    url('/images/awaken-morning-river.webp');
+
+  background-position: center 52%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transform: scale(1.025);
+}
+
+/* =========================================================
+   REAL VIDEO
+========================================================= */
+
+.awaken-scene__video {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 52%;
+
+  opacity: 0;
+
+  filter:
+    saturate(0.94)
+    contrast(0.97)
+    brightness(1.035)
+    sepia(0.025);
+
+  transform: scale(1.022);
+
+  transition: opacity 0.8s ease;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.awaken-opening--video-ready .awaken-scene__video {
+  opacity: 1;
+}
+
+/* =========================================================
+   SKY LIGHT
+========================================================= */
+
+.awaken-scene__sky {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 29%,
+      rgba(255, 252, 230, 0.32) 0%,
+      rgba(255, 227, 179, 0.17) 19%,
+      rgba(255, 208, 144, 0.06) 37%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(151, 201, 231, 0.06) 0%,
+      rgba(255, 235, 199, 0.05) 48%,
+      transparent 75%
+    );
+}
+
+/* =========================================================
+   SUN
+========================================================= */
+
+.awaken-sun {
+  position: absolute;
+
+  top: 29%;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 360px;
+  height: 360px;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+}
+
+.awaken-sun__core {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 63px;
+  height: 63px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 247, 0.96) 0%,
+      rgba(255, 247, 213, 0.94) 27%,
+      rgba(255, 216, 157, 0.79) 54%,
+      rgba(255, 185, 103, 0.22) 73%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 25px rgba(255, 240, 190, 0.7),
+    0 0 75px rgba(255, 201, 118, 0.4),
+    0 0 150px rgba(255, 188, 104, 0.18);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunBreath 5.5s ease-in-out infinite;
+}
+
+.awaken-sun__halo {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255, 231, 191, 0.12);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunHalo 6s ease-in-out infinite;
+}
+
+.awaken-sun__halo--inner {
+  width: 110px;
+  height: 110px;
+}
+
+.awaken-sun__halo--middle {
+  width: 210px;
+  height: 210px;
+
+  opacity: 0.52;
+
+  animation-delay: -2s;
+}
+
+.awaken-sun__halo--outer {
+  width: 330px;
+  height: 330px;
+
+  opacity: 0.28;
+
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   LIGHT RAYS
+========================================================= */
+
+.awaken-scene__light-rays {
+  position: absolute;
+
+  top: 25%;
+  left: 50%;
+
+  z-index: 2;
+
+  width: 85vw;
+  height: 78vh;
+
+  pointer-events: none;
+
+  opacity: 0.33;
+
+  background:
+    conic-gradient(
+      from 247deg,
+      transparent 0deg,
+      rgba(255, 238, 204, 0.13) 5deg,
+      transparent 11deg,
+      transparent 27deg,
+      rgba(255, 235, 196, 0.08) 32deg,
+      transparent 43deg,
+      transparent 63deg,
+      rgba(255, 238, 204, 0.1) 68deg,
+      transparent 76deg
+    );
+
+  filter: blur(4px);
+
+  transform:
+    translate(-50%, -15%)
+    rotate(3deg);
+
+  mask-image:
+    radial-gradient(
+      circle,
+      #000 0%,
+      rgba(0, 0, 0, 0.75) 39%,
+      transparent 75%
+    );
+
+  animation:
+    awakenRayMove 9s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   MIST
+========================================================= */
+
+.awaken-mist {
+  position: absolute;
+
+  z-index: 5;
+
+  height: 145px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.31),
+      rgba(245, 248, 243, 0.13) 48%,
+      transparent 73%
+    );
+
+  filter: blur(24px);
+}
+
+.awaken-mist--far {
+  bottom: 38%;
+  left: 12%;
+
+  width: 76vw;
+
+  opacity: 0.23;
+
+  animation:
+    awakenMistFar 28s ease-in-out infinite alternate;
+}
+
+.awaken-mist--left {
+  bottom: 22%;
+  left: -25%;
+
+  width: 82vw;
+
+  opacity: 0.48;
+
+  animation:
+    awakenMistLeft 21s ease-in-out infinite alternate;
+}
+
+.awaken-mist--right {
+  right: -29%;
+  bottom: 18%;
+
+  width: 79vw;
+
+  opacity: 0.38;
+
+  animation:
+    awakenMistRight 24s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   RIVER
+========================================================= */
+
+.awaken-river {
+  position: absolute;
+
+  left: 50%;
+  bottom: -9%;
+
+  z-index: 4;
+
+  width: min(77vw, 1180px);
+  height: 61%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0.72;
+
+  transform:
+    translateX(-50%)
+    perspective(950px)
+    rotateX(61deg);
+
+  transform-origin: center bottom;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.25) 10%,
+      #000 31%,
+      #000 80%,
+      transparent 100%
+    );
+}
+
+/* water movement texture */
+
+.awaken-river::before {
+  position: absolute;
+  inset: -12%;
+
+  content: "";
+
+  opacity: 0.42;
+
+  background:
+    repeating-linear-gradient(
+      112deg,
+      transparent 0 27px,
+      rgba(255, 255, 255, 0.055) 29px,
+      transparent 31px 59px
+    );
+
+  animation:
+    awakenRiverTexture 7s linear infinite;
+}
+
+/* =========================================================
+   SUN REFLECTION ON WATER
+========================================================= */
+
+.awaken-river__sun-path {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 32%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 252, 227, 0.64) 0%,
+      rgba(255, 236, 194, 0.42) 28%,
+      rgba(255, 219, 157, 0.23) 57%,
+      rgba(255, 213, 144, 0.08) 78%,
+      transparent 100%
+    );
+
+  clip-path:
+    polygon(
+      47% 0%,
+      53% 0%,
+      62% 20%,
+      70% 41%,
+      84% 69%,
+      100% 100%,
+      0 100%,
+      16% 69%,
+      30% 41%,
+      38% 20%
+    );
+
+  filter: blur(8px);
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenRiverLight 4.7s ease-in-out infinite;
+}
+
+/* =========================================================
+   WATER WAVES
+========================================================= */
+
+.awaken-river__wave {
+  position: absolute;
+
+  left: 50%;
+
+  display: block;
+
+  height: 13px;
+
+  border-radius: 50%;
+
+  filter: blur(2px);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 248, 220, 0.46),
+      rgba(255, 226, 173, 0.17),
+      transparent
+    );
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenWaterWave 4.5s ease-in-out infinite;
+}
+
+.awaken-river__wave--1 {
+  top: 16%;
+  width: 19%;
+}
+
+.awaken-river__wave--2 {
+  top: 31%;
+  width: 33%;
+
+  animation-delay: -0.7s;
+}
+
+.awaken-river__wave--3 {
+  top: 48%;
+  width: 49%;
+
+  animation-delay: -1.5s;
+}
+
+.awaken-river__wave--4 {
+  top: 66%;
+  width: 67%;
+
+  animation-delay: -2.3s;
+}
+
+.awaken-river__wave--5 {
+  top: 83%;
+  width: 86%;
+
+  animation-delay: -3.2s;
+}
+
+/* =========================================================
+   WATER SPARKLES
+========================================================= */
+
+.awaken-river__sparkles {
+  position: absolute;
+  inset: 0;
+}
+
+.awaken-river__sparkles i {
+  position: absolute;
+
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #fff8da;
+
+  box-shadow:
+    0 0 7px rgba(255, 247, 208, 0.9),
+    0 0 16px rgba(255, 220, 151, 0.58);
+
+  animation:
+    awakenWaterSpark 2.8s ease-in-out infinite;
+}
+
+.awaken-river__sparkles i:nth-child(1) {
+  top: 24%;
+  left: 49%;
+}
+
+.awaken-river__sparkles i:nth-child(2) {
+  top: 38%;
+  left: 53%;
+  animation-delay: -0.4s;
+}
+
+.awaken-river__sparkles i:nth-child(3) {
+  top: 52%;
+  left: 45%;
+  animation-delay: -0.9s;
+}
+
+.awaken-river__sparkles i:nth-child(4) {
+  top: 61%;
+  left: 57%;
+  animation-delay: -1.4s;
+}
+
+.awaken-river__sparkles i:nth-child(5) {
+  top: 72%;
+  left: 39%;
+  animation-delay: -1.9s;
+}
+
+.awaken-river__sparkles i:nth-child(6) {
+  top: 78%;
+  left: 54%;
+  animation-delay: -2.3s;
+}
+
+.awaken-river__sparkles i:nth-child(7) {
+  top: 87%;
+  left: 46%;
+  animation-delay: -1.2s;
+}
+
+.awaken-river__sparkles i:nth-child(8) {
+  top: 68%;
+  left: 50%;
+  animation-delay: -2.6s;
+}
+
+/* =========================================================
+   FOREGROUND
+========================================================= */
+
+.awaken-scene__foreground {
+  position: absolute;
+
+  bottom: -12%;
+
+  z-index: 6;
+
+  width: 48vw;
+  height: 41%;
+
+  pointer-events: none;
+
+  opacity: 0.18;
+
+  filter: blur(7px);
+
+  background:
+    radial-gradient(
+      ellipse at bottom,
+      rgba(35, 50, 39, 0.95),
+      rgba(48, 66, 48, 0.45) 43%,
+      transparent 71%
+    );
+}
+
+.awaken-scene__foreground--left {
+  left: -13%;
+
+  transform: rotate(9deg);
+}
+
+.awaken-scene__foreground--right {
+  right: -13%;
+
+  transform: rotate(-9deg);
+}
+
+/* =========================================================
+   COLOR GRADING
+========================================================= */
+
+.awaken-scene__warm-grade {
+  position: absolute;
+  inset: 0;
+
+  z-index: 7;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(191, 224, 239, 0.025) 0%,
+      rgba(255, 230, 193, 0.045) 42%,
+      rgba(244, 193, 126, 0.035) 67%,
+      rgba(40, 48, 39, 0.1) 100%
+    );
+}
+
+.awaken-scene__vignette {
+  position: absolute;
+  inset: 0;
+
+  z-index: 8;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(36, 49, 43, 0.13),
+      transparent 19%,
+      transparent 81%,
+      rgba(36, 49, 43, 0.11)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(46, 71, 87, 0.05),
+      transparent 27%,
+      transparent 69%,
+      rgba(29, 37, 30, 0.18)
+    );
+}
+
+/* =========================================================
+   BIRDS
+========================================================= */
+
+.awaken-bird-field {
+  position: absolute;
+  inset: 0;
+
+  z-index: 15;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-bird {
+  --bird-scale: 1;
+
+  position: absolute;
+
+  left: 108%;
+
+  width: 38px;
+  height: 20px;
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(
+      0 2px 2px
+      rgba(28, 34, 30, 0.14)
+    );
+
+  animation:
+    awakenBirdTravel 16s linear infinite;
+}
+
+.awaken-bird__wing {
+  position: absolute;
+
+  top: 8px;
+
+  display: block;
+
+  width: 21px;
+  height: 10px;
+
+  border-top:
+    2px solid
+    rgba(33, 40, 35, 0.81);
+}
+
+.awaken-bird__wing--left {
+  right: 18px;
+
+  border-radius: 100% 15% 0 0;
+
+  transform-origin: right center;
+
+  animation:
+    awakenBirdWingLeft 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird__wing--right {
+  left: 18px;
+
+  border-radius: 15% 100% 0 0;
+
+  transform-origin: left center;
+
+  animation:
+    awakenBirdWingRight 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird--1 {
+  top: 19%;
+
+  --bird-scale: 0.94;
+
+  animation-duration: 17s;
+  animation-delay: -1s;
+}
+
+.awaken-bird--2 {
+  top: 25%;
+
+  --bird-scale: 0.67;
+
+  animation-duration: 20s;
+  animation-delay: -7s;
+}
+
+.awaken-bird--3 {
+  top: 15%;
+
+  --bird-scale: 0.46;
+
+  animation-duration: 24s;
+  animation-delay: -12s;
+}
+
+.awaken-bird--4 {
+  top: 32%;
+
+  --bird-scale: 0.72;
+
+  animation-duration: 19s;
+  animation-delay: -14s;
+}
+
+.awaken-bird--5 {
+  top: 22%;
+
+  --bird-scale: 0.38;
+
+  animation-duration: 26s;
+  animation-delay: -18s;
+}
+
+.awaken-bird--6 {
+  top: 29%;
+
+  --bird-scale: 0.53;
+
+  animation-duration: 22s;
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   FLOWER PETALS
+========================================================= */
+
+.awaken-petals {
+  position: absolute;
+  inset: 0;
+
+  z-index: 17;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-petal {
+  position: absolute;
+
+  top: -10%;
+
+  width: 14px;
+  height: 22px;
+
+  opacity: 0;
+
+  animation:
+    awakenPetalFall 12s linear infinite;
+}
+
+.awaken-petal i {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius:
+    80% 20% 80% 20%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(246, 209, 167, 0.8),
+      rgba(216, 156, 104, 0.52)
+    );
+
+  box-shadow:
+    0 2px 6px
+    rgba(117, 76, 44, 0.12);
+
+  animation:
+    awakenPetalSpin 3s ease-in-out infinite alternate;
+}
+
+.awaken-petal--1 {
+  left: 7%;
+  animation-delay: -2s;
+  animation-duration: 13s;
+}
+
+.awaken-petal--2 {
+  left: 21%;
+  animation-delay: -9s;
+  animation-duration: 16s;
+
+  transform: scale(0.7);
+}
+
+.awaken-petal--3 {
+  left: 73%;
+  animation-delay: -5s;
+  animation-duration: 15s;
+
+  transform: scale(0.58);
+}
+
+.awaken-petal--4 {
+  left: 88%;
+  animation-delay: -11s;
+  animation-duration: 18s;
+}
+
+.awaken-petal--5 {
+  left: 58%;
+  animation-delay: -14s;
+  animation-duration: 20s;
+
+  transform: scale(0.5);
+}
+
+.awaken-petal--6 {
+  left: 36%;
+  animation-delay: -7s;
+  animation-duration: 19s;
+
+  transform: scale(0.6);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.awaken-opening__content {
+  position: relative;
+
+  z-index: 30;
+
+  display: flex;
+
+  width: min(92vw, 720px);
+
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  animation:
+    awakenContentEnter
+    1.15s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+/* =========================================================
+   FLOWER LOGO
+========================================================= */
+
+.awaken-flower {
+  position: relative;
+
+  width: 166px;
+  height: 145px;
+
+  margin-bottom: 2px;
+}
+
+.awaken-flower__svg {
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 145px;
+
+  overflow: visible;
+
+  transform: translateX(-50%);
+
+  filter:
+    drop-shadow(
+      0 10px 15px
+      rgba(92, 61, 36, 0.12)
+    );
+}
+
+.awaken-flower__halo {
+  position: absolute;
+
+  top: 5px;
+  left: 50%;
+
+  z-index: 1;
+
+  width: 118px;
+  height: 118px;
+
+  border:
+    1px solid
+    rgba(159, 112, 70, 0.28);
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenFlowerHalo 5.2s ease-in-out infinite;
+}
+
+.awaken-flower__halo--inner {
+  top: 17px;
+
+  width: 94px;
+  height: 94px;
+
+  border-color:
+    rgba(171, 123, 78, 0.11);
+
+  animation-delay: -2.5s;
+}
+
+.awaken-flower__star {
+  position: absolute;
+
+  top: -3px;
+  left: 50%;
+
+  z-index: 4;
+
+  width: 13px;
+  height: 13px;
+
+  background: #bf824c;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      59% 40%,
+      100% 50%,
+      59% 60%,
+      50% 100%,
+      41% 60%,
+      0% 50%,
+      41% 40%
+    );
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(216, 162, 105, 0.64)
+    );
+
+  animation:
+    awakenStarPulse 2.8s ease-in-out infinite;
+}
+
+.awaken-flower__spark {
+  position: absolute;
+
+  z-index: 4;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: #c38a55;
+
+  box-shadow:
+    0 0 10px
+    rgba(214, 163, 109, 0.55);
+}
+
+.awaken-flower__spark--1 {
+  top: 23px;
+  left: 47%;
+
+  width: 4px;
+  height: 4px;
+
+  animation:
+    awakenSpark 2.7s ease-in-out infinite;
+}
+
+.awaken-flower__spark--2 {
+  top: 35px;
+  left: 54%;
+
+  width: 3px;
+  height: 3px;
+
+  animation:
+    awakenSpark 2.7s -1.2s ease-in-out infinite;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.awaken-opening__copy {
+  text-shadow:
+    0 4px 22px
+    rgba(255, 246, 224, 0.38);
+}
+
+.awaken-opening__eyebrow {
+  margin: 0 0 10px;
+
+  color:
+    rgba(92, 78, 59, 0.78);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.43em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__title {
+  margin: 0;
+
+  color: #5f503b;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(4.5rem, 9.2vw, 7.8rem);
+
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+
+  text-shadow:
+    0 1px 0
+    rgba(255, 255, 255, 0.45),
+    0 9px 28px
+    rgba(69, 51, 37, 0.11);
+}
+
+.awaken-opening__tagline {
+  display: flex;
+
+  margin-top: 24px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  color:
+    rgba(85, 79, 59, 0.82);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(8px, 0.9vw, 11px);
+
+  font-weight: 600;
+
+  letter-spacing: 0.26em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__tagline i {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(172, 115, 68, 0.61);
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.awaken-opening__loader {
+  position: relative;
+
+  width: min(235px, 54vw);
+  height: 2px;
+
+  margin-top: 32px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(91, 78, 56, 0.15);
+}
+
+.awaken-opening__loader span {
+  display: block;
+
+  width: 42%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ba7947,
+      #e8bb80,
+      #ba7947,
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(190, 119, 66, 0.39);
+
+  animation:
+    awakenLoader 2.35s ease-in-out infinite;
+}
+
+.awaken-opening__loading-copy {
+  margin: 13px 0 0;
+
+  color:
+    rgba(68, 68, 53, 0.67);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__dots {
+  display: inline-block;
+
+  width: 14px;
+
+  overflow: hidden;
+
+  vertical-align: bottom;
+
+  animation:
+    awakenDots 1.4s steps(4, end) infinite;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.awaken-opening__footer {
+  position: absolute;
+
+  right: 20px;
+  bottom: 25px;
+  left: 20px;
+
+  z-index: 31;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  opacity: 0;
+
+  animation:
+    awakenFooterEnter 1s 0.65s forwards;
+}
+
+.awaken-opening__footer p {
+  margin: 0;
+
+  color:
+    rgba(255, 245, 225, 0.69);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    0 2px 10px
+    rgba(30, 31, 26, 0.42);
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__footer-line {
+  width: 35px;
+  height: 1px;
+
+  background:
+    rgba(255, 244, 221, 0.33);
+}
+
+.awaken-opening__footer-mark {
+  display: grid;
+
+  width: 7px;
+  height: 7px;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(255, 241, 214, 0.56);
+
+  transform: rotate(45deg);
+}
+
+.awaken-opening__footer-mark span {
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: #fff1d5;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes awakenContentEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(-2vh)
+      scale(1);
+  }
+}
+
+@keyframes awakenSunBreath {
+  0%,
+  100% {
+    opacity: 0.82;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenSunHalo {
+  0%,
+  100% {
+    opacity: 0.3;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.7;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.05);
+  }
+}
+
+@keyframes awakenRayMove {
+  from {
+    opacity: 0.24;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(0deg)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 0.44;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(7deg)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenMistLeft {
+  from {
+    transform:
+      translateX(-10%)
+      scaleX(0.92);
+  }
+
+  to {
+    transform:
+      translateX(25%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenMistRight {
+  from {
+    transform:
+      translateX(13%)
+      scaleX(1.05);
+  }
+
+  to {
+    transform:
+      translateX(-24%)
+      scaleX(0.92);
+  }
+}
+
+@keyframes awakenMistFar {
+  from {
+    transform:
+      translateX(-12%)
+      scale(0.95);
+  }
+
+  to {
+    transform:
+      translateX(15%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenRiverTexture {
+  from {
+    transform:
+      translate3d(-50px, -40px, 0);
+  }
+
+  to {
+    transform:
+      translate3d(90px, 95px, 0);
+  }
+}
+
+@keyframes awakenRiverLight {
+  0%,
+  100% {
+    opacity: 0.43;
+
+    transform:
+      translateX(-50%)
+      scaleX(0.83);
+  }
+
+  50% {
+    opacity: 0.8;
+
+    transform:
+      translateX(-50%)
+      scaleX(1.13);
+  }
+}
+
+@keyframes awakenWaterWave {
+  0%,
+  100% {
+    opacity: 0.12;
+
+    transform:
+      translateX(-56%)
+      scaleX(0.72);
+  }
+
+  50% {
+    opacity: 0.72;
+
+    transform:
+      translateX(-44%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenWaterSpark {
+  0%,
+  100% {
+    opacity: 0;
+
+    transform: scale(0.55);
+  }
+
+  43% {
+    opacity: 0.9;
+
+    transform: scale(1.3);
+  }
+
+  68% {
+    opacity: 0.24;
+
+    transform: scale(0.8);
+  }
+}
+
+@keyframes awakenBirdTravel {
+  0% {
+    left: 108%;
+
+    opacity: 0;
+
+    transform:
+      translateY(0)
+      scale(var(--bird-scale));
+  }
+
+  8% {
+    opacity: 0.82;
+  }
+
+  25% {
+    transform:
+      translateY(-14px)
+      scale(var(--bird-scale));
+  }
+
+  49% {
+    transform:
+      translateY(6px)
+      scale(var(--bird-scale));
+  }
+
+  73% {
+    transform:
+      translateY(-18px)
+      scale(var(--bird-scale));
+  }
+
+  92% {
+    opacity: 0.72;
+  }
+
+  100% {
+    left: -12%;
+
+    opacity: 0;
+
+    transform:
+      translateY(-4px)
+      scale(var(--bird-scale));
+  }
+}
+
+@keyframes awakenBirdWingLeft {
+  from {
+    transform: rotate(5deg);
+  }
+
+  to {
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes awakenBirdWingRight {
+  from {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes awakenPetalFall {
+  0% {
+    top: -10%;
+
+    opacity: 0;
+
+    transform:
+      translateX(0)
+      rotate(0deg);
+  }
+
+  10% {
+    opacity: 0.52;
+  }
+
+  35% {
+    transform:
+      translateX(42px)
+      rotate(80deg);
+  }
+
+  65% {
+    transform:
+      translateX(-28px)
+      rotate(180deg);
+  }
+
+  90% {
+    opacity: 0.37;
+  }
+
+  100% {
+    top: 112%;
+
+    opacity: 0;
+
+    transform:
+      translateX(54px)
+      rotate(300deg);
+  }
+}
+
+@keyframes awakenPetalSpin {
+  from {
+    transform:
+      rotateY(0deg)
+      rotateZ(-12deg);
+  }
+
+  to {
+    transform:
+      rotateY(70deg)
+      rotateZ(18deg);
+  }
+}
+
+@keyframes awakenFlowerHalo {
+  0%,
+  100% {
+    opacity: 0.46;
+
+    transform:
+      translateX(-50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.9;
+
+    transform:
+      translateX(-50%)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenStarPulse {
+  0%,
+  100% {
+    opacity: 0.47;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(0.72);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(1.16);
+  }
+}
+
+@keyframes awakenSpark {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes awakenLoader {
+  0% {
+    transform: translateX(-130%);
+  }
+
+  53% {
+    transform: translateX(115%);
+  }
+
+  100% {
+    transform: translateX(180%);
+  }
+}
+
+@keyframes awakenDots {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 14px;
+  }
+}
+
+@keyframes awakenFooterEnter {
+  from {
+    opacity: 0;
+
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 0.88;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   LAPTOP / TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .awaken-river {
+    width: 98vw;
+  }
+
+  .awaken-sun {
+    top: 28%;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .awaken-scene__poster,
+  .awaken-scene__video {
+    object-position: 54% center;
+    background-position: 54% center;
+  }
+
+  .awaken-sun {
+    top: 25%;
+
+    width: 280px;
+    height: 280px;
+  }
+
+  .awaken-sun__core {
+    width: 52px;
+    height: 52px;
+  }
+
+  .awaken-sun__halo--inner {
+    width: 92px;
+    height: 92px;
+  }
+
+  .awaken-sun__halo--middle {
+    width: 165px;
+    height: 165px;
+  }
+
+  .awaken-sun__halo--outer {
+    width: 250px;
+    height: 250px;
+  }
+
+  .awaken-opening__content {
+    width: calc(100% - 34px);
+  }
+
+  .awaken-flower {
+    width: 132px;
+    height: 116px;
+  }
+
+  .awaken-flower__svg {
+    width: 112px;
+  }
+
+  .awaken-flower__halo {
+    width: 94px;
+    height: 94px;
+  }
+
+  .awaken-flower__halo--inner {
+    top: 15px;
+
+    width: 74px;
+    height: 74px;
+  }
+
+  .awaken-flower__star {
+    width: 11px;
+    height: 11px;
+  }
+
+  .awaken-opening__eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.32em;
+  }
+
+  .awaken-opening__title {
+    font-size: 4rem;
+  }
+
+  .awaken-opening__tagline {
+    margin-top: 18px;
+
+    gap: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.19em;
+  }
+
+  .awaken-opening__tagline i {
+    width: 3px;
+    height: 3px;
+  }
+
+  .awaken-opening__loader {
+    width: 178px;
+
+    margin-top: 26px;
+  }
+
+  .awaken-opening__loading-copy {
+    font-size: 7px;
+
+    letter-spacing: 0.11em;
+  }
+
+  .awaken-river {
+    bottom: -4%;
+
+    width: 148vw;
+    height: 53%;
+  }
+
+  .awaken-mist--left,
+  .awaken-mist--right {
+    width: 125vw;
+  }
+
+  .awaken-bird {
+    width: 30px;
+  }
+
+  .awaken-bird__wing {
+    width: 17px;
+
+    border-top-width: 1.5px;
+  }
+
+  .awaken-bird__wing--left {
+    right: 14px;
+  }
+
+  .awaken-bird__wing--right {
+    left: 14px;
+  }
+
+  .awaken-petal {
+    opacity: 0.55;
+
+    transform: scale(0.7);
+  }
+
+  .awaken-opening__footer {
+    bottom: 18px;
+
+    gap: 7px;
+  }
+
+  .awaken-opening__footer p {
+    font-size: 6px;
+
+    letter-spacing: 0.1em;
+  }
+
+  .awaken-opening__footer-line {
+    width: 18px;
+  }
+
+  .awaken-opening__footer-mark {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .awaken-opening__title {
+    font-size: 3.45rem;
+  }
+
+  .awaken-flower {
+    transform: scale(0.9);
+  }
+
+  .awaken-opening__tagline {
+    font-size: 6.5px;
+  }
+
+  .awaken-opening__footer-line {
+    display: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .awaken-opening *,
+  .awaken-opening *::before,
+  .awaken-opening *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .awaken-scene__video {
+    display: none;
+  }
+
+  .awaken-scene__poster {
+    transform: none;
+  }
+
+  .awaken-petals,
+  .awaken-bird-field {
+    display: none;
+  }
+}/* =========================================================
+   AWAKEN
+   CINEMATIC MORNING RIVER SPLASH
+========================================================= */
+
+.morning-splash {
+  position: fixed;
+}
+
+.awaken-opening {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100dvh;
+
+  overflow: hidden;
+
+  background: #d9e5e5;
+
+  isolation: isolate;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.75s ease;
+}
+
+/* =========================================================
+   EXIT
+========================================================= */
+
+.awaken-opening--exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.awaken-opening--exit .awaken-scene {
+  transform: scale(1.035);
+}
+
+.awaken-opening--exit .awaken-opening__content {
+  opacity: 0;
+
+  transform:
+    translateY(-18px)
+    scale(0.985);
+}
+
+/* =========================================================
+   SCENE
+========================================================= */
+
+.awaken-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #b9d8e8 0%,
+      #dbe8e6 30%,
+      #edd0a1 64%,
+      #82664c 100%
+    );
+
+  transform: scale(1);
+
+  transition:
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   POSTER FALLBACK
+========================================================= */
+
+.awaken-scene__poster {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(107, 150, 184, 0.05),
+      rgba(255, 220, 168, 0.07) 50%,
+      rgba(45, 54, 43, 0.12)
+    ),
+    url('/images/awaken-morning-river.webp');
+
+  background-position: center 52%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transform: scale(1.025);
+}
+
+/* =========================================================
+   REAL VIDEO
+========================================================= */
+
+.awaken-scene__video {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 52%;
+
+  opacity: 0;
+
+  filter:
+    saturate(0.94)
+    contrast(0.97)
+    brightness(1.035)
+    sepia(0.025);
+
+  transform: scale(1.022);
+
+  transition: opacity 0.8s ease;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.awaken-opening--video-ready .awaken-scene__video {
+  opacity: 1;
+}
+
+/* =========================================================
+   SKY LIGHT
+========================================================= */
+
+.awaken-scene__sky {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 29%,
+      rgba(255, 252, 230, 0.32) 0%,
+      rgba(255, 227, 179, 0.17) 19%,
+      rgba(255, 208, 144, 0.06) 37%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(151, 201, 231, 0.06) 0%,
+      rgba(255, 235, 199, 0.05) 48%,
+      transparent 75%
+    );
+}
+
+/* =========================================================
+   SUN
+========================================================= */
+
+.awaken-sun {
+  position: absolute;
+
+  top: 29%;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 360px;
+  height: 360px;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+}
+
+.awaken-sun__core {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 63px;
+  height: 63px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 247, 0.96) 0%,
+      rgba(255, 247, 213, 0.94) 27%,
+      rgba(255, 216, 157, 0.79) 54%,
+      rgba(255, 185, 103, 0.22) 73%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 25px rgba(255, 240, 190, 0.7),
+    0 0 75px rgba(255, 201, 118, 0.4),
+    0 0 150px rgba(255, 188, 104, 0.18);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunBreath 5.5s ease-in-out infinite;
+}
+
+.awaken-sun__halo {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255, 231, 191, 0.12);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunHalo 6s ease-in-out infinite;
+}
+
+.awaken-sun__halo--inner {
+  width: 110px;
+  height: 110px;
+}
+
+.awaken-sun__halo--middle {
+  width: 210px;
+  height: 210px;
+
+  opacity: 0.52;
+
+  animation-delay: -2s;
+}
+
+.awaken-sun__halo--outer {
+  width: 330px;
+  height: 330px;
+
+  opacity: 0.28;
+
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   LIGHT RAYS
+========================================================= */
+
+.awaken-scene__light-rays {
+  position: absolute;
+
+  top: 25%;
+  left: 50%;
+
+  z-index: 2;
+
+  width: 85vw;
+  height: 78vh;
+
+  pointer-events: none;
+
+  opacity: 0.33;
+
+  background:
+    conic-gradient(
+      from 247deg,
+      transparent 0deg,
+      rgba(255, 238, 204, 0.13) 5deg,
+      transparent 11deg,
+      transparent 27deg,
+      rgba(255, 235, 196, 0.08) 32deg,
+      transparent 43deg,
+      transparent 63deg,
+      rgba(255, 238, 204, 0.1) 68deg,
+      transparent 76deg
+    );
+
+  filter: blur(4px);
+
+  transform:
+    translate(-50%, -15%)
+    rotate(3deg);
+
+  mask-image:
+    radial-gradient(
+      circle,
+      #000 0%,
+      rgba(0, 0, 0, 0.75) 39%,
+      transparent 75%
+    );
+
+  animation:
+    awakenRayMove 9s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   MIST
+========================================================= */
+
+.awaken-mist {
+  position: absolute;
+
+  z-index: 5;
+
+  height: 145px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.31),
+      rgba(245, 248, 243, 0.13) 48%,
+      transparent 73%
+    );
+
+  filter: blur(24px);
+}
+
+.awaken-mist--far {
+  bottom: 38%;
+  left: 12%;
+
+  width: 76vw;
+
+  opacity: 0.23;
+
+  animation:
+    awakenMistFar 28s ease-in-out infinite alternate;
+}
+
+.awaken-mist--left {
+  bottom: 22%;
+  left: -25%;
+
+  width: 82vw;
+
+  opacity: 0.48;
+
+  animation:
+    awakenMistLeft 21s ease-in-out infinite alternate;
+}
+
+.awaken-mist--right {
+  right: -29%;
+  bottom: 18%;
+
+  width: 79vw;
+
+  opacity: 0.38;
+
+  animation:
+    awakenMistRight 24s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   RIVER
+========================================================= */
+
+.awaken-river {
+  position: absolute;
+
+  left: 50%;
+  bottom: -9%;
+
+  z-index: 4;
+
+  width: min(77vw, 1180px);
+  height: 61%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0.72;
+
+  transform:
+    translateX(-50%)
+    perspective(950px)
+    rotateX(61deg);
+
+  transform-origin: center bottom;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.25) 10%,
+      #000 31%,
+      #000 80%,
+      transparent 100%
+    );
+}
+
+/* water movement texture */
+
+.awaken-river::before {
+  position: absolute;
+  inset: -12%;
+
+  content: "";
+
+  opacity: 0.42;
+
+  background:
+    repeating-linear-gradient(
+      112deg,
+      transparent 0 27px,
+      rgba(255, 255, 255, 0.055) 29px,
+      transparent 31px 59px
+    );
+
+  animation:
+    awakenRiverTexture 7s linear infinite;
+}
+
+/* =========================================================
+   SUN REFLECTION ON WATER
+========================================================= */
+
+.awaken-river__sun-path {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 32%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 252, 227, 0.64) 0%,
+      rgba(255, 236, 194, 0.42) 28%,
+      rgba(255, 219, 157, 0.23) 57%,
+      rgba(255, 213, 144, 0.08) 78%,
+      transparent 100%
+    );
+
+  clip-path:
+    polygon(
+      47% 0%,
+      53% 0%,
+      62% 20%,
+      70% 41%,
+      84% 69%,
+      100% 100%,
+      0 100%,
+      16% 69%,
+      30% 41%,
+      38% 20%
+    );
+
+  filter: blur(8px);
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenRiverLight 4.7s ease-in-out infinite;
+}
+
+/* =========================================================
+   WATER WAVES
+========================================================= */
+
+.awaken-river__wave {
+  position: absolute;
+
+  left: 50%;
+
+  display: block;
+
+  height: 13px;
+
+  border-radius: 50%;
+
+  filter: blur(2px);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 248, 220, 0.46),
+      rgba(255, 226, 173, 0.17),
+      transparent
+    );
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenWaterWave 4.5s ease-in-out infinite;
+}
+
+.awaken-river__wave--1 {
+  top: 16%;
+  width: 19%;
+}
+
+.awaken-river__wave--2 {
+  top: 31%;
+  width: 33%;
+
+  animation-delay: -0.7s;
+}
+
+.awaken-river__wave--3 {
+  top: 48%;
+  width: 49%;
+
+  animation-delay: -1.5s;
+}
+
+.awaken-river__wave--4 {
+  top: 66%;
+  width: 67%;
+
+  animation-delay: -2.3s;
+}
+
+.awaken-river__wave--5 {
+  top: 83%;
+  width: 86%;
+
+  animation-delay: -3.2s;
+}
+
+/* =========================================================
+   WATER SPARKLES
+========================================================= */
+
+.awaken-river__sparkles {
+  position: absolute;
+  inset: 0;
+}
+
+.awaken-river__sparkles i {
+  position: absolute;
+
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #fff8da;
+
+  box-shadow:
+    0 0 7px rgba(255, 247, 208, 0.9),
+    0 0 16px rgba(255, 220, 151, 0.58);
+
+  animation:
+    awakenWaterSpark 2.8s ease-in-out infinite;
+}
+
+.awaken-river__sparkles i:nth-child(1) {
+  top: 24%;
+  left: 49%;
+}
+
+.awaken-river__sparkles i:nth-child(2) {
+  top: 38%;
+  left: 53%;
+  animation-delay: -0.4s;
+}
+
+.awaken-river__sparkles i:nth-child(3) {
+  top: 52%;
+  left: 45%;
+  animation-delay: -0.9s;
+}
+
+.awaken-river__sparkles i:nth-child(4) {
+  top: 61%;
+  left: 57%;
+  animation-delay: -1.4s;
+}
+
+.awaken-river__sparkles i:nth-child(5) {
+  top: 72%;
+  left: 39%;
+  animation-delay: -1.9s;
+}
+
+.awaken-river__sparkles i:nth-child(6) {
+  top: 78%;
+  left: 54%;
+  animation-delay: -2.3s;
+}
+
+.awaken-river__sparkles i:nth-child(7) {
+  top: 87%;
+  left: 46%;
+  animation-delay: -1.2s;
+}
+
+.awaken-river__sparkles i:nth-child(8) {
+  top: 68%;
+  left: 50%;
+  animation-delay: -2.6s;
+}
+
+/* =========================================================
+   FOREGROUND
+========================================================= */
+
+.awaken-scene__foreground {
+  position: absolute;
+
+  bottom: -12%;
+
+  z-index: 6;
+
+  width: 48vw;
+  height: 41%;
+
+  pointer-events: none;
+
+  opacity: 0.18;
+
+  filter: blur(7px);
+
+  background:
+    radial-gradient(
+      ellipse at bottom,
+      rgba(35, 50, 39, 0.95),
+      rgba(48, 66, 48, 0.45) 43%,
+      transparent 71%
+    );
+}
+
+.awaken-scene__foreground--left {
+  left: -13%;
+
+  transform: rotate(9deg);
+}
+
+.awaken-scene__foreground--right {
+  right: -13%;
+
+  transform: rotate(-9deg);
+}
+
+/* =========================================================
+   COLOR GRADING
+========================================================= */
+
+.awaken-scene__warm-grade {
+  position: absolute;
+  inset: 0;
+
+  z-index: 7;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(191, 224, 239, 0.025) 0%,
+      rgba(255, 230, 193, 0.045) 42%,
+      rgba(244, 193, 126, 0.035) 67%,
+      rgba(40, 48, 39, 0.1) 100%
+    );
+}
+
+.awaken-scene__vignette {
+  position: absolute;
+  inset: 0;
+
+  z-index: 8;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(36, 49, 43, 0.13),
+      transparent 19%,
+      transparent 81%,
+      rgba(36, 49, 43, 0.11)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(46, 71, 87, 0.05),
+      transparent 27%,
+      transparent 69%,
+      rgba(29, 37, 30, 0.18)
+    );
+}
+
+/* =========================================================
+   BIRDS
+========================================================= */
+
+.awaken-bird-field {
+  position: absolute;
+  inset: 0;
+
+  z-index: 15;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-bird {
+  --bird-scale: 1;
+
+  position: absolute;
+
+  left: 108%;
+
+  width: 38px;
+  height: 20px;
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(
+      0 2px 2px
+      rgba(28, 34, 30, 0.14)
+    );
+
+  animation:
+    awakenBirdTravel 16s linear infinite;
+}
+
+.awaken-bird__wing {
+  position: absolute;
+
+  top: 8px;
+
+  display: block;
+
+  width: 21px;
+  height: 10px;
+
+  border-top:
+    2px solid
+    rgba(33, 40, 35, 0.81);
+}
+
+.awaken-bird__wing--left {
+  right: 18px;
+
+  border-radius: 100% 15% 0 0;
+
+  transform-origin: right center;
+
+  animation:
+    awakenBirdWingLeft 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird__wing--right {
+  left: 18px;
+
+  border-radius: 15% 100% 0 0;
+
+  transform-origin: left center;
+
+  animation:
+    awakenBirdWingRight 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird--1 {
+  top: 19%;
+
+  --bird-scale: 0.94;
+
+  animation-duration: 17s;
+  animation-delay: -1s;
+}
+
+.awaken-bird--2 {
+  top: 25%;
+
+  --bird-scale: 0.67;
+
+  animation-duration: 20s;
+  animation-delay: -7s;
+}
+
+.awaken-bird--3 {
+  top: 15%;
+
+  --bird-scale: 0.46;
+
+  animation-duration: 24s;
+  animation-delay: -12s;
+}
+
+.awaken-bird--4 {
+  top: 32%;
+
+  --bird-scale: 0.72;
+
+  animation-duration: 19s;
+  animation-delay: -14s;
+}
+
+.awaken-bird--5 {
+  top: 22%;
+
+  --bird-scale: 0.38;
+
+  animation-duration: 26s;
+  animation-delay: -18s;
+}
+
+.awaken-bird--6 {
+  top: 29%;
+
+  --bird-scale: 0.53;
+
+  animation-duration: 22s;
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   FLOWER PETALS
+========================================================= */
+
+.awaken-petals {
+  position: absolute;
+  inset: 0;
+
+  z-index: 17;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-petal {
+  position: absolute;
+
+  top: -10%;
+
+  width: 14px;
+  height: 22px;
+
+  opacity: 0;
+
+  animation:
+    awakenPetalFall 12s linear infinite;
+}
+
+.awaken-petal i {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius:
+    80% 20% 80% 20%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(246, 209, 167, 0.8),
+      rgba(216, 156, 104, 0.52)
+    );
+
+  box-shadow:
+    0 2px 6px
+    rgba(117, 76, 44, 0.12);
+
+  animation:
+    awakenPetalSpin 3s ease-in-out infinite alternate;
+}
+
+.awaken-petal--1 {
+  left: 7%;
+  animation-delay: -2s;
+  animation-duration: 13s;
+}
+
+.awaken-petal--2 {
+  left: 21%;
+  animation-delay: -9s;
+  animation-duration: 16s;
+
+  transform: scale(0.7);
+}
+
+.awaken-petal--3 {
+  left: 73%;
+  animation-delay: -5s;
+  animation-duration: 15s;
+
+  transform: scale(0.58);
+}
+
+.awaken-petal--4 {
+  left: 88%;
+  animation-delay: -11s;
+  animation-duration: 18s;
+}
+
+.awaken-petal--5 {
+  left: 58%;
+  animation-delay: -14s;
+  animation-duration: 20s;
+
+  transform: scale(0.5);
+}
+
+.awaken-petal--6 {
+  left: 36%;
+  animation-delay: -7s;
+  animation-duration: 19s;
+
+  transform: scale(0.6);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.awaken-opening__content {
+  position: relative;
+
+  z-index: 30;
+
+  display: flex;
+
+  width: min(92vw, 720px);
+
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  animation:
+    awakenContentEnter
+    1.15s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+/* =========================================================
+   FLOWER LOGO
+========================================================= */
+
+.awaken-flower {
+  position: relative;
+
+  width: 166px;
+  height: 145px;
+
+  margin-bottom: 2px;
+}
+
+.awaken-flower__svg {
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 145px;
+
+  overflow: visible;
+
+  transform: translateX(-50%);
+
+  filter:
+    drop-shadow(
+      0 10px 15px
+      rgba(92, 61, 36, 0.12)
+    );
+}
+
+.awaken-flower__halo {
+  position: absolute;
+
+  top: 5px;
+  left: 50%;
+
+  z-index: 1;
+
+  width: 118px;
+  height: 118px;
+
+  border:
+    1px solid
+    rgba(159, 112, 70, 0.28);
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenFlowerHalo 5.2s ease-in-out infinite;
+}
+
+.awaken-flower__halo--inner {
+  top: 17px;
+
+  width: 94px;
+  height: 94px;
+
+  border-color:
+    rgba(171, 123, 78, 0.11);
+
+  animation-delay: -2.5s;
+}
+
+.awaken-flower__star {
+  position: absolute;
+
+  top: -3px;
+  left: 50%;
+
+  z-index: 4;
+
+  width: 13px;
+  height: 13px;
+
+  background: #bf824c;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      59% 40%,
+      100% 50%,
+      59% 60%,
+      50% 100%,
+      41% 60%,
+      0% 50%,
+      41% 40%
+    );
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(216, 162, 105, 0.64)
+    );
+
+  animation:
+    awakenStarPulse 2.8s ease-in-out infinite;
+}
+
+.awaken-flower__spark {
+  position: absolute;
+
+  z-index: 4;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: #c38a55;
+
+  box-shadow:
+    0 0 10px
+    rgba(214, 163, 109, 0.55);
+}
+
+.awaken-flower__spark--1 {
+  top: 23px;
+  left: 47%;
+
+  width: 4px;
+  height: 4px;
+
+  animation:
+    awakenSpark 2.7s ease-in-out infinite;
+}
+
+.awaken-flower__spark--2 {
+  top: 35px;
+  left: 54%;
+
+  width: 3px;
+  height: 3px;
+
+  animation:
+    awakenSpark 2.7s -1.2s ease-in-out infinite;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.awaken-opening__copy {
+  text-shadow:
+    0 4px 22px
+    rgba(255, 246, 224, 0.38);
+}
+
+.awaken-opening__eyebrow {
+  margin: 0 0 10px;
+
+  color:
+    rgba(92, 78, 59, 0.78);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.43em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__title {
+  margin: 0;
+
+  color: #5f503b;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(4.5rem, 9.2vw, 7.8rem);
+
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+
+  text-shadow:
+    0 1px 0
+    rgba(255, 255, 255, 0.45),
+    0 9px 28px
+    rgba(69, 51, 37, 0.11);
+}
+
+.awaken-opening__tagline {
+  display: flex;
+
+  margin-top: 24px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  color:
+    rgba(85, 79, 59, 0.82);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(8px, 0.9vw, 11px);
+
+  font-weight: 600;
+
+  letter-spacing: 0.26em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__tagline i {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(172, 115, 68, 0.61);
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.awaken-opening__loader {
+  position: relative;
+
+  width: min(235px, 54vw);
+  height: 2px;
+
+  margin-top: 32px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(91, 78, 56, 0.15);
+}
+
+.awaken-opening__loader span {
+  display: block;
+
+  width: 42%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ba7947,
+      #e8bb80,
+      #ba7947,
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(190, 119, 66, 0.39);
+
+  animation:
+    awakenLoader 2.35s ease-in-out infinite;
+}
+
+.awaken-opening__loading-copy {
+  margin: 13px 0 0;
+
+  color:
+    rgba(68, 68, 53, 0.67);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__dots {
+  display: inline-block;
+
+  width: 14px;
+
+  overflow: hidden;
+
+  vertical-align: bottom;
+
+  animation:
+    awakenDots 1.4s steps(4, end) infinite;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.awaken-opening__footer {
+  position: absolute;
+
+  right: 20px;
+  bottom: 25px;
+  left: 20px;
+
+  z-index: 31;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  opacity: 0;
+
+  animation:
+    awakenFooterEnter 1s 0.65s forwards;
+}
+
+.awaken-opening__footer p {
+  margin: 0;
+
+  color:
+    rgba(255, 245, 225, 0.69);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    0 2px 10px
+    rgba(30, 31, 26, 0.42);
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__footer-line {
+  width: 35px;
+  height: 1px;
+
+  background:
+    rgba(255, 244, 221, 0.33);
+}
+
+.awaken-opening__footer-mark {
+  display: grid;
+
+  width: 7px;
+  height: 7px;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(255, 241, 214, 0.56);
+
+  transform: rotate(45deg);
+}
+
+.awaken-opening__footer-mark span {
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: #fff1d5;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes awakenContentEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(-2vh)
+      scale(1);
+  }
+}
+
+@keyframes awakenSunBreath {
+  0%,
+  100% {
+    opacity: 0.82;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenSunHalo {
+  0%,
+  100% {
+    opacity: 0.3;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.7;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.05);
+  }
+}
+
+@keyframes awakenRayMove {
+  from {
+    opacity: 0.24;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(0deg)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 0.44;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(7deg)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenMistLeft {
+  from {
+    transform:
+      translateX(-10%)
+      scaleX(0.92);
+  }
+
+  to {
+    transform:
+      translateX(25%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenMistRight {
+  from {
+    transform:
+      translateX(13%)
+      scaleX(1.05);
+  }
+
+  to {
+    transform:
+      translateX(-24%)
+      scaleX(0.92);
+  }
+}
+
+@keyframes awakenMistFar {
+  from {
+    transform:
+      translateX(-12%)
+      scale(0.95);
+  }
+
+  to {
+    transform:
+      translateX(15%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenRiverTexture {
+  from {
+    transform:
+      translate3d(-50px, -40px, 0);
+  }
+
+  to {
+    transform:
+      translate3d(90px, 95px, 0);
+  }
+}
+
+@keyframes awakenRiverLight {
+  0%,
+  100% {
+    opacity: 0.43;
+
+    transform:
+      translateX(-50%)
+      scaleX(0.83);
+  }
+
+  50% {
+    opacity: 0.8;
+
+    transform:
+      translateX(-50%)
+      scaleX(1.13);
+  }
+}
+
+@keyframes awakenWaterWave {
+  0%,
+  100% {
+    opacity: 0.12;
+
+    transform:
+      translateX(-56%)
+      scaleX(0.72);
+  }
+
+  50% {
+    opacity: 0.72;
+
+    transform:
+      translateX(-44%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenWaterSpark {
+  0%,
+  100% {
+    opacity: 0;
+
+    transform: scale(0.55);
+  }
+
+  43% {
+    opacity: 0.9;
+
+    transform: scale(1.3);
+  }
+
+  68% {
+    opacity: 0.24;
+
+    transform: scale(0.8);
+  }
+}
+
+@keyframes awakenBirdTravel {
+  0% {
+    left: 108%;
+
+    opacity: 0;
+
+    transform:
+      translateY(0)
+      scale(var(--bird-scale));
+  }
+
+  8% {
+    opacity: 0.82;
+  }
+
+  25% {
+    transform:
+      translateY(-14px)
+      scale(var(--bird-scale));
+  }
+
+  49% {
+    transform:
+      translateY(6px)
+      scale(var(--bird-scale));
+  }
+
+  73% {
+    transform:
+      translateY(-18px)
+      scale(var(--bird-scale));
+  }
+
+  92% {
+    opacity: 0.72;
+  }
+
+  100% {
+    left: -12%;
+
+    opacity: 0;
+
+    transform:
+      translateY(-4px)
+      scale(var(--bird-scale));
+  }
+}
+
+@keyframes awakenBirdWingLeft {
+  from {
+    transform: rotate(5deg);
+  }
+
+  to {
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes awakenBirdWingRight {
+  from {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes awakenPetalFall {
+  0% {
+    top: -10%;
+
+    opacity: 0;
+
+    transform:
+      translateX(0)
+      rotate(0deg);
+  }
+
+  10% {
+    opacity: 0.52;
+  }
+
+  35% {
+    transform:
+      translateX(42px)
+      rotate(80deg);
+  }
+
+  65% {
+    transform:
+      translateX(-28px)
+      rotate(180deg);
+  }
+
+  90% {
+    opacity: 0.37;
+  }
+
+  100% {
+    top: 112%;
+
+    opacity: 0;
+
+    transform:
+      translateX(54px)
+      rotate(300deg);
+  }
+}
+
+@keyframes awakenPetalSpin {
+  from {
+    transform:
+      rotateY(0deg)
+      rotateZ(-12deg);
+  }
+
+  to {
+    transform:
+      rotateY(70deg)
+      rotateZ(18deg);
+  }
+}
+
+@keyframes awakenFlowerHalo {
+  0%,
+  100% {
+    opacity: 0.46;
+
+    transform:
+      translateX(-50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.9;
+
+    transform:
+      translateX(-50%)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenStarPulse {
+  0%,
+  100% {
+    opacity: 0.47;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(0.72);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(1.16);
+  }
+}
+
+@keyframes awakenSpark {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes awakenLoader {
+  0% {
+    transform: translateX(-130%);
+  }
+
+  53% {
+    transform: translateX(115%);
+  }
+
+  100% {
+    transform: translateX(180%);
+  }
+}
+
+@keyframes awakenDots {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 14px;
+  }
+}
+
+@keyframes awakenFooterEnter {
+  from {
+    opacity: 0;
+
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 0.88;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   LAPTOP / TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .awaken-river {
+    width: 98vw;
+  }
+
+  .awaken-sun {
+    top: 28%;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .awaken-scene__poster,
+  .awaken-scene__video {
+    object-position: 54% center;
+    background-position: 54% center;
+  }
+
+  .awaken-sun {
+    top: 25%;
+
+    width: 280px;
+    height: 280px;
+  }
+
+  .awaken-sun__core {
+    width: 52px;
+    height: 52px;
+  }
+
+  .awaken-sun__halo--inner {
+    width: 92px;
+    height: 92px;
+  }
+
+  .awaken-sun__halo--middle {
+    width: 165px;
+    height: 165px;
+  }
+
+  .awaken-sun__halo--outer {
+    width: 250px;
+    height: 250px;
+  }
+
+  .awaken-opening__content {
+    width: calc(100% - 34px);
+  }
+
+  .awaken-flower {
+    width: 132px;
+    height: 116px;
+  }
+
+  .awaken-flower__svg {
+    width: 112px;
+  }
+
+  .awaken-flower__halo {
+    width: 94px;
+    height: 94px;
+  }
+
+  .awaken-flower__halo--inner {
+    top: 15px;
+
+    width: 74px;
+    height: 74px;
+  }
+
+  .awaken-flower__star {
+    width: 11px;
+    height: 11px;
+  }
+
+  .awaken-opening__eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.32em;
+  }
+
+  .awaken-opening__title {
+    font-size: 4rem;
+  }
+
+  .awaken-opening__tagline {
+    margin-top: 18px;
+
+    gap: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.19em;
+  }
+
+  .awaken-opening__tagline i {
+    width: 3px;
+    height: 3px;
+  }
+
+  .awaken-opening__loader {
+    width: 178px;
+
+    margin-top: 26px;
+  }
+
+  .awaken-opening__loading-copy {
+    font-size: 7px;
+
+    letter-spacing: 0.11em;
+  }
+
+  .awaken-river {
+    bottom: -4%;
+
+    width: 148vw;
+    height: 53%;
+  }
+
+  .awaken-mist--left,
+  .awaken-mist--right {
+    width: 125vw;
+  }
+
+  .awaken-bird {
+    width: 30px;
+  }
+
+  .awaken-bird__wing {
+    width: 17px;
+
+    border-top-width: 1.5px;
+  }
+
+  .awaken-bird__wing--left {
+    right: 14px;
+  }
+
+  .awaken-bird__wing--right {
+    left: 14px;
+  }
+
+  .awaken-petal {
+    opacity: 0.55;
+
+    transform: scale(0.7);
+  }
+
+  .awaken-opening__footer {
+    bottom: 18px;
+
+    gap: 7px;
+  }
+
+  .awaken-opening__footer p {
+    font-size: 6px;
+
+    letter-spacing: 0.1em;
+  }
+
+  .awaken-opening__footer-line {
+    width: 18px;
+  }
+
+  .awaken-opening__footer-mark {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .awaken-opening__title {
+    font-size: 3.45rem;
+  }
+
+  .awaken-flower {
+    transform: scale(0.9);
+  }
+
+  .awaken-opening__tagline {
+    font-size: 6.5px;
+  }
+
+  .awaken-opening__footer-line {
+    display: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .awaken-opening *,
+  .awaken-opening *::before,
+  .awaken-opening *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .awaken-scene__video {
+    display: none;
+  }
+
+  .awaken-scene__poster {
+    transform: none;
+  }
+
+  .awaken-petals,
+  .awaken-bird-field {
+    display: none;
+  }
+}/* =========================================================
+   AWAKEN
+   CINEMATIC MORNING RIVER SPLASH
+========================================================= */
+
+.morning-splash {
+  position: fixed;
+}
+
+.awaken-opening {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 100dvh;
+
+  overflow: hidden;
+
+  background: #d9e5e5;
+
+  isolation: isolate;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.75s ease;
+}
+
+/* =========================================================
+   EXIT
+========================================================= */
+
+.awaken-opening--exit {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.awaken-opening--exit .awaken-scene {
+  transform: scale(1.035);
+}
+
+.awaken-opening--exit .awaken-opening__content {
+  opacity: 0;
+
+  transform:
+    translateY(-18px)
+    scale(0.985);
+}
+
+/* =========================================================
+   SCENE
+========================================================= */
+
+.awaken-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #b9d8e8 0%,
+      #dbe8e6 30%,
+      #edd0a1 64%,
+      #82664c 100%
+    );
+
+  transform: scale(1);
+
+  transition:
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   POSTER FALLBACK
+========================================================= */
+
+.awaken-scene__poster {
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(107, 150, 184, 0.05),
+      rgba(255, 220, 168, 0.07) 50%,
+      rgba(45, 54, 43, 0.12)
+    ),
+    url('/images/awaken-morning-river.webp');
+
+  background-position: center 52%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  transform: scale(1.025);
+}
+
+/* =========================================================
+   REAL VIDEO
+========================================================= */
+
+.awaken-scene__video {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center 52%;
+
+  opacity: 0;
+
+  filter:
+    saturate(0.94)
+    contrast(0.97)
+    brightness(1.035)
+    sepia(0.025);
+
+  transform: scale(1.022);
+
+  transition: opacity 0.8s ease;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.awaken-opening--video-ready .awaken-scene__video {
+  opacity: 1;
+}
+
+/* =========================================================
+   SKY LIGHT
+========================================================= */
+
+.awaken-scene__sky {
+  position: absolute;
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 50% 29%,
+      rgba(255, 252, 230, 0.32) 0%,
+      rgba(255, 227, 179, 0.17) 19%,
+      rgba(255, 208, 144, 0.06) 37%,
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(151, 201, 231, 0.06) 0%,
+      rgba(255, 235, 199, 0.05) 48%,
+      transparent 75%
+    );
+}
+
+/* =========================================================
+   SUN
+========================================================= */
+
+.awaken-sun {
+  position: absolute;
+
+  top: 29%;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 360px;
+  height: 360px;
+
+  pointer-events: none;
+
+  transform: translate(-50%, -50%);
+}
+
+.awaken-sun__core {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 63px;
+  height: 63px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 247, 0.96) 0%,
+      rgba(255, 247, 213, 0.94) 27%,
+      rgba(255, 216, 157, 0.79) 54%,
+      rgba(255, 185, 103, 0.22) 73%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 25px rgba(255, 240, 190, 0.7),
+    0 0 75px rgba(255, 201, 118, 0.4),
+    0 0 150px rgba(255, 188, 104, 0.18);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunBreath 5.5s ease-in-out infinite;
+}
+
+.awaken-sun__halo {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  border:
+    1px solid
+    rgba(255, 231, 191, 0.12);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    awakenSunHalo 6s ease-in-out infinite;
+}
+
+.awaken-sun__halo--inner {
+  width: 110px;
+  height: 110px;
+}
+
+.awaken-sun__halo--middle {
+  width: 210px;
+  height: 210px;
+
+  opacity: 0.52;
+
+  animation-delay: -2s;
+}
+
+.awaken-sun__halo--outer {
+  width: 330px;
+  height: 330px;
+
+  opacity: 0.28;
+
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   LIGHT RAYS
+========================================================= */
+
+.awaken-scene__light-rays {
+  position: absolute;
+
+  top: 25%;
+  left: 50%;
+
+  z-index: 2;
+
+  width: 85vw;
+  height: 78vh;
+
+  pointer-events: none;
+
+  opacity: 0.33;
+
+  background:
+    conic-gradient(
+      from 247deg,
+      transparent 0deg,
+      rgba(255, 238, 204, 0.13) 5deg,
+      transparent 11deg,
+      transparent 27deg,
+      rgba(255, 235, 196, 0.08) 32deg,
+      transparent 43deg,
+      transparent 63deg,
+      rgba(255, 238, 204, 0.1) 68deg,
+      transparent 76deg
+    );
+
+  filter: blur(4px);
+
+  transform:
+    translate(-50%, -15%)
+    rotate(3deg);
+
+  mask-image:
+    radial-gradient(
+      circle,
+      #000 0%,
+      rgba(0, 0, 0, 0.75) 39%,
+      transparent 75%
+    );
+
+  animation:
+    awakenRayMove 9s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   MIST
+========================================================= */
+
+.awaken-mist {
+  position: absolute;
+
+  z-index: 5;
+
+  height: 145px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.31),
+      rgba(245, 248, 243, 0.13) 48%,
+      transparent 73%
+    );
+
+  filter: blur(24px);
+}
+
+.awaken-mist--far {
+  bottom: 38%;
+  left: 12%;
+
+  width: 76vw;
+
+  opacity: 0.23;
+
+  animation:
+    awakenMistFar 28s ease-in-out infinite alternate;
+}
+
+.awaken-mist--left {
+  bottom: 22%;
+  left: -25%;
+
+  width: 82vw;
+
+  opacity: 0.48;
+
+  animation:
+    awakenMistLeft 21s ease-in-out infinite alternate;
+}
+
+.awaken-mist--right {
+  right: -29%;
+  bottom: 18%;
+
+  width: 79vw;
+
+  opacity: 0.38;
+
+  animation:
+    awakenMistRight 24s ease-in-out infinite alternate;
+}
+
+/* =========================================================
+   RIVER
+========================================================= */
+
+.awaken-river {
+  position: absolute;
+
+  left: 50%;
+  bottom: -9%;
+
+  z-index: 4;
+
+  width: min(77vw, 1180px);
+  height: 61%;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  opacity: 0.72;
+
+  transform:
+    translateX(-50%)
+    perspective(950px)
+    rotateX(61deg);
+
+  transform-origin: center bottom;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(0, 0, 0, 0.25) 10%,
+      #000 31%,
+      #000 80%,
+      transparent 100%
+    );
+}
+
+/* water movement texture */
+
+.awaken-river::before {
+  position: absolute;
+  inset: -12%;
+
+  content: "";
+
+  opacity: 0.42;
+
+  background:
+    repeating-linear-gradient(
+      112deg,
+      transparent 0 27px,
+      rgba(255, 255, 255, 0.055) 29px,
+      transparent 31px 59px
+    );
+
+  animation:
+    awakenRiverTexture 7s linear infinite;
+}
+
+/* =========================================================
+   SUN REFLECTION ON WATER
+========================================================= */
+
+.awaken-river__sun-path {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 32%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 252, 227, 0.64) 0%,
+      rgba(255, 236, 194, 0.42) 28%,
+      rgba(255, 219, 157, 0.23) 57%,
+      rgba(255, 213, 144, 0.08) 78%,
+      transparent 100%
+    );
+
+  clip-path:
+    polygon(
+      47% 0%,
+      53% 0%,
+      62% 20%,
+      70% 41%,
+      84% 69%,
+      100% 100%,
+      0 100%,
+      16% 69%,
+      30% 41%,
+      38% 20%
+    );
+
+  filter: blur(8px);
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenRiverLight 4.7s ease-in-out infinite;
+}
+
+/* =========================================================
+   WATER WAVES
+========================================================= */
+
+.awaken-river__wave {
+  position: absolute;
+
+  left: 50%;
+
+  display: block;
+
+  height: 13px;
+
+  border-radius: 50%;
+
+  filter: blur(2px);
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 248, 220, 0.46),
+      rgba(255, 226, 173, 0.17),
+      transparent
+    );
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenWaterWave 4.5s ease-in-out infinite;
+}
+
+.awaken-river__wave--1 {
+  top: 16%;
+  width: 19%;
+}
+
+.awaken-river__wave--2 {
+  top: 31%;
+  width: 33%;
+
+  animation-delay: -0.7s;
+}
+
+.awaken-river__wave--3 {
+  top: 48%;
+  width: 49%;
+
+  animation-delay: -1.5s;
+}
+
+.awaken-river__wave--4 {
+  top: 66%;
+  width: 67%;
+
+  animation-delay: -2.3s;
+}
+
+.awaken-river__wave--5 {
+  top: 83%;
+  width: 86%;
+
+  animation-delay: -3.2s;
+}
+
+/* =========================================================
+   WATER SPARKLES
+========================================================= */
+
+.awaken-river__sparkles {
+  position: absolute;
+  inset: 0;
+}
+
+.awaken-river__sparkles i {
+  position: absolute;
+
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #fff8da;
+
+  box-shadow:
+    0 0 7px rgba(255, 247, 208, 0.9),
+    0 0 16px rgba(255, 220, 151, 0.58);
+
+  animation:
+    awakenWaterSpark 2.8s ease-in-out infinite;
+}
+
+.awaken-river__sparkles i:nth-child(1) {
+  top: 24%;
+  left: 49%;
+}
+
+.awaken-river__sparkles i:nth-child(2) {
+  top: 38%;
+  left: 53%;
+  animation-delay: -0.4s;
+}
+
+.awaken-river__sparkles i:nth-child(3) {
+  top: 52%;
+  left: 45%;
+  animation-delay: -0.9s;
+}
+
+.awaken-river__sparkles i:nth-child(4) {
+  top: 61%;
+  left: 57%;
+  animation-delay: -1.4s;
+}
+
+.awaken-river__sparkles i:nth-child(5) {
+  top: 72%;
+  left: 39%;
+  animation-delay: -1.9s;
+}
+
+.awaken-river__sparkles i:nth-child(6) {
+  top: 78%;
+  left: 54%;
+  animation-delay: -2.3s;
+}
+
+.awaken-river__sparkles i:nth-child(7) {
+  top: 87%;
+  left: 46%;
+  animation-delay: -1.2s;
+}
+
+.awaken-river__sparkles i:nth-child(8) {
+  top: 68%;
+  left: 50%;
+  animation-delay: -2.6s;
+}
+
+/* =========================================================
+   FOREGROUND
+========================================================= */
+
+.awaken-scene__foreground {
+  position: absolute;
+
+  bottom: -12%;
+
+  z-index: 6;
+
+  width: 48vw;
+  height: 41%;
+
+  pointer-events: none;
+
+  opacity: 0.18;
+
+  filter: blur(7px);
+
+  background:
+    radial-gradient(
+      ellipse at bottom,
+      rgba(35, 50, 39, 0.95),
+      rgba(48, 66, 48, 0.45) 43%,
+      transparent 71%
+    );
+}
+
+.awaken-scene__foreground--left {
+  left: -13%;
+
+  transform: rotate(9deg);
+}
+
+.awaken-scene__foreground--right {
+  right: -13%;
+
+  transform: rotate(-9deg);
+}
+
+/* =========================================================
+   COLOR GRADING
+========================================================= */
+
+.awaken-scene__warm-grade {
+  position: absolute;
+  inset: 0;
+
+  z-index: 7;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(191, 224, 239, 0.025) 0%,
+      rgba(255, 230, 193, 0.045) 42%,
+      rgba(244, 193, 126, 0.035) 67%,
+      rgba(40, 48, 39, 0.1) 100%
+    );
+}
+
+.awaken-scene__vignette {
+  position: absolute;
+  inset: 0;
+
+  z-index: 8;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(36, 49, 43, 0.13),
+      transparent 19%,
+      transparent 81%,
+      rgba(36, 49, 43, 0.11)
+    ),
+    linear-gradient(
+      180deg,
+      rgba(46, 71, 87, 0.05),
+      transparent 27%,
+      transparent 69%,
+      rgba(29, 37, 30, 0.18)
+    );
+}
+
+/* =========================================================
+   BIRDS
+========================================================= */
+
+.awaken-bird-field {
+  position: absolute;
+  inset: 0;
+
+  z-index: 15;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-bird {
+  --bird-scale: 1;
+
+  position: absolute;
+
+  left: 108%;
+
+  width: 38px;
+  height: 20px;
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(
+      0 2px 2px
+      rgba(28, 34, 30, 0.14)
+    );
+
+  animation:
+    awakenBirdTravel 16s linear infinite;
+}
+
+.awaken-bird__wing {
+  position: absolute;
+
+  top: 8px;
+
+  display: block;
+
+  width: 21px;
+  height: 10px;
+
+  border-top:
+    2px solid
+    rgba(33, 40, 35, 0.81);
+}
+
+.awaken-bird__wing--left {
+  right: 18px;
+
+  border-radius: 100% 15% 0 0;
+
+  transform-origin: right center;
+
+  animation:
+    awakenBirdWingLeft 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird__wing--right {
+  left: 18px;
+
+  border-radius: 15% 100% 0 0;
+
+  transform-origin: left center;
+
+  animation:
+    awakenBirdWingRight 0.82s ease-in-out infinite alternate;
+}
+
+.awaken-bird--1 {
+  top: 19%;
+
+  --bird-scale: 0.94;
+
+  animation-duration: 17s;
+  animation-delay: -1s;
+}
+
+.awaken-bird--2 {
+  top: 25%;
+
+  --bird-scale: 0.67;
+
+  animation-duration: 20s;
+  animation-delay: -7s;
+}
+
+.awaken-bird--3 {
+  top: 15%;
+
+  --bird-scale: 0.46;
+
+  animation-duration: 24s;
+  animation-delay: -12s;
+}
+
+.awaken-bird--4 {
+  top: 32%;
+
+  --bird-scale: 0.72;
+
+  animation-duration: 19s;
+  animation-delay: -14s;
+}
+
+.awaken-bird--5 {
+  top: 22%;
+
+  --bird-scale: 0.38;
+
+  animation-duration: 26s;
+  animation-delay: -18s;
+}
+
+.awaken-bird--6 {
+  top: 29%;
+
+  --bird-scale: 0.53;
+
+  animation-duration: 22s;
+  animation-delay: -4s;
+}
+
+/* =========================================================
+   FLOWER PETALS
+========================================================= */
+
+.awaken-petals {
+  position: absolute;
+  inset: 0;
+
+  z-index: 17;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.awaken-petal {
+  position: absolute;
+
+  top: -10%;
+
+  width: 14px;
+  height: 22px;
+
+  opacity: 0;
+
+  animation:
+    awakenPetalFall 12s linear infinite;
+}
+
+.awaken-petal i {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius:
+    80% 20% 80% 20%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(246, 209, 167, 0.8),
+      rgba(216, 156, 104, 0.52)
+    );
+
+  box-shadow:
+    0 2px 6px
+    rgba(117, 76, 44, 0.12);
+
+  animation:
+    awakenPetalSpin 3s ease-in-out infinite alternate;
+}
+
+.awaken-petal--1 {
+  left: 7%;
+  animation-delay: -2s;
+  animation-duration: 13s;
+}
+
+.awaken-petal--2 {
+  left: 21%;
+  animation-delay: -9s;
+  animation-duration: 16s;
+
+  transform: scale(0.7);
+}
+
+.awaken-petal--3 {
+  left: 73%;
+  animation-delay: -5s;
+  animation-duration: 15s;
+
+  transform: scale(0.58);
+}
+
+.awaken-petal--4 {
+  left: 88%;
+  animation-delay: -11s;
+  animation-duration: 18s;
+}
+
+.awaken-petal--5 {
+  left: 58%;
+  animation-delay: -14s;
+  animation-duration: 20s;
+
+  transform: scale(0.5);
+}
+
+.awaken-petal--6 {
+  left: 36%;
+  animation-delay: -7s;
+  animation-duration: 19s;
+
+  transform: scale(0.6);
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.awaken-opening__content {
+  position: relative;
+
+  z-index: 30;
+
+  display: flex;
+
+  width: min(92vw, 720px);
+
+  align-items: center;
+  flex-direction: column;
+
+  text-align: center;
+
+  transition:
+    opacity 0.65s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+
+  animation:
+    awakenContentEnter
+    1.15s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    both;
+}
+
+/* =========================================================
+   FLOWER LOGO
+========================================================= */
+
+.awaken-flower {
+  position: relative;
+
+  width: 166px;
+  height: 145px;
+
+  margin-bottom: 2px;
+}
+
+.awaken-flower__svg {
+  position: absolute;
+
+  bottom: 0;
+  left: 50%;
+
+  z-index: 3;
+
+  width: 145px;
+
+  overflow: visible;
+
+  transform: translateX(-50%);
+
+  filter:
+    drop-shadow(
+      0 10px 15px
+      rgba(92, 61, 36, 0.12)
+    );
+}
+
+.awaken-flower__halo {
+  position: absolute;
+
+  top: 5px;
+  left: 50%;
+
+  z-index: 1;
+
+  width: 118px;
+  height: 118px;
+
+  border:
+    1px solid
+    rgba(159, 112, 70, 0.28);
+
+  border-radius: 50%;
+
+  transform: translateX(-50%);
+
+  animation:
+    awakenFlowerHalo 5.2s ease-in-out infinite;
+}
+
+.awaken-flower__halo--inner {
+  top: 17px;
+
+  width: 94px;
+  height: 94px;
+
+  border-color:
+    rgba(171, 123, 78, 0.11);
+
+  animation-delay: -2.5s;
+}
+
+.awaken-flower__star {
+  position: absolute;
+
+  top: -3px;
+  left: 50%;
+
+  z-index: 4;
+
+  width: 13px;
+  height: 13px;
+
+  background: #bf824c;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      59% 40%,
+      100% 50%,
+      59% 60%,
+      50% 100%,
+      41% 60%,
+      0% 50%,
+      41% 40%
+    );
+
+  transform:
+    translateX(-50%)
+    rotate(45deg);
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(216, 162, 105, 0.64)
+    );
+
+  animation:
+    awakenStarPulse 2.8s ease-in-out infinite;
+}
+
+.awaken-flower__spark {
+  position: absolute;
+
+  z-index: 4;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: #c38a55;
+
+  box-shadow:
+    0 0 10px
+    rgba(214, 163, 109, 0.55);
+}
+
+.awaken-flower__spark--1 {
+  top: 23px;
+  left: 47%;
+
+  width: 4px;
+  height: 4px;
+
+  animation:
+    awakenSpark 2.7s ease-in-out infinite;
+}
+
+.awaken-flower__spark--2 {
+  top: 35px;
+  left: 54%;
+
+  width: 3px;
+  height: 3px;
+
+  animation:
+    awakenSpark 2.7s -1.2s ease-in-out infinite;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+
+.awaken-opening__copy {
+  text-shadow:
+    0 4px 22px
+    rgba(255, 246, 224, 0.38);
+}
+
+.awaken-opening__eyebrow {
+  margin: 0 0 10px;
+
+  color:
+    rgba(92, 78, 59, 0.78);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.43em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__title {
+  margin: 0;
+
+  color: #5f503b;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(4.5rem, 9.2vw, 7.8rem);
+
+  font-weight: 400;
+
+  letter-spacing: -0.055em;
+  line-height: 0.86;
+
+  text-shadow:
+    0 1px 0
+    rgba(255, 255, 255, 0.45),
+    0 9px 28px
+    rgba(69, 51, 37, 0.11);
+}
+
+.awaken-opening__tagline {
+  display: flex;
+
+  margin-top: 24px;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  color:
+    rgba(85, 79, 59, 0.82);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size:
+    clamp(8px, 0.9vw, 11px);
+
+  font-weight: 600;
+
+  letter-spacing: 0.26em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__tagline i {
+  display: block;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(172, 115, 68, 0.61);
+}
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.awaken-opening__loader {
+  position: relative;
+
+  width: min(235px, 54vw);
+  height: 2px;
+
+  margin-top: 32px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background:
+    rgba(91, 78, 56, 0.15);
+}
+
+.awaken-opening__loader span {
+  display: block;
+
+  width: 42%;
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ba7947,
+      #e8bb80,
+      #ba7947,
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px
+    rgba(190, 119, 66, 0.39);
+
+  animation:
+    awakenLoader 2.35s ease-in-out infinite;
+}
+
+.awaken-opening__loading-copy {
+  margin: 13px 0 0;
+
+  color:
+    rgba(68, 68, 53, 0.67);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__dots {
+  display: inline-block;
+
+  width: 14px;
+
+  overflow: hidden;
+
+  vertical-align: bottom;
+
+  animation:
+    awakenDots 1.4s steps(4, end) infinite;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.awaken-opening__footer {
+  position: absolute;
+
+  right: 20px;
+  bottom: 25px;
+  left: 20px;
+
+  z-index: 31;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 11px;
+
+  opacity: 0;
+
+  animation:
+    awakenFooterEnter 1s 0.65s forwards;
+}
+
+.awaken-opening__footer p {
+  margin: 0;
+
+  color:
+    rgba(255, 245, 225, 0.69);
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  font-size: 7px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  text-shadow:
+    0 2px 10px
+    rgba(30, 31, 26, 0.42);
+
+  text-transform: uppercase;
+}
+
+.awaken-opening__footer-line {
+  width: 35px;
+  height: 1px;
+
+  background:
+    rgba(255, 244, 221, 0.33);
+}
+
+.awaken-opening__footer-mark {
+  display: grid;
+
+  width: 7px;
+  height: 7px;
+
+  place-items: center;
+
+  border:
+    1px solid
+    rgba(255, 241, 214, 0.56);
+
+  transform: rotate(45deg);
+}
+
+.awaken-opening__footer-mark span {
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: #fff1d5;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes awakenContentEnter {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(-2vh)
+      scale(1);
+  }
+}
+
+@keyframes awakenSunBreath {
+  0%,
+  100% {
+    opacity: 0.82;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenSunHalo {
+  0%,
+  100% {
+    opacity: 0.3;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.7;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.05);
+  }
+}
+
+@keyframes awakenRayMove {
+  from {
+    opacity: 0.24;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(0deg)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 0.44;
+
+    transform:
+      translate(-50%, -15%)
+      rotate(7deg)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenMistLeft {
+  from {
+    transform:
+      translateX(-10%)
+      scaleX(0.92);
+  }
+
+  to {
+    transform:
+      translateX(25%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenMistRight {
+  from {
+    transform:
+      translateX(13%)
+      scaleX(1.05);
+  }
+
+  to {
+    transform:
+      translateX(-24%)
+      scaleX(0.92);
+  }
+}
+
+@keyframes awakenMistFar {
+  from {
+    transform:
+      translateX(-12%)
+      scale(0.95);
+  }
+
+  to {
+    transform:
+      translateX(15%)
+      scale(1.06);
+  }
+}
+
+@keyframes awakenRiverTexture {
+  from {
+    transform:
+      translate3d(-50px, -40px, 0);
+  }
+
+  to {
+    transform:
+      translate3d(90px, 95px, 0);
+  }
+}
+
+@keyframes awakenRiverLight {
+  0%,
+  100% {
+    opacity: 0.43;
+
+    transform:
+      translateX(-50%)
+      scaleX(0.83);
+  }
+
+  50% {
+    opacity: 0.8;
+
+    transform:
+      translateX(-50%)
+      scaleX(1.13);
+  }
+}
+
+@keyframes awakenWaterWave {
+  0%,
+  100% {
+    opacity: 0.12;
+
+    transform:
+      translateX(-56%)
+      scaleX(0.72);
+  }
+
+  50% {
+    opacity: 0.72;
+
+    transform:
+      translateX(-44%)
+      scaleX(1.1);
+  }
+}
+
+@keyframes awakenWaterSpark {
+  0%,
+  100% {
+    opacity: 0;
+
+    transform: scale(0.55);
+  }
+
+  43% {
+    opacity: 0.9;
+
+    transform: scale(1.3);
+  }
+
+  68% {
+    opacity: 0.24;
+
+    transform: scale(0.8);
+  }
+}
+
+@keyframes awakenBirdTravel {
+  0% {
+    left: 108%;
+
+    opacity: 0;
+
+    transform:
+      translateY(0)
+      scale(var(--bird-scale));
+  }
+
+  8% {
+    opacity: 0.82;
+  }
+
+  25% {
+    transform:
+      translateY(-14px)
+      scale(var(--bird-scale));
+  }
+
+  49% {
+    transform:
+      translateY(6px)
+      scale(var(--bird-scale));
+  }
+
+  73% {
+    transform:
+      translateY(-18px)
+      scale(var(--bird-scale));
+  }
+
+  92% {
+    opacity: 0.72;
+  }
+
+  100% {
+    left: -12%;
+
+    opacity: 0;
+
+    transform:
+      translateY(-4px)
+      scale(var(--bird-scale));
+  }
+}
+
+@keyframes awakenBirdWingLeft {
+  from {
+    transform: rotate(5deg);
+  }
+
+  to {
+    transform: rotate(25deg);
+  }
+}
+
+@keyframes awakenBirdWingRight {
+  from {
+    transform: rotate(-5deg);
+  }
+
+  to {
+    transform: rotate(-25deg);
+  }
+}
+
+@keyframes awakenPetalFall {
+  0% {
+    top: -10%;
+
+    opacity: 0;
+
+    transform:
+      translateX(0)
+      rotate(0deg);
+  }
+
+  10% {
+    opacity: 0.52;
+  }
+
+  35% {
+    transform:
+      translateX(42px)
+      rotate(80deg);
+  }
+
+  65% {
+    transform:
+      translateX(-28px)
+      rotate(180deg);
+  }
+
+  90% {
+    opacity: 0.37;
+  }
+
+  100% {
+    top: 112%;
+
+    opacity: 0;
+
+    transform:
+      translateX(54px)
+      rotate(300deg);
+  }
+}
+
+@keyframes awakenPetalSpin {
+  from {
+    transform:
+      rotateY(0deg)
+      rotateZ(-12deg);
+  }
+
+  to {
+    transform:
+      rotateY(70deg)
+      rotateZ(18deg);
+  }
+}
+
+@keyframes awakenFlowerHalo {
+  0%,
+  100% {
+    opacity: 0.46;
+
+    transform:
+      translateX(-50%)
+      scale(0.96);
+  }
+
+  50% {
+    opacity: 0.9;
+
+    transform:
+      translateX(-50%)
+      scale(1.04);
+  }
+}
+
+@keyframes awakenStarPulse {
+  0%,
+  100% {
+    opacity: 0.47;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(0.72);
+  }
+
+  50% {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      rotate(45deg)
+      scale(1.16);
+  }
+}
+
+@keyframes awakenSpark {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes awakenLoader {
+  0% {
+    transform: translateX(-130%);
+  }
+
+  53% {
+    transform: translateX(115%);
+  }
+
+  100% {
+    transform: translateX(180%);
+  }
+}
+
+@keyframes awakenDots {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 14px;
+  }
+}
+
+@keyframes awakenFooterEnter {
+  from {
+    opacity: 0;
+
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 0.88;
+
+    transform: translateY(0);
+  }
+}
+
+/* =========================================================
+   LAPTOP / TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+  .awaken-river {
+    width: 98vw;
+  }
+
+  .awaken-sun {
+    top: 28%;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .awaken-scene__poster,
+  .awaken-scene__video {
+    object-position: 54% center;
+    background-position: 54% center;
+  }
+
+  .awaken-sun {
+    top: 25%;
+
+    width: 280px;
+    height: 280px;
+  }
+
+  .awaken-sun__core {
+    width: 52px;
+    height: 52px;
+  }
+
+  .awaken-sun__halo--inner {
+    width: 92px;
+    height: 92px;
+  }
+
+  .awaken-sun__halo--middle {
+    width: 165px;
+    height: 165px;
+  }
+
+  .awaken-sun__halo--outer {
+    width: 250px;
+    height: 250px;
+  }
+
+  .awaken-opening__content {
+    width: calc(100% - 34px);
+  }
+
+  .awaken-flower {
+    width: 132px;
+    height: 116px;
+  }
+
+  .awaken-flower__svg {
+    width: 112px;
+  }
+
+  .awaken-flower__halo {
+    width: 94px;
+    height: 94px;
+  }
+
+  .awaken-flower__halo--inner {
+    top: 15px;
+
+    width: 74px;
+    height: 74px;
+  }
+
+  .awaken-flower__star {
+    width: 11px;
+    height: 11px;
+  }
+
+  .awaken-opening__eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.32em;
+  }
+
+  .awaken-opening__title {
+    font-size: 4rem;
+  }
+
+  .awaken-opening__tagline {
+    margin-top: 18px;
+
+    gap: 8px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.19em;
+  }
+
+  .awaken-opening__tagline i {
+    width: 3px;
+    height: 3px;
+  }
+
+  .awaken-opening__loader {
+    width: 178px;
+
+    margin-top: 26px;
+  }
+
+  .awaken-opening__loading-copy {
+    font-size: 7px;
+
+    letter-spacing: 0.11em;
+  }
+
+  .awaken-river {
+    bottom: -4%;
+
+    width: 148vw;
+    height: 53%;
+  }
+
+  .awaken-mist--left,
+  .awaken-mist--right {
+    width: 125vw;
+  }
+
+  .awaken-bird {
+    width: 30px;
+  }
+
+  .awaken-bird__wing {
+    width: 17px;
+
+    border-top-width: 1.5px;
+  }
+
+  .awaken-bird__wing--left {
+    right: 14px;
+  }
+
+  .awaken-bird__wing--right {
+    left: 14px;
+  }
+
+  .awaken-petal {
+    opacity: 0.55;
+
+    transform: scale(0.7);
+  }
+
+  .awaken-opening__footer {
+    bottom: 18px;
+
+    gap: 7px;
+  }
+
+  .awaken-opening__footer p {
+    font-size: 6px;
+
+    letter-spacing: 0.1em;
+  }
+
+  .awaken-opening__footer-line {
+    width: 18px;
+  }
+
+  .awaken-opening__footer-mark {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+  .awaken-opening__title {
+    font-size: 3.45rem;
+  }
+
+  .awaken-flower {
+    transform: scale(0.9);
+  }
+
+  .awaken-opening__tagline {
+    font-size: 6.5px;
+  }
+
+  .awaken-opening__footer-line {
+    display: none;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .awaken-opening *,
+  .awaken-opening *::before,
+  .awaken-opening *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .awaken-scene__video {
+    display: none;
+  }
+
+  .awaken-scene__poster {
+    transform: none;
+  }
+
+  .awaken-petals,
+  .awaken-bird-field {
+    display: none;
+  }
+}
