@@ -1,9 +1,10 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { persistSession } from "@/lib/session";
+import { safeReturnPath } from "@/lib/return-path";
 
 export default function AuthForm({ mode }) {
   const isSignUp = mode === "signup";
@@ -12,9 +13,11 @@ export default function AuthForm({ mode }) {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("error");
+  const submissionLock = useRef(false);
 
   async function submit(event) {
     event.preventDefault();
+    if (submissionLock.current) return;
     setMessage("");
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -25,6 +28,7 @@ export default function AuthForm({ mode }) {
       return;
     }
 
+    submissionLock.current = true;
     setBusy(true);
     try {
       const response = await fetch(isSignUp ? "/api/auth/signup" : "/api/auth/login", {
@@ -49,12 +53,15 @@ export default function AuthForm({ mode }) {
       }
 
       form.reset();
-      router.push(result.redirectTo || "/profile");
+      const fallback = result.redirectTo || "/profile";
+      const destination = result.user ? safeReturnPath(new URLSearchParams(window.location.search).get("next"), result.user, fallback) : fallback;
+      router.push(destination);
       router.refresh();
     } catch (error) {
       setMessage(error.message || "We could not connect. Please try again in a moment.");
       setMessageType("error");
     } finally {
+      submissionLock.current = false;
       setBusy(false);
     }
   }
@@ -83,7 +90,7 @@ export default function AuthForm({ mode }) {
             {message ? <p className={`auth-message auth-message-${messageType}`} role="status">{message}</p> : null}
             <button className="auth-submit" type="submit" disabled={busy}>{busy ? "Please waitâ€¦" : isSignUp ? "Create account" : "Sign in"}<span aria-hidden="true">â†’</span></button>
           </form>
-          <p className="auth-switch">{isSignUp ? "Already have an account?" : "New to Awaken With Me?"} <Link href={isSignUp ? "/auth/login" : "/auth/register"}>{isSignUp ? "Sign in" : "Create an account"}</Link></p>
+          <p className="auth-switch">{isSignUp ? "Already have an account?" : "New to Awaken With Me?"} <Link href={isSignUp ? "/auth/login" : "/auth/register"} onClick={event => { const next = new URLSearchParams(window.location.search).get("next"); if (next) { event.preventDefault(); router.push((isSignUp ? "/auth/login" : "/auth/register") + "?next=" + encodeURIComponent(next)); } }}>{isSignUp ? "Sign in" : "Create an account"}</Link></p>
           <p className="auth-privacy-note">Your details are handled securely and never shown publicly.</p>
         </section>
       </div>

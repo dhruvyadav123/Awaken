@@ -1,5 +1,12 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import Checkout from "@/components/commerce/Checkout";
+import CommerceCenter from "@/components/commerce/CommerceCenter";
+import MyMembership from "@/components/membership/MyMembership";
+import ProfileDetails from "@/components/account/ProfileDetails";
+import AccountCart from "@/components/cart/AccountCart";
 import ContentPage from "../../components/common/ContentPage";
+import CmsPublicPage from "@/components/common/CmsPublicPage";
+import { publicApi } from "@/lib/public-api";
 
 const supportLinks = [{ label: "Contact Awaken With Me", description: "Ask about the service or a next step.", href: "/contact" }];
 
@@ -78,9 +85,24 @@ function getPage(segments) {
   return null;
 }
 
-export default async function MissingRoutePage({ params }) {
+export default async function MissingRoutePage({ params, searchParams }) {
   const { segments } = await params;
+  const route = segments.join("/");
+  const query = await searchParams;
+  if (route === "checkout") return <Checkout />;
+  if (route === "cart/empty") return <AccountCart />;
+  if (route === "dashboard/sessions/book") redirect("/sessions");
+  if (["checkout/success", "checkout/failed"].includes(route)) return <CommerceCenter section="orders" id={typeof query?.orderId === "string" ? query.orderId : undefined} />;
+  if (route === "infinity/checkout") return <MyMembership planId={typeof query?.planId === "string" ? query.planId : ""} />;
+  if (route === "profile/edit") return <ProfileDetails />;
+  if (route === "profile/settings") redirect("/dashboard/user/settings");
+  if (["become-a-facilitator/apply", "become-a-facilitator/status"].includes(route)) redirect("/dashboard/user/application");
+  const legacy = { orders: "orders", bookings: "bookings", sessions: "bookings", workshops: "workshops", classes: "workshops", wishlist: "wishlist", reviews: "reviews" };
+  if (segments[0] === "dashboard" && legacy[segments[1]]) redirect(`/dashboard/user/${legacy[segments[1]]}${segments[2] ? "/" + encodeURIComponent(segments[2]) : ""}`);
   const page = getPage(segments);
-  if (!page) notFound();
-  return <ContentPage {...page} />;
+  if (page) return <ContentPage {...page} />;
+  const cmsResult = await publicApi("pages/" + encodeURIComponent(segments.join("/")));
+  if (cmsResult.error && cmsResult.status !== 404) return <ContentPage title="Page temporarily unavailable" description={cmsResult.error} sections={[{ heading: "Continue from here", links: [{ label: "Try again", description: "Reload this page.", href: "/" + segments.map(encodeURIComponent).join("/") }, ...supportLinks] }]} />;
+  if (!cmsResult.data) notFound();
+  return <CmsPublicPage record={cmsResult.data} />;
 }

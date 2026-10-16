@@ -647,3 +647,112 @@ a { color: inherit; text-decoration: none; }
 @media(prefers-reduced-motion:reduce){.content-hero-immersive .content-hero-image img,.content-birds i,.content-birds i::before,.content-birds i::after{animation:none}.content-birds{display:none}}
 
 .awm-skip-link{position:fixed;left:16px;top:12px;z-index:1000;transform:translateY(-180%);padding:10px 14px;border-radius:4px;background:#294a3d;color:#fff;font-size:12px;text-decoration:none;transition:transform .2s}.awm-skip-link:focus{transform:translateY(0);outline:2px solid #d7dfc7;outline-offset:3px}
+
+
+
+
+/* Session image */
+.session-detail-media {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.session-detail-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Existing booking action */
+.session-booking-action {
+  width: 100%;
+}
+
+.session-booking-action button,
+.session-booking-action a {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 12px;
+  background-color: #104f43;
+  padding: 12px 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.session-booking-action button:hover:not(:disabled),
+.session-booking-action a:hover {
+  background-color: #0b3e35;
+}
+
+.session-booking-action button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+
+
+/* Blog image integration */
+
+.blog-cover-media,
+.blog-cover-media .api-media-gallery,
+.blog-cover-media .api-media-asset {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  overflow: hidden !important;
+  background: transparent !important;
+}
+
+.blog-cover-media .api-media-gallery {
+  display: block !important;
+}
+
+.blog-cover-media .api-media-asset {
+  position: relative;
+}
+
+.blog-cover-media .api-media-asset img {
+  max-height: none !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  transition: transform 0.5s ease;
+}
+
+.group:hover .blog-cover-media img {
+  transform: scale(1.04);
+}
+
+.blog-cover-media .api-media-asset figcaption {
+  display: none !important;
+}
+
+.blog-cover-media .api-media-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #edf3ec;
+  color: #6b8576;
+  font-size: 12px;
+}

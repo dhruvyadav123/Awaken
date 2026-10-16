@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ContactTrigger } from "../components/common/ContactPopup";
 import BreathingPractice from "../components/home/BreathingPractice";
 import OpeningSplash from "../components/common/OpeningSplash";
+import HomeCmsSections from "../components/home/HomeCmsSections";
 import "./home.css";
 const offerings = [
   ["01", "/images/pages/meditations-hero.png", "Mindful classes", "MAKE SPACE FOR YOURSELF", "Small moments. Meaningful shifts. Find a guided practice that feels like coming home.", "/classes", "sage"],
@@ -45,7 +46,7 @@ return <>
   <div className="renew-community-image"><Image src="/images/home/home2.jpeg" alt="Awaken With Me community members sharing a meal in a greenery-filled space" fill quality={90} sizes="(max-width: 650px) 100vw, (max-width: 1180px) 40vw, 470px" /></div>
   <div className="renew-community-copy"><p className="renew-kicker">THE INFINITY COMMUNITY</p><h2 id="community-title">Your own journey.<br/><em>A little good company.</em></h2><p>For the moments when you want to learn, reflect, and connect with others. Discover a space you can keep coming back to.</p><div className="renew-community-topics"><span>Shared practice</span><span>Reflection</span><span>Connection</span></div><Link href="/infinity" className="renew-button">Get to know Infinity <span aria-hidden="true">?</span></Link><Link href="/infinity/membership" className="renew-text-link">Membership information <span aria-hidden="true">?</span></Link></div>
 </div></section>
-<section className="renew-section renew-faq"><div><p className="renew-kicker">A LITTLE CLARITY</p><h2>New here?<br/><em>You�re welcome.</em></h2><p>A few things to help you find your way.</p></div><div>{[["Where should I begin?","Follow what feels useful today. Explore classes for a guided practice, workshops for shared learning, or meditations for a quiet moment at your own pace."],["Do I need any experience?","You are welcome wherever you are in your journey. Check the details of each class or workshop for any preparation or experience it calls for."],["What is the Infinity community?","Infinity is a space to explore ongoing practice and connection. Visit the Infinity page to learn about the community and membership."],["Can you help me choose a practice?","Use the contact button below to start a conversation about your interests and the kind of support you are looking for."]].map(([q,a])=><details key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></section>
+<HomeCmsSections />
 <section className="renew-featured" aria-labelledby="featured-title">
   <div className="renew-featured-copy">
     <p className="renew-kicker">A GUIDED MEDITATION</p>

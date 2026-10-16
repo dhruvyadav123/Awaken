@@ -23,7 +23,9 @@ export function ContactTrigger({ children = "Contact", className = "", onOpen })
 function ContactPopup({ isOpen, onClose }) {
   const dialogRef = useRef(null);
   const [status, setStatus] = useState("");
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "";
+  const [submitting, setSubmitting] = useState(false);
+  const idempotencyKeyRef = useRef("");
+  const submissionLock = useRef(false);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -32,17 +34,53 @@ function ContactPopup({ isOpen, onClose }) {
     if (!isOpen && dialog.open) dialog.close();
   }, [isOpen]);
 
-  function submitMessage(event) {
+  async function submitMessage(event) {
     event.preventDefault();
-    if (!email) {
-      setStatus("Message sending is not set up yet. Add the official contact email to enable it.");
+    if (submissionLock.current) return;
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const payload = {
+      name: String(data.get("name") || "").trim(),
+      email: String(data.get("email") || "").trim(),
+      subject: String(data.get("subject") || "").trim(),
+      message: String(data.get("message") || "").trim(),
+      source: "WEBSITE",
+    };
+    if (payload.name.length < 2 || !payload.subject || payload.message.length < 5) {
+      setStatus("Please enter your name, a subject, and a message of at least 5 characters.");
       return;
     }
-    const data = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(data.get("subject"));
-    const body = encodeURIComponent("From: " + data.get("name") + " (" + data.get("email") + ")\n\n" + data.get("message"));
-    window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + body;
-    setStatus("Your email app should open with the message ready to send.");
+    const signature = JSON.stringify(payload);
+    if (idempotencyKeyRef.current?.signature !== signature) {
+      idempotencyKeyRef.current = {
+        signature,
+        key: window.crypto?.randomUUID?.() || String(Date.now()) + Math.random().toString(36).slice(2),
+      };
+    }
+    submissionLock.current = true;
+    setSubmitting(true);
+    setStatus("");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          ...payload,
+          idempotencyKey: idempotencyKeyRef.current.key,
+        }),
+        signal: AbortSignal.timeout(15000),
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || result?.success !== true || result?.data?.accepted !== true) throw new Error(result?.error || (result?.success === false && result?.message) || "Your message could not be sent. Please try again.");
+      setStatus("Your message has been sent. We’ll be in touch soon.");
+      form.reset();
+      idempotencyKeyRef.current = null;
+    } catch (error) {
+      setStatus(error.name === "TimeoutError" || error.name === "AbortError" ? "The request took too long. Please try again." : error.message || "Your message could not be sent. Please try again.");
+    } finally {
+      submissionLock.current = false;
+      setSubmitting(false);
+    }
   }
 
   return <dialog ref={dialogRef} className="contact-dialog" aria-labelledby="contact-popup-title"
@@ -54,13 +92,13 @@ function ContactPopup({ isOpen, onClose }) {
       <p className="contact-popup-eyebrow">Awaken With Me</p>
       <h2 id="contact-popup-title">How can we help?</h2>
       <p className="contact-popup-intro">Send us a note about classes, events, or finding the right place to begin.</p>
-      <form className="contact-popup-form" onSubmit={submitMessage}>
-        <label>Your name<input name="name" autoComplete="name" required /></label>
-        <label>Email address<input name="email" type="email" autoComplete="email" required /></label>
+      <form className="contact-popup-form" onSubmit={submitMessage} aria-busy={submitting}>
+        <label>Your name<input name="name" autoComplete="name" minLength={2} maxLength={120} required /></label>
+        <label>Email address<input name="email" type="email" autoComplete="email" maxLength={254} required /></label>
         <label>What is this about?<select name="subject" defaultValue="A question about Awaken With Me"><option>A question about Awaken With Me</option><option>Classes and training</option><option>Workshops and events</option><option>Infinity membership</option><option>Other</option></select></label>
-        <label>Your message<textarea name="message" rows="3" required /></label>
-        <button className="contact-popup-submit" type="submit">{email ? "Continue to email" : "Message us"}</button>
-        <p className="contact-popup-status" aria-live="polite">{status || (!email ? "Message delivery will be enabled when the official contact email is added." : "")}</p>
+        <label>Your message<textarea name="message" rows="3" minLength={5} maxLength={5000} required /></label>
+        <button className="contact-popup-submit" type="submit" disabled={submitting}>{submitting ? "Sending…" : "Send message"}</button>
+        <p className="contact-popup-status" aria-live="polite">{status || "Your message is sent securely through Awaken’s contact service."}</p>
       </form>
     </div>
   </dialog>;

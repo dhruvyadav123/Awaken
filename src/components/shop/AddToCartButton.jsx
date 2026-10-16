@@ -1,121 +1,228 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
+import { addProductToCart } from "@/lib/cart";
+import { formatProductPrice } from "@/lib/product-format";
 
-import {
-  addProductToCart,
-  CART_UPDATED_EVENT,
-  readCart,
-} from "../../lib/cart";
-
-function CartIcon() {
-  return (
-    <svg
-      width="27"
-      height="27"
-      viewBox="0 0 28 28"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M3.5 5H6L8.4 17H21.5L23.8 8.5H7"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      <circle
-        cx="10.5"
-        cy="22"
-        r="1.5"
-        stroke="currentColor"
-        strokeWidth="1.7"
-      />
-
-      <circle
-        cx="20"
-        cy="22"
-        r="1.5"
-        stroke="currentColor"
-        strokeWidth="1.7"
-      />
-    </svg>
+function getVariantId(variant) {
+  return String(
+    variant?.id || variant?._id || ""
   );
 }
 
-function ArrowIcon() {
-  return (
-    <svg
-      width="19"
-      height="19"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M5 12H19M13 6L19 12L13 18"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
+export default function AddToCartButton({
+  productId,
+  variants = [],
+  disabled = false,
+  className = "",
+}) {
+  const options = Array.isArray(variants)
+    ? variants.filter((variant) => getVariantId(variant))
+    : [];
+
+  const [variantId, setVariantId] = useState(
+    options.length === 1
+      ? getVariantId(options[0])
+      : ""
   );
-}
 
-export default function AddToCartButton({ productId }) {
-  const [added, setAdded] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const lock = useRef(false);
+  const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    function syncCart() {
-      setAdded(readCart().some((item) => item.id === productId));
+  const selectedVariant =
+    options.find(
+      (variant) => getVariantId(variant) === variantId
+    ) || null;
+
+  const selectedUnavailable =
+    Boolean(selectedVariant?.status && selectedVariant.status !== "ACTIVE") ||
+    selectedVariant?.inStock === false ||
+    selectedVariant?.isAvailable === false ||
+    selectedVariant?.stockStatus === "OUT_OF_STOCK";
+
+  const canAdd =
+    Boolean(productId) &&
+    !disabled &&
+    !busy &&
+    !selectedUnavailable &&
+    (options.length === 0 || Boolean(variantId));
+
+  async function handleAddToCart() {
+    if (lock.current || !canAdd) return; lock.current = true;
+
+    setBusy(true);
+    setMessage("");
+    setSuccess(false);
+
+    try {
+      const result = await addProductToCart(
+        productId,
+        variantId || undefined
+      );
+
+      if (
+        result?.success === false ||
+        result?.error
+      ) {
+        throw new Error(
+          result?.message ||
+          result?.error ||
+          "Unable to add this product."
+        );
+      }
+
+      setSuccess(true);
+      setMessage("Product added to your cart.");
+
+      // Notify cart-count components if they listen
+      // for local cart updates.
+      window.dispatchEvent(
+        new CustomEvent("cart:updated", {
+          detail: { productId, variantId },
+        })
+      );
+    } catch (error) {
+      setSuccess(false);
+      setMessage(
+        error instanceof Error
+          ? error.message
+          : "Could not add this product to your cart."
+      );
+    } finally {
+      lock.current = false; setBusy(false);
     }
-
-    syncCart();
-
-    window.addEventListener(CART_UPDATED_EVENT, syncCart);
-    window.addEventListener("storage", syncCart);
-
-    return () => {
-      window.removeEventListener(CART_UPDATED_EVENT, syncCart);
-      window.removeEventListener("storage", syncCart);
-    };
-  }, [productId]);
-
-  if (added) {
-    return (
-      <Link
-        href="/cart"
-        className="inline-flex min-h-[68px] min-w-[342px] items-center justify-between gap-8 rounded-[5px] border border-[#275744] bg-white px-7 font-[Georgia,serif] text-[19px] text-[#214737] transition duration-200 hover:bg-[#f4f6f1] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315c4c] max-[560px]:min-w-0 max-[560px]:flex-1"
-      >
-        <span className="flex items-center gap-5">
-          <CartIcon />
-          View your cart
-        </span>
-
-        <ArrowIcon />
-      </Link>
-    );
   }
 
   return (
-    <button
-      type="button"
-      onClick={() => addProductToCart(productId)}
-      className="inline-flex min-h-[68px] min-w-[342px] cursor-pointer items-center justify-between gap-8 rounded-[5px] border border-[#245640] bg-[#245640] px-7 font-[Georgia,serif] text-[19px] text-white transition duration-200 hover:bg-[#1b4735] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#315c4c] max-[560px]:min-w-0 max-[560px]:flex-1"
-    >
-      <span className="flex items-center gap-5">
-        <CartIcon />
-        Add to cart
-      </span>
+    <div className={`w-full ${className}`}>
+      {selectedVariant && <p className="mb-3 text-sm font-semibold text-[#315a48]">{selectedVariant.name || selectedVariant.title}: {formatProductPrice(selectedVariant)}</p>}
+      {options.length > 1 && (
+        <div className="mb-5">
+          <label
+            htmlFor={`variant-${productId}`}
+            className="mb-2 block text-sm font-medium text-[#263a31]"
+          >
+            Select an option
+          </label>
 
-      {/* <span className="text-[34px] font-light leading-none" aria-hidden="true">
-        +
-      </span> */}
-    </button>
+          <select
+            id={`variant-${productId}`}
+            value={variantId}
+            onChange={(event) => {
+              setVariantId(event.target.value);
+              setMessage("");
+              setSuccess(false);
+            }}
+            className="h-12 w-full rounded-xl border border-[#dce6df] bg-white px-4 text-sm text-[#263a31] outline-none transition focus:border-[#38684d] focus:ring-2 focus:ring-[#38684d]/10"
+          >
+            <option value="">
+              Choose an option
+            </option>
+
+            {options.map((variant) => {
+              const id = getVariantId(variant);
+
+              const unavailable =
+                Boolean(variant.status && variant.status !== "ACTIVE") ||
+                variant.inStock === false ||
+                variant.isAvailable === false ||
+                variant.stockStatus === "OUT_OF_STOCK";
+
+              return (
+                <option
+                  key={id}
+                  value={id}
+                  disabled={unavailable}
+                >
+                  {variant.title ||
+                    variant.name ||
+                    variant.label ||
+                    "Product option"}
+
+                  {unavailable
+                    ? " — Out of stock"
+                    : ""}
+                </option>
+              );
+            })}
+          </select>
+        </div>
+      )}
+
+      <div className="flex flex-col gap-3 sm:flex-row">
+        <button
+          type="button"
+          onClick={handleAddToCart}
+          disabled={!canAdd}
+          className="inline-flex min-h-12 flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl bg-[#28563e] px-6 py-3 text-sm font-semibold text-white transition duration-200 hover:bg-[#1c412e] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {busy ? (
+            <>
+              <span className="size-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+              Adding...
+            </>
+          ) : (
+            <>
+              <svg
+                className="size-[18px]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="9" cy="21" r="1" />
+                <circle cx="20" cy="21" r="1" />
+                <path d="M1 1h4l2.5 13h12l2-9H6" />
+              </svg>
+
+              {disabled || selectedUnavailable
+                ? "Out of stock"
+                : "Add to cart"}
+            </>
+          )}
+        </button>
+
+        {success && (
+          <Link
+            href="/cart"
+            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#cdded1] bg-white px-6 text-sm font-semibold text-[#28563e] transition hover:bg-[#f2f7f3]"
+          >
+            View cart →
+          </Link>
+        )}
+      </div>
+
+      {message && (
+        <div
+          role="status"
+          aria-live="polite"
+          className={`mt-3 rounded-lg px-3 py-2.5 text-sm leading-6 ${
+            success
+              ? "bg-[#eff7f0] text-[#28563e]"
+              : "bg-[#fff3ef] text-[#9a493a]"
+          }`}
+        >
+          {message}
+
+          {!success &&
+            /sign.in|login|unauthori[sz]ed|401/i.test(
+              message
+            ) && (
+              <Link
+                href="/auth/login?next=%2Fcart"
+                className="ml-2 font-semibold underline underline-offset-2"
+              >
+                Sign in
+              </Link>
+            )}
+        </div>
+      )}
+    </div>
   );
 }
-
-

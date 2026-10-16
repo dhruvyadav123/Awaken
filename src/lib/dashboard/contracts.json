@@ -1,0 +1,1282 @@
+[
+  {
+    "method": "GET",
+    "pattern": "facilitator/announcements",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/announcements",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/announcements/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/announcements/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/announcements/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/announcements/:id/publish",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/categories",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/categories",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/categories/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/categories/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/categories/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/classes",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/classes",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/classes/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/classes/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/classes/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/classes/:id/cancel",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/classes/:id/complete",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/classes/:id/reschedule",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/classes/:id/submit",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/classes/:id/waitlist/promote",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/classes/:id/withdraw",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/classes/:id/registrations",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/classes/:id/registrations/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/classes/:id/registrations/:id/attendance",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/courses",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/students",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/students/:id/progress",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/courses/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/courses/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/curriculum",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/courses/:id/submit",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/courses/:id/unpublish",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/questions",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/questions/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/courses/:id/questions/:id/replies",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/quiz-attempts",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/quizzes",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/courses/:id/quizzes",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/quizzes/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/courses/:id/quizzes/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/reviews",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/courses/:id/delete-requests",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/courses/:id/lessons",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/courses/:id/lessons/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/courses/:id/lessons/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/courses/:id/lessons/:id/file",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/courses/:id/sections/:id/lessons/order",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/courses/:id/sections",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/courses/:id/sections/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/courses/:id/sections/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/courses/:id/sections/order",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/dashboard",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/earnings",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/earnings/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/earnings/summary",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/languages",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/languages",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/languages/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/languages/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/languages/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/levels",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/levels",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/levels/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/levels/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/levels/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/payout-requests",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/payout-requests",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/payout-requests/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/products",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/products",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/products/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/products/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/products/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/products/:id/inventory",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/products/:id/inventory-adjustments",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/products/:id/submit",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/products/:id/unpublish",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/products/:id/variants",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/products/:id/variants",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/products/:id/variants/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/products/:id/variants/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/profile",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/profile",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/reports/learning",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/reports/sales",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/sales",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/sales/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/session-availability/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/session-availability/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/session-availability/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/session-bookings/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/session-bookings/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/session-availability",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/session-availability",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/session-bookings",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/session-bookings/:id/reschedule",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/session-bookings/:id/status",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/session-types",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "facilitator/session-types",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "facilitator/session-types/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "facilitator/session-types/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/session-types/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "facilitator/session-types/:id/status",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "media",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "DELETE",
+    "pattern": "media/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "media/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "PATCH",
+    "pattern": "media/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "media/:id/access-link",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "GET",
+    "pattern": "media/:id/file",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "media/uploads/:id",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "media/uploads/DOCUMENT",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "media/uploads/AUDIO",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "media/uploads/VIDEO",
+    "role": "FACILITATOR"
+  },
+  {
+    "method": "POST",
+    "pattern": "auth/change-password",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "auth/me",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "digital-library/files/:id/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/digital-library",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/digital-library/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/digital-library/:id/access",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/digital-library/claim",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "learning/files/:id/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/addresses",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/addresses",
+    "role": null
+  },
+  {
+    "method": "DELETE",
+    "pattern": "me/addresses/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/addresses/:id",
+    "role": null
+  },
+  {
+    "method": "PATCH",
+    "pattern": "me/addresses/:id",
+    "role": null
+  },
+  {
+    "method": "PATCH",
+    "pattern": "me/addresses/:id/default",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/badges",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/cart",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/cart/items",
+    "role": null
+  },
+  {
+    "method": "DELETE",
+    "pattern": "me/cart/items/:id",
+    "role": null
+  },
+  {
+    "method": "PATCH",
+    "pattern": "me/cart/items/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/certificates",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/certificates/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/certificates/:id/download",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/checkout",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/checkout/quote",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/orders",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/orders/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/orders/:id/cancel",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/classes",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/classes/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/classes/:id/cancel",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/classes/:id/join",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/classes/:id/recording",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/classes/:id/registrations",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/courses",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/courses/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/courses/:id/enroll",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/courses/:id/lessons/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/courses/:id/lessons/:id/access-link",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/courses/:id/lessons/:id/progress",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/courses/:id/progress",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/courses/:id/lessons/:id/questions",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/questions",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/questions/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/courses/:id/reviews",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/reviews",
+    "role": null
+  },
+  {
+    "method": "PATCH",
+    "pattern": "me/reviews/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/dashboard",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/entitlements",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/facilitator-application",
+    "role": null
+  },
+  {
+    "method": "PATCH",
+    "pattern": "me/facilitator-application",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/facilitator-application",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/facilitator-application/reopen",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/facilitator-application/submit",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/facilitator-application/documents",
+    "role": null
+  },
+  {
+    "method": "DELETE",
+    "pattern": "me/facilitator-application/documents/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/facilitator-application/documents/:id/download",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/meditations",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/meditations/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/meditations/:id/access-link",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/meditations/:id/content",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/membership",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/membership-discount",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/membership/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/membership/:id/cancel",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/membership/:id/renew",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/membership/activate",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/membership/history",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/notifications",
+    "role": null
+  },
+  {
+    "method": "PATCH",
+    "pattern": "me/notifications/:id/read",
+    "role": null
+  },
+  {
+    "method": "PATCH",
+    "pattern": "me/notifications/read-all",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/orders/:id/payment-attempts",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/payments",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/payments/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/payments/:id/verify",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/orders/:id/refunds",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/refunds",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/refunds/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/permissions",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/profile",
+    "role": null
+  },
+  {
+    "method": "PATCH",
+    "pattern": "me/profile",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/quiz-attempts",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/quiz-attempts/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/quiz-attempts/:id/submit",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/quizzes",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/quizzes/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/quizzes/:id/attempts",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/sessions",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/sessions",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/sessions/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/sessions/:id/cancel",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "me/sessions/:id/join",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "me/sessions/:id/reschedule",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "meditation/files/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/blogs",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/blogs/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/categories",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/categories/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/certificates/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/classes",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/classes/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/cms/appearance",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/cms/brands",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/cms/faqs",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/cms/footer-settings",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/cms/menus",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/cms/sections",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/cms/social-links",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "public/contact",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/courses",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/courses/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/courses/:id/demo",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/courses/:id/demo/file",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/courses/:id/lessons/:id/preview",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/courses/:id/lessons/:id/preview/file",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/courses/:id/reviews",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/facilitators",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/facilitators/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/languages",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/languages/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/levels",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/levels/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/media/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/media/:id/file",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/meditations",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/meditations/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/membership-plans",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/membership-plans/:id",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "public/newsletter/confirm",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "public/newsletter/subscribe",
+    "role": null
+  },
+  {
+    "method": "POST",
+    "pattern": "public/newsletter/unsubscribe",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/pages",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/pages/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/products",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/products/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/session-types",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/session-types/:id/slots",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/session-types/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/testimonials",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/testimonials/:id",
+    "role": null
+  },
+  {
+    "method": "GET",
+    "pattern": "public/website",
+    "role": null
+  }
+]

@@ -1,0 +1,2257 @@
+[
+  {
+    "method": "POST",
+    "path": "facilitator/announcements",
+    "fields": {
+      "title": {
+        "type": "string",
+        "nullable": false
+      },
+      "body": {
+        "type": "string",
+        "nullable": false
+      },
+      "target": {
+        "type": "string",
+        "nullable": false
+      },
+      "channels": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/announcements/{{facilitatorAnnouncementId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/announcements/{{facilitatorAnnouncementId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": false
+      },
+      "body": {
+        "type": "string",
+        "nullable": false
+      },
+      "target": {
+        "type": "string",
+        "nullable": false
+      },
+      "channels": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/announcements/{{facilitatorAnnouncementId}}/publish",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/categories",
+    "fields": {
+      "name": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/categories/{{categoryId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/categories/{{categoryId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      },
+      "name": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/classes",
+    "fields": {
+      "title": {
+        "type": "string",
+        "nullable": false
+      },
+      "kind": {
+        "type": "string",
+        "nullable": false
+      },
+      "description": {
+        "type": "string",
+        "nullable": false
+      },
+      "thumbnail": {
+        "type": "string",
+        "nullable": false
+      },
+      "categoryId": {
+        "type": "string",
+        "nullable": false
+      },
+      "startsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "endsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "timezone": {
+        "type": "string",
+        "nullable": false
+      },
+      "mode": {
+        "type": "string",
+        "nullable": false
+      },
+      "meetingType": {
+        "type": "string",
+        "nullable": false
+      },
+      "meetingUrl": {
+        "type": "string",
+        "nullable": false
+      },
+      "regularPrice": {
+        "type": "number",
+        "nullable": false
+      },
+      "discountPrice": {
+        "type": "number",
+        "nullable": true
+      },
+      "currency": {
+        "type": "string",
+        "nullable": false
+      },
+      "capacity": {
+        "type": "number",
+        "nullable": false
+      },
+      "waitlistEnabled": {
+        "type": "boolean",
+        "nullable": false
+      },
+      "registrationStartAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "registrationEndAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/classes/{{classId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/classes/{{classId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "meetingUrl": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/classes/{{classId}}/cancel",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/classes/{{classId}}/complete",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/classes/{{classId}}/reschedule",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "startsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "endsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "timezone": {
+        "type": "string",
+        "nullable": false
+      },
+      "registrationStartAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "registrationEndAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/classes/{{classId}}/submit",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/classes/{{classId}}/waitlist/promote",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/classes/{{classId}}/withdraw",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/classes/{{classId}}/registrations/{{registrationId}}/attendance",
+    "fields": {
+      "registrationVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "status": {
+        "type": "string",
+        "nullable": false
+      },
+      "notes": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/courses",
+    "fields": {
+      "reason": {
+        "type": "string",
+        "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": false
+      },
+      "slug": {
+        "type": "string",
+        "nullable": false
+      },
+      "shortDescription": {
+        "type": "string",
+        "nullable": false
+      },
+      "description": {
+        "type": "string",
+        "nullable": false
+      },
+      "thumbnail": {
+        "type": "string",
+        "nullable": false
+      },
+      "categoryId": {
+        "type": "string",
+        "nullable": false
+      },
+      "languageId": {
+        "type": "string",
+        "nullable": false
+      },
+      "levelId": {
+        "type": "string",
+        "nullable": false
+      },
+      "learningOutcomes": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "regularPrice": {
+        "type": "number",
+        "nullable": false
+      },
+      "currency": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/courses/{{courseId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/courses/{{courseId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/courses/{{courseId}}/submit",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/courses/{{courseId}}/unpublish",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/courses/{{courseId}}/questions/{{questionId}}/replies",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "body": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/courses/{{courseId}}/quizzes",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": false
+      },
+      "scope": {
+        "type": "string",
+        "nullable": false
+      },
+      "status": {
+        "type": "string",
+        "nullable": false
+      },
+      "isRequired": {
+        "type": "boolean",
+        "nullable": false
+      },
+      "passingPercent": {
+        "type": "number",
+        "nullable": false
+      },
+      "maxAttempts": {
+        "type": "number",
+        "nullable": false
+      },
+      "showCorrectAnswers": {
+        "type": "boolean",
+        "nullable": false
+      },
+      "questions": {
+        "type": "array",
+        "item": {
+          "type": "object",
+          "fields": {
+            "prompt": {
+              "type": "string",
+              "nullable": false
+            },
+            "points": {
+              "type": "number",
+              "nullable": false
+            },
+            "options": {
+              "type": "array",
+              "item": {
+                "type": "object",
+                "fields": {
+                  "text": {
+                    "type": "string",
+                    "nullable": false
+                  },
+                  "isCorrect": {
+                    "type": "boolean",
+                    "nullable": false
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/courses/{{courseId}}/quizzes/{{quizId}}",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/courses/{{courseId}}/delete-requests",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/courses/{{courseId}}/lessons",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "sectionId": {
+        "type": "string",
+        "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": false
+      },
+      "contentType": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/courses/{{courseId}}/lessons/{{lessonId}}",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/courses/{{courseId}}/lessons/{{lessonId}}",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "sectionId": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/courses/{{courseId}}/sections/{{sectionId}}/lessons/order",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "ids": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/courses/{{courseId}}/sections",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/courses/{{courseId}}/sections/{{sectionId}}",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/courses/{{courseId}}/sections/{{sectionId}}",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/courses/{{courseId}}/sections/order",
+    "fields": {
+      "courseVersion": {
+        "type": "number",
+        "nullable": false
+      },
+      "ids": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/languages",
+    "fields": {
+      "name": {
+        "type": "string",
+        "nullable": false
+      },
+      "code": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/languages/{{languageId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/languages/{{languageId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      },
+      "name": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/levels",
+    "fields": {
+      "name": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/levels/{{levelId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/levels/{{levelId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      },
+      "name": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/payout-requests",
+    "fields": {
+      "currency": {
+        "type": "string",
+        "nullable": false
+      },
+      "amount": {
+        "type": "number",
+        "nullable": false
+      },
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      },
+      "payoutMethod": {
+        "type": "string",
+        "nullable": false
+      },
+      "account": {
+        "type": "object",
+        "fields": {
+          "accountHolderName": {
+            "type": "string",
+            "nullable": false
+          },
+          "bankName": {
+            "type": "string",
+            "nullable": false
+          },
+          "accountNumber": {
+            "type": "string",
+            "nullable": false
+          },
+          "routingCode": {
+            "type": "string",
+            "nullable": false
+          },
+          "country": {
+            "type": "string",
+            "nullable": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/products",
+    "fields": {
+      "name": {
+        "type": "string",
+        "nullable": false
+      },
+      "productType": {
+        "type": "string",
+        "nullable": false
+      },
+      "sku": {
+        "type": "string",
+        "nullable": false
+      },
+      "categoryId": {
+        "type": "string",
+        "nullable": false
+      },
+      "description": {
+        "type": "string",
+        "nullable": false
+      },
+      "images": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "regularPrice": {
+        "type": "number",
+        "nullable": false
+      },
+      "currency": {
+        "type": "string",
+        "nullable": false
+      },
+      "stockQuantity": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/products/{{facProductId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/products/{{facProductId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "shortDescription": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/products/{{facProductId}}/inventory-adjustments",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "variantId": {
+        "type": "string",
+        "nullable": false
+      },
+      "delta": {
+        "type": "number",
+        "nullable": false
+      },
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/products/{{facProductId}}/submit",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/products/{{facProductId}}/unpublish",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/products/{{variantProductId}}/variants",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "name": {
+        "type": "string",
+        "nullable": false
+      },
+      "sku": {
+        "type": "string",
+        "nullable": false
+      },
+      "attributes": {
+        "type": "array",
+        "item": {
+          "type": "object",
+          "fields": {
+            "name": {
+              "type": "string",
+              "nullable": false
+            },
+            "value": {
+              "type": "string",
+              "nullable": false
+            }
+          }
+        }
+      },
+      "regularPrice": {
+        "type": "number",
+        "nullable": false
+      },
+      "stockQuantity": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/products/{{variantProductId}}/variants/{{facVariantId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/products/{{variantProductId}}/variants/{{facVariantId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "regularPrice": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/profile",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "displayName": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/session-availability/{{availabilityId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/session-availability/{{availabilityId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "startsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "endsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "timezone": {
+        "type": "string",
+        "nullable": false
+      },
+      "isAvailable": {
+        "type": "boolean",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/session-bookings/{{bookingId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "meetingType": {
+        "type": "string",
+        "nullable": false
+      },
+      "meetingUrl": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/session-availability",
+    "fields": {
+      "startsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "endsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "timezone": {
+        "type": "string",
+        "nullable": false
+      },
+      "isAvailable": {
+        "type": "boolean",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/session-bookings/{{bookingId}}/reschedule",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "availabilityId": {
+        "type": "string",
+        "nullable": false
+      },
+      "startsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/session-bookings/{{bookingId}}/status",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "status": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "facilitator/session-types",
+    "fields": {
+      "title": {
+        "type": "string",
+        "nullable": false
+      },
+      "description": {
+        "type": "string",
+        "nullable": false
+      },
+      "durationMinutes": {
+        "type": "number",
+        "nullable": false
+      },
+      "bufferMinutes": {
+        "type": "number",
+        "nullable": false
+      },
+      "capacity": {
+        "type": "number",
+        "nullable": false
+      },
+      "price": {
+        "type": "number",
+        "nullable": false
+      },
+      "discountPrice": {
+        "type": "number",
+        "nullable": true
+      },
+      "currency": {
+        "type": "string",
+        "nullable": false
+      },
+      "mode": {
+        "type": "string",
+        "nullable": false
+      },
+      "meetingType": {
+        "type": "string",
+        "nullable": false
+      },
+      "meetingUrl": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "facilitator/session-types/{{sessionTypeId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/session-types/{{sessionTypeId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "meetingType": {
+        "type": "string",
+        "nullable": false
+      },
+      "meetingUrl": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "facilitator/session-types/{{sessionTypeId}}/status",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "status": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "media/{{mediaId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "media/{{mediaId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "media/{{mediaId}}/access-link",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "auth/change-password",
+    "fields": {
+      "currentPassword": {
+        "type": "string",
+        "nullable": false
+      },
+      "newPassword": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/forgot-password",
+    "fields": {
+      "email": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/login",
+    "fields": {
+      "email": {
+        "type": "string",
+        "nullable": false
+      },
+      "password": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/logout",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "auth/refresh",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "auth/resend-verification",
+    "fields": {
+      "email": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/reset-password",
+    "fields": {
+      "token": {
+        "type": "string",
+        "nullable": false
+      },
+      "password": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/verify-email",
+    "fields": {
+      "token": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/change-password",
+    "fields": {
+      "currentPassword": {
+        "type": "string",
+        "nullable": false
+      },
+      "newPassword": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/forgot-password",
+    "fields": {
+      "email": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/login",
+    "fields": {
+      "email": {
+        "type": "string",
+        "nullable": false
+      },
+      "password": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/logout",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "auth/refresh",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "auth/register",
+    "fields": {
+      "name": {
+        "type": "string",
+        "nullable": false
+      },
+      "email": {
+        "type": "string",
+        "nullable": false
+      },
+      "password": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/resend-verification",
+    "fields": {
+      "email": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/reset-password",
+    "fields": {
+      "token": {
+        "type": "string",
+        "nullable": false
+      },
+      "password": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "auth/verify-email",
+    "fields": {
+      "token": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/digital-library/claim",
+    "fields": {
+      "productId": {
+        "type": "string",
+        "nullable": false
+      },
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/addresses",
+    "fields": {
+      "label": {
+        "type": "string",
+        "nullable": false
+      },
+      "fullName": {
+        "type": "string",
+        "nullable": false
+      },
+      "phone": {
+        "type": "string",
+        "nullable": false
+      },
+      "addressLine1": {
+        "type": "string",
+        "nullable": false
+      },
+      "addressLine2": {
+        "type": "string",
+        "nullable": false
+      },
+      "city": {
+        "type": "string",
+        "nullable": false
+      },
+      "state": {
+        "type": "string",
+        "nullable": false
+      },
+      "country": {
+        "type": "string",
+        "nullable": false
+      },
+      "postalCode": {
+        "type": "string",
+        "nullable": false
+      },
+      "isDefault": {
+        "type": "boolean",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "me/addresses/{{addressId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "me/addresses/{{addressId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "addressLine2": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "me/addresses/{{addressId}}/default",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/cart/items",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "productId": {
+        "type": "string",
+        "nullable": false
+      },
+      "variantId": {
+        "type": "string",
+        "nullable": false
+      },
+      "quantity": {
+        "type": "number",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "me/cart/items/{{cartItemId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "me/cart/items/{{cartItemId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "quantity": {
+        "type": "number",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/checkout",
+    "fields": {
+      "items": {
+        "type": "array",
+        "item": {
+          "type": "object",
+          "fields": {
+            "itemType": {
+              "type": "string",
+              "nullable": false
+            },
+            "itemId": {
+              "type": "string",
+              "nullable": false
+            },
+            "quantity": {
+              "type": "number",
+              "nullable": false
+            }
+          }
+        }
+      },
+      "shippingAddressId": {
+        "type": "string",
+        "nullable": false
+      },
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/checkout/quote",
+    "fields": {
+      "items": {
+        "type": "array",
+        "item": {
+          "type": "object",
+          "fields": {
+            "itemType": {
+              "type": "string",
+              "nullable": false
+            },
+            "itemId": {
+              "type": "string",
+              "nullable": false
+            },
+            "quantity": {
+              "type": "number",
+              "nullable": false
+            }
+          }
+        }
+      },
+      "shippingAddressId": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/orders/{{orderId}}/cancel",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/classes/{{classId}}/cancel",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/classes/{{classId}}/registrations",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "me/courses/{{courseId}}/enroll",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "me/courses/{{courseId}}/lessons/{{lessonId}}/access-link",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "me/courses/{{courseId}}/lessons/{{lessonId}}/progress",
+    "fields": {
+      "status": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/courses/{{courseId}}/lessons/{{lessonId}}/questions",
+    "fields": {
+      "body": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/courses/{{courseId}}/reviews",
+    "fields": {
+      "rating": {
+        "type": "number",
+        "nullable": false
+      },
+      "comment": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "me/reviews/{{reviewId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "rating": {
+        "type": "number",
+        "nullable": false
+      },
+      "comment": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "me/facilitator-application",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "displayName": {
+        "type": "string",
+        "nullable": false
+      },
+      "shortBio": {
+        "type": "string",
+        "nullable": false
+      },
+      "fullBio": {
+        "type": "string",
+        "nullable": false
+      },
+      "experience": {
+        "type": "string",
+        "nullable": false
+      },
+      "education": {
+        "type": "string",
+        "nullable": false
+      },
+      "specializations": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "languages": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "certifications": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "country": {
+        "type": "string",
+        "nullable": false
+      },
+      "state": {
+        "type": "string",
+        "nullable": false
+      },
+      "city": {
+        "type": "string",
+        "nullable": false
+      },
+      "personalDetails": {
+        "type": "object",
+        "fields": {
+          "legalName": {
+            "type": "string",
+            "nullable": false
+          },
+          "phone": {
+            "type": "string",
+            "nullable": false
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "nullable": false
+          }
+        }
+      },
+      "bankDetails": {
+        "type": "object",
+        "fields": {
+          "accountHolderName": {
+            "type": "string",
+            "nullable": false
+          },
+          "bankName": {
+            "type": "string",
+            "nullable": false
+          },
+          "accountNumber": {
+            "type": "string",
+            "nullable": false
+          },
+          "ifscCode": {
+            "type": "string",
+            "nullable": false
+          }
+        }
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/facilitator-application",
+    "fields": {
+      "displayName": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/facilitator-application/reopen",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/facilitator-application/submit",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "path": "me/facilitator-application/documents/{{documentId}}",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/meditations/{{meditationId}}/access-link",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "me/membership/{{membershipId}}/cancel",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/membership/{{membershipId}}/renew",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/membership/activate",
+    "fields": {
+      "planId": {
+        "type": "string",
+        "nullable": false
+      },
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/orders/{{orderId}}/payment-attempts",
+    "fields": {
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/payments/{{paymentId}}/verify",
+    "fields": {
+      "providerOrderId": {
+        "type": "string",
+        "nullable": false
+      },
+      "providerPaymentId": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/orders/{{orderId}}/refunds",
+    "fields": {
+      "items": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "PATCH",
+    "path": "me/profile",
+    "fields": {
+      "name": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/quiz-attempts/{{attemptId}}/submit",
+    "fields": {
+      "answers": {
+        "type": "array",
+        "item": {
+          "type": "object",
+          "fields": {
+            "questionId": {
+              "type": "string",
+              "nullable": false
+            },
+            "optionId": {
+              "type": "string",
+              "nullable": false
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/quizzes/{{quizId}}/attempts",
+    "fields": {}
+  },
+  {
+    "method": "POST",
+    "path": "me/sessions",
+    "fields": {
+      "sessionTypeId": {
+        "type": "string",
+        "nullable": false
+      },
+      "availabilityId": {
+        "type": "string",
+        "nullable": false
+      },
+      "startsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/sessions/{{bookingId}}/cancel",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "me/sessions/{{bookingId}}/reschedule",
+    "fields": {
+      "version": {
+        "type": "number",
+        "nullable": false
+      },
+      "availabilityId": {
+        "type": "string",
+        "nullable": false
+      },
+      "startsAt": {
+        "type": "string",
+        "nullable": false
+      },
+      "reason": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "public/contact",
+    "fields": {
+      "name": {
+        "type": "string",
+        "nullable": false
+      },
+      "email": {
+        "type": "string",
+        "nullable": false
+      },
+      "subject": {
+        "type": "string",
+        "nullable": false
+      },
+      "message": {
+        "type": "string",
+        "nullable": false
+      },
+      "source": {
+        "type": "string",
+        "nullable": false
+      },
+      "idempotencyKey": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "public/newsletter/confirm",
+    "fields": {
+      "token": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "public/newsletter/subscribe",
+    "fields": {
+      "email": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "path": "public/newsletter/unsubscribe",
+    "fields": {
+      "token": {
+        "type": "string",
+        "nullable": false
+      }
+    }
+  }
+]

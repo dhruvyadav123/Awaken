@@ -1,7 +1,9 @@
 import Link from "next/link";
 
 const entries = [
+  ["Courses", "Explore published self-paced courses.", "/courses"],
   ["Training and classes", "Guided learning and everyday wellbeing practices.", "/classes"],
+  ["Guided sessions", "Explore session formats and check availability.", "/sessions"],
   ["Events and workshops", "Gather, learn, and practice with others.", "/workshops"],
   ["Infinity community", "Explore ongoing learning and connection.", "/infinity"],
   ["Infinity membership", "Review information about membership.", "/infinity/membership"],

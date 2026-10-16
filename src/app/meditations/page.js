@@ -1,4 +1,13 @@
-import ContentPage from "../../components/common/ContentPage";
-export const metadata = { title: "Meditations | Awaken With Meheck" };
-export default function MeditationsPage() { return <ContentPage ambientVideo={{ src: "/videos/7425269-uhd_3840_2160_24fps.mp4", eyebrow: "Pause here", title: "Let the moment move slowly.", description: "Nothing to achieve. Nothing to perfect. Just a little space to arrive.", objectPosition: "center" }} heroImage={{src:"/images/pages/meditations-hero.png",alt:"A woman taking a quiet mindful pause beside a window"}} eyebrow="A short practice" title="A quieter moment, at your own pace." description="Put both feet on the floor, soften your gaze, and give yourself one minute without needing to fix anything." primaryAction={{label:"Begin again",href:"#practice"}} secondaryAction={{label:"Explore classes",href:"/classes"}} cards={[{tag:"01 · ARRIVE",title:"Notice your breath",body:"Let your breath be natural. Notice where you feel it most clearly."},{tag:"02 · SOFTEN",title:"Release the rush",body:"Relax your jaw and shoulders. You can return to the next task when you are ready."},{tag:"03 · RETURN",title:"Choose one next step",body:"Name one small thing that would support you today, then take it gently."}]} sections={[{heading:"A one-minute practice",body:"This is a simple pause, not a test. If your attention wanders, that is part of the practice: notice it and come back."},{heading:"Want more support?",body:"Explore classes for guided learning or workshops for shared practice.",links:[{label:"Classes & learning",description:"Explore ways to build a practice.",href:"/classes"},{label:"Workshops",description:"Learn alongside others.",href:"/workshops"}]}]} />; }
+import CategoryNavigation from "@/components/common/CategoryNavigation";
+import { getPublicCategories } from "@/lib/category-data";
+import PublicCatalogPage from "@/components/common/PublicCatalogPage";
+import { allPublicItems } from "@/lib/public-api";
 
+export const metadata = { title: "Meditations | Awaken With Meheck", description: "Explore guided meditations and short practices." };
+
+export default async function MeditationsPage() {
+  const [result, categories] = await Promise.all([allPublicItems("meditations"), getPublicCategories()]);
+  const filters = <><CategoryNavigation categories={categories.data} type="MEDITATION" />{categories.error && <p role="alert" className="mt-3 text-sm text-[#8a4c3c]">Categories could not be loaded. You can still browse all meditations.</p>}</>;
+  const meditations = Array.isArray(result.data) ? result.data : [];
+  return <PublicCatalogPage eyebrow="Pause here" title="Guided meditations" description="Choose a practice and explore it at your own pace." filters={filters} items={meditations} basePath="/meditations" error={result.error} emptyMessage="No meditations are published right now." />;
+}

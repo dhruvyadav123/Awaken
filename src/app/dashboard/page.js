@@ -1,4 +1,3 @@
-import UserDashboard from "@/components/common/UserDashboard";
 
 export const metadata = {
   title: "Dashboard | Awaken With Me",
@@ -6,5 +5,5 @@ export const metadata = {
 };
 
 export default function DashboardPage() {
-  return <UserDashboard />;
+  return <p role="status">Opening your verified dashboard…</p>;
 }

@@ -1,0 +1,26 @@
+2026-10-09 06:21:19.644: [INFO] CurrentProfilePath: C:\Users\DELL\Desktop\awaken\awakenwithmeheck\.frontend-check-edge\Default
+2026-10-09 06:21:19.644: [INFO] Profiles total count: 1
+2026-10-09 06:21:19.644: [INFO] Profile: name=Profile 1 path=C:\Users\DELL\Desktop\awaken\awakenwithmeheck\.frontend-check-edge\Default lastActive=null
+2026-10-09 06:21:19.644: [INFO] LastUsedProfileDir: C:\Users\DELL\Desktop\awaken\awakenwithmeheck\.frontend-check-edge\Default
+2026-10-09 06:21:19.644: [INFO] VisibilityChanged: 0
+2026-10-09 06:21:19.710: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.716: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.717: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.719: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.723: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.728: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.731: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.736: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.738: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.739: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:19.788: [INFO] OnDoneLoading sync enabled: 0
+2026-10-09 06:21:19.788: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-09 06:21:19.788: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-09 06:21:19.788: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-09 06:21:22.943: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:44.522: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0
+2026-10-09 06:21:44.561: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-10-09 06:21:44.592: [INFO] Primary account changed.
+2026-10-09 06:21:44.592: [INFO] OnPrimaryAccountChanged PrimaryAccountChangeEvent::Type::kSet
+2026-10-09 06:21:44.646: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 3
+2026-10-09 06:22:00.661: [INFO] Sync initialization duration: 13536ms

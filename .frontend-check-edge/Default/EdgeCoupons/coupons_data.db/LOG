@@ -1,0 +1,5 @@
+2026/10/09-11:52:00.880 6d4 Creating DB C:\Users\DELL\Desktop\awaken\awakenwithmeheck\.frontend-check-edge\Default\EdgeCoupons/coupons_data.db since it was missing.
+2026/10/09-11:52:00.914 6d4 Reusing MANIFEST C:\Users\DELL\Desktop\awaken\awakenwithmeheck\.frontend-check-edge\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/10/09-11:58:39.466 26bc Level-0 table #5: started
+2026/10/09-11:58:43.017 26bc Level-0 table #5: 683284 bytes OK
+2026/10/09-11:58:43.022 26bc Delete type=0 #3

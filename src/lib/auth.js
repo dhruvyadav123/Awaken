@@ -8,6 +8,7 @@ export function normalizeEmail(value = "") {
   return String(value).trim().toLowerCase();
 }
 
+
 export function normalizeName(value = "") {
   return String(value).trim();
 }

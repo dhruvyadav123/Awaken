@@ -1,3 +1,11 @@
+/* 
+.cinema-portrait-cosmos
+.cinema-cosmos-orbit
+.cinema-cosmos-stars
+.cinema-portrait-art
+.cinema-portrait-shimmer
+.cinema-portrait-orbit */
+
 .cosmic-hero {
   position: relative;
   isolation: isolate;
@@ -560,3 +568,6 @@
 .cosmic-hero{border:0;border-radius:0}.cosmic-shell{width:min(calc(100% - 56px),1480px);gap:clamp(28px,5vw,88px)}.cosmic-copy{padding:0;border:0;border-radius:0;background:none;backdrop-filter:none;box-shadow:none}.cosmic-copy:before{content:"";display:block;width:54px;height:1px;margin-bottom:26px;background:linear-gradient(90deg,rgba(152,210,238,.9),transparent)}.cosmic-canvas-shell{background:transparent;border:0;border-radius:0;box-shadow:none}.cosmic-canvas-shell:before{inset:12% 6%;border:0;background:radial-gradient(ellipse at center,rgba(61,115,151,.07),rgba(20,49,75,.025) 47%,transparent 72%);filter:blur(18px)}.cosmic-sense-nav{gap:0;border-top:1px solid rgba(171,207,228,.13)}.cosmic-sense-nav a{position:relative;gap:6px;padding:10px 13px;border:0;border-right:1px solid rgba(171,207,228,.1);border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;color:rgba(220,232,242,.75)}.cosmic-sense-nav a:last-child{border-right:0}.cosmic-sense-nav a:after{content:"";position:absolute;right:13px;bottom:5px;left:13px;height:1px;background:#8fc9e8;transform:scaleX(0);transform-origin:left;transition:transform .22s ease}.cosmic-sense-nav a:hover,.cosmic-sense-nav a:focus-visible{border-color:rgba(171,207,228,.1);background:transparent;color:#fff;transform:none}.cosmic-sense-nav a:hover:after,.cosmic-sense-nav a:focus-visible:after{transform:scaleX(1)}.cosmic-footer-hint{opacity:.55}@media(max-width:800px){.cosmic-shell{width:min(calc(100% - 36px),1480px)}.cosmic-copy{padding:0}.cosmic-sense-nav{margin-inline:20px;padding:0 0 52px;border-top:0}.cosmic-sense-nav a{border:0;padding:8px 10px}}
 /* Canvas remains transparent so the 3D scene merges into the shared starfield. */
 .cosmic-canvas-shell,.cosmic-canvas-shell canvas{background:transparent!important}.cosmic-canvas-shell:before{opacity:.58}.cosmic-space-aura{opacity:.68;mix-blend-mode:screen}
+
+
+

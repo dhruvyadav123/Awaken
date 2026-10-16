@@ -172,7 +172,26 @@
 .cinema-content h1{animation-delay:.08s}.cinema-description{animation-delay:.16s}.cinema-actions{animation-delay:.24s}.renew-home .cinema-note{animation-delay:.32s}
 .renew-home .cinema-content h1 span{display:block;text-wrap:balance}
 .cinema-portrait{--portrait-depth:0px;position:relative;align-self:end;width:100%;aspect-ratio:1;min-width:0;mix-blend-mode:normal}
-.cinema-portrait-image{position:absolute;inset:0;mix-blend-mode:multiply}
+.cinema-portrait-cosmos{position:absolute;z-index:0;inset:-16%;opacity:0;pointer-events:none;transition:opacity .6s ease}
+.cinema-portrait-cosmos svg{display:block;width:100%;height:100%}
+.cinema-portrait:hover .cinema-portrait-cosmos{opacity:1}
+.cinema-cosmos-orbit{transform-box:view-box;transform-origin:center}
+.cinema-portrait:hover .cinema-cosmos-orbit-outer{animation:cinema-cosmos-turn 28s linear infinite}
+.cinema-portrait:hover .cinema-cosmos-orbit-inner{animation:cinema-cosmos-turn 36s linear infinite reverse}
+.cinema-portrait:hover .cinema-cosmos-stars{animation:cinema-cosmos-twinkle 3s ease-in-out infinite}
+.cinema-portrait:hover .cinema-cosmos-stars-delayed{animation-delay:-1.5s}
+.cinema-portrait-art{position:absolute;z-index:2;inset:-8%;overflow:hidden;border-radius:28px;opacity:0;pointer-events:none;transition:opacity .45s ease}
+.cinema-portrait:hover .cinema-portrait-art{opacity:1}
+.cinema-portrait-shimmer{position:absolute;display:block;background:linear-gradient(105deg,rgba(179,199,174,.28),rgba(220,201,148,.7),rgba(255,252,233,.95),rgba(164,194,177,.65),rgba(234,216,170,.72),rgba(179,199,174,.28));background-size:240% 100%}
+.cinema-portrait-shimmer-top,.cinema-portrait-shimmer-bottom{left:0;right:0;height:6.7%}
+.cinema-portrait-shimmer-top{top:0}.cinema-portrait-shimmer-bottom{bottom:0}
+.cinema-portrait-shimmer-left,.cinema-portrait-shimmer-right{top:6.7%;bottom:6.7%;width:6.7%;background-image:linear-gradient(180deg,rgba(179,199,174,.28),rgba(220,201,148,.7),rgba(255,252,233,.95),rgba(164,194,177,.65),rgba(234,216,170,.72),rgba(179,199,174,.28));background-size:100% 240%}
+.cinema-portrait-shimmer-left{left:0}.cinema-portrait-shimmer-right{right:0}
+.cinema-portrait:hover .cinema-portrait-shimmer-top,.cinema-portrait:hover .cinema-portrait-shimmer-bottom{animation:cinema-frame-shimmer-x 4.5s linear infinite}
+.cinema-portrait:hover .cinema-portrait-shimmer-left,.cinema-portrait:hover .cinema-portrait-shimmer-right{animation:cinema-frame-shimmer-y 4.5s linear infinite}
+.cinema-portrait-orbit{position:absolute;display:block;inset:0;border:1px solid rgba(101,128,91,.32);border-radius:28px}
+.cinema-portrait-orbit-two{inset:6.5%;border-color:rgba(175,149,95,.3);border-radius:22px}
+.cinema-portrait-image{position:absolute;z-index:1;inset:0;mix-blend-mode:multiply}
 .cinema-portrait-image img{object-fit:contain;object-position:center bottom;filter:none;mask-image:linear-gradient(to bottom,#000 88%,transparent 100%)}
 .cinema-portrait-plane{position:absolute;z-index:1;display:block;border-radius:50%;transform-style:preserve-3d}
 .cinema-portrait-plane.plane-one{inset:11% 10% 7%;background:linear-gradient(145deg,rgba(212,223,207,.92),rgba(237,233,217,.35));box-shadow:inset 0 0 0 1px rgba(83,112,87,.12),0 30px 70px rgba(67,88,68,.08);transform:translateZ(-30px) rotate(-4deg)}
@@ -185,7 +204,12 @@
 @keyframes reflection-arrive{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
 @keyframes cinema-presence{0%,100%{translate:0 0}25%{translate:4px -5px}50%{translate:9px -2px}75%{translate:3px -7px}}
 @keyframes cinema-shadow{0%,100%{opacity:.72;scale:.92 1}50%{opacity:.5;scale:1.02 .86}}
+@keyframes cinema-cosmos-turn{to{transform:rotate(360deg)}}
+@keyframes cinema-cosmos-twinkle{0%,100%{opacity:.38}50%{opacity:1}}
+@keyframes cinema-frame-shimmer-x{from{background-position:100% 50%}to{background-position:0 50%}}
+@keyframes cinema-frame-shimmer-y{from{background-position:50% 100%}to{background-position:50% 0}}
 @media(max-width:760px){.cinema-hero{perspective:1000px}.cinema-content{transform:none}.cinema-portrait{width:min(100%,480px);margin-top:6px}.renew-home .cinema-portrait-caption{right:4%;bottom:11%}.cinema-portrait-plane.plane-one{inset:13% 8% 6%}.cinema-portrait-plane.plane-two{inset:8% 1% 11%}}
 @media(max-width:650px){.hero-reflections{max-width:500px;margin:16px 0 22px;padding-left:14px}.hero-reflections-stage{min-height:164px}.hero-reflections-quote{font-size:17px;line-height:1.42}.hero-reflections-controls{min-height:40px}}
 @media(prefers-reduced-motion:reduce){.cinema-content>*,.cinema-portrait-image,.cinema-portrait-shadow{animation:none}.cinema-portrait,.cinema-content{transform:none;transition:none}}
+@media(prefers-reduced-motion:reduce){.cinema-portrait-cosmos,.cinema-portrait-art{transition:none}.cinema-cosmos-orbit,.cinema-cosmos-stars,.cinema-portrait-shimmer{animation:none!important}}
 @media(prefers-reduced-motion:reduce){.hero-reflections-copy{animation:none}}

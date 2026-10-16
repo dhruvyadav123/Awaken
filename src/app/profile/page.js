@@ -1,4 +1,4 @@
-import UserDashboard from "@/components/common/UserDashboard";
+import AccountCenter from "@/components/account/AccountCenter";
 
 export const metadata = {
   title: "Your Profile | Awaken With Me",
@@ -6,5 +6,5 @@ export const metadata = {
 };
 
 export default function ProfilePage() {
-  return <UserDashboard />;
+  return <AccountCenter section="overview" />;
 }

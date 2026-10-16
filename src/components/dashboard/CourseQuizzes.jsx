@@ -1,0 +1,11 @@
+"use client";
+import { RecordDetails } from "@/components/common/ApiRecordDisplay";
+import { useState } from "react";
+import { useApi, rowsOf, idOf } from "./data";
+import { State, Card, Badge } from "./Elements";
+import MutationDialog from "./MutationDialog";
+import { operationFor } from "@/lib/dashboard/operations";
+export default function CourseQuizzes({ courseId }) {
+  const base = `facilitator/courses/${courseId}`; const state = useApi(`${base}/quizzes`); const attempts = useApi(`${base}/quiz-attempts`); const [modal, setModal] = useState(null); const [notice, setNotice] = useState(""); const rows = rowsOf(state.data, ["quizzes"]);
+  return <Card title="Course assessments"><State {...state} retry={state.reload} />{notice && <p className="ws-notice" role="status">{notice}</p>}<button className="ws-secondary" onClick={() => setModal({ operation: operationFor("POST", "facilitator/courses/{{courseId}}/quizzes"), path: `${base}/quizzes`, detailPath: base, title: "Create course assessment" })}>+ Create assessment</button><State empty={!state.loading && !state.error && !rows.length} title="No course assessments" description="Create an assessment to help your students reflect on their learning." /><ul className="ws-list">{rows.map(item => <li key={idOf(item)}><div className="ws-list-content"><h3>{item.title}</h3><RecordDetails record={item} /><p>Pass mark: {item.passingPercent ?? "—"}%</p><Badge status={item.status} /></div><button className="ws-secondary" onClick={() => setModal({ operation: operationFor("PATCH", "facilitator/courses/{{courseId}}/quizzes/{{quizId}}"), path: `${base}/quizzes/${idOf(item)}`, detailPath: `${base}/quizzes/${idOf(item)}`, current: item, title: "Edit assessment" })}>Edit</button></li>)}</ul>{!attempts.loading && !attempts.error && <RecordDetails record={attempts.data} title="Assessment attempts" />}<State error={attempts.error} retry={attempts.reload} /><p className="ws-muted">Recorded attempts: {attempts.loading ? "Loading…" : rowsOf(attempts.data, ["attempts", "quizAttempts"]).length}</p>{modal && <MutationDialog {...modal} courseDetailPath={base} onClose={() => setModal(null)} onSuccess={async () => { setNotice("Assessment saved."); await state.reload(); }} />}</Card>;
+}

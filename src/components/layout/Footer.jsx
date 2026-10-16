@@ -1,14 +1,19 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 import { ContactTrigger } from "../common/ContactPopup";
+import { getCmsItems, getCmsPayload, getFooterConfig, getTextValue, safeLink } from "@/lib/cms-content";
+import NewsletterForm from "../common/NewsletterForm";
 
 const explore = [
   ["Start here", "/start-here"],
   ["Classes", "/classes"],
+  ["Sessions", "/sessions"],
+  ["Courses", "/courses"],
   ["Workshops", "/workshops"],
   ["Facilitators", "/facilitators"],
   ["Community stories", "/testimonials"],
   ["Journal", "/blog"],
+  ["Meditations", "/meditations"],
   ["Shop", "/shop"],
 ];
 
@@ -17,6 +22,7 @@ const helpful = [
   ["Our story", "/about"],
   ["Become a facilitator", "/become-a-facilitator"],
   ["Contact", "/contact"],
+  ["Verify a certificate", "/certificates/verify"],
   ["Privacy policy", "/privacy-policy"],
   ["Refund policy", "/refund-policy"],
   ["Terms of use", "/terms"],
@@ -133,8 +139,33 @@ function FooterLinks({ title, links }) {
   );
 }
 
-export default function Footer() {
-  const year = new Date().getFullYear();
+export default async function Footer({ website = {} }) {
+  const timezone = website.general?.timezone || "Asia/Kolkata";
+  const year = new Intl.DateTimeFormat("en", { year: "numeric", timeZone: timezone }).format(new Date());
+  const [footerRecords, socialRecords] = await Promise.all([getCmsItems("footer-settings"), getCmsItems("social-links")]);
+  const settings = getFooterConfig(footerRecords);
+  const description = getTextValue(settings, "description", "aboutText", "footerDescription", "companyDescription");
+  const tagline = getTextValue(settings, "tagline", "brandTagline");
+  const address = settings.address || settings.visitAddress;
+  const addressLines = Array.isArray(address) ? address.filter((line) => typeof line === "string" && line.trim()) : typeof address === "string" && address.trim() ? address.split(/\r?\n/).filter(Boolean) : [];
+  const email = getTextValue(settings, "email", "contactEmail");
+  const phone = getTextValue(settings, "phone", "contactPhone") || getTextValue(website.general, "supportPhone");
+  const copyright = getTextValue(settings, "copyright", "copyrightText") || `© ${year} Awaken With Meheck. All rights reserved.`;
+  const visitNote = getTextValue(settings, "visitNote", "locationNote");
+  const mapHref = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(addressLines.join(", "));
+  const websiteComponents = Array.isArray(website.components) ? website.components : [];
+  const cmsSocials = [...socialRecords, ...websiteComponents.filter((item) => item.kind === "SOCIAL_LINK")].map(getCmsPayload).filter((item) => !item.kind || item.kind === "SOCIAL_LINK");
+  const socials = cmsSocials.length ? cmsSocials : Array.isArray(settings.socialLinks) ? settings.socialLinks : Array.isArray(settings.socials) ? settings.socials : [];
+  const seenSocialLinks = new Set();
+  const socialLinks = socials.flatMap((item) => {
+    const label = getTextValue(item, "label", "name", "title");
+    const href = safeLink(getTextValue(item, "url", "href", "websiteUrl"), { allowExternal: true });
+    if (!label || !href) return [];
+    const key = JSON.stringify([label, href]);
+    if (seenSocialLinks.has(key)) return [];
+    seenSocialLinks.add(key);
+    return [{ key, label, href }];
+  });
 
   return (
     <footer className="relative w-full overflow-hidden border-t border-[#d7e0d5] bg-[#f1f4ee]">
@@ -169,11 +200,9 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="mt-6 mb-0 max-w-[405px] text-[13px] leading-[1.95] text-[#637067]">
-              Your Guide To You is a self-development company helping people
-              achieve their highest potential by aligning with their true self
-              through Western psychology and Eastern occult knowledge.
-            </p>
+            <p className="mt-6 mb-0 max-w-[405px] text-[13px] leading-[1.95] text-[#637067]">{description}</p>
+
+            <NewsletterForm />
 
             <div className="mt-8 flex items-center gap-3 text-[#587060]">
               <LeafIcon />
@@ -184,7 +213,7 @@ export default function Footer() {
                 </p>
 
                 <p className="mt-1 mb-0 text-[11px] tracking-[0.08em] text-[#6b796f]">
-                  Breathe · Heal · Evolve
+                  {tagline}
                 </p>
               </div>
             </div>
@@ -198,42 +227,43 @@ export default function Footer() {
 
           {/* Visit */}
           <div className="min-w-0">
-            <SectionTitle>Visit us</SectionTitle>
+            <SectionTitle>{addressLines.length ? "Visit us" : "Contact"}</SectionTitle>
 
-            <div className="flex items-start gap-3">
+            {addressLines.length > 0 && <div className="flex items-start gap-3">
               <LocationIcon />
 
-              <address className="not-italic text-[13px] leading-[1.9] text-[#5e6c62]">
-                722, Mangal Gyan,
-                <br />
-                12th Road, Khar West,
-                <br />
-                Mumbai 400052
-              </address>
-            </div>
+              <address className="not-italic text-[13px] leading-[1.9] text-[#5e6c62]">{addressLines.map((line, index) => <span key={line + index}>{line}{index < addressLines.length - 1 && <br />}</span>)}</address>
+            </div>}
 
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=722%20Mangal%20Gyan%2C%2012th%20Road%2C%20Khar%20West%2C%20Mumbai%20400052"
+            {addressLines.length > 0 && <a
+              href={mapHref}
               target="_blank"
               rel="noreferrer"
               className="group mt-6 inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.04em] text-[#42624f] transition-colors duration-300 hover:text-[#1f3a2f]"
             >
               Get directions
               <ArrowIcon />
-            </a>
+            </a>}
+
+            {(email || phone) && <div className="mt-4 grid gap-2 text-[12px] text-[#5e6c62]">
+              {email && <a className="hover:underline" href={"mailto:" + email}>{email}</a>}
+              {phone && <a className="hover:underline" href={"tel:" + phone.replace(/[^+\d]/g, "")}>{phone}</a>}
+            </div>}
+
+            {socialLinks.length > 0 && <div className="mt-4"><p className="mb-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#476652]">Follow us</p><div className="flex flex-wrap gap-x-4 gap-y-2 text-[12px]">{socialLinks.map(({ key, label, href }) => (
+              <a key={key} href={href} target="_blank" rel="noreferrer" className="text-[#42624f] hover:underline">{label}</a>
+            ))}</div></div>}
 
             <div className="mt-8 h-px w-full max-w-[180px] bg-[#ced9ce]" />
 
-            <p className="mt-6 max-w-[210px] text-[11px] leading-[1.8] text-[#7a867d]">
-              A space created for reflection, growth and deeper connection.
-            </p>
+            <p className="mt-6 max-w-[210px] text-[11px] leading-[1.8] text-[#7a867d]">{visitNote}</p>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div className="flex min-h-[64px] items-center justify-between gap-8 border-t border-[#d4ded2] text-[10px] text-[#758078] max-[640px]:flex-col max-[640px]:items-start max-[640px]:justify-center max-[640px]:gap-3 max-[640px]:py-5">
           <p className="m-0">
-            © {year} Awaken With Meheck. All rights reserved.
+            {copyright}
           </p>
 
           <div className="flex items-center gap-3">

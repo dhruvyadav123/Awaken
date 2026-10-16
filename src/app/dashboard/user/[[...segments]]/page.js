@@ -1,0 +1,5 @@
+import { notFound } from "next/navigation";
+import DashboardPage from "@/components/dashboard/DashboardPage";
+import { userNavigation, userAccountRoutes } from "@/lib/dashboard/navigation";
+export const metadata = { title: "My learning | Awaken With Me" };
+export default async function UserDashboard({ params }) { const { segments = [] } = await params; const section = segments[0] || "overview"; if (!userNavigation.some(([id]) => id === section) && !userAccountRoutes.includes(section)) notFound(); const detail = ["digital-library", "courses", "workshops", "bookings", "orders", "certificates", "community", "payments", "refunds", "membership", "meditations", "quizzes"].includes(section); const lesson = section === "courses" && segments.length === 4 && segments[2] === "lessons"; const attempt = section === "quizzes" && segments.length === 3 && segments[1] === "attempts"; if ((segments.length > (detail ? 2 : 1) && !lesson && !attempt) || segments.some(value => /[/\\]/.test(value))) notFound(); return <DashboardPage section={section} segments={segments.slice(1)} />; }
