@@ -4,12 +4,8 @@ import { useEffect, useRef } from "react";
 
 const REVEAL_SELECTOR = [
   ".renew-section-heading",
-  ".renew-need",
-  ".renew-how > div",
-  ".renew-steps > li",
   ".renew-community",
   ".renew-offering",
-  ".renew-pause > div",
   ".renew-philosophy > div",
   ".renew-faq > div",
   ".renew-cta > h2",

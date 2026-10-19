@@ -505,6 +505,26 @@ a { color: inherit; text-decoration: none; }
 .auth-privacy-note { margin: 19px 0 0; color: #a0a8a0; font-size: 9px; text-align: center; }
 @keyframes auth-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @media(max-width:640px) { .auth-page { min-height: auto; padding: 20px 14px; }.auth-layout { max-width: 430px; grid-template-columns: 1fr; }.auth-aside { min-height: 180px; padding: 20px 23px; }.auth-mark { width: 32px; height: 32px; font-size: 18px; }.auth-aside .auth-eyebrow { margin-top: 18px; margin-bottom: 7px; }.auth-aside-quote { font-size: 27px; }.auth-aside-note,.auth-back-link { display: none; }.auth-panel { padding: 27px 23px 24px; }.auth-panel h1 { font-size: 30px; } }
+
+/* Clear, consistent feedback for sign-in and other API-backed actions. */
+.awm-toast-region { position: fixed; z-index: 10000; top: 22px; right: 22px; display: grid; width: min(390px, calc(100vw - 28px)); gap: 12px; pointer-events: none; }
+.awm-toast { --toast-accent: #315a48; --toast-soft: #edf5ed; position: relative; display: grid; grid-template-columns: 42px minmax(0,1fr) 30px; gap: 12px; overflow: hidden; padding: 16px 14px 17px; border: 1px solid color-mix(in srgb, var(--toast-accent) 20%, white); border-radius: 14px; background: color-mix(in srgb, white 96%, var(--toast-soft)); color: #243d34; box-shadow: 0 18px 48px rgb(27 48 39 / 16%), 0 4px 14px rgb(27 48 39 / 8%); pointer-events: auto; animation: awm-toast-in .28s cubic-bezier(.2,.8,.2,1) both; }
+.awm-toast-error { --toast-accent: #a14d3e; --toast-soft: #fff1ed; }
+.awm-toast-info { --toast-accent: #416b84; --toast-soft: #edf5f8; }
+.awm-toast-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 50%; background: var(--toast-soft); color: var(--toast-accent); }
+.awm-toast-icon svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.awm-toast-copy { min-width: 0; padding-top: 1px; }
+.awm-toast-copy strong { display: block; font-family: Georgia, serif; font-size: 16px; font-weight: 600; letter-spacing: -.01em; }
+.awm-toast-copy p { margin: 4px 0 0; color: #5a6b63; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.awm-toast > button { display: grid; width: 30px; height: 30px; place-items: center; border: 0; border-radius: 50%; background: transparent; color: #738078; cursor: pointer; }
+.awm-toast > button:hover { background: rgb(41 71 60 / 8%); color: #29473c; }
+.awm-toast > button:focus-visible { outline: 2px solid var(--toast-accent); outline-offset: 2px; }
+.awm-toast > button svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+.awm-toast-timer { position: absolute; right: 0; bottom: 0; left: 0; height: 3px; background: var(--toast-accent); transform-origin: left; animation: awm-toast-timer linear forwards; }
+@keyframes awm-toast-in { from { opacity: 0; transform: translate3d(24px,-6px,0) scale(.98); } }
+@keyframes awm-toast-timer { to { transform: scaleX(0); } }
+@media (max-width: 640px) { .awm-toast-region { top: 12px; right: 14px; } .awm-toast { padding: 14px 12px 16px; } }
+@media (prefers-reduced-motion: reduce) { .awm-toast,.awm-toast-timer { animation: none; } }
 @media(prefers-reduced-motion: reduce) { .auth-layout { animation: none; } }
 /* Let the supplied hero art stay crisp and fully visible while its orbit drifts gently. */
 .home-hero-art { isolation: isolate; }

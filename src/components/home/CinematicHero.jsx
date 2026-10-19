@@ -84,9 +84,7 @@ function getMotionPreference() {
 }
 
 export default function CinematicHero() {
-  const heroRef = useRef(null);
   const introRef = useRef(null);
-  const videoRef = useRef(null);
 
   const motionAllowed =
     useSyncExternalStore(
@@ -95,30 +93,10 @@ export default function CinematicHero() {
       () => false
     );
 
-  const [paused, setPaused] =
-    useState(false);
-
-  const [playing, setPlaying] =
-    useState(false);
-
-  const [failed, setFailed] =
-    useState(false);
-
-  const [
-    autoplayBlocked,
-    setAutoplayBlocked,
-  ] = useState(false);
-
   const [
     reflectionIndex,
     setReflectionIndex,
   ] = useState(0);
-
-  const animate =
-    motionAllowed &&
-    !paused &&
-    !failed &&
-    !autoplayBlocked;
 
   /*
    * Reflection rotation
@@ -140,102 +118,6 @@ export default function CinematicHero() {
     return () =>
       window.clearInterval(timer);
   }, [motionAllowed]);
-
-  /*
-   * Nature video:
-   * only load/play when required.
-   */
-  useEffect(() => {
-    const video =
-      videoRef.current;
-
-    const hero =
-      heroRef.current;
-
-    if (!video || !hero) {
-      return undefined;
-    }
-
-    if (!animate) {
-      video.pause();
-
-      return undefined;
-    }
-
-    let disposed = false;
-    let inView = true;
-
-    if (
-      !video.getAttribute("src")
-    ) {
-      video.src =
-        "/videos/forest-desktop.mp4";
-    }
-
-    function syncPlayback() {
-      if (
-        disposed ||
-        !inView ||
-        document.hidden
-      ) {
-        video.pause();
-
-        return;
-      }
-
-      video
-        .play()
-        .catch((error) => {
-          if (
-            !disposed &&
-            error.name ===
-              "NotAllowedError"
-          ) {
-            setAutoplayBlocked(
-              true
-            );
-          }
-        });
-    }
-
-    const observer =
-      new IntersectionObserver(
-        ([entry]) => {
-          inView =
-            entry.isIntersecting;
-
-          hero.dataset.inView =
-            String(inView);
-
-          syncPlayback();
-        },
-        {
-          threshold: 0.05,
-        }
-      );
-
-    observer.observe(hero);
-
-    document.addEventListener(
-      "visibilitychange",
-      syncPlayback
-    );
-
-    syncPlayback();
-
-    return () => {
-      disposed = true;
-
-      video.pause();
-
-      observer.disconnect();
-
-      document.removeEventListener(
-        "visibilitychange",
-        syncPlayback
-      );
-    };
-  }, [animate]);
 
   /*
    * Very subtle hero scroll movement.
@@ -310,39 +192,13 @@ export default function CinematicHero() {
     };
   }, [motionAllowed]);
 
-  function toggleMotion() {
-    const video =
-      videoRef.current;
-
-    if (animate) {
-      setPaused(true);
-
-      video?.pause();
-
-      return;
-    }
-
-    setPaused(false);
-
-    setAutoplayBlocked(false);
-
-    video
-      ?.play()
-      .catch(() => {
-        setAutoplayBlocked(
-          true
-        );
-      });
-  }
-
   const reflection =
     reflections[
       reflectionIndex
     ];
 
   return (
-    <>
-      <section
+    <section
         ref={introRef}
         className="cinema-hero"
         aria-labelledby="cinema-title"
@@ -532,92 +388,6 @@ export default function CinematicHero() {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* ==============================
-          NATURE / STILLNESS SECTION
-          ============================== */}
-
-      <section
-        ref={heroRef}
-        className="cinema-nature"
-        aria-label="A quiet moment in nature"
-        data-playing={playing}
-      >
-        <video
-          ref={videoRef}
-          className="cinema-video"
-          muted
-          loop
-          playsInline
-          preload="none"
-          poster="/videos/forest-source-frame.jpg"
-          aria-hidden="true"
-          tabIndex={-1}
-          disablePictureInPicture
-          onPlaying={() =>
-            setPlaying(true)
-          }
-          onPause={() =>
-            setPlaying(false)
-          }
-          onError={() => {
-            setFailed(true);
-            setPlaying(false);
-          }}
-        />
-
-        <div
-          className="cinema-nature-shade"
-          aria-hidden="true"
-        />
-
-        <div className="cinema-nature-copy">
-          <p className="cinema-eyebrow">
-            A MOMENT OF STILLNESS
-          </p>
-
-          <h2>
-            Slow down.
-            <br />
-
-            <em>
-              Just be here.
-            </em>
-          </h2>
-        </div>
-
-        {motionAllowed &&
-          !failed && (
-            <button
-              className="cinema-control"
-              type="button"
-              onClick={
-                toggleMotion
-              }
-              aria-label={
-                animate
-                  ? "Pause nature video"
-                  : "Play nature video"
-              }
-              aria-pressed={
-                !animate
-              }
-            >
-              <span
-                aria-hidden="true"
-              >
-                {animate
-                  ? "Ⅱ"
-                  : "▷"}
-              </span>
-
-              {animate
-                ? "Pause video"
-                : "Play video"}
-            </button>
-          )}
-      </section>
-    </>
+    </section>
   );
 }

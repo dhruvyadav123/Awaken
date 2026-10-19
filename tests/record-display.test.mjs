@@ -13,6 +13,11 @@ test("Customer details hide internal fields and public views only show relevant 
   assert.equal(publicFields.find(field => field.key === "regularPrice").value, 0);
 });
 
+test("Generic detail panels omit response envelopes and backend diagnostics", () => {
+  const fields = helper.recordFields({ title: "Practice", success: true, requestId: "request-1", traceId: "trace-1", debug: "internal", stack: "private", rawResponse: "private", links: { self: "/internal" } });
+  assert.deepEqual(fields.map(field => field.key), ["title"]);
+});
+
 test("Images handle backend thumbnail URLs, media IDs, full image arrays and populated file descriptors", () => {
   const assets = helper.recordMedia({ title: "Course", thumbnail: "https://cdn.test/thumbnail.png", imageMediaId: "6accacf33d47adf5350347c3", images: ["https://cdn.test/first.png", { url: "https://cdn.test/second.png", altText: "Second" }] });
   assert.equal(assets.length, 4); assert.equal(assets[0].kind, "IMAGE");

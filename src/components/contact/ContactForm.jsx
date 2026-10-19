@@ -1,8 +1,10 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { useNotifications } from "@/components/common/NotificationCenter";
 
 export default function ContactForm() {
+  const notifications = useNotifications();
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState("");
   const [statusType, setStatusType] = useState("info");
@@ -25,6 +27,7 @@ export default function ContactForm() {
     if (payload.name.length < 2 || !payload.subject || payload.message.length < 5) {
       setStatus("Please enter your name, a subject, and a message of at least 5 characters.");
       setStatusType("error");
+      notifications.error("Please enter your name, a subject, and a message of at least 5 characters.", { title: "Check the form" });
       return;
     }
     if (pendingRequest.current?.signature !== signature) {
@@ -47,11 +50,14 @@ export default function ContactForm() {
       if (!response.ok || result?.success !== true || result?.data?.accepted !== true) throw new Error(result?.error || (result?.success === false && result?.message) || "Your message could not be sent. Please try again.");
       setStatus("Your message has been sent. We’ll be in touch soon.");
       setStatusType("success");
+      notifications.success("Your message has been sent. We’ll be in touch soon.", { title: "Message sent" });
       form.reset();
       pendingRequest.current = null;
     } catch (error) {
-      setStatus(error.name === "TimeoutError" || error.name === "AbortError" ? "The request took too long. Please try again." : error.message || "Your message could not be sent. Please try again.");
+      const message = error.name === "TimeoutError" || error.name === "AbortError" ? "The request took too long. Please try again." : error.message || "Your message could not be sent. Please try again.";
+      setStatus(message);
       setStatusType("error");
+      notifications.error(message, { title: "Message not sent" });
     } finally {
       submitting.current = false;
       setBusy(false);

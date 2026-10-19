@@ -63,7 +63,7 @@ const secretKey =
   /password|secret|token|authorization|csrf|cookie|storageKey|providerKey|objectKey|bucket|internalPath/i;
 
 // Generic detail panels contain customer-facing facts, never raw API metadata.
-const internalKey = /^(?:_.*|id|.*Ids?|version|.*Version|slug|.*Slug|createdBy|updatedBy|deletedAt|metadata|pagination|permissions|capabilities|bankDetails|personalDetails|fileAccessPath|publicPath|mimeType|sizeBytes|checksum|etag)$/;
+const internalKey = /^(?:_.*|id|.*Ids?|version|.*Version|slug|.*Slug|createdBy|updatedBy|deletedAt|metadata|pagination|permissions|capabilities|bankDetails|personalDetails|fileAccessPath|publicPath|mimeType|sizeBytes|checksum|etag|success|requestId|traceId|correlationId|debug|stack|rawResponse|apiResponse|links)$/i;
 const publicDetailKeys = new Set([
   "title", "name", "description", "shortDescription", "excerpt", "content", "body", "text",
   "regularPrice", "discountPrice", "price", "amount", "currency", "duration", "durationDays", "durationMinutes",

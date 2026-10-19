@@ -2,6 +2,7 @@ import Link from "next/link";
 import { allPublicItems } from "@/lib/public-api";
 import { RecordMedia } from "@/components/common/ApiRecordDisplay";
 import { facilitatorProfileLink } from "@/lib/navigation-menu";
+import { facilitatorPathways } from "@/data/facilitator-pathways";
 
 export const metadata = {
   title: "Our Facilitators | Awaken With Meheck",
@@ -105,6 +106,18 @@ export default async function FacilitatorsPage() {
             classes, sessions and workshops.
           </p>
         </header>
+
+        <section className="mb-12 rounded-2xl border border-[#dce6dc] bg-[#f4f6ef] p-6 sm:p-8" aria-labelledby="facilitator-options-title">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#63856b]">Facilitator options</p>
+          <div className="mt-3 flex flex-wrap items-end justify-between gap-5">
+            <div><h2 id="facilitator-options-title" className="font-[Georgia,serif] text-3xl leading-tight text-[#193b29] sm:text-4xl">Train to facilitate with Awaken</h2><p className="mt-3 max-w-2xl text-sm leading-7 text-[#718076]">Review the currently verified pathway requirements before starting your application.</p></div>
+            <Link href="/dashboard/user/application" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#28563e] px-6 text-sm font-semibold text-white transition hover:bg-[#1c412e]">Apply Now <span aria-hidden="true" className="ml-2">→</span></Link>
+          </div>
+          <div className="mt-7 grid gap-4">{facilitatorPathways.map((pathway) => <article key={pathway.id} className="rounded-xl border border-[#dfe7dd] bg-white p-5 sm:p-6">
+            <h3 className="font-[Georgia,serif] text-2xl text-[#203d2b]">{pathway.title}</h3>
+            <div className="mt-5 grid gap-5 sm:grid-cols-2"><div><p className="text-[10px] font-semibold uppercase tracking-[.16em] text-[#66836d]">Required trainings</p><ul className="mt-3 flex flex-wrap gap-2">{pathway.trainings.map((training) => <li key={training} className="rounded-full border border-[#d4dfd3] bg-[#f7faf7] px-3 py-1.5 text-xs font-semibold text-[#315a48]">{training}</li>)}</ul></div><div><p className="text-[10px] font-semibold uppercase tracking-[.16em] text-[#66836d]">Evaluation</p><p className="mt-3 text-sm leading-7 text-[#647368]">{pathway.evaluation}</p></div></div>
+          </article>)}</div>
+        </section>
 
         {/* RESULT STATUS */}
         {!hasError && people.length > 0 && (

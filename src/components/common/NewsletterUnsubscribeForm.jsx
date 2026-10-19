@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useNotifications } from "./NotificationCenter";
 
 export default function NewsletterUnsubscribeForm({ token }) {
+  const notifications = useNotifications();
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
@@ -19,10 +21,14 @@ export default function NewsletterUnsubscribeForm({ token }) {
       });
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error(result.error || "We could not update your subscription.");
-      setStatus(result.message || "Your newsletter preferences have been updated.");
+      const message = result.message || "Your newsletter preferences have been updated.";
+      setStatus(message);
+      notifications.success(message, { title: "Preferences updated" });
       setDone(true);
     } catch (error) {
-      setStatus(error.message || "We could not update your subscription. Please try again.");
+      const message = error.message || "We could not update your subscription. Please try again.";
+      setStatus(message);
+      notifications.error(message, { title: "Update failed" });
     } finally {
       setBusy(false);
     }

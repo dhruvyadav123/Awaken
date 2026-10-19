@@ -39,7 +39,7 @@ function MediaAsset({ asset, scope, compact }) {
   }
   const hostedVideo = source && /(?:youtube\.com|youtu\.be|vimeo\.com)\//i.test(source);
   return <figure className={`api-media-asset ${compact ? "is-compact" : ""}`}>
-    {loading && <p className="api-media-loading" role="status">Loading {kind.toLowerCase()}...</p>}
+    {loading && !source && <span className="api-media-loading" role="status" aria-label={`Loading ${kind.toLowerCase()}`} />}
     {source && kind === "IMAGE" && <img src={source} alt={asset.alt} loading="lazy" referrerPolicy="no-referrer" onLoad={() => setLoading(false)} onError={failed} />}
     {source && kind === "VIDEO" && !hostedVideo && <video src={source} controls playsInline preload="metadata" aria-label={asset.title} onError={failed} />}
     {source && kind === "AUDIO" && <audio src={source} controls preload="metadata" aria-label={asset.title} onError={failed} />}

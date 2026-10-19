@@ -64,13 +64,14 @@
 .renew-home{--soft:#606d62}
 .renew-home a,.renew-home button{-webkit-tap-highlight-color:transparent}
 .renew-home h2{text-wrap:balance}
-.renew-section{padding-block:88px}
+.renew-section{padding-block:80px}
 .renew-section-heading{margin-bottom:36px}
 .renew-offering{border:1px solid #294a3d0d;border-radius:8px;display:flex;flex-direction:column}
 .renew-offering .renew-card-link{margin-top:auto}
 .renew-offering>p:not(.renew-kicker){margin-bottom:26px}
 .renew-offering:hover{transform:translateY(-4px);box-shadow:0 12px 25px #314f350a}
-.renew-start{border-top:1px solid #dfe2d7}
+.renew-philosophy{border-top:1px solid #e2e4dc;border-bottom:1px solid #e2e4dc}
+.renew-section:has(.renew-community){padding-top:72px;padding-bottom:88px}
 .renew-needs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .renew-need{min-width:0;overflow:hidden;border:1px solid #dfe2d7;border-radius:8px;background:#f7f6ef;transition:transform .25s,border-color .25s}
 .renew-need:hover{transform:translateY(-4px);border-color:#a2b098}
@@ -134,7 +135,7 @@
 @media(hover:hover){.renew-text-link:hover{color:#82906e;border-color:#82906e}}
 @media(max-width:950px){.renew-how{gap:40px}.renew-community-copy{padding:32px}.renew-need-copy{padding:20px}.renew-need h3{font-size:23px}}
 @media(max-width:650px){
- .renew-section{padding:56px 24px}
+ .renew-section{padding:52px 24px}
  .renew-needs,.renew-how,.renew-community{grid-template-columns:minmax(0,1fr)}
  .renew-needs{gap:20px}
  .renew-need-art{height:145px}
@@ -150,6 +151,7 @@
  .renew-community-copy{padding:30px 24px}
  .renew-community h2{font-size:34px}
  .renew-cta{padding-block:56px}
+ .renew-section:has(.renew-community){padding-block:52px}
 }
 @media(max-width:760px){.renew-featured{grid-template-columns:minmax(0,1fr);gap:30px;padding:56px 24px}.renew-featured-copy{max-width:520px}.renew-home .renew-featured h2{font-size:40px}.renew-featured-copy .renew-button{margin-top:20px}}
 @media(prefers-reduced-motion:reduce){.renew-home [data-reveal]{opacity:1;translate:none;transition:none}.renew-home a:hover{transform:none}}

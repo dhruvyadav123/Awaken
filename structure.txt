@@ -1,0 +1,1248 @@
+.
+./.dev-error.log
+./.dev-output.log
+./.env
+./.frontend-check-edge
+./.frontend-check-edge/Ad Blocking
+./.frontend-check-edge/Ad Blocking/blocklist
+./.frontend-check-edge/Autofill
+./.frontend-check-edge/AutoLaunchProtocolsComponent
+./.frontend-check-edge/BrowserMetrics-spare.pma
+./.frontend-check-edge/CertificateRevocation
+./.frontend-check-edge/component_crx_cache
+./.frontend-check-edge/component_crx_cache/c8156046f8dc4e172a78dd9fc55d25cae57273b13a7cbc953b5faddfd12105c8
+./.frontend-check-edge/component_crx_cache/metadata.json
+./.frontend-check-edge/Crashpad
+./.frontend-check-edge/Crashpad/attachments
+./.frontend-check-edge/Crashpad/metadata
+./.frontend-check-edge/Crashpad/reports
+./.frontend-check-edge/Crashpad/settings.dat
+./.frontend-check-edge/Crashpad/throttle_store.dat
+./.frontend-check-edge/Crashpad/watson_metadata
+./.frontend-check-edge/Default
+./.frontend-check-edge/Default/Affiliation Database
+./.frontend-check-edge/Default/Affiliation Database-journal
+./.frontend-check-edge/Default/arbitration_service_config.json
+./.frontend-check-edge/Default/AutofillAiModelCache
+./.frontend-check-edge/Default/AutofillAiModelCache/LOCK
+./.frontend-check-edge/Default/AutofillAiModelCache/LOG
+./.frontend-check-edge/Default/AutofillStrikeDatabase
+./.frontend-check-edge/Default/AutofillStrikeDatabase/LOCK
+./.frontend-check-edge/Default/AutofillStrikeDatabase/LOG
+./.frontend-check-edge/Default/blob_storage
+./.frontend-check-edge/Default/blob_storage/ebc4768c-92f2-4011-84fb-c64f097213e7
+./.frontend-check-edge/Default/BookmarkMergedSurfaceOrdering
+./.frontend-check-edge/Default/Bookmarks
+./.frontend-check-edge/Default/BudgetDatabase
+./.frontend-check-edge/Default/BudgetDatabase/LOCK
+./.frontend-check-edge/Default/BudgetDatabase/LOG
+./.frontend-check-edge/Default/Cache
+./.frontend-check-edge/Default/Cache/Cache_Data
+./.frontend-check-edge/Default/Cache/Cache_Data/data_0
+./.frontend-check-edge/Default/Cache/Cache_Data/data_1
+./.frontend-check-edge/Default/Cache/Cache_Data/data_2
+./.frontend-check-edge/Default/Cache/Cache_Data/data_3
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000001
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000002
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000003
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000004
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000005
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000006
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000007
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000008
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000009
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00000a
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00000b
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00000c
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00000d
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00000e
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00000f
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000010
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000011
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000012
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000013
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000014
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000015
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000016
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000017
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000018
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000019
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00001a
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00001b
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00001c
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00001d
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00001e
+./.frontend-check-edge/Default/Cache/Cache_Data/f_00001f
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000020
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000021
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000022
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000023
+./.frontend-check-edge/Default/Cache/Cache_Data/f_000024
+./.frontend-check-edge/Default/Cache/Cache_Data/index
+./.frontend-check-edge/Default/Cache/No_Vary_Search
+./.frontend-check-edge/Default/Cache/No_Vary_Search/journal.baj
+./.frontend-check-edge/Default/Cache/No_Vary_Search/snapshot.baf
+./.frontend-check-edge/Default/ClientCertificates
+./.frontend-check-edge/Default/ClientCertificates/LOCK
+./.frontend-check-edge/Default/ClientCertificates/LOG
+./.frontend-check-edge/Default/Code Cache
+./.frontend-check-edge/Default/Code Cache/js
+./.frontend-check-edge/Default/Code Cache/js/008038e5b32722be_0
+./.frontend-check-edge/Default/Code Cache/js/08fda3d294000c6a_0
+./.frontend-check-edge/Default/Code Cache/js/1ca8ce9045e1651f_0
+./.frontend-check-edge/Default/Code Cache/js/234ee245cae19c8f_0
+./.frontend-check-edge/Default/Code Cache/js/28b34149a134cfd0_0
+./.frontend-check-edge/Default/Code Cache/js/2a8a6f695a3ff316_0
+./.frontend-check-edge/Default/Code Cache/js/2aae8aec61217fed_0
+./.frontend-check-edge/Default/Code Cache/js/2cca9bc741a6516d_0
+./.frontend-check-edge/Default/Code Cache/js/32074af7b8a13219_0
+./.frontend-check-edge/Default/Code Cache/js/348cb81c64eac387_0
+./.frontend-check-edge/Default/Code Cache/js/35e95cf285c0517d_0
+./.frontend-check-edge/Default/Code Cache/js/37782cd796da08d2_0
+./.frontend-check-edge/Default/Code Cache/js/3965b22c4820a4eb_0
+./.frontend-check-edge/Default/Code Cache/js/515a887be131fc60_0
+./.frontend-check-edge/Default/Code Cache/js/5cce1706364839f1_0
+./.frontend-check-edge/Default/Code Cache/js/5fbb54f36261c413_0
+./.frontend-check-edge/Default/Code Cache/js/770ce73e779cb6c8_0
+./.frontend-check-edge/Default/Code Cache/js/7c1d49a83902775a_0
+./.frontend-check-edge/Default/Code Cache/js/7de0dc67a2b3a69c_0
+./.frontend-check-edge/Default/Code Cache/js/8020acacb3d13763_0
+./.frontend-check-edge/Default/Code Cache/js/8bb1867be67136eb_0
+./.frontend-check-edge/Default/Code Cache/js/8d8e604e339073b3_0
+./.frontend-check-edge/Default/Code Cache/js/8ed00396b6e4d22b_0
+./.frontend-check-edge/Default/Code Cache/js/945cb8fb56d09a8e_0
+./.frontend-check-edge/Default/Code Cache/js/9c4ce6086635da3c_0
+./.frontend-check-edge/Default/Code Cache/js/a0aceae16ea66c75_0
+./.frontend-check-edge/Default/Code Cache/js/a40d4566b28fffa3_0
+./.frontend-check-edge/Default/Code Cache/js/a924f1e0f75828e6_0
+./.frontend-check-edge/Default/Code Cache/js/afe2eb9b1a26b3bc_0
+./.frontend-check-edge/Default/Code Cache/js/b12d2c0a4655f772_0
+./.frontend-check-edge/Default/Code Cache/js/b21fb45197b9c728_0
+./.frontend-check-edge/Default/Code Cache/js/b834a990409918a9_0
+./.frontend-check-edge/Default/Code Cache/js/ba678a2fbd8c358c_0
+./.frontend-check-edge/Default/Code Cache/js/baded5730168391f_0
+./.frontend-check-edge/Default/Code Cache/js/cae20c11f50bf059_0
+./.frontend-check-edge/Default/Code Cache/js/ce07de82610caebf_0
+./.frontend-check-edge/Default/Code Cache/js/d9fdb0d004af194b_0
+./.frontend-check-edge/Default/Code Cache/js/ded18c067a0c0c0f_0
+./.frontend-check-edge/Default/Code Cache/js/e94999eac39dfd99_0
+./.frontend-check-edge/Default/Code Cache/js/e9a142a21b9ad9ef_0
+./.frontend-check-edge/Default/Code Cache/js/ebce9e52a869b921_0
+./.frontend-check-edge/Default/Code Cache/js/eef4df243f5b953e_0
+./.frontend-check-edge/Default/Code Cache/js/efc3e624ad23b17e_0
+./.frontend-check-edge/Default/Code Cache/js/f164abcd9b5365f2_0
+./.frontend-check-edge/Default/Code Cache/js/f8da06b1cf153096_0
+./.frontend-check-edge/Default/Code Cache/js/f9520aaed8829adf_0
+./.frontend-check-edge/Default/Code Cache/js/fae72a35d47811e6_0
+./.frontend-check-edge/Default/Code Cache/js/index
+./.frontend-check-edge/Default/Code Cache/js/index-dir
+./.frontend-check-edge/Default/Code Cache/js/index-dir/the-real-index
+./.frontend-check-edge/Default/Code Cache/wasm
+./.frontend-check-edge/Default/Code Cache/wasm/index
+./.frontend-check-edge/Default/Code Cache/wasm/index-dir
+./.frontend-check-edge/Default/Code Cache/wasm/index-dir/the-real-index
+./.frontend-check-edge/Default/Collections
+./.frontend-check-edge/Default/Collections/collectionsSQLite
+./.frontend-check-edge/Default/Collections/collectionsSQLite-journal
+./.frontend-check-edge/Default/commerce_subscription_db
+./.frontend-check-edge/Default/commerce_subscription_db/LOCK
+./.frontend-check-edge/Default/commerce_subscription_db/LOG
+./.frontend-check-edge/Default/DashTrackerDatabase
+./.frontend-check-edge/Default/DashTrackerDatabase-journal
+./.frontend-check-edge/Default/DawnGraphiteCache
+./.frontend-check-edge/Default/DawnGraphiteCache/data_0
+./.frontend-check-edge/Default/DawnGraphiteCache/data_1
+./.frontend-check-edge/Default/DawnGraphiteCache/data_2
+./.frontend-check-edge/Default/DawnGraphiteCache/data_3
+./.frontend-check-edge/Default/DawnGraphiteCache/index
+./.frontend-check-edge/Default/DawnWebGPUCache
+./.frontend-check-edge/Default/DawnWebGPUCache/data_0
+./.frontend-check-edge/Default/DawnWebGPUCache/data_1
+./.frontend-check-edge/Default/DawnWebGPUCache/data_2
+./.frontend-check-edge/Default/DawnWebGPUCache/data_3
+./.frontend-check-edge/Default/DawnWebGPUCache/index
+./.frontend-check-edge/Default/declarative_performance_observer.db
+./.frontend-check-edge/Default/declarative_performance_observer.db-journal
+./.frontend-check-edge/Default/DIPS
+./.frontend-check-edge/Default/DIPS-wal
+./.frontend-check-edge/Default/discounts_db
+./.frontend-check-edge/Default/discounts_db/LOCK
+./.frontend-check-edge/Default/discounts_db/LOG
+./.frontend-check-edge/Default/discount_infos_db
+./.frontend-check-edge/Default/discount_infos_db/LOCK
+./.frontend-check-edge/Default/discount_infos_db/LOG
+./.frontend-check-edge/Default/DualEngine
+./.frontend-check-edge/Default/DualEngine/SiteList-Consumer.json
+./.frontend-check-edge/Default/DualEngine/SiteList-Enterprise.json
+./.frontend-check-edge/Default/EdgeCoupons
+./.frontend-check-edge/Default/EdgeCoupons/coupons_data.db
+./.frontend-check-edge/Default/EdgeCoupons/coupons_data.db/000004.log
+./.frontend-check-edge/Default/EdgeCoupons/coupons_data.db/000005.ldb
+./.frontend-check-edge/Default/EdgeCoupons/coupons_data.db/CURRENT
+./.frontend-check-edge/Default/EdgeCoupons/coupons_data.db/LOCK
+./.frontend-check-edge/Default/EdgeCoupons/coupons_data.db/LOG
+./.frontend-check-edge/Default/EdgeCoupons/coupons_data.db/MANIFEST-000001
+./.frontend-check-edge/Default/EdgeHubAppUsage
+./.frontend-check-edge/Default/EdgeHubAppUsage/EdgeHubAppUsageSQLite.db
+./.frontend-check-edge/Default/EdgeHubAppUsage/EdgeHubAppUsageSQLite.db-journal
+./.frontend-check-edge/Default/EdgePushStorageWithConnectTokenAndKey
+./.frontend-check-edge/Default/EdgePushStorageWithConnectTokenAndKey/LOCK
+./.frontend-check-edge/Default/EdgePushStorageWithConnectTokenAndKey/LOG
+./.frontend-check-edge/Default/EdgePushStorageWithConnectTokenAndKey/LOG.old
+./.frontend-check-edge/Default/EdgeSessions
+./.frontend-check-edge/Default/EdgeSessions/SessionRestoreLog
+./.frontend-check-edge/Default/EdgeWallet
+./.frontend-check-edge/Default/EntityExtraction
+./.frontend-check-edge/Default/Extension Rules
+./.frontend-check-edge/Default/Extension Rules/000003.log
+./.frontend-check-edge/Default/Extension Rules/CURRENT
+./.frontend-check-edge/Default/Extension Rules/LOCK
+./.frontend-check-edge/Default/Extension Rules/LOG
+./.frontend-check-edge/Default/Extension Rules/MANIFEST-000001
+./.frontend-check-edge/Default/Extension Scripts
+./.frontend-check-edge/Default/Extension Scripts/000003.log
+./.frontend-check-edge/Default/Extension Scripts/CURRENT
+./.frontend-check-edge/Default/Extension Scripts/LOCK
+./.frontend-check-edge/Default/Extension Scripts/LOG
+./.frontend-check-edge/Default/Extension Scripts/MANIFEST-000001
+./.frontend-check-edge/Default/Extension State
+./.frontend-check-edge/Default/Extension State/000003.log
+./.frontend-check-edge/Default/Extension State/CURRENT
+./.frontend-check-edge/Default/Extension State/LOCK
+./.frontend-check-edge/Default/Extension State/LOG
+./.frontend-check-edge/Default/Extension State/MANIFEST-000001
+./.frontend-check-edge/Default/ExtensionActivityEdge
+./.frontend-check-edge/Default/ExtensionActivityEdge-journal
+./.frontend-check-edge/Default/Extensions
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/128.png
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/dasherSettingSchema.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/manifest.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/offscreendocument.html
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/offscreendocument_main.js
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/page_embed_script.js
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/service_worker_bin_prod.js
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/af
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/af/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/am
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/am/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ar
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ar/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/as
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/as/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/az
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/az/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/be
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/be/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/bg
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/bg/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/bn
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/bn/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ca
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ca/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/cs
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/cs/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/cy
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/cy/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/da
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/da/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/de
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/de/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/el
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/el/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/en
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/en/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/en_CA
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/en_CA/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/en_GB
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/en_GB/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/en_US
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/en_US/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/es
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/es/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/es_419
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/es_419/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/et
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/et/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/eu
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/eu/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fa
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fa/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fi
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fi/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fil
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fil/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fr
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fr/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fr_CA
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/fr_CA/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/gl
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/gl/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/gu
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/gu/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/hi
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/hi/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/hr
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/hr/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/hu
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/hu/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/hy
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/hy/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/id
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/id/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/is
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/is/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/it
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/it/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/iw
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/iw/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ja
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ja/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ka
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ka/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/kk
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/kk/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/km
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/km/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/kn
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/kn/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ko
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ko/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/lo
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/lo/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/lt
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/lt/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/lv
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/lv/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/mk
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/mk/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ml
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ml/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/mn
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/mn/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/mr
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/mr/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ms
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ms/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/my
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/my/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ne
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ne/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/nl
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/nl/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/no
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/no/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/or
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/or/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/pa
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/pa/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/pl
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/pl/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/pt_BR
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/pt_BR/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/pt_PT
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/pt_PT/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ro
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ro/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ru
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ru/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/si
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/si/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sk
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sk/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sl
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sl/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sq
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sq/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sr
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sr/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sv
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sv/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sw
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/sw/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ta
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ta/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/te
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/te/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/th
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/th/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/tr
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/tr/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/uk
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/uk/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ur
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/ur/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/uz
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/uz/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/vi
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/vi/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/zh_CN
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/zh_CN/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/zh_HK
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/zh_HK/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/zh_TW
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/zh_TW/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/zu
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_locales/zu/messages.json
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_metadata
+./.frontend-check-edge/Default/Extensions/ghbmnnjooekpmoecnnnilnnbdlolhkhi/1.110.1_0/_metadata/verified_contents.json
+./.frontend-check-edge/Default/Extensions/jmjflgjpcpepeafmmgdpfkogkghcpiha
+./.frontend-check-edge/Default/Extensions/jmjflgjpcpepeafmmgdpfkogkghcpiha/1.2.1_0
+./.frontend-check-edge/Default/Extensions/jmjflgjpcpepeafmmgdpfkogkghcpiha/1.2.1_0/content.js
+./.frontend-check-edge/Default/Extensions/jmjflgjpcpepeafmmgdpfkogkghcpiha/1.2.1_0/content_new.js
+./.frontend-check-edge/Default/Extensions/jmjflgjpcpepeafmmgdpfkogkghcpiha/1.2.1_0/manifest.json
+./.frontend-check-edge/Default/Extensions/jmjflgjpcpepeafmmgdpfkogkghcpiha/1.2.1_0/_metadata
+./.frontend-check-edge/Default/Extensions/jmjflgjpcpepeafmmgdpfkogkghcpiha/1.2.1_0/_metadata/computed_hashes.json
+./.frontend-check-edge/Default/Extensions/jmjflgjpcpepeafmmgdpfkogkghcpiha/1.2.1_0/_metadata/verified_contents.json
+./.frontend-check-edge/Default/Favicons
+./.frontend-check-edge/Default/Favicons-journal
+./.frontend-check-edge/Default/favorites_diagnostic.log
+./.frontend-check-edge/Default/GPUCache
+./.frontend-check-edge/Default/GPUCache/data_0
+./.frontend-check-edge/Default/GPUCache/data_1
+./.frontend-check-edge/Default/GPUCache/data_2
+./.frontend-check-edge/Default/GPUCache/data_3
+./.frontend-check-edge/Default/GPUCache/index
+./.frontend-check-edge/Default/heavy_ad_intervention_opt_out.db
+./.frontend-check-edge/Default/heavy_ad_intervention_opt_out.db-journal
+./.frontend-check-edge/Default/History
+./.frontend-check-edge/Default/History-journal
+./.frontend-check-edge/Default/HubApps Icons
+./.frontend-check-edge/Default/HubApps Icons-journal
+./.frontend-check-edge/Default/IndexedDB
+./.frontend-check-edge/Default/IndexedDB/http_localhost_3000.indexeddb.leveldb
+./.frontend-check-edge/Default/IndexedDB/http_localhost_3000.indexeddb.leveldb/000003.log
+./.frontend-check-edge/Default/IndexedDB/http_localhost_3000.indexeddb.leveldb/CURRENT
+./.frontend-check-edge/Default/IndexedDB/http_localhost_3000.indexeddb.leveldb/LOCK
+./.frontend-check-edge/Default/IndexedDB/http_localhost_3000.indexeddb.leveldb/LOG
+./.frontend-check-edge/Default/IndexedDB/http_localhost_3000.indexeddb.leveldb/MANIFEST-000001
+./.frontend-check-edge/Default/JumpListIconsRecentWorkspacesV2
+./.frontend-check-edge/Default/load_statistics.db
+./.frontend-check-edge/Default/load_statistics.db-shm
+./.frontend-check-edge/Default/load_statistics.db-wal
+./.frontend-check-edge/Default/Local Extension Settings
+./.frontend-check-edge/Default/Local Extension Settings/jdiccldimpdaibmpdkjnbmckianbfold
+./.frontend-check-edge/Default/Local Extension Settings/jdiccldimpdaibmpdkjnbmckianbfold/000003.log
+./.frontend-check-edge/Default/Local Extension Settings/jdiccldimpdaibmpdkjnbmckianbfold/CURRENT
+./.frontend-check-edge/Default/Local Extension Settings/jdiccldimpdaibmpdkjnbmckianbfold/LOCK
+./.frontend-check-edge/Default/Local Extension Settings/jdiccldimpdaibmpdkjnbmckianbfold/LOG
+./.frontend-check-edge/Default/Local Extension Settings/jdiccldimpdaibmpdkjnbmckianbfold/MANIFEST-000001
+./.frontend-check-edge/Default/Local Storage
+./.frontend-check-edge/Default/Local Storage/leveldb
+./.frontend-check-edge/Default/Local Storage/leveldb/000003.log
+./.frontend-check-edge/Default/Local Storage/leveldb/CURRENT
+./.frontend-check-edge/Default/Local Storage/leveldb/LOCK
+./.frontend-check-edge/Default/Local Storage/leveldb/LOG
+./.frontend-check-edge/Default/Local Storage/leveldb/MANIFEST-000001
+./.frontend-check-edge/Default/LOCK
+./.frontend-check-edge/Default/LOG
+./.frontend-check-edge/Default/Login Data
+./.frontend-check-edge/Default/Login Data For Account
+./.frontend-check-edge/Default/Login Data For Account-journal
+./.frontend-check-edge/Default/Login Data-journal
+./.frontend-check-edge/Default/Network
+./.frontend-check-edge/Default/Network/Cookies
+./.frontend-check-edge/Default/Network/Cookies-journal
+./.frontend-check-edge/Default/Network/Device Bound Sessions
+./.frontend-check-edge/Default/Network/Device Bound Sessions-journal
+./.frontend-check-edge/Default/Network/Network Persistent State
+./.frontend-check-edge/Default/Network/NetworkDataMigrated
+./.frontend-check-edge/Default/Network/Reporting and NEL
+./.frontend-check-edge/Default/Network/Reporting and NEL-journal
+./.frontend-check-edge/Default/Network/SCT Auditing Pending Reports
+./.frontend-check-edge/Default/Network/Sdch Dictionaries
+./.frontend-check-edge/Default/Network/TransportSecurity
+./.frontend-check-edge/Default/Network/Trust Tokens
+./.frontend-check-edge/Default/Network/Trust Tokens-journal
+./.frontend-check-edge/Default/Network Action Predictor
+./.frontend-check-edge/Default/Network Action Predictor-journal
+./.frontend-check-edge/Default/Nurturing
+./.frontend-check-edge/Default/Nurturing/campaign_history
+./.frontend-check-edge/Default/Nurturing/campaign_history-journal
+./.frontend-check-edge/Default/optimization_guide_hint_cache_store
+./.frontend-check-edge/Default/optimization_guide_hint_cache_store/LOCK
+./.frontend-check-edge/Default/optimization_guide_hint_cache_store/LOG
+./.frontend-check-edge/Default/parcel_tracking_db
+./.frontend-check-edge/Default/parcel_tracking_db/LOCK
+./.frontend-check-edge/Default/parcel_tracking_db/LOG
+./.frontend-check-edge/Default/Password_Diagnostics
+./.frontend-check-edge/Default/Password_Diagnostics/PMLog_13436000891470252
+./.frontend-check-edge/Default/PersistentOriginTrials
+./.frontend-check-edge/Default/PersistentOriginTrials/LOCK
+./.frontend-check-edge/Default/PersistentOriginTrials/LOG
+./.frontend-check-edge/Default/Preferences
+./.frontend-check-edge/Default/PreferredApps
+./.frontend-check-edge/Default/README
+./.frontend-check-edge/Default/Secure Preferences
+./.frontend-check-edge/Default/Segmentation Platform
+./.frontend-check-edge/Default/Segmentation Platform/SegmentInfoDB
+./.frontend-check-edge/Default/Segmentation Platform/SegmentInfoDB/LOCK
+./.frontend-check-edge/Default/Segmentation Platform/SegmentInfoDB/LOG
+./.frontend-check-edge/Default/Segmentation Platform/SignalDB
+./.frontend-check-edge/Default/Segmentation Platform/SignalDB/LOCK
+./.frontend-check-edge/Default/Segmentation Platform/SignalDB/LOG
+./.frontend-check-edge/Default/Segmentation Platform/SignalStorageConfigDB
+./.frontend-check-edge/Default/Segmentation Platform/SignalStorageConfigDB/LOCK
+./.frontend-check-edge/Default/Segmentation Platform/SignalStorageConfigDB/LOG
+./.frontend-check-edge/Default/ServerCertificate
+./.frontend-check-edge/Default/ServerCertificate-journal
+./.frontend-check-edge/Default/Service Worker
+./.frontend-check-edge/Default/Service Worker/Database
+./.frontend-check-edge/Default/Service Worker/Database/000003.log
+./.frontend-check-edge/Default/Service Worker/Database/CURRENT
+./.frontend-check-edge/Default/Service Worker/Database/LOCK
+./.frontend-check-edge/Default/Service Worker/Database/LOG
+./.frontend-check-edge/Default/Service Worker/Database/MANIFEST-000001
+./.frontend-check-edge/Default/Service Worker/ScriptCache
+./.frontend-check-edge/Default/Service Worker/ScriptCache/2cc80dabc69f58b6_0
+./.frontend-check-edge/Default/Service Worker/ScriptCache/index
+./.frontend-check-edge/Default/Service Worker/ScriptCache/index-dir
+./.frontend-check-edge/Default/Service Worker/ScriptCache/index-dir/the-real-index
+./.frontend-check-edge/Default/Session Storage
+./.frontend-check-edge/Default/Session Storage/000003.log
+./.frontend-check-edge/Default/Session Storage/CURRENT
+./.frontend-check-edge/Default/Session Storage/LOCK
+./.frontend-check-edge/Default/Session Storage/LOG
+./.frontend-check-edge/Default/Session Storage/MANIFEST-000001
+./.frontend-check-edge/Default/Sessions
+./.frontend-check-edge/Default/Sessions/Session_13436000480807856
+./.frontend-check-edge/Default/settings_diagnostic.log
+./.frontend-check-edge/Default/Shared Dictionary
+./.frontend-check-edge/Default/Shared Dictionary/cache
+./.frontend-check-edge/Default/Shared Dictionary/cache/index
+./.frontend-check-edge/Default/Shared Dictionary/cache/index-dir
+./.frontend-check-edge/Default/Shared Dictionary/cache/index-dir/the-real-index
+./.frontend-check-edge/Default/Shared Dictionary/db
+./.frontend-check-edge/Default/Shared Dictionary/db-journal
+./.frontend-check-edge/Default/shared_proto_db
+./.frontend-check-edge/Default/shared_proto_db/000003.log
+./.frontend-check-edge/Default/shared_proto_db/CURRENT
+./.frontend-check-edge/Default/shared_proto_db/LOCK
+./.frontend-check-edge/Default/shared_proto_db/LOG
+./.frontend-check-edge/Default/shared_proto_db/MANIFEST-000001
+./.frontend-check-edge/Default/shared_proto_db/metadata
+./.frontend-check-edge/Default/shared_proto_db/metadata/000003.log
+./.frontend-check-edge/Default/shared_proto_db/metadata/CURRENT
+./.frontend-check-edge/Default/shared_proto_db/metadata/LOCK
+./.frontend-check-edge/Default/shared_proto_db/metadata/LOG
+./.frontend-check-edge/Default/shared_proto_db/metadata/MANIFEST-000001
+./.frontend-check-edge/Default/Shortcuts
+./.frontend-check-edge/Default/Shortcuts-journal
+./.frontend-check-edge/Default/Site Characteristics Database
+./.frontend-check-edge/Default/Site Characteristics Database/000003.log
+./.frontend-check-edge/Default/Site Characteristics Database/CURRENT
+./.frontend-check-edge/Default/Site Characteristics Database/LOCK
+./.frontend-check-edge/Default/Site Characteristics Database/LOG
+./.frontend-check-edge/Default/Site Characteristics Database/MANIFEST-000001
+./.frontend-check-edge/Default/Storage
+./.frontend-check-edge/Default/Storage/ext
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Cache
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Cache/Cache_Data
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Cache/No_Vary_Search
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache/js
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache/js/6f3a0dc5e6916f1e_0
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache/js/index
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache/js/index-dir
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache/js/index-dir/the-real-index
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache/wasm
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache/wasm/index
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache/wasm/index-dir
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Code Cache/wasm/index-dir/the-real-index
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnGraphiteCache
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnGraphiteCache/data_0
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnGraphiteCache/data_1
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnGraphiteCache/data_2
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnGraphiteCache/data_3
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnGraphiteCache/index
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnWebGPUCache
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnWebGPUCache/data_0
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnWebGPUCache/data_1
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnWebGPUCache/data_2
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnWebGPUCache/data_3
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/DawnWebGPUCache/index
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/declarative_performance_observer.db
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/declarative_performance_observer.db-journal
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/GPUCache
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/GPUCache/data_0
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/GPUCache/data_1
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/GPUCache/data_2
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/GPUCache/data_3
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/GPUCache/index
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Local Storage
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Local Storage/leveldb
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Local Storage/leveldb/000003.log
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Local Storage/leveldb/CURRENT
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Local Storage/leveldb/LOCK
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Local Storage/leveldb/LOG
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Local Storage/leveldb/MANIFEST-000001
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Network
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Network/Device Bound Sessions
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Network/Device Bound Sessions-journal
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Network/Network Persistent State
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Network/NetworkDataMigrated
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Network/SCT Auditing Pending Reports
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Network/Sdch Dictionaries
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Network/Trust Tokens
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Network/Trust Tokens-journal
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Session Storage
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Session Storage/000003.log
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Session Storage/CURRENT
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Session Storage/LOCK
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Session Storage/LOG
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Session Storage/MANIFEST-000001
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Shared Dictionary
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Shared Dictionary/cache
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Shared Dictionary/cache/index
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Shared Dictionary/cache/index-dir
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Shared Dictionary/cache/index-dir/the-real-index
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Shared Dictionary/db
+./.frontend-check-edge/Default/Storage/ext/ihmafllikibpmigkcoadcmckbfhibefp/def/Shared Dictionary/db-journal
+./.frontend-check-edge/Default/Sync Data
+./.frontend-check-edge/Default/Sync Data/LevelDB
+./.frontend-check-edge/Default/Sync Data/LevelDB/000003.log
+./.frontend-check-edge/Default/Sync Data/LevelDB/CURRENT
+./.frontend-check-edge/Default/Sync Data/LevelDB/LOCK
+./.frontend-check-edge/Default/Sync Data/LevelDB/LOG
+./.frontend-check-edge/Default/Sync Data/LevelDB/MANIFEST-000001
+./.frontend-check-edge/Default/Sync Data/Logs
+./.frontend-check-edge/Default/Sync Data/Logs/cv_debug.log
+./.frontend-check-edge/Default/Sync Data/Logs/sync_diagnostic.log
+./.frontend-check-edge/Default/Sync Data/Nigori.bin
+./.frontend-check-edge/Default/Top Sites
+./.frontend-check-edge/Default/Top Sites-journal
+./.frontend-check-edge/Default/Vpn Tokens
+./.frontend-check-edge/Default/Vpn Tokens-journal
+./.frontend-check-edge/Default/Web Data
+./.frontend-check-edge/Default/Web Data-journal
+./.frontend-check-edge/Default/WebStorage
+./.frontend-check-edge/Default/WebStorage/QuotaManager
+./.frontend-check-edge/Default/WebStorage/QuotaManager-journal
+./.frontend-check-edge/Default/Workspaces
+./.frontend-check-edge/Default/Workspaces/Logs
+./.frontend-check-edge/Default/Workspaces/Logs/Workspaces Diagnostic Log
+./.frontend-check-edge/Default/Workspaces/Logs/Workspaces Internals Logs
+./.frontend-check-edge/Domain Actions
+./.frontend-check-edge/EADPData Component
+./.frontend-check-edge/Edge Data Protection Lists
+./.frontend-check-edge/Edge Entity Extraction
+./.frontend-check-edge/Edge Notifications
+./.frontend-check-edge/Edge Shopping
+./.frontend-check-edge/Edge Sidebar
+./.frontend-check-edge/Edge Signal Triggers
+./.frontend-check-edge/Edge Wallet
+./.frontend-check-edge/Edge3pSerp
+./.frontend-check-edge/EdgeArbitration
+./.frontend-check-edge/EdgeLanguageDetectionModel
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/manifest.json
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16/configs
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16/configs/prompt_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16/configs/proofreader_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16/configs/summarizer_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16/configs/writing_assistance_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16/manifest.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16-prerelease
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16-prerelease/configs
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16-prerelease/configs/prompt_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16-prerelease/configs/proofreader_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16-prerelease/configs/summarizer_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16-prerelease/configs/writing_assistance_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp16-prerelease/manifest.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32/configs
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32/configs/prompt_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32/configs/proofreader_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32/configs/summarizer_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32/configs/writing_assistance_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32/manifest.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32-prerelease
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32-prerelease/configs
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32-prerelease/configs/prompt_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32-prerelease/configs/proofreader_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32-prerelease/configs/summarizer_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32-prerelease/configs/writing_assistance_api.binarypb
+./.frontend-check-edge/EdgeOptimizationGuideModelsManifest/2026.9.18.5/variants/webgpu-fp32-prerelease/manifest.binarypb
+./.frontend-check-edge/extensions_crx_cache
+./.frontend-check-edge/extensions_crx_cache/metadata.json
+./.frontend-check-edge/FirstLaunchAfterInstallation
+./.frontend-check-edge/FirstPartySetsPreloaded
+./.frontend-check-edge/first_party_sets.db
+./.frontend-check-edge/first_party_sets.db-journal
+./.frontend-check-edge/GPUPersistentCache
+./.frontend-check-edge/GPUPersistentCache/DawnGraphiteCache
+./.frontend-check-edge/GPUPersistentCache/DawnGraphiteCache/H6POMLZSBZPTMTLBCTMXRDH27BAKUDTA
+./.frontend-check-edge/GPUPersistentCache/DawnGraphiteCache/H6POMLZSBZPTMTLBCTMXRDH27BAKUDTA/cache.db
+./.frontend-check-edge/GPUPersistentCache/DawnGraphiteCache/H6POMLZSBZPTMTLBCTMXRDH27BAKUDTA/cache.db-wal
+./.frontend-check-edge/GPUPersistentCache/DawnGraphiteCache/H6POMLZSBZPTMTLBCTMXRDH27BAKUDTA/cache.journal
+./.frontend-check-edge/GrShaderCache
+./.frontend-check-edge/GrShaderCache/data_0
+./.frontend-check-edge/GrShaderCache/data_1
+./.frontend-check-edge/GrShaderCache/data_2
+./.frontend-check-edge/GrShaderCache/data_3
+./.frontend-check-edge/GrShaderCache/index
+./.frontend-check-edge/hyphen-data
+./.frontend-check-edge/Last Browser
+./.frontend-check-edge/Last Version
+./.frontend-check-edge/Local State
+./.frontend-check-edge/lockfile
+./.frontend-check-edge/MEIPreload
+./.frontend-check-edge/Nurturing
+./.frontend-check-edge/Nurturing/campaign_history
+./.frontend-check-edge/Nurturing/campaign_history-journal
+./.frontend-check-edge/OnDeviceHeadSuggestModel
+./.frontend-check-edge/OriginTrials
+./.frontend-check-edge/PKIMetadata
+./.frontend-check-edge/RecoveryImproved
+./.frontend-check-edge/Safe Browsing
+./.frontend-check-edge/Safe Browsing/ChromeExtMalware.store.store
+./.frontend-check-edge/Safe Browsing/ChromeExtMalware.store.store.32_13436000692452235
+./.frontend-check-edge/SafetyTips
+./.frontend-check-edge/ShaderCache
+./.frontend-check-edge/ShaderCache/data_0
+./.frontend-check-edge/ShaderCache/data_1
+./.frontend-check-edge/ShaderCache/data_2
+./.frontend-check-edge/ShaderCache/data_3
+./.frontend-check-edge/ShaderCache/index
+./.frontend-check-edge/SmartScreen
+./.frontend-check-edge/SmartScreen/RemoteData
+./.frontend-check-edge/SmartScreen/RemoteData/customSettings
+./.frontend-check-edge/SmartScreen/RemoteData/customSettings_F95BA787499AB4FA9EFFF472CE383A14
+./.frontend-check-edge/SmartScreen/RemoteData/edgeSettings
+./.frontend-check-edge/SmartScreen/RemoteData/edgeSettings_2.0-0
+./.frontend-check-edge/Speech Recognition
+./.frontend-check-edge/Subresource Filter
+./.frontend-check-edge/Subresource Filter/Unindexed Rules
+./.frontend-check-edge/Trust Protection Lists
+./.frontend-check-edge/TrustTokenKeyCommitments
+./.frontend-check-edge/Typosquatting
+./.frontend-check-edge/Variations
+./.frontend-check-edge/VariationsRuntimeSeedV2
+./.frontend-check-edge/VariationsSafeSeedV2
+./.frontend-check-edge/VariationsSeedV2
+./.frontend-check-edge/Web Notifications Deny List
+./.frontend-check-edge/Well Known Domains
+./.frontend-check-edge/WidevineCdm
+./.frontend-check-edge/WorkspacesNavigationComponent
+./.frontend-check-edge/ZxcvbnData
+./.gitignore
+./.vercel
+./.vercel/project.json
+./.vercel/README.txt
+./.vercel-deploy-error.log
+./.vercel-deploy.log
+./AGENTS.md
+./artifacts
+./artifacts/media-flow
+./artifacts/media-flow/library-desktop.png
+./artifacts/media-flow/library-mobile.png
+./CLAUDE.md
+./docs
+./docs/atlas-api-inventory.json
+./docs/dashboard-flow.md
+./docs/facilitator-media-audit.md
+./docs/student-api-integration.md
+./eslint.config.mjs
+./jsconfig.json
+./next.config.mjs
+./package-lock.json
+./package.json
+./postcss.config.mjs
+./public
+./public/file.svg
+./public/globe.svg
+./public/images
+./public/images/awaken-splash.png
+./public/images/blog
+./public/images/classes
+./public/images/facilitators
+./public/images/hero
+./public/images/hero/meheck.png
+./public/images/home
+./public/images/home/blog.jpeg
+./public/images/home/community-forms.png
+./public/images/home/cosmic-starfield-v2.png
+./public/images/home/growth-sprout.png
+./public/images/home/home.jpeg
+./public/images/home/home1.jpeg
+./public/images/home/home2.jpeg
+./public/images/home/mindful-leaf.png
+./public/images/home/WhatsApp Image 2026-10-01 at 4.16.17 PM.jpeg
+./public/images/home/WhatsApp Image 2026-10-01 at 4.16.18 PM.jpeg
+./public/images/home/WhatsApp Image 2026-10-01 at 4.16.19 PM.jpeg
+./public/images/home/WhatsApp Image 2026-10-01 at 4.16.20 PM.jpeg
+./public/images/icons
+./public/images/infinity
+./public/images/logo
+./public/images/logo/awaken.png
+./public/images/pages
+./public/images/pages/classes-hero.png
+./public/images/pages/infinity-hero.png
+./public/images/pages/journal-hero.png
+./public/images/pages/meditations-hero.png
+./public/images/pages/start-here-hero.png
+./public/images/pages/start-here-sunrise.png
+./public/images/pages/workshops-hero.png
+./public/images/products
+./public/images/products/choices-voices-of-children.svg
+./public/images/shop
+./public/images/shop/book-watercolor-bg.png
+./public/images/testimonials
+./public/images/workshops
+./public/next.svg
+./public/vercel.svg
+./public/videos
+./public/videos/15935618_3840_2160_24fps.mp4
+./public/videos/5415978-uhd_2160_4096_25fps.mp4
+./public/videos/7425269-uhd_3840_2160_24fps.mp4
+./public/videos/awaken-morning-river.mp4
+./public/videos/forest-desktop.mp4
+./public/videos/forest-mobile.mp4
+./public/videos/forest-source-frame.jpg
+./public/videos/forest-source.mp4
+./public/window.svg
+./README.md
+./src
+./src/app
+./src/app/about
+./src/app/about/page.js
+./src/app/api
+./src/app/api/account
+./src/app/api/account/[...segments]
+./src/app/api/account/[...segments]/route.js
+./src/app/api/auth
+./src/app/api/auth/login
+./src/app/api/auth/login/route.js
+./src/app/api/auth/logout
+./src/app/api/auth/logout/route.js
+./src/app/api/auth/recovery
+./src/app/api/auth/recovery/route.js
+./src/app/api/auth/refresh
+./src/app/api/auth/refresh/route.js
+./src/app/api/auth/signup
+./src/app/api/auth/signup/route.js
+./src/app/api/contact
+./src/app/api/contact/route.js
+./src/app/api/navigation
+./src/app/api/navigation/facilitators
+./src/app/api/navigation/facilitators/route.js
+./src/app/api/newsletter
+./src/app/api/newsletter/subscribe
+./src/app/api/newsletter/subscribe/route.js
+./src/app/api/newsletter/unsubscribe
+./src/app/api/newsletter/unsubscribe/route.js
+./src/app/api/public
+./src/app/api/public/files
+./src/app/api/public/files/[...segments]
+./src/app/api/public/files/[...segments]/route.js
+./src/app/auth
+./src/app/auth/forgot-password
+./src/app/auth/forgot-password/page.js
+./src/app/auth/login
+./src/app/auth/login/page.js
+./src/app/auth/register
+./src/app/auth/register/page.js
+./src/app/auth/reset-password
+./src/app/auth/reset-password/page.js
+./src/app/auth/verify-email
+./src/app/become-a-facilitator
+./src/app/become-a-facilitator/apply
+./src/app/become-a-facilitator/page.js
+./src/app/become-a-facilitator/status
+./src/app/blog
+./src/app/blog/category
+./src/app/blog/category/[slug]
+./src/app/blog/category/[slug]/page.js
+./src/app/blog/loading.js
+./src/app/blog/page.js
+./src/app/blog/[slug]
+./src/app/blog/[slug]/page.js
+./src/app/cart
+./src/app/cart/empty
+./src/app/cart/page.js
+./src/app/certificates
+./src/app/certificates/verify
+./src/app/certificates/verify/page.js
+./src/app/checkout
+./src/app/checkout/failed
+./src/app/checkout/page.js
+./src/app/checkout/success
+./src/app/classes
+./src/app/classes/category
+./src/app/classes/category/[slug]
+./src/app/classes/category/[slug]/page.js
+./src/app/classes/loading.js
+./src/app/classes/page.js
+./src/app/classes/[slug]
+./src/app/classes/[slug]/page.js
+./src/app/contact
+./src/app/contact/page.js
+./src/app/courses
+./src/app/courses/category
+./src/app/courses/category/[slug]
+./src/app/courses/category/[slug]/page.js
+./src/app/courses/page.js
+./src/app/courses/[slug]
+./src/app/courses/[slug]/demo
+./src/app/courses/[slug]/demo/page.js
+./src/app/courses/[slug]/lessons
+./src/app/courses/[slug]/lessons/[lessonId]
+./src/app/courses/[slug]/lessons/[lessonId]/preview
+./src/app/courses/[slug]/lessons/[lessonId]/preview/page.js
+./src/app/courses/[slug]/page.js
+./src/app/dashboard
+./src/app/dashboard/bookings
+./src/app/dashboard/bookings/[id]
+./src/app/dashboard/classes
+./src/app/dashboard/classes/[id]
+./src/app/dashboard/classes/[id]/learn
+./src/app/dashboard/facilitator
+./src/app/dashboard/facilitator/[[...segments]]
+./src/app/dashboard/facilitator/[[...segments]]/page.js
+./src/app/dashboard/layout.js
+./src/app/dashboard/orders
+./src/app/dashboard/orders/[id]
+./src/app/dashboard/page.js
+./src/app/dashboard/reviews
+./src/app/dashboard/sessions
+./src/app/dashboard/sessions/book
+./src/app/dashboard/sessions/[id]
+./src/app/dashboard/settings
+./src/app/dashboard/user
+./src/app/dashboard/user/[[...segments]]
+./src/app/dashboard/user/[[...segments]]/page.js
+./src/app/dashboard/wishlist
+./src/app/dashboard/workshops
+./src/app/dashboard/workshops/[id]
+./src/app/facilitators
+./src/app/facilitators/loading.js
+./src/app/facilitators/page.js
+./src/app/facilitators/[slug]
+./src/app/facilitators/[slug]/page.js
+./src/app/favicon.ico
+./src/app/globals.css
+./src/app/home.css
+./src/app/infinity
+./src/app/infinity/about
+./src/app/infinity/membership
+./src/app/infinity/membership/checkout
+./src/app/infinity/membership/page.js
+./src/app/infinity/membership/[slug]
+./src/app/infinity/membership/[slug]/page.js
+./src/app/infinity/page.js
+./src/app/infinity/programs
+./src/app/infinity/programs/[slug]
+./src/app/layout.js
+./src/app/meditations
+./src/app/meditations/category
+./src/app/meditations/category/[slug]
+./src/app/meditations/category/[slug]/page.js
+./src/app/meditations/loading.js
+./src/app/meditations/page.js
+./src/app/meditations/[slug]
+./src/app/meditations/[slug]/page.js
+./src/app/newsletter
+./src/app/newsletter/confirm
+./src/app/newsletter/confirm/page.js
+./src/app/newsletter/unsubscribe
+./src/app/newsletter/unsubscribe/page.js
+./src/app/page.js
+./src/app/pages
+./src/app/pages/page.js
+./src/app/privacy-policy
+./src/app/privacy-policy/page.js
+./src/app/profile
+./src/app/profile/addresses
+./src/app/profile/addresses/page.js
+./src/app/profile/badges
+./src/app/profile/badges/page.js
+./src/app/profile/certificates
+./src/app/profile/certificates/page.js
+./src/app/profile/certificates/[certificateId]
+./src/app/profile/certificates/[certificateId]/page.js
+./src/app/profile/classes
+./src/app/profile/classes/[classId]
+./src/app/profile/classes/[classId]/page.js
+./src/app/profile/courses
+./src/app/profile/courses/page.js
+./src/app/profile/courses/[courseId]
+./src/app/profile/courses/[courseId]/lessons
+./src/app/profile/courses/[courseId]/lessons/[lessonId]
+./src/app/profile/courses/[courseId]/lessons/[lessonId]/page.js
+./src/app/profile/courses/[courseId]/page.js
+./src/app/profile/details
+./src/app/profile/details/page.js
+./src/app/profile/digital-library
+./src/app/profile/digital-library/page.js
+./src/app/profile/digital-library/[entitlementId]
+./src/app/profile/digital-library/[entitlementId]/page.js
+./src/app/profile/edit
+./src/app/profile/meditations
+./src/app/profile/meditations/page.js
+./src/app/profile/meditations/[meditationId]
+./src/app/profile/meditations/[meditationId]/page.js
+./src/app/profile/membership
+./src/app/profile/membership/page.js
+./src/app/profile/membership/[membershipId]
+./src/app/profile/membership/[membershipId]/page.js
+./src/app/profile/notifications
+./src/app/profile/notifications/page.js
+./src/app/profile/orders
+./src/app/profile/orders/page.js
+./src/app/profile/orders/[orderId]
+./src/app/profile/orders/[orderId]/page.js
+./src/app/profile/page.js
+./src/app/profile/payments
+./src/app/profile/payments/page.js
+./src/app/profile/payments/[paymentId]
+./src/app/profile/payments/[paymentId]/page.js
+./src/app/profile/questions
+./src/app/profile/questions/page.js
+./src/app/profile/questions/[questionId]
+./src/app/profile/questions/[questionId]/page.js
+./src/app/profile/quizzes
+./src/app/profile/quizzes/attempts
+./src/app/profile/quizzes/attempts/[attemptId]
+./src/app/profile/quizzes/attempts/[attemptId]/page.js
+./src/app/profile/quizzes/page.js
+./src/app/profile/quizzes/[quizId]
+./src/app/profile/quizzes/[quizId]/page.js
+./src/app/profile/refunds
+./src/app/profile/refunds/page.js
+./src/app/profile/refunds/[refundId]
+./src/app/profile/refunds/[refundId]/page.js
+./src/app/profile/reviews
+./src/app/profile/reviews/page.js
+./src/app/profile/sessions
+./src/app/profile/sessions/page.js
+./src/app/profile/sessions/[bookingId]
+./src/app/profile/sessions/[bookingId]/page.js
+./src/app/profile/settings
+./src/app/refund-policy
+./src/app/refund-policy/page.js
+./src/app/search
+./src/app/search/page.js
+./src/app/sessions
+./src/app/sessions/category
+./src/app/sessions/category/[slug]
+./src/app/sessions/category/[slug]/page.js
+./src/app/sessions/page.js
+./src/app/sessions/[slug]
+./src/app/sessions/[slug]/page.js
+./src/app/shop
+./src/app/shop/category
+./src/app/shop/category/[slug]
+./src/app/shop/category/[slug]/page.js
+./src/app/shop/page.js
+./src/app/shop/[slug]
+./src/app/shop/[slug]/page.js
+./src/app/start-here
+./src/app/start-here/page.js
+./src/app/terms
+./src/app/terms/page.js
+./src/app/testimonials
+./src/app/testimonials/page.js
+./src/app/testimonials/[id]
+./src/app/testimonials/[testimonialId]
+./src/app/testimonials/[testimonialId]/page.js
+./src/app/workshops
+./src/app/workshops/page.js
+./src/app/workshops/[slug]
+./src/app/[...segments]
+./src/app/[...segments]/page.js
+./src/components
+./src/components/account
+./src/components/account/AccountCenter.jsx
+./src/components/account/AddressBook.jsx
+./src/components/account/dashboard.module.css
+./src/components/account/DashboardShell.jsx
+./src/components/account/DashboardSnapshot.jsx
+./src/components/account/DigitalLibrary.jsx
+./src/components/account/FacilitatorApplication.jsx
+./src/components/account/MyNotifications.jsx
+./src/components/account/ProfileDetails.jsx
+./src/components/blog
+./src/components/blog/BlogCards.jsx
+./src/components/cards
+./src/components/cart
+./src/components/cart/AccountCart.jsx
+./src/components/cart/CartContents.jsx
+./src/components/checkout
+./src/components/classes
+./src/components/commerce
+./src/components/commerce/Checkout.jsx
+./src/components/commerce/CommerceCenter.jsx
+./src/components/common
+./src/components/common/AmbientVideo.jsx
+./src/components/common/api-record-display.css
+./src/components/common/ApiRecordDisplay.jsx
+./src/components/common/AuthForm.jsx
+./src/components/common/CatalogGrid.jsx
+./src/components/common/CategoryCatalogPage.jsx
+./src/components/common/CategoryNavigation.jsx
+./src/components/common/CmsPublicPage.jsx
+./src/components/common/ContactPopup.jsx
+./src/components/common/ContentPage.jsx
+./src/components/common/EmailVerification.jsx
+./src/components/common/FacilitatorSelector.jsx
+./src/components/common/NewsletterForm.jsx
+./src/components/common/NewsletterUnsubscribeForm.jsx
+./src/components/common/NotificationCenter.jsx
+./src/components/common/OpeningSplash.css
+./src/components/common/OpeningSplash.jsx
+./src/components/common/PasswordRecovery.jsx
+./src/components/common/PodcastPopup.jsx
+./src/components/common/PublicCatalogPage.jsx
+./src/components/common/PublicMediaImage.jsx
+./src/components/contact
+./src/components/contact/ContactForm.jsx
+./src/components/dashboard
+./src/components/dashboard/AccountSettings.jsx
+./src/components/dashboard/Analytics.jsx
+./src/components/dashboard/ApplicationWizard.jsx
+./src/components/dashboard/CourseQuestions.jsx
+./src/components/dashboard/CourseQuizzes.jsx
+./src/components/dashboard/DashboardPage.jsx
+./src/components/dashboard/data.js
+./src/components/dashboard/Earnings.jsx
+./src/components/dashboard/Elements.jsx
+./src/components/dashboard/FacilitatorAccess.jsx
+./src/components/dashboard/FacilitatorCategories.jsx
+./src/components/dashboard/FacilitatorOverview.jsx
+./src/components/dashboard/FacilitatorProfile.jsx
+./src/components/dashboard/FacilitatorResources.jsx
+./src/components/dashboard/media.css
+./src/components/dashboard/MediaControls.jsx
+./src/components/dashboard/MediaLibrary.jsx
+./src/components/dashboard/MutationDialog.jsx
+./src/components/dashboard/Overview.jsx
+./src/components/dashboard/ProductTools.jsx
+./src/components/dashboard/TeachingScope.jsx
+./src/components/dashboard/useCategoryChoices.js
+./src/components/dashboard/UserResources.jsx
+./src/components/dashboard/workspace.css
+./src/components/dashboard/WorkspaceShell.jsx
+./src/components/facilitators
+./src/components/home
+./src/components/home/BreathingPractice.jsx
+./src/components/home/CinematicHero.jsx
+./src/components/home/cosmic-senses.css
+./src/components/home/CosmicSenses.jsx
+./src/components/home/HomeCmsSections.jsx
+./src/components/home/HomepageMotion.jsx
+./src/components/home/QuoteSlider.jsx
+./src/components/infinity
+./src/components/layout
+./src/components/layout/Footer.jsx
+./src/components/layout/HeaderActions.jsx
+./src/components/layout/HeaderCommandPalette.jsx
+./src/components/layout/MobileSidebar.jsx
+./src/components/layout/Navbar.jsx
+./src/components/layout/PrimaryNavigation.jsx
+./src/components/layout/SiteChrome.jsx
+./src/components/learning
+./src/components/learning/ClassSpace.jsx
+./src/components/learning/CourseEnrollmentAction.jsx
+./src/components/learning/CourseSpace.jsx
+./src/components/learning/LessonSpace.jsx
+./src/components/learning/MyCourses.jsx
+./src/components/learning/MyMeditations.jsx
+./src/components/learning/MyQuizzes.jsx
+./src/components/learning/Questions.jsx
+./src/components/learning/Reviews.jsx
+./src/components/meditations
+./src/components/meditations/MeditationLibrary.jsx
+./src/components/meditations/MeditationPlayer.jsx
+./src/components/membership
+./src/components/membership/MembershipPlanStatus.jsx
+./src/components/membership/MyMembership.jsx
+./src/components/sessions
+./src/components/sessions/MySessions.jsx
+./src/components/sessions/SessionBookingPanel.jsx
+./src/components/sessions/SessionReschedule.jsx
+./src/components/sessions/SessionSlotAction.jsx
+./src/components/shop
+./src/components/shop/AddToCartButton.jsx
+./src/components/shop/ClaimDigitalProduct.jsx
+./src/components/shop/ProductCatalogPage.jsx
+./src/components/testimonials
+./src/components/workshops
+./src/config
+./src/context
+./src/data
+./src/data/facilitator-pathways.js
+./src/data/products.js
+./src/data/site-pages.js
+./src/features
+./src/features/auth
+./src/features/blog
+./src/features/booking
+./src/features/cart
+./src/features/checkout
+./src/features/classes
+./src/features/facilitators
+./src/features/infinity
+./src/features/orders
+./src/features/reviews
+./src/features/shop
+./src/features/workshops
+./src/hooks
+./src/hooks/useMotionAllowed.js
+./src/hooks/useVerifiedAccount.js
+./src/lib
+./src/lib/appearance.js
+./src/lib/auth.js
+./src/lib/backend-auth.js
+./src/lib/cart.js
+./src/lib/category-data.js
+./src/lib/client-account.js
+./src/lib/cms-content.js
+./src/lib/course-learning.js
+./src/lib/dashboard
+./src/lib/dashboard/categories.js
+./src/lib/dashboard/contracts.json
+./src/lib/dashboard/earnings.js
+./src/lib/dashboard/files.js
+./src/lib/dashboard/form-validation.js
+./src/lib/dashboard/identity.js
+./src/lib/dashboard/media.js
+./src/lib/dashboard/navigation.js
+./src/lib/dashboard/operations.js
+./src/lib/dashboard/operations.json
+./src/lib/dashboard/overview.js
+./src/lib/digital-library.js
+./src/lib/learning-data.js
+./src/lib/meditation-display.js
+./src/lib/navigation-menu.js
+./src/lib/product-format.js
+./src/lib/public-api.js
+./src/lib/public-categories.js
+./src/lib/record-display.js
+./src/lib/return-path.js
+./src/lib/session.js
+./src/lib/student-flow.js
+./structure.txt
+./tests
+./tests/course-learning.test.mjs
+./tests/dashboard-contracts.test.mjs
+./tests/dashboard-form-validation.test.mjs
+./tests/digital-library-browser.mjs
+./tests/digital-library.test.mjs
+./tests/facilitator-categories.test.mjs
+./tests/media-browser.mjs
+./tests/media.test.mjs
+./tests/meditation-display.test.mjs
+./tests/product-format.test.mjs
+./tests/production-data.test.mjs
+./tests/public-api-fixtures.mjs
+./tests/public-categories.test.mjs
+./tests/record-display.test.mjs
+./tests/student-browser.mjs
+./tests/student-flow.test.mjs

@@ -7,6 +7,7 @@ import CategoryNavigation from "./CategoryNavigation";
 import CatalogGrid from "./CatalogGrid";
 import { BlogCards } from "../blog/BlogCards";
 import ProductCatalogPage from "../shop/ProductCatalogPage";
+import MeditationLibrary from "../meditations/MeditationLibrary";
 
 export async function categoryMetadata(params, type) {
   const { slug } = await params;
@@ -41,7 +42,7 @@ export default async function CategoryCatalogPage({ params, searchParams, type }
     <h1 className="mt-5 break-words font-[Georgia,serif] text-4xl sm:text-5xl">{category?.name || `${catalog.label} category`}</h1>
     {category?.description && <p className="mt-4 max-w-2xl text-base leading-8 text-[#647368]">{category.description}</p>}
     <div className="mt-6">{filters}</div>
-    <div className="mt-8">{error ? <p role="alert" className="text-sm text-[#8a4c3c]">{error}</p> : shown.length ? type === "BLOG" ? <BlogCards posts={shown} categories={taxonomy.data} /> : <CatalogGrid items={shown} basePath={catalog.path} /> : <p className="text-sm leading-7 text-[#647368]">No {catalog.label === "Shop" ? "products" : catalog.label.toLowerCase()} are published in this category yet.</p>}</div>
+    <div className="mt-8">{error ? <p role="alert" className="text-sm text-[#8a4c3c]">{error}</p> : shown.length ? type === "BLOG" ? <BlogCards posts={shown} categories={taxonomy.data} /> : type === "MEDITATION" ? <MeditationLibrary items={shown} basePath={catalog.path} /> : <CatalogGrid items={shown} basePath={catalog.path} /> : <p className="text-sm leading-7 text-[#647368]">No {catalog.label === "Shop" ? "products" : catalog.label.toLowerCase()} are published in this category yet.</p>}</div>
     {pagination}
   </div></section>;
 }

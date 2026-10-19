@@ -43,7 +43,6 @@ export default function DashboardPage({ section = "overview", segments = [] }) {
   if (section === "digital-library") return <div className="ws-embedded"><DigitalLibrary key={id || "list"} entitlementId={id} embedded /></div>;
   if (section === "application") return <ApplicationWizard />;
   if (section === "progress") return <LearningProgress />;
-  if (section === "wishlist") return <State empty title="Wishlist is not available yet" description="The account service does not currently provide a wishlist. You can explore the catalogue and add items to your cart." href="/dashboard/user/explore" action="Explore courses" />;
   if (section === "notifications") return <div className="ws-embedded"><MyNotifications /></div>;
   if (section === "community") return <div className="ws-embedded"><Questions key={id || "list"} questionId={id} /></div>;
   if (["orders", "payments", "refunds"].includes(section)) return <div className="ws-embedded"><CommerceCenter key={`${section}-${id || "list"}`} section={section} id={id} /></div>;

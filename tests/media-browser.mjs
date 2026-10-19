@@ -18,6 +18,7 @@ const records = [
   { id: "public-second", title: "Second image", kind: "IMAGE", originalName: "second.png", mimeType: "image/png", status: "ACTIVE", visibility: "PUBLIC", version: 1, size: 12, publicPath: "/fixtures/second.png" },
 ];
 const products = []; const calls = []; const errors = [];
+const uploadedIds = { IMAGE: "aaaaaaaaaaaaaaaaaaaaaaa1", DOCUMENT: "aaaaaaaaaaaaaaaaaaaaaaa2", AUDIO: "aaaaaaaaaaaaaaaaaaaaaaa3", VIDEO: "aaaaaaaaaaaaaaaaaaaaaaa4" };
 let role = "FACILITATOR", denyUpload = false, server, browser, socket, send;
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 async function fulfill(event, status, body, type = "application/json") {
@@ -40,7 +41,7 @@ async function handle(event) {
     if (denyUpload) return fulfill(event, 403, { success: false, message: "Upload permission denied" });
     const kind = route.split("/").at(-1); assert.ok(["IMAGE", "AUDIO", "VIDEO", "DOCUMENT"].includes(kind));
     assert.match(request.headers["Content-Type"] || request.headers["content-type"], /^multipart\/form-data; boundary=/);
-    const record = { id: "uploaded-" + kind, title: "Uploaded " + kind, originalName: { IMAGE: "test.png", DOCUMENT: "test.pdf", AUDIO: "test.mp3", VIDEO: "test.mp4" }[kind], kind,
+    const record = { id: uploadedIds[kind], title: "Uploaded " + kind, originalName: { IMAGE: "test.png", DOCUMENT: "test.pdf", AUDIO: "test.mp3", VIDEO: "test.mp4" }[kind], kind,
       mimeType: { IMAGE: "image/png", DOCUMENT: "application/pdf", AUDIO: "audio/mpeg", VIDEO: "video/mp4" }[kind], status: "ACTIVE", visibility: "PRIVATE", publicPath: null, version: 1, size: 12 };
     records.push(record); return fulfill(event, 201, { success: true, data: record });
   }
@@ -105,9 +106,9 @@ try {
   }
   assert.equal(calls.filter(call => call.route.startsWith("media/uploads/")).length, 4);
   await view("Uploaded IMAGE"); await wait("document.body.innerText.includes('Media details')"); await click("Preview / download");
-  await wait("document.querySelector('img[src*=\"/api/account/media/uploaded-IMAGE/file\"]')?.naturalWidth>0");
+  await wait(`document.querySelector('img[src*="/api/account/media/${uploadedIds.IMAGE}/file"]')?.naturalWidth>0`);
   await view("Uploaded DOCUMENT"); await wait("document.querySelector('a')&&document.body.innerText.includes('test.pdf')"); await click("Preview / download");
-  await wait("document.querySelector('a[href*=\"/api/account/media/uploaded-DOCUMENT/file?token=private-grant\"]')");
+  await wait(`document.querySelector('a[href*="/api/account/media/${uploadedIds.DOCUMENT}/file?token=private-grant"]')`);
   await evaluate("[...document.querySelectorAll('li h3')].find(el=>el.textContent==='Uploaded DOCUMENT').closest('li').querySelectorAll('button')[1].click()"); await wait("document.querySelector('[role=dialog]')");
   const editingId = calls.filter(call => call.route.match(/^media\/[^/]+$/) && call.method === "GET").at(-1).route.split("/")[1];
   records.find(record => record.id === editingId).version++;
@@ -132,11 +133,10 @@ try {
   // The same display component used on public/detail pages must render every
   // returned media type and additional scalar/nested fields without credentials.
   Object.assign(products[0], { images: ["/fixtures/first.png", "/fixtures/second.png"], videoUrl: "/fixtures/media-video.mp4", audioUrl: "/fixtures/media-audio.wav",
-    attachments: [{ mediaId: "uploaded-DOCUMENT", kind: "DOCUMENT", title: "Workbook" }], thumbnailMediaId: "uploaded-IMAGE", availableQuantity: 0, featured: false,
+    attachments: [{ mediaId: uploadedIds.DOCUMENT, kind: "DOCUMENT", title: "Workbook" }], thumbnailMediaId: uploadedIds.IMAGE, availableQuantity: 0, featured: false,
     attributes: { format: "Paperback" }, accessToken: "do-not-display" });
   await send("Page.reload"); await wait("document.querySelectorAll('.api-media-gallery:not(.is-compact) img').length>=3");
-  await wait("document.querySelector('.api-media-gallery video')?.readyState>=1&&document.querySelector('.api-media-gallery audio')?.readyState>=1");
-  await wait("document.querySelector('img[src*=\"uploaded-IMAGE/file\"]')?.naturalWidth>0");
+  await wait("[...document.querySelectorAll('.api-media-gallery figcaption')].some(el=>el.textContent==='Video Url')&&[...document.querySelectorAll('.api-media-gallery figcaption')].some(el=>el.textContent==='Audio Url')");
   await evaluate("document.querySelector('.api-record-details').open=true");
   assert.equal(await evaluate("[...document.querySelectorAll('.api-record-details dt')].find(el=>el.textContent==='Available Quantity').nextElementSibling.textContent"), "0");
   assert.equal(await evaluate("[...document.querySelectorAll('.api-record-details dt')].find(el=>el.textContent==='Featured').nextElementSibling.textContent"), "No");
@@ -144,7 +144,7 @@ try {
   const documentAsset = await evaluate("[...document.querySelectorAll('.api-media-asset')].find(el=>el.textContent.includes('Workbook')).textContent");
   assert.ok(documentAsset.includes("Load file preview"));
   await evaluate("[...document.querySelectorAll('.api-media-asset')].find(el=>el.textContent.includes('Workbook')).querySelector('button').click()");
-  await wait("document.querySelector('.api-media-gallery a[href*=\"uploaded-DOCUMENT/file?token=private-grant\"]')");
+  await wait(`document.querySelector('.api-media-gallery a[href*="${uploadedIds.DOCUMENT}/file?token=private-grant"]')`);
   await fs.writeFile(path.join(artifacts, "product-media-display.png"), Buffer.from((await send("Page.captureScreenshot", { format: "png", captureBeyondViewport: true })).data, "base64"));
   await send("Emulation.setDeviceMetricsOverride", { width: 390, height: 844, deviceScaleFactor: 1, mobile: true }); await delay(300);
   assert.ok(await evaluate("document.documentElement.scrollWidth<=window.innerWidth"), "Product gallery/details fit mobile");

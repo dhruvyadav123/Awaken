@@ -31,7 +31,7 @@ Limits and remaining external verification:
 
 - Live read-only requests to public categories, courses and classes returned 200/success. Subsequent public catalogue requests returned 429 (`Too many requests. Try again later.`). Further live requests were stopped. These responses are surfaced as errors and are not treated as empty catalogues or missing sessions.
 - Browser lifecycle tests intercept APIs or use an isolated test-server fixture. No test fixture is imported by production application code, and no live purchase/account mutation was performed. Live authenticated account, real payment-provider and complete live catalogue verification still require an available authenticated session and a backend without throttling.
-- The unsupported wishlist remains an explicit unavailable state. Its existing page/route was preserved; no wishlist mutation was invented.
+- Wishlist is not exposed in the account navigation because the backend has no wishlist contract. The legacy URL redirects to the real Explore catalogue; no wishlist mutation is invented.
 - The existing `public/videos/forest-mobile.mp4` is empty (0 bytes). Browser media checks generate a valid video in the isolated browser when this asset is empty. The production asset was preserved and requires restoration from the intended source separately.
 
 Cart, blog and dashboard follow-up (2026-10-15):

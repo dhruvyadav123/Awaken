@@ -1,20 +1,34 @@
-import { RecordMedia, RecordDetails } from "@/components/common/ApiRecordDisplay";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { RecordMedia } from "@/components/common/ApiRecordDisplay";
 import { publicApi } from "@/lib/public-api";
 
 export default async function LessonPreviewPage({ params }) {
   const { slug, lessonId } = await params;
-  const result = await publicApi("courses/" + encodeURIComponent(slug) + "/lessons/" + encodeURIComponent(lessonId) + "/preview");
-  if (result.status === 404 || (!result.error && !result.data)) notFound();
-  const preview = result.data && typeof result.data === "object" ? result.data : {};
-  return <main className="min-h-screen bg-[#f7f8f3] px-5 py-14 text-[#29473c] sm:px-8"><article className="mx-auto max-w-3xl">
-    <Link href={"/courses/" + encodeURIComponent(slug)} className="text-sm font-semibold text-[#315a48] hover:underline">← Back to course</Link>
-    {!result.error && preview.fileAvailable !== false && <><RecordMedia record={{ ...preview, fileUrl: "/api/public/files/courses/" + encodeURIComponent(slug) + "/lessons/" + encodeURIComponent(lessonId) + "/preview/file" }} /><RecordDetails record={preview} publicView /></>}{result.error ? <p role="alert" className="mt-8 text-[#8a4c3c]">{result.error}</p> : <>
-      <p className="mt-10 text-xs font-semibold uppercase tracking-[.2em] text-[#66836d]">Lesson preview</p>
-      <h1 className="mt-3 font-[Georgia,serif] text-4xl">{preview.title || preview.name || "Preview lesson"}</h1>
-      {(preview.content || preview.description || preview.text) && <div className="mt-6 whitespace-pre-line text-base leading-8 text-[#647368]">{preview.content || preview.description || preview.text}</div>}
-      <a href={"/api/public/files/courses/" + encodeURIComponent(slug) + "/lessons/" + encodeURIComponent(lessonId) + "/preview/file"} className="mt-8 inline-flex min-h-12 items-center rounded-md bg-[#315a48] px-6 text-sm font-semibold text-white hover:bg-[#254638]">Open lesson preview</a>
-    </>}
-  </article></main>;
+  const back = `/courses/${encodeURIComponent(slug)}`;
+  const result = await publicApi(`courses/${encodeURIComponent(slug)}/lessons/${encodeURIComponent(lessonId)}/preview`);
+  if (result?.status === 404 || (!result?.error && !result?.data)) notFound();
+  const lesson = result?.data && typeof result.data === "object" ? result.data : {};
+  // The public preview/file endpoint can exist even when metadata has no media URL.
+  const available = lesson.fileAvailable !== false;
+  const fileUrl = `/api/public/files/courses/${encodeURIComponent(slug)}/lessons/${encodeURIComponent(lessonId)}/preview/file`;
+  const body = lesson.content || lesson.description || lesson.text;
+
+  return <main className="min-h-screen bg-white text-[#20372d]">
+    <div className="mx-auto max-w-5xl px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <Link href={back} className="text-sm font-semibold text-[#315d44] hover:underline">← Back to course</Link>
+      <header className="mt-8 border-b border-[#e4ebe4] pb-5">
+        <p className="text-xs font-semibold uppercase tracking-[.16em] text-[#729077]">Free lesson preview</p>
+        <h1 className="mt-2 font-[Georgia,serif] text-3xl leading-tight sm:text-4xl">{lesson.title || lesson.name || "Lesson preview"}</h1>
+        {body && <p className="mt-3 max-w-3xl whitespace-pre-line text-sm leading-7 text-[#687b6c]">{body}</p>}
+      </header>
+      {result?.error ? <p role="alert" className="mt-7 text-sm text-[#9d4f3c]">{String(result.error)}</p>
+        : available ? <section className="mt-6">
+          <div className="overflow-hidden rounded-2xl bg-[#eef3ed] p-2 sm:p-3 [&_video]:w-full [&_audio]:w-full [&_iframe]:w-full [&_img]:max-w-full">
+            <RecordMedia record={{ ...lesson, fileUrl }} />
+          </div>
+          <a href={fileUrl} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-semibold text-[#2a5d40] underline underline-offset-4">Open lesson media in new tab ↗</a>
+        </section> : !body ? <p className="mt-7 text-sm text-[#687b6c]">No preview content is available for this lesson.</p> : null}
+    </div>
+  </main>;
 }

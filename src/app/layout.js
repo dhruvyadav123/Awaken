@@ -3,6 +3,7 @@ import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import SiteChrome from "../components/layout/SiteChrome";
 import { ContactPopupProvider } from "../components/common/ContactPopup";
+import { NotificationProvider } from "../components/common/NotificationCenter";
 import { appearanceStyle, getAppearance } from "../lib/appearance";
 import { getCmsItems, normalizeCmsMenus } from "../lib/cms-content";
 import { publicApi } from "../lib/public-api";
@@ -27,7 +28,7 @@ export default async function RootLayout({ children }) {
   if (typeof website.general?.siteName === "string" && website.general.siteName) appearance.siteName = website.general.siteName;
   return <html lang="en" className={geistSans.variable + " " + geistMono.variable + " h-full antialiased"}>
     <body className="min-h-full flex flex-col" style={appearanceStyle(appearance)}>
-      <ContactPopupProvider><a className="awm-skip-link" href="#main-content">Skip to content</a><SiteChrome><Navbar cmsMenus={cmsMenus} />{typeof appearance.announcementText === "string" && appearance.announcementText && <p className="bg-[var(--awm-brand-color,#315a48)] px-5 py-2 text-center text-sm text-white">{appearance.announcementText}</p>}</SiteChrome><main id="main-content" className="site-main">{children}</main><SiteChrome><Footer website={website} /></SiteChrome></ContactPopupProvider>
+      <NotificationProvider><ContactPopupProvider><a className="awm-skip-link" href="#main-content">Skip to content</a><SiteChrome><Navbar cmsMenus={cmsMenus} />{typeof appearance.announcementText === "string" && appearance.announcementText && <p className="bg-[var(--awm-brand-color,#315a48)] px-5 py-2 text-center text-sm text-white">{appearance.announcementText}</p>}</SiteChrome><main id="main-content" className="site-main">{children}</main><SiteChrome><Footer website={website} /></SiteChrome></ContactPopupProvider></NotificationProvider>
     </body>
   </html>;
 }

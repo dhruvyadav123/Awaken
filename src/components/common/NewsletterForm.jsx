@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useNotifications } from "./NotificationCenter";
 
 export default function NewsletterForm() {
+  const notifications = useNotifications();
   const [status, setStatus] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -22,11 +24,15 @@ export default function NewsletterForm() {
       });
       const result = await response.json();
       if (!response.ok || !result.success) throw new Error(result.error || "We could not submit your email right now.");
-      setStatus(result.message || "If eligible, a confirmation email will be sent.");
+      const message = result.message || "If eligible, a confirmation email will be sent.";
+      setStatus(message);
+      notifications.success(message, { title: "Subscription received" });
       setSubmitted(true);
       form.reset();
     } catch (error) {
-      setStatus(error.message || "We could not submit your email right now. Please try again.");
+      const message = error.message || "We could not submit your email right now. Please try again.";
+      setStatus(message);
+      notifications.error(message, { title: "Subscription failed" });
     } finally {
       setSubmitting(false);
     }

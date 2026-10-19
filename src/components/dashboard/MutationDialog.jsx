@@ -5,6 +5,8 @@ import { idOf, rowsOf } from "./data";
 import { Icon } from "./WorkspaceShell";
 import { mediaBinding, safePermanentMediaUrl } from "@/lib/dashboard/media";
 import { MediaField, PermanentImagePreview } from "./MediaControls";
+import { validateMutationBody } from "@/lib/dashboard/form-validation";
+import { useNotifications } from "@/components/common/NotificationCenter";
 
 const labels = { regularPrice: "Regular price", discountPrice: "Discount price (optional)", categoryId: "Category", languageId: "Language", levelId: "Level", sectionId: "Curriculum section", startsAt: "Starts at", endsAt: "Ends at", registrationStartAt: "Registration opens", registrationEndAt: "Registration closes", idempotencyKey: "Request key", routingCode: "Routing / IFSC code", country: "Country", body: "Message", reason: "Reason for this change" };
 const label = key => labels[key] || key.replace(/([A-Z])/g, " $1").replace(/^./, value => value.toUpperCase());
@@ -26,6 +28,7 @@ function Fields({ fields, value, onChange, choices = {}, prefix = "", operation,
   });
 }
 export default function MutationDialog({ operation, path, detailPath, current = {}, choices = {}, title, description, submitLabel, prepareBody, dependenciesLoading = false, dependencyError, retryDependencies, onClose, onSuccess, courseVersion, courseDetailPath }) {
+  const notifications = useNotifications();
   const [value, setValue] = useState(() => initial({ type: "object", fields: operation.fields }, current)); const [error, setError] = useState(""); const [busy, setBusy] = useState(false); const lock = useRef(false); const intent = useRef(null); const container = useRef(null); const previousFocus = useRef(null);
   const [mediaBusy, setMediaBusy] = useState(false);
   const savedImages = operation.method === "PATCH" && !operation.fields.thumbnail && !operation.fields.images
@@ -47,8 +50,11 @@ export default function MutationDialog({ operation, path, detailPath, current = 
       if (operation.fields.courseVersion) { let version = latest?.version ?? courseVersion; if (courseDetailPath) { const course = await accountFetch(courseDetailPath); version = (course.data?.course || course.data)?.version; } if (version == null) throw new Error("Load the current course before updating its curriculum."); body.courseVersion = version; }
       if (operation.fields.idempotencyKey) { const signature = JSON.stringify(body); if (intent.current?.signature !== signature) intent.current = { signature, key: crypto.randomUUID() }; body.idempotencyKey = intent.current.key; }
       if (prepareBody) body = prepareBody(body, latest);
-      const result = await accountFetch(path, { method: operation.method, body }); await onSuccess(result); onClose();
-    } catch (caught) { setError(caught.status === 409 ? `${caught.message} Reload the record and review your changes before retrying.` : caught.message); }
+      validateMutationBody(operation.fields, body);
+      const result = await accountFetch(path, { method: operation.method, body }); await onSuccess(result);
+      notifications.success(result.message || (operation.method === "DELETE" ? "The item was removed." : "Your changes were saved."), { title: operation.method === "DELETE" ? "Removed" : "Changes saved" });
+      onClose();
+    } catch (caught) { const message = caught.status === 409 ? `${caught.message} Reload the record and review your changes before retrying.` : caught.message || "We could not save your changes."; setError(message); notifications.error(message, { title: "Couldn’t save changes" }); }
     finally { lock.current = false; setBusy(false); }
   }
   return <div className="ws-dialog" onKeyDown={event => {

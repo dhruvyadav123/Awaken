@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { accountFetch } from "@/lib/client-account";
 import { courseLearningHref, openEnrolledCourse } from "@/lib/course-learning";
 
-export default function CourseEnrollmentAction({ courseId }) {
+export default function CourseEnrollmentAction({ courseId, paid = false }) {
   const router = useRouter();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -24,7 +24,7 @@ export default function CourseEnrollmentAction({ courseId }) {
     finally { lock.current = false; setBusy(false); }
   }
 
-  return <div><button type="button" disabled={busy} onClick={openCourse} className="inline-flex min-h-12 items-center bg-[#315a48] px-6 text-sm font-semibold text-white hover:bg-[#254638] disabled:opacity-50">{busy ? "Opening your course..." : "Enroll or continue learning"}</button>
+  return <div><button type="button" disabled={busy} onClick={openCourse} className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-[#315a48] px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#254638] disabled:cursor-wait disabled:opacity-50">{busy ? "Checking access..." : paid ? "Buy / enroll in course" : "Enroll / start course"}</button>
     {error && <p role="alert" className="mt-3 max-w-xl text-sm text-[#8a4c3c]">{error}{signIn && <Link href={`/auth/login?next=${encodeURIComponent(`/profile/courses/${courseId}`)}`} className="ml-2 underline">Sign in to continue</Link>}</p>}
   </div>;
 }

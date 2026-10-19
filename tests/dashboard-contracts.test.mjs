@@ -168,6 +168,7 @@ function authRoute(path) {
 }
 const login = await authRoute("src/app/api/auth/login/route.js");
 const signup = await authRoute("src/app/api/auth/signup/route.js");
+const recovery = await authRoute("src/app/api/auth/recovery/route.js");
 test("Login redirect follows auth/me rather than a stale login role", async () => {
   globalThis.__dashboardCookieSet = false;
   globalThis.__dashboardAuthRequest = async path => ({ ok: true, status: 200, result: { success: true, data: path === "auth/login" ? { accessToken: "token", user: { role: "USER" } } : { role: "FACILITATOR", name: "Verified account" } } });
@@ -188,6 +189,27 @@ test("Backend verification requirements are respected and leave the account at s
   globalThis.__dashboardCookieSet = false;
   globalThis.__dashboardAuthRequest = async path => path === "auth/register" ? { ok: true, status: 201, result: { data: { emailVerificationRequired: true } } } : { ok: false, status: 403, result: { message: "Verification required" } };
   const response = await signup.POST(request("signup", "POST", { name: "Test account", email: "learner@example.test", password: "test-password" })); assert.equal((await response.json()).redirectTo, "/auth/login"); assert.equal(globalThis.__dashboardCookieSet, false);
+});
+test("Email verification forwards only the supplied token to the real backend endpoint", async () => {
+  const calls = [];
+  globalThis.__dashboardAuthRequest = async (path, options) => {
+    calls.push({ path, options });
+    return { ok: true, status: 200, result: { message: "Email verified" } };
+  };
+  const response = await recovery.POST(request("recovery", "POST", { action: "verify", token: "  signed-token  " }));
+  assert.equal(response.status, 200);
+  assert.deepEqual(calls, [{ path: "auth/verify-email", options: { method: "POST", body: { token: "signed-token" } } }]);
+  assert.equal((await response.json()).message, "Email verified");
+  const invalid = await recovery.POST(request("recovery", "POST", { action: "verify", token: "" }));
+  assert.equal(invalid.status, 400);
+});
+test("Verification resend forwards a validated email to the real backend endpoint", async () => {
+  const calls = [];
+  globalThis.__dashboardAuthRequest = async (path, options) => { calls.push({ path, options }); return { ok: true, status: 200, result: { message: "Verification email sent" } }; };
+  const response = await recovery.POST(request("recovery", "POST", { action: "resend", email: " learner@example.test " }));
+  assert.equal(response.status, 200);
+  assert.deepEqual(calls[0], { path: "auth/resend-verification", options: { method: "POST", body: { email: "learner@example.test" } } });
+  assert.equal((await response.json()).message, "Verification email sent");
 });
 
 const client = await sourceModule(fs.readFileSync("src/lib/client-account.js", "utf8"));

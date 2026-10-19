@@ -52,6 +52,6 @@ export default async function HomeCmsSections() {
           : <div className="renew-offering sage" key={brand.id || brand.key || name}>{content}</div>;
       })}</div>
     </section>}
-    {faqs.length > 0 && <section className="renew-section renew-faq"><div><p className="renew-kicker">A LITTLE CLARITY</p><h2>New here?<br/><em>You’re welcome.</em></h2><p>A few things to help you find your way.</p></div><div>{faqs.map(([question, answer])=><details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></section>}
+    {faqs.length > 0 && <section className="renew-section renew-faq"><div><p className="renew-kicker">A LITTLE CLARITY</p><h2>New here?<br/><em>You’re welcome.</em></h2><p>A few things to help you find your way.</p></div><div>{faqs.map(([question, answer], index)=><details key={`${question}-${index}`}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></section>}
   </>;
 }
