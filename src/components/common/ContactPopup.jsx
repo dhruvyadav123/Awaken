@@ -89,13 +89,13 @@ function ContactPopup({ isOpen, onClose }) {
       <button className="contact-popup-close" type="button" aria-label="Close contact popup" onClick={() => dialogRef.current?.close()}>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18" /></svg>
       </button>
-      <p className="contact-popup-eyebrow">Awaken With Me</p>
+      <p className="contact-popup-eyebrow">AwakenWithMeheck</p>
       <h2 id="contact-popup-title">How can we help?</h2>
       <p className="contact-popup-intro">Send us a note about classes, events, or finding the right place to begin.</p>
       <form className="contact-popup-form" onSubmit={submitMessage} aria-busy={submitting}>
         <label>Your name<input name="name" autoComplete="name" minLength={2} maxLength={120} required /></label>
         <label>Email address<input name="email" type="email" autoComplete="email" maxLength={254} required /></label>
-        <label>What is this about?<select name="subject" defaultValue="A question about Awaken With Me"><option>A question about Awaken With Me</option><option>Classes and training</option><option>Workshops and events</option><option>Infinity membership</option><option>Other</option></select></label>
+        <label>What is this about?<select name="subject" defaultValue="A question about AwakenWithMeheck"><option>A question about AwakenWithMeheck</option><option>Classes and training</option><option>Workshops and events</option><option>Infinity membership</option><option>Other</option></select></label>
         <label>Your message<textarea name="message" rows="3" minLength={5} maxLength={5000} required /></label>
         <button className="contact-popup-submit" type="submit" disabled={submitting}>{submitting ? "Sending…" : "Send message"}</button>
         <p className="contact-popup-status" aria-live="polite">{status || "Your message is sent securely through Awaken’s contact service."}</p>

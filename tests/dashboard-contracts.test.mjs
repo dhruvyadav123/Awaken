@@ -100,8 +100,8 @@ test("Media list, detail, uploads, metadata, access and streaming enforce facili
   assert.equal(listed.status, 200); assert.match(globalThis.__dashboardCalls[0].url, /\/media\?page=2&limit=20$/);
 });
 
-test("Media version/title, delete reason and access-link bodies stay on documented backend routes", async () => {
-  for (const [path, method, body] of [["media/image", "PATCH", { version: 2, title: "Renamed" }], ["media/image", "DELETE", { version: 3, reason: "Remove unused media" }], ["media/image/access-link", "POST", {}]]) {
+test("Media version/title/visibility, delete reason and access-link bodies stay on documented backend routes", async () => {
+  for (const [path, method, body] of [["media/image", "PATCH", { version: 2, title: "Renamed", visibility: "PUBLIC" }], ["media/image", "DELETE", { version: 3, reason: "Remove unused media" }], ["media/image/access-link", "POST", {}]]) {
     reset("FACILITATOR");
     const response = await proxy[method](request(path, method, body, { "x-csrf-token": "test-csrf" }), context(path));
     assert.equal(response.status, 200); assert.deepEqual(JSON.parse(globalThis.__dashboardCalls[0].options.body), body);

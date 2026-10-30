@@ -3,12 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { accountFetch } from "@/lib/client-account";
 import { recordMedia, recordFields } from "@/lib/record-display";
-import { mediaFileHref } from "@/lib/dashboard/media";
+import { mediaAccessInfo } from "@/lib/dashboard/media";
 import "./api-record-display.css";
 
 function MediaAsset({ asset, scope, compact }) {
   const initial = asset.source || (asset.id && !asset.protected ? `/api/public/files/media/${encodeURIComponent(asset.id)}/file` : "");
-  const [source, setSource] = useState(initial); const [kind, setKind] = useState(asset.kind);
+  const [source, setSource] = useState(initial); const [kind, setKind] = useState(asset.kind); const [expiresAt, setExpiresAt] = useState(0); const [expired, setExpired] = useState(false);
   const [loading, setLoading] = useState(asset.kind === "IMAGE" && (asset.protected || Boolean(initial))); const [error, setError] = useState("");
   const controller = useRef(null); const lock = useRef(false);
   async function load(signal) {
@@ -19,7 +19,7 @@ function MediaAsset({ asset, scope, compact }) {
       const metadata = (await accountFetch(`media/${id}`, { signal })).data;
       if (!metadata || metadata.status !== "ACTIVE") throw new Error("This file is currently unavailable.");
       const grant = await accountFetch(`media/${id}/access-link`, { method: "POST", body: {}, signal });
-      if (!signal?.aborted) { setKind(metadata.kind || asset.kind); setSource(mediaFileHref(asset.id, grant)); }
+      if (!signal?.aborted) { const access = mediaAccessInfo(asset.id, grant); setKind(metadata.kind || asset.kind); setSource(access.href); setExpiresAt(access.expiresAt); setExpired(false); }
     } catch (caught) { if (!signal?.aborted) { setSource(""); setError(caught.message); } }
     finally { lock.current = false; if (!signal?.aborted) setLoading(false); }
   }
@@ -32,7 +32,12 @@ function MediaAsset({ asset, scope, compact }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => () => controller.current?.abort(), []);
-  const failed = () => { setLoading(false); setSource(""); setError("This preview could not load. Try again or refresh the page."); };
+  useEffect(() => {
+    if (!expiresAt) return undefined;
+    const timer = window.setTimeout(() => { setSource(""); setExpired(true); setError("Preview access expired. Refresh file access to continue."); }, Math.max(0, expiresAt - Date.now()));
+    return () => window.clearTimeout(timer);
+  }, [expiresAt]);
+  const failed = () => { setLoading(false); setSource(""); setExpiresAt(0); setExpired(true); setError("This preview could not load. Try again or refresh the page."); };
   function retry() {
     if (asset.protected) { const next = new AbortController(); controller.current?.abort(); controller.current = next; void load(next.signal); }
     else { setError(""); setLoading(asset.kind === "IMAGE"); setSource(initial); }
@@ -44,7 +49,7 @@ function MediaAsset({ asset, scope, compact }) {
     {source && kind === "VIDEO" && !hostedVideo && <video src={source} controls playsInline preload="metadata" aria-label={asset.title} onError={failed} />}
     {source && kind === "AUDIO" && <audio src={source} controls preload="metadata" aria-label={asset.title} onError={failed} />}
     {source && (kind === "DOCUMENT" || hostedVideo) && <a href={source} target="_blank" rel="noreferrer" className="api-media-link">{hostedVideo ? "Watch video" : "Open document"}: {asset.title}</a>}
-    {asset.protected && scope === "facilitator" && <button type="button" disabled={loading} className="api-media-link" onClick={retry}>{loading ? "Requesting access..." : source ? "Refresh file access" : "Load file preview"}</button>}
+    {asset.protected && scope === "facilitator" && <button type="button" disabled={loading} className="api-media-link" onClick={retry}>{loading ? "Requesting access..." : source ? "Refresh file access" : expired ? "Renew file access" : "Load file preview"}</button>}
     {error && <div className="api-media-error" role="alert"><p>{error}</p><button type="button" disabled={loading} onClick={retry}>Retry preview</button></div>}
     {!compact && <figcaption>{asset.title}</figcaption>}
   </figure>;
@@ -55,11 +60,34 @@ export function RecordMedia({ record, scope = "public", compact = false, imagesO
   if (!shown.length) return null;
   return <div className={`api-media-gallery ${compact ? "is-compact" : ""}`} aria-label="Resource media">{shown.map(asset => <MediaAsset key={`${asset.key}:${asset.kind}:${scope}:${asset.source}:${record?.version || ""}`} asset={asset} scope={scope} compact={compact} />)}</div>;
 }
+const registrationDetailExclude = ["date", "endDate", "startTime", "endTime", "originalSchedule", "registrationStartAt", "registrationEndAt", "status", "registrationStatus", "attendanceStatus", "registeredAt", "source", "paymentStatus", "hasAccess", "waitlistEnabled", "join"];
+
+function displayRecordValue(value) {
+  if (value == null) return "";
+  if (typeof value === "boolean") return value ? "Yes" : "No";
+  if (typeof value === "number") return value.toLocaleString("en-IN");
+  if (typeof value === "string") return value;
+  if (typeof value === "object") {
+    const candidate = [value.source, value.url, value.filePath, value.fileUrl, value.path, value.title, value.name]
+      .find(item => typeof item === "string" && item.trim());
+    return candidate || "Available";
+  }
+  return String(value);
+}
+
 export function RecordDetails({ record, exclude = [], publicView = false, title = "More details" }) {
-  const fields = recordFields(record, { exclude, publicView });
+  const isWorkshopRegistration = record?.registrationStatus != null || record?.registration?.status != null || record?.classId != null;
+  const isClassRecord = ["CLASS", "WORKSHOP"].includes(String(record?.kind || record?.type || "").toUpperCase());
+  const classMetadataExclude = ["completeDescription", "complete_description", "thumbnail", "thumbnailUrl", "thumbnailMediaId", "category", "categoryId", "categoryName", "deliveryDetails", "delivery_details"];
+  const fields = recordFields(record, {
+    exclude: isClassRecord
+      ? [...new Set([...exclude, ...classMetadataExclude, ...(isWorkshopRegistration ? registrationDetailExclude : [])])]
+      : isWorkshopRegistration ? [...exclude, ...registrationDetailExclude] : exclude,
+    publicView,
+  });
   if (!fields.length) return null;
   return <details className="api-record-details"><summary>{title}</summary><dl>{fields.map(field => {
-    let value = typeof field.value === "boolean" ? field.value ? "Yes" : "No" : typeof field.value === "number" ? field.value.toLocaleString("en-IN") : field.value;
+    let value = displayRecordValue(field.value);
     if (/(?:At|Date)$/.test(field.key) && typeof field.value === "string" && Number.isFinite(Date.parse(field.value))) value = new Intl.DateTimeFormat("en-IN", { timeZone: "Asia/Kolkata", dateStyle: "medium", timeStyle: "short" }).format(new Date(field.value));
     return <div key={field.key}><dt>{field.label}</dt><dd>{value}</dd></div>;
   })}</dl></details>;

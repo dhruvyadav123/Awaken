@@ -1,0 +1,684 @@
+.ws-dialog-course .ws-dialog-content {
+  width: min(940px, 100%);
+  max-height: 86vh;
+  padding: 12px;
+}
+
+.ws-dialog-course .ws-card-header {
+  margin-bottom: 7px;
+}
+
+.ws-dialog-course .ws-card-header h2 {
+  font-size: 16px;
+}
+
+.ws-dialog-course .ws-muted {
+  line-height: 1.5;
+}
+
+.ws-dialog-course .ws-mutation-fields {
+  padding: 10px;
+  border: 1px solid var(--ws-line);
+  border-radius: 9px;
+}
+
+.ws-dialog-course .ws-form {
+  gap: 8px 10px;
+}
+
+.ws-dialog-course .ws-field {
+  gap: 4px;
+}
+
+.ws-dialog-course .ws-input {
+  min-height: 34px;
+  padding: 7px 9px;
+}
+
+.ws-dialog-course textarea.ws-input {
+  min-height: 62px;
+}
+
+.ws-dialog-course input[readonly] {
+  background: #f4f7f3;
+  color: #718079;
+  cursor: default;
+}
+
+.ws-dialog-course .ws-field small {
+  line-height: 1.35;
+}
+
+.ws-course-create-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.28fr) minmax(235px, .72fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.ws-course-create-layout > .ws-form {
+  min-width: 0;
+}
+
+.ws-course-preview {
+  position: sticky;
+  top: 0;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #e1eae1;
+  border-radius: 9px;
+  background: #fbfdfb;
+  box-shadow: 0 12px 30px rgba(34, 56, 46, .06);
+}
+
+.ws-course-preview-label,
+.ws-course-preview-kicker {
+  color: #78917d;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+.ws-course-preview-label {
+  margin: 1px 2px 6px;
+}
+
+.ws-course-preview-media {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 9px;
+  background: linear-gradient(135deg, #dce9dc, #a9c5a9);
+}
+
+.ws-course-preview-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.ws-course-preview-placeholder {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 5px;
+  color: #52735b;
+}
+
+.ws-course-preview-placeholder span {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.ws-course-preview-placeholder small {
+  font-size: 10px;
+}
+
+.ws-course-preview-body {
+  padding: 10px 2px 8px;
+}
+
+.ws-course-preview-body h3 {
+  margin: 4px 0;
+  color: var(--ws-ink);
+  font-size: 15px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.ws-course-preview-body p {
+  margin: 0;
+  color: var(--ws-muted);
+  font-size: 11px;
+}
+
+.ws-course-preview-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 8px 0;
+}
+
+.ws-course-preview-meta span {
+  border-radius: 999px;
+  padding: 4px 8px;
+  background: #edf5ed;
+  color: #47704e;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.ws-course-preview-description {
+  line-height: 1.55;
+}
+
+.ws-course-preview-cta {
+  width: 100%;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 7px;
+  background: var(--ws-green);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.ws-course-preview-cta:disabled {
+  opacity: 1;
+  cursor: default;
+}
+
+.ws-dialog-course .ws-course-create-form {
+  display: block;
+}
+
+.ws-dialog-course .ws-course-create-layout {
+  grid-template-columns: minmax(0, 1.38fr) minmax(245px, .72fr);
+  gap: 14px;
+}
+
+.ws-dialog-course .ws-course-main-fields {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  grid-column: auto;
+}
+
+.ws-course-form-sections {
+  display: grid;
+  gap: 8px;
+}
+
+.ws-course-section {
+  min-width: 0;
+  padding: 11px 12px 12px;
+  border: 1px solid #e3ebe3;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 3px 12px rgba(34, 56, 46, .025);
+}
+
+.ws-course-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+
+.ws-course-step {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  border-radius: 50%;
+  background: #e6f0ff;
+  color: #3973d0;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.ws-course-section-heading h3 {
+  margin: 0;
+  color: #2b405e;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.ws-course-section-heading p {
+  margin: 2px 0 0;
+  color: #8492a6;
+  font-size: 10px;
+  line-height: 1.45;
+}
+
+.ws-course-section-basic .ws-course-section-fields {
+  display: grid;
+  gap: 8px 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.ws-course-section .ws-field {
+  color: #526982;
+  font-size: 10px;
+}
+
+.ws-course-section .ws-input {
+  min-height: 34px;
+  border-color: #dce5ef;
+  border-radius: 6px;
+  color: #304761;
+  background: #fff;
+  font-size: 11px;
+}
+
+.ws-course-section textarea.ws-input {
+  min-height: 62px;
+}
+
+.ws-course-section .ws-field small {
+  font-size: 9px;
+}
+
+.ws-course-section-basic .ws-field:nth-child(1),
+.ws-course-section-basic .ws-field:nth-child(2),
+.ws-course-section-basic .ws-field:nth-child(3),
+.ws-course-section-outcomes .ws-field,
+.ws-course-section-notes .ws-field {
+  grid-column: 1 / -1;
+}
+
+.ws-course-section-pricing .ws-field {
+  min-width: 0;
+}
+
+.ws-course-slug-note {
+  margin: -3px 2px 0;
+  color: #87958c;
+  font-size: 10px;
+}
+
+.ws-course-thumbnail-card {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #e3ebe3;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.ws-course-thumbnail-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.ws-course-thumbnail-heading h3 {
+  margin: 0;
+  color: #2b405e;
+  font-size: 12px;
+}
+
+.ws-course-thumbnail-heading p {
+  margin: 3px 0 0;
+  color: #8492a6;
+  font-size: 10px;
+}
+
+.ws-course-thumbnail-heading > span {
+  padding: 4px 6px;
+  border-radius: 999px;
+  background: #e7f4ea;
+  color: #5b976a;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.ws-course-thumbnail-card .ws-media-field {
+  padding: 0;
+  border: 0;
+}
+
+.ws-course-thumbnail-card .ws-media-field > legend,
+.ws-course-thumbnail-card .ws-media-field-intro,
+.ws-course-thumbnail-card .ws-media-url-fallback,
+.ws-course-thumbnail-card .ws-media-field > .ws-muted {
+  display: none;
+}
+
+.ws-course-thumbnail-card .ws-media-selections {
+  margin: 0 0 9px;
+}
+
+.ws-course-thumbnail-card .ws-media-selections > div {
+  width: 100%;
+  max-width: none;
+}
+
+.ws-course-thumbnail-card .ws-media-selections .ws-media-preview {
+  margin: 0;
+}
+
+.ws-course-thumbnail-card .ws-media-selections .ws-media-path {
+  display: none;
+}
+
+.ws-course-thumbnail-card .ws-media-selections img {
+  width: 100%;
+  height: 82px;
+  max-height: none;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.ws-course-thumbnail-card .ws-media-library-toggle {
+  width: 100%;
+  min-height: 54px;
+  border: 1px dashed #b8c9df;
+  border-radius: 8px;
+  background: #f8fbff;
+  color: #4f70a3;
+  font-size: 10px;
+}
+
+.ws-course-thumbnail-card .ws-media-library-toggle:hover {
+  border-color: #7396cd;
+  background: #f1f6ff;
+}
+
+.ws-course-thumbnail-card .ws-media-library-toggle::before {
+  content: "＋";
+  display: block;
+  margin-bottom: 2px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.ws-course-preview {
+  align-self: start;
+}
+
+.ws-dialog-course .ws-toolbar-actions {
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+.ws-dialog-course .ws-toolbar-actions .ws-button {
+  min-width: 118px;
+}
+
+.ws-dialog-course .ws-media-browser {
+  gap: 7px;
+  max-height: 280px;
+  overflow: auto;
+  padding: 7px;
+  border: 1px solid #e3ebe3;
+  border-radius: 7px;
+  background: #fbfdfb;
+}
+
+.ws-dialog-course .ws-media-browser-note {
+  padding: 7px 9px;
+  font-size: 9px;
+}
+
+.ws-dialog-course .ws-media-browser-note strong {
+  font-size: 10px;
+}
+
+.ws-dialog-course .ws-media-browser .ws-toolbar {
+  gap: 6px;
+  margin-bottom: 0;
+}
+
+.ws-dialog-course .ws-media-browser .ws-toolbar input {
+  min-height: 30px;
+  padding: 6px 8px;
+  font-size: 10px;
+}
+
+.ws-dialog-course .ws-media-browser .ws-secondary,
+.ws-dialog-course .ws-media-browser .ws-button {
+  min-height: 30px;
+  padding: 6px 9px;
+  font-size: 9px;
+}
+
+.ws-dialog-course .ws-media-browser .ws-media-grid {
+  gap: 7px;
+}
+
+.ws-dialog-course .ws-media-browser .ws-media-grid > li {
+  grid-template-columns: 72px minmax(0, 1fr);
+}
+
+.ws-dialog-course .ws-media-browser .ws-media-grid .ws-media-card-art {
+  min-height: 82px;
+}
+
+.ws-dialog-course .ws-media-browser .ws-media-grid .ws-media-card-body {
+  padding: 8px;
+}
+
+.ws-dialog-course .ws-media-browser .ws-media-grid .ws-media-card-body > p,
+.ws-dialog-course .ws-media-browser .ws-media-grid .ws-media-card-meta {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .ws-dialog-course .ws-dialog-content {
+    max-height: 92vh;
+    padding: 16px;
+  }
+
+  .ws-dialog-course .ws-mutation-fields {
+    padding: 10px;
+  }
+
+  .ws-course-create-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .ws-dialog-course .ws-course-create-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ws-course-preview {
+    order: -1;
+  }
+
+  .ws-course-preview {
+    position: static;
+    order: -1;
+  }
+
+  .ws-course-section-basic .ws-course-section-fields {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Class/workshop forms use the full dialog width so schedule and meeting fields stay readable. */
+.ws-dialog-class .ws-dialog-content {
+  width: min(980px, 100%);
+  max-height: min(90vh, 780px);
+  padding: 20px 22px 18px;
+}
+
+.ws-dialog-class .ws-card-header {
+  margin-bottom: 14px;
+}
+
+.ws-dialog-class .ws-card-header h2 {
+  font-size: 19px;
+  letter-spacing: -.35px;
+}
+
+.ws-dialog-class .ws-muted {
+  line-height: 1.55;
+}
+
+.ws-dialog-class .ws-mutation-fields {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.ws-dialog-class .ws-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+.ws-dialog-class .ws-field {
+  min-width: 0;
+  gap: 6px;
+  color: #52685a;
+  font-size: 11px;
+}
+
+.ws-dialog-class .ws-input {
+  min-width: 0;
+  min-height: 42px;
+  padding: 10px 11px;
+  border-color: #d4e1d5;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 12px;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+.ws-dialog-class .ws-input:focus {
+  border-color: #6b9d74;
+  box-shadow: 0 0 0 3px #6b9d7422;
+  outline: 0;
+}
+
+.ws-dialog-class textarea.ws-input {
+  min-height: 104px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.ws-dialog-class .ws-field small {
+  line-height: 1.4;
+}
+
+.ws-dialog-class .ws-toolbar-actions {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e5ece5;
+}
+
+@media (max-width: 760px) {
+  .ws-dialog-class {
+    padding: 10px;
+  }
+
+  .ws-dialog-class .ws-dialog-content {
+    max-height: calc(100vh - 20px);
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .ws-dialog-class .ws-form {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .ws-dialog-class .ws-toolbar-actions {
+    margin-top: 16px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .ws-course-section-basic .ws-course-section-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* The full course editor lives inside the dashboard shell. Keep it clear of
+   the fixed sidebar/header and let only the editor surface scroll. */
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  bottom: 0;
+  left: 238px;
+  z-index: 30;
+  overflow-y: auto;
+  padding: 14px 22px 22px;
+  background: rgba(16, 42, 29, .18);
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) > section {
+  display: flex;
+  flex-direction: column;
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 112px);
+  margin: 0 auto;
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) > section > header {
+  flex: 0 0 auto;
+  padding: 12px 18px;
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) > section > header h1 {
+  font-size: 19px;
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) > section > header p:last-child {
+  display: none;
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) > section > div {
+  min-height: 0;
+  overflow-y: auto;
+  gap: 12px;
+  padding: 12px 14px 16px;
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) form {
+  gap: 12px;
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) form > section {
+  padding: 14px;
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) form > section > div:first-child {
+  margin-bottom: 10px;
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) form > section h2 {
+  font-size: 16px;
+}
+
+.workspace div:has(> section[aria-labelledby="course-editor-title"]) textarea {
+  min-height: 0;
+}
+
+@media (min-width: 761px) {
+  .workspace div:has(> section[aria-labelledby="course-editor-title"]) > section > div {
+    grid-template-columns: minmax(0, 1fr) 210px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .workspace div:has(> section[aria-labelledby="course-editor-title"]) {
+    left: 260px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1150px) {
+  .workspace div:has(> section[aria-labelledby="course-editor-title"]) {
+    left: 210px;
+  }
+}
+
+@media (max-width: 760px) {
+  .workspace div:has(> section[aria-labelledby="course-editor-title"]) {
+    top: 68px;
+    left: 0;
+    padding: 8px;
+  }
+
+  .workspace div:has(> section[aria-labelledby="course-editor-title"]) > section {
+    max-height: calc(100vh - 76px);
+  }
+
+  .workspace div:has(> section[aria-labelledby="course-editor-title"]) > section > header {
+    padding: 10px 12px;
+  }
+
+  .workspace div:has(> section[aria-labelledby="course-editor-title"]) > section > div {
+    padding: 8px;
+  }
+}

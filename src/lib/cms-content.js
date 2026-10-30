@@ -1,7 +1,7 @@
 import { allPublicItems } from "./public-api";
 
-export async function getCmsItems(collection) {
-  const result = await allPublicItems("cms/" + collection);
+export async function getCmsItems(collection, options = {}) {
+  const result = await allPublicItems("cms/" + collection, options);
   return Array.isArray(result.data) ? result.data : [];
 }
 
@@ -56,13 +56,19 @@ export function normalizeCmsMenus(records) {
     if (!label || (!href && !children.length)) return null;
     return { label, href: href || "", ...(children.length ? { children } : {}) };
   };
-  const entries = records.flatMap((record) => {
+  const entries = records
+    .filter((record) => {
+      const payload = getCmsPayload(record);
+      return !payload.location || String(payload.location).toUpperCase() === "HEADER";
+    })
+    .sort((left, right) => (Number(left?.displayOrder) || 0) - (Number(right?.displayOrder) || 0))
+    .flatMap((record) => {
     const payload = getCmsPayload(record);
     return Array.isArray(payload.items) ? payload.items
       : Array.isArray(payload.menuItems) ? payload.menuItems
         : Array.isArray(payload.entries) ? payload.entries
           : Array.isArray(payload.links) ? payload.links
             : Array.isArray(record?.data) ? record.data : [];
-  });
+    });
   return entries.map(normalize).filter(Boolean);
 }

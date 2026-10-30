@@ -39,7 +39,7 @@ export default function EmailVerification({ token = "" }) {
   }
 
   return <main className="auth-page"><section className="auth-panel mx-auto max-w-xl">
-    <p className="auth-eyebrow">Awaken With Me</p>
+    <p className="auth-eyebrow">AwakenWithMeheck</p>
     <h1>Verify your email</h1>
     <p className="auth-intro">Confirm the email address linked to your account.</p>
     {!token && <p className="auth-message auth-message-error" role="alert">This verification link is incomplete. Open the full link from your email.</p>}

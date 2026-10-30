@@ -6,11 +6,11 @@ const media = await sourceModule(fs.readFileSync("src/lib/dashboard/media.js", "
 const client = await sourceModule(fs.readFileSync("src/lib/client-account.js", "utf8"));
 const operations = JSON.parse(fs.readFileSync("src/lib/dashboard/operations.json", "utf8"));
 
-test("Media files validate kind, nonempty bytes, client limit, extension and MIME", () => {
+test("Media files validate kind, nonempty bytes, extension and MIME without a client size cap", () => {
   for (const [kind, name, type] of [["IMAGE", "photo.png", "image/png"], ["VIDEO", "video.mp4", "video/mp4"], ["AUDIO", "audio.mp3", "audio/mpeg"], ["DOCUMENT", "file.pdf", "application/pdf"]]) {
     assert.doesNotThrow(() => media.validateMediaFile({ name, type, size: 12 }, kind));
     assert.throws(() => media.validateMediaFile({ name, type, size: 0 }, kind), /non-empty/);
-    assert.throws(() => media.validateMediaFile({ name, type, size: media.MEDIA_MAX_BYTES + 1 }, kind), /or less/);
+    assert.doesNotThrow(() => media.validateMediaFile({ name, type, size: 500 * 1024 * 1024 }, kind));
   }
   assert.throws(() => media.validateMediaFile({ name: "image.svg", type: "image/svg+xml", size: 12 }, "IMAGE"), /supported/);
   assert.throws(() => media.validateMediaFile({ name: "image.png", type: "text/html", size: 12 }, "IMAGE"), /supported/);
@@ -32,14 +32,34 @@ test("Private and archived records, signed links, unsafe URLs and arbitrary IDs 
 test("Private grants preserve encoded tokens but keep file requests on the authenticated proxy", () => {
   assert.equal(media.mediaFileHref("image", { data: { token: "a+/&?" } }), "/api/account/media/image/file?token=a%2B%2F%26%3F");
   assert.equal(media.mediaFileHref("image", { data: { url: "https://backend.test/api/v1/media/image/file?token=grant" } }), "/api/account/media/image/file?token=grant");
+  assert.equal(media.mediaFileHref("image", { data: { path: "/api/v1/media/image/file?token=path-grant", expiresIn: 300 } }), "/api/account/media/image/file?token=path-grant");
+  const access = media.mediaAccessInfo("image", { data: { path: "/api/v1/media/image/file?token=path-grant", expiresAt: "2099-01-01T00:00:00.000Z", expiresIn: 300 } });
+  assert.equal(access.href, "/api/account/media/image/file?token=path-grant");
+  assert.ok(access.expiresAt >= Date.now() + 299000 && access.expiresAt <= Date.now() + 300000);
   assert.throws(() => media.mediaFileHref("image", { data: { url: "/media/another/file?token=wrong" } }), /token/);
   assert.throws(() => media.mediaFileHref("image", { data: { url: "javascript:alert(1)" } }), /token/);
   assert.throws(() => media.mediaFileHref("../other", { token: "grant" }), /ID/);
 });
 
-test("Media selection is available only in confirmed create thumbnail and product images fields", () => {
+test("Backend public paths render through the public proxy while saved URLs stay permanent", () => {
+  const path = "/api/v1/public/media/6acf232a3d47adf53503486b/file";
+  assert.equal(media.permanentMediaHref(path), "/api/public/files/media/6acf232a3d47adf53503486b/file");
+  assert.equal(media.permanentMediaHref("https://backend.test" + path), "/api/public/files/media/6acf232a3d47adf53503486b/file");
+  assert.equal(media.safePermanentMediaUrl(path), path);
+  assert.equal(media.permanentMediaHref("/api/v1/media/image/file?token=private"), "");
+  assert.equal(media.permanentMediaHref("https://cdn.test/image.png?width=200"), "https://cdn.test/image.png?width=200");
+});
+
+test("Expired grants are rejected and the earlier expiry bounds the preview lifetime", () => {
+  const path = "/api/v1/media/image/file?token=private";
+  assert.throws(() => media.mediaAccessInfo("image", { data: { path, expiresAt: "2020-01-01T00:00:00Z", expiresIn: 300 } }), /expired/);
+  const expiry = new Date(Date.now() + 15000).toISOString();
+  assert.equal(media.mediaAccessInfo("image", { data: { path, expiresAt: expiry, expiresIn: 300 } }).expiresAt, Date.parse(expiry));
+});
+
+test("Media selection is available only in confirmed image fields", () => {
   const bindings = operations.flatMap(operation => Object.keys(operation.fields).filter(key => media.mediaBinding(operation, key)).map(key => `${operation.method} ${operation.path} ${key}`));
-  assert.deepEqual(bindings.sort(), ["POST facilitator/classes thumbnail", "POST facilitator/courses thumbnail", "POST facilitator/products images"]);
+  assert.deepEqual(bindings.sort(), ["PATCH facilitator/profile coverImageMediaId", "PATCH facilitator/profile profileImageMediaId", "POST facilitator/classes thumbnailMediaId", "POST facilitator/courses thumbnail", "POST facilitator/products images"]);
   assert.equal(media.mediaBinding({ method: "PATCH", path: "facilitator/courses" }, "thumbnail"), null);
   assert.equal(media.mediaBinding({ method: "POST", path: "facilitator/courses/id/lessons" }, "mediaId"), null);
 });

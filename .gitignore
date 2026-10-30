@@ -17,6 +17,11 @@
 /.next/
 /out/
 
+# local browser checks and deployment logs
+/.frontend-check-edge/
+.dev-*.log
+.vercel-deploy*.log
+
 # production
 /build
 

@@ -28,7 +28,33 @@ export function titleOf(item, fallback) {
 }
 
 export function lessonsOf(course) {
-  const direct = listOf(course, ["lessons", "items"]);
-  if (direct.length) return direct;
-  return listOf(course, ["modules", "sections"]).flatMap((group) => listOf(group, ["lessons", "items"]));
+  return courseSections(course).flatMap((group) => group.lessons);
+}
+
+function ordered(items) {
+  return items.map((item, index) => ({ item, index })).sort((a, b) => {
+    const rank = ({ item, index }) => {
+      const value = item.displayOrder ?? item.order ?? item.position ?? index;
+      return Number.isFinite(Number(value)) ? Number(value) : index;
+    };
+    return rank(a) - rank(b) || a.index - b.index;
+  }).map(({ item }) => item);
+}
+
+export function courseSections(course) {
+  const groups = ordered(listOf(course, ["sections", "modules"]).filter(Boolean));
+  if (groups.some((group) => listOf(group, ["lessons", "items"]).length)) {
+    return groups.map((group, index) => ({
+      id: group.id || group.sectionId || `section-${index}`,
+      title: group.title || group.name || `Module ${index + 1}`,
+      lessons: ordered(listOf(group, ["lessons", "items"]).filter(Boolean)),
+    }));
+  }
+  const sections = new Map();
+  for (const lesson of ordered(listOf(course, ["lessons", "items"]).filter(Boolean))) {
+    const key = lesson.sectionId || lesson.moduleId || lesson.sectionTitle || lesson.moduleTitle || "course-content";
+    if (!sections.has(key)) sections.set(key, { id: key, title: lesson.sectionTitle || lesson.moduleTitle || "Course content", lessons: [] });
+    sections.get(key).lessons.push(lesson);
+  }
+  return [...sections.values()];
 }

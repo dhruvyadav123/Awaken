@@ -1,4 +1,4 @@
-const API_BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").replace(/\/+$/, "");
+const API_BASE_URL = (process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.awakenwithmeheck.com/api/v1").replace(/\/+$/, "");
 
 export async function POST(request) {
   if (!API_BASE_URL) return Response.json({ error: "Newsletter service is not configured." }, { status: 503 });

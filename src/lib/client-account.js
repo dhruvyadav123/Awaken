@@ -5,6 +5,21 @@ export function getCsrfToken() {
 }
 
 let refreshing;
+const pendingReads = new Map();
+
+// Share simultaneous reads (header + page, for example), never cache a private
+// response after it completes, and never combine writes or abortable requests.
+export function accountFetch(path, options = {}, retried = false) {
+  const method = String(options.method || "GET").toUpperCase();
+  if (retried || method !== "GET" || options.signal || options.headers || options.responseType || options.body !== undefined) return requestAccount(path, options, retried);
+  const key = getCsrfToken() + ":" + path.replace(/^\/+/, "");
+  if (pendingReads.has(key)) return pendingReads.get(key);
+  const request = requestAccount(path, options, retried);
+  pendingReads.set(key, request);
+  const clear = () => { if (pendingReads.get(key) === request) pendingReads.delete(key); };
+  request.then(clear, clear);
+  return request;
+}
 
 // Upload progress measures bytes sent to the authenticated proxy. Backend
 // processing is complete only when the successful response arrives.
@@ -37,7 +52,7 @@ function multipartRequest(url, options, headers) {
   });
 }
 
-export async function accountFetch(path, options = {}, retried = false) {
+async function requestAccount(path, options = {}, retried = false) {
   const method = options.method || "GET";
   const headers = new Headers(options.headers || {});
   if (method !== "GET") headers.set("x-csrf-token", getCsrfToken());
@@ -64,7 +79,14 @@ export async function accountFetch(path, options = {}, retried = false) {
   const result = response.headers.get("content-type")?.includes("application/json") ? await response.json().catch(() => null) : null;
   if (!response.ok || result?.success !== true) {
     const message = typeof result?.error === "string" ? result.error : typeof result?.message === "string" ? result.message : response.status === 401 ? "Please sign in again." : response.ok ? "The account service returned an incomplete response. Please try again." : "We could not complete that request.";
-    const issues = Array.isArray(result?.errors) ? result.errors.map(issue => typeof issue === "string" ? issue : issue?.message).filter(value => typeof value === "string").join(" ") : "";
+    const issues = [
+      ...(Array.isArray(result?.errors) ? result.errors : []),
+      ...(Array.isArray(result?.details) ? result.details : []),
+    ].map(issue => {
+      if (typeof issue === "string") return issue;
+      if (issue?.field && issue?.code) return `${issue.field}: ${issue.code}`;
+      return issue?.message;
+    }).filter(value => typeof value === "string").join(" ");
     const error = new Error(issues ? `${message} ${issues}` : message);
     error.status = response.ok ? 502 : response.status;
     error.code = result?.code;

@@ -1,4 +1,4 @@
-const API_BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").replace(/\/+$/, "");
+const API_BASE_URL = (process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.awakenwithmeheck.com/api/v1").replace(/\/+$/, "");
 
 const allowedPath = (segments) => {
   if (segments.length === 3 && segments[0] === "media" && segments[2] === "file") return true;

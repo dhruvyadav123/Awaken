@@ -31,6 +31,7 @@ const mediaFields = {
     "recordingUrl",
     "recordingMediaId",
     "demoVideoUrl",
+    "demoVideoMediaId",
     "introductionVideoUrl",
   ],
   AUDIO: ["audio", "audioUrl", "audioMediaId"],

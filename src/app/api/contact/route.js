@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 
-const API_BASE_URL = (process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "").replace(/\/+$/, "");
+const API_BASE_URL = (process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.awakenwithmeheck.com/api/v1").replace(/\/+$/, "");
 
 function failure(error, status) {
   return Response.json({ success: false, message: error, error, data: { accepted: false } }, { status });

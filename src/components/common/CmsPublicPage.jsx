@@ -7,7 +7,10 @@ export default function CmsPublicPage({ record }) {
   const title = getTextValue(page, "title", "name", "heading") || "Awaken";
   const description = getTextValue(page, "description", "excerpt", "summary");
   const content = getTextValue(page, "content", "body", "text");
-  const sections = Array.isArray(page.sections) ? page.sections : [];
+  const sections = [
+    ...(Array.isArray(page.blocks) ? page.blocks : []),
+    ...(Array.isArray(page.sections) ? page.sections : []),
+  ];
   return <main className="min-h-screen bg-[#f7f8f3] text-[#29473c]">
     <article className="mx-auto max-w-5xl px-5 py-12 sm:px-8 sm:py-16">
       <p className="text-xs font-semibold uppercase tracking-[.22em] text-[#66836d]">Awaken</p>

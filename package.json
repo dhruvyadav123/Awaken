@@ -8,6 +8,7 @@
     "start": "next start",
     "test": "node --test tests/*.test.mjs",
     "test:media-browser": "node tests/media-browser.mjs",
+    "test:learning-browser": "node tests/learning-browser.mjs",
     "lint": "eslint"
   },
   "dependencies": {

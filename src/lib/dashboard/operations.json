@@ -151,9 +151,9 @@
         "type": "string",
         "nullable": false
       },
-      "thumbnail": {
+      "thumbnailMediaId": {
         "type": "string",
-        "nullable": false
+        "nullable": true
       },
       "categoryId": {
         "type": "string",
@@ -165,7 +165,7 @@
       },
       "endsAt": {
         "type": "string",
-        "nullable": false
+        "nullable": true
       },
       "timezone": {
         "type": "string",
@@ -205,11 +205,11 @@
       },
       "registrationStartAt": {
         "type": "string",
-        "nullable": false
+        "nullable": true
       },
       "registrationEndAt": {
         "type": "string",
-        "nullable": false
+        "nullable": true
       },
       "reason": {
         "type": "string",
@@ -379,15 +379,7 @@
     "method": "POST",
     "path": "facilitator/courses",
     "fields": {
-      "reason": {
-        "type": "string",
-        "nullable": false
-      },
       "title": {
-        "type": "string",
-        "nullable": false
-      },
-      "slug": {
         "type": "string",
         "nullable": false
       },
@@ -403,9 +395,29 @@
         "type": "string",
         "nullable": false
       },
-      "categoryId": {
+      "thumbnailMediaId": {
         "type": "string",
         "nullable": false
+      },
+      "banner": {
+        "type": "string",
+        "nullable": true
+      },
+      "bannerMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "demoVideoSource": {
+        "type": "string",
+        "nullable": true
+      },
+      "demoVideoUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "demoVideoMediaId": {
+        "type": "string",
+        "nullable": true
       },
       "languageId": {
         "type": "string",
@@ -417,6 +429,7 @@
       },
       "learningOutcomes": {
         "type": "array",
+        "nullable": false,
         "item": {
           "type": "string",
           "nullable": false
@@ -426,9 +439,31 @@
         "type": "number",
         "nullable": false
       },
+      "discountPrice": {
+        "type": "number",
+        "nullable": true
+      },
       "currency": {
         "type": "string",
         "nullable": false
+      },
+      "certificateEnabled": {
+        "type": "boolean",
+        "nullable": true
+      },
+      "completionPolicy": {
+        "type": "object",
+        "nullable": true,
+        "fields": {
+          "requiredLessonPercent": {
+            "type": "number",
+            "nullable": false
+          },
+          "requirePassingQuizzes": {
+            "type": "boolean",
+            "nullable": false
+          }
+        }
       }
     }
   },
@@ -454,13 +489,107 @@
         "type": "number",
         "nullable": false
       },
-      "reason": {
-        "type": "string",
-        "nullable": false
-      },
       "title": {
         "type": "string",
         "nullable": false
+      },
+      "seoDescription": {
+        "type": "string",
+        "nullable": true
+      },
+      "shortDescription": {
+        "type": "string",
+        "nullable": true
+      },
+      "description": {
+        "type": "string",
+        "nullable": true
+      },
+      "thumbnail": {
+        "type": "string",
+        "nullable": true
+      },
+      "thumbnailMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "banner": {
+        "type": "string",
+        "nullable": true
+      },
+      "bannerMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "demoVideoSource": {
+        "type": "string",
+        "nullable": true
+      },
+      "demoVideoUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "demoVideoMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "categoryId": {
+        "type": "string",
+        "nullable": true
+      },
+      "languageId": {
+        "type": "string",
+        "nullable": true
+      },
+      "levelId": {
+        "type": "string",
+        "nullable": true
+      },
+      "learningOutcomes": {
+        "type": "array",
+        "nullable": true,
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "requirements": {
+        "type": "array",
+        "nullable": true,
+        "item": {
+          "type": "string",
+          "nullable": false
+        }
+      },
+      "regularPrice": {
+        "type": "number",
+        "nullable": true
+      },
+      "discountPrice": {
+        "type": "number",
+        "nullable": true
+      },
+      "currency": {
+        "type": "string",
+        "nullable": true
+      },
+      "completionPolicy": {
+        "type": "object",
+        "nullable": true,
+        "fields": {
+          "requiredLessonPercent": {
+            "type": "number",
+            "nullable": false
+          },
+          "requirePassingQuizzes": {
+            "type": "boolean",
+            "nullable": false
+          }
+        }
+      },
+      "certificateEnabled": {
+        "type": "boolean",
+        "nullable": true
       }
     }
   },
@@ -635,6 +764,66 @@
       "contentType": {
         "type": "string",
         "nullable": false
+      },
+      "description": {
+        "type": "string",
+        "nullable": true
+      },
+      "duration": {
+        "type": "number",
+        "nullable": true
+      },
+      "displayOrder": {
+        "type": "number",
+        "nullable": true
+      },
+      "isPreview": {
+        "type": "boolean",
+        "nullable": true
+      },
+      "videoSource": {
+        "type": "string",
+        "nullable": true
+      },
+      "videoUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "videoMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "audioUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "audioMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "documentUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "documentMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "imageMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "textContent": {
+        "type": "string",
+        "nullable": true
+      },
+      "liveUrl": {
+        "type": "string",
+        "nullable": true
       }
     }
   },
@@ -663,6 +852,78 @@
       "sectionId": {
         "type": "string",
         "nullable": false
+      },
+      "title": {
+        "type": "string",
+        "nullable": true
+      },
+      "description": {
+        "type": "string",
+        "nullable": true
+      },
+      "contentType": {
+        "type": "string",
+        "nullable": true
+      },
+      "duration": {
+        "type": "number",
+        "nullable": true
+      },
+      "displayOrder": {
+        "type": "number",
+        "nullable": true
+      },
+      "isPreview": {
+        "type": "boolean",
+        "nullable": true
+      },
+      "status": {
+        "type": "string",
+        "nullable": true
+      },
+      "videoSource": {
+        "type": "string",
+        "nullable": true
+      },
+      "videoUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "videoMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "audioUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "audioMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "documentUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "documentMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "imageUrl": {
+        "type": "string",
+        "nullable": true
+      },
+      "imageMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "textContent": {
+        "type": "string",
+        "nullable": true
+      },
+      "liveUrl": {
+        "type": "string",
+        "nullable": true
       }
     }
   },
@@ -1109,6 +1370,96 @@
       "displayName": {
         "type": "string",
         "nullable": false
+      },
+      "profileImageMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "coverImageMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "shortBio": {
+        "type": "string",
+        "nullable": true
+      },
+      "fullBio": {
+        "type": "string",
+        "nullable": true
+      },
+      "experience": {
+        "type": "string",
+        "nullable": true
+      },
+      "education": {
+        "type": "string",
+        "nullable": true
+      },
+      "specializations": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        },
+        "nullable": true
+      },
+      "languages": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        },
+        "nullable": true
+      },
+      "certifications": {
+        "type": "array",
+        "item": {
+          "type": "string",
+          "nullable": false
+        },
+        "nullable": true
+      },
+      "socialLinks": {
+        "type": "object",
+        "nullable": true,
+        "fields": {
+          "instagram": {
+            "type": "string",
+            "nullable": true
+          },
+          "facebook": {
+            "type": "string",
+            "nullable": true
+          },
+          "youtube": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkedin": {
+            "type": "string",
+            "nullable": true
+          },
+          "twitter": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "website": {
+        "type": "string",
+        "nullable": true
+      },
+      "country": {
+        "type": "string",
+        "nullable": true
+      },
+      "state": {
+        "type": "string",
+        "nullable": true
+      },
+      "city": {
+        "type": "string",
+        "nullable": true
       }
     }
   },
@@ -1375,6 +1726,10 @@
         "nullable": false
       },
       "title": {
+        "type": "string",
+        "nullable": false
+      },
+      "visibility": {
         "type": "string",
         "nullable": false
       }
@@ -1671,11 +2026,27 @@
       },
       "productId": {
         "type": "string",
-        "nullable": false
+        "nullable": true
       },
       "variantId": {
         "type": "string",
-        "nullable": false
+        "nullable": true
+      },
+      "itemType": {
+        "type": "string",
+        "nullable": true
+      },
+      "itemId": {
+        "type": "string",
+        "nullable": true
+      },
+      "availabilityId": {
+        "type": "string",
+        "nullable": true
+      },
+      "startsAt": {
+        "type": "string",
+        "nullable": true
       },
       "quantity": {
         "type": "number",
@@ -1724,6 +2095,14 @@
               "type": "string",
               "nullable": false
             },
+            "availabilityId": {
+              "type": "string",
+              "nullable": true
+            },
+            "startsAt": {
+              "type": "string",
+              "nullable": true
+            },
             "quantity": {
               "type": "number",
               "nullable": false
@@ -1757,6 +2136,14 @@
             "itemId": {
               "type": "string",
               "nullable": false
+            },
+            "availabilityId": {
+              "type": "string",
+              "nullable": true
+            },
+            "startsAt": {
+              "type": "string",
+              "nullable": true
             },
             "quantity": {
               "type": "number",
@@ -2106,6 +2493,42 @@
       "name": {
         "type": "string",
         "nullable": false
+      },
+      "phone": {
+        "type": "string",
+        "nullable": true
+      },
+      "dateOfBirth": {
+        "type": "string",
+        "nullable": true
+      },
+      "gender": {
+        "type": "string",
+        "nullable": true
+      },
+      "country": {
+        "type": "string",
+        "nullable": true
+      },
+      "state": {
+        "type": "string",
+        "nullable": true
+      },
+      "city": {
+        "type": "string",
+        "nullable": true
+      },
+      "timezone": {
+        "type": "string",
+        "nullable": true
+      },
+      "preferredLanguage": {
+        "type": "string",
+        "nullable": true
+      },
+      "avatar": {
+        "type": "string",
+        "nullable": true
       }
     }
   },

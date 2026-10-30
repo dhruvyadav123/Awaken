@@ -1,7 +1,7 @@
 
 export const metadata = {
-  title: "Dashboard | Awaken With Me",
-  description: "Your personal Awaken With Me dashboard.",
+  title: "Dashboard | AwakenWithMeheck",
+  description: "Your personal AwakenWithMeheck dashboard.",
 };
 
 export default function DashboardPage() {

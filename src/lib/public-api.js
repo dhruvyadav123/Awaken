@@ -1,4 +1,8 @@
-const API_BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").replace(/\/+$/, "");
+// The public API is server-side, so support the private deployment variable as
+// well as the browser-prefixed one. Keep a safe production fallback so a
+// deployment made without Vercel environment variables does not turn every
+// CMS/detail request into the catch-all 404 page.
+const API_BASE_URL = (process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.awakenwithmeheck.com/api/v1").replace(/\/+$/, "");
 const cacheKey = Symbol.for("awaken.public-api.cache");
 const flightKey = Symbol.for("awaken.public-api.inflight");
 const queueKey = Symbol.for("awaken.public-api.queue");
@@ -16,42 +20,51 @@ async function withRequestSlot(run) {
   }
 }
 
-export async function publicApi(path, params = {}) {
+export async function publicApi(path, params = {}, options = {}) {
   if (!API_BASE_URL) return { data: null, error: "API URL is not configured.", status: 0 };
 
+  const fresh = options.cache === "no-store";
   const url = new URL(`${API_BASE_URL}/public/${path.replace(/^\/+/, "")}`);
   for (const [key, value] of Object.entries(params)) {
     if (value !== undefined && value !== null && value !== "") url.searchParams.set(key, String(value));
   }
 
   const key = url.toString();
-  const cached = resultCache.get(key);
-  if (cached && cached.expiresAt > Date.now()) return cached.value;
-  if (inFlight.has(key)) return inFlight.get(key);
+  const requestKey = `${fresh ? "no-store:" : "cached:"}${key}`;
+  if (!fresh) {
+    const cached = resultCache.get(key);
+    if (cached && cached.expiresAt > Date.now()) return cached.value;
+  }
+  if (inFlight.has(requestKey)) return inFlight.get(requestKey);
 
   const request = withRequestSlot(async () => {
     try {
-      const response = await fetch(url, { next: { revalidate: 60 }, signal: AbortSignal.timeout(10000) });
+      const response = await fetch(url, {
+        ...(fresh ? { cache: "no-store" } : { next: { revalidate: 60 } }),
+        signal: AbortSignal.timeout(10000),
+      });
       const result = await response.json();
       const value = !response.ok || result?.success !== true
         ? { data: null, message: result?.message || "", error: result?.message || "This information is unavailable right now.", status: response.ok ? 502 : response.status }
         : { data: result.data, pagination: result.pagination, message: result.message || "", error: null, status: response.status };
       const ttl = value.error ? (response.status === 429 ? 10000 : 3000) : 60000;
-      resultCache.set(key, { value, expiresAt: Date.now() + ttl });
-      if (resultCache.size > 500) {
-        for (const [cacheEntry, cacheValue] of resultCache) if (cacheValue.expiresAt <= Date.now()) resultCache.delete(cacheEntry);
-        if (resultCache.size > 500) resultCache.delete(resultCache.keys().next().value);
+      if (!fresh) {
+        resultCache.set(key, { value, expiresAt: Date.now() + ttl });
+        if (resultCache.size > 500) {
+          for (const [cacheEntry, cacheValue] of resultCache) if (cacheValue.expiresAt <= Date.now()) resultCache.delete(cacheEntry);
+          if (resultCache.size > 500) resultCache.delete(resultCache.keys().next().value);
+        }
       }
       return value;
     } catch {
       const value = { data: null, error: "We could not load this information right now. Please try again later.", status: 0 };
-      resultCache.set(key, { value, expiresAt: Date.now() + 3000 });
+      if (!fresh) resultCache.set(key, { value, expiresAt: Date.now() + 3000 });
       return value;
     }
   });
-  inFlight.set(key, request);
+  inFlight.set(requestKey, request);
   try { return await request; }
-  finally { inFlight.delete(key); }
+  finally { inFlight.delete(requestKey); }
 }
 
 export function validPage(value) {
@@ -59,15 +72,15 @@ export function validPage(value) {
   return Number.isSafeInteger(page) && page > 0 ? page : 1;
 }
 
-export async function allPublicItems(path) {
-  const first = await publicApi(path, { page: 1, limit: 20 });
+export async function allPublicItems(path, options = {}) {
+  const first = await publicApi(path, { page: 1, limit: 20 }, options);
   if (first.error || !Array.isArray(first.data)) return first;
   const pages = Math.max(1, Number(first.pagination?.pages) || 1);
   const items = [...first.data];
   for (let page = 2; page <= pages; page += 5) {
     const batch = await Promise.all(
       Array.from({ length: Math.min(5, pages - page + 1) }, (_, index) =>
-        publicApi(path, { page: page + index, limit: 20 })
+        publicApi(path, { page: page + index, limit: 20 }, options)
       )
     );
     const failed = batch.find((result) => result.error || !Array.isArray(result.data));

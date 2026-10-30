@@ -27,7 +27,7 @@ No backend repository, storage configuration, database models or authoritative e
 
 - POST `/media/uploads/{kind}` with multipart `file` and `title`; IMAGE is covered by the existing generic kind route and the user's example.
 - GET `/media?page=...&limit=20`; restored its exact facilitator allowlist entry.
-- GET `/media/{id}`; PATCH `/media/{id}` with latest numeric version/title.
+- GET `/media/{id}`; PATCH `/media/{id}` with latest numeric version, title and documented visibility (`PUBLIC` or `PRIVATE`).
 - DELETE `/media/{id}` with latest version/reason from the supplied collection.
 - POST `/media/{id}/access-link` with `{}`; GET `/media/{id}/file?token=...` through the existing protected streaming proxy.
 - Existing facilitator resource POST requests retain documented URL fields. No duplicate storage API, local media database, demo application records or new backend endpoint was created.
@@ -36,7 +36,7 @@ No backend repository, storage configuration, database models or authoritative e
 
 The workspace and proxy independently verify FACILITATOR identity. Bearer tokens remain in HttpOnly cookies. Multipart requests preserve browser-generated boundaries, same-origin credentials, CSRF headers and the existing refresh/retry behavior. Range streaming and `private, no-store` responses remain intact. Private preview grants are held only in component memory and normalized to the matching local protected file route; arbitrary returned hosts do not receive bearer tokens. Image/audio/video native previews support range requests. PDF documents open through authorized file links.
 
-Progress measures browser bytes sent to the existing proxy, then waits for the backend response before marking completion. Local blob previews are released on replacement/unmount. Client validation checks kind, MIME/extension, nonempty files and a configurable client cap (`NEXT_PUBLIC_MEDIA_MAX_BYTES`, default 10 MiB). The exact provider/backend cap and MIME policy remain unconfirmed; server validation is authoritative. Client-supported formats are deliberately limited and exclude SVG/HTML.
+Progress measures browser bytes sent to the existing proxy, then waits for the backend response before marking completion. Local blob previews are released on replacement/unmount. Client validation checks kind, MIME/extension and nonempty files; it does not impose a file-size cap. The exact provider/backend cap and MIME policy remain unconfirmed; server validation is authoritative. Client-supported formats are deliberately limited and exclude SVG/HTML.
 
 Uploaded examples are PRIVATE with `publicPath: null`. They remain private and can be previewed in the library. They cannot populate public URL fields. Expiring token links, private proxy links and unsafe URL schemes are rejected before saving image fields. Public image selection re-fetches media details before using its permanent path. Clearing a selection detaches the draft field and never deletes shared media. Resource save continues through the existing documented mutation; edit preview uses the fresh detail response after reload.
 

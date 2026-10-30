@@ -69,3 +69,32 @@ test("Thumbnails accept the supplied URL format and reject executable URLs", () 
   assert.equal(learning.courseThumbnail("javascript:alert(1)"), "");
   assert.equal(learning.courseThumbnail("//external.test/image.jpg"), "");
 });
+
+test("Curriculum preserves module and lesson order without changing API records", () => {
+  const course = { sections: [
+    { id: "practice", title: "Practice", displayOrder: 2, lessons: [{ id: "reflect", order: 2 }, { id: "apply", order: 1 }] },
+    { id: "intro", title: "Introduction", displayOrder: 1, lessons: [{ id: "welcome" }] },
+  ] };
+  const snapshot = structuredClone(course);
+  assert.deepEqual(media.courseSections(course).map((section) => section.id), ["intro", "practice"]);
+  assert.deepEqual(media.lessonsOf(course).map((lesson) => lesson.id), ["welcome", "apply", "reflect"]);
+  assert.deepEqual(course, snapshot);
+  assert.deepEqual(media.lessonsOf(null), []);
+});
+
+test("Flat lessons keep their section labels, and locked lessons stay unavailable", () => {
+  const course = { lessons: [{ lessonId: "two", displayOrder: 2, sectionTitle: "Practice", isLocked: true }, { lessonId: "one", displayOrder: 1, sectionTitle: "Introduction" }] };
+  assert.deepEqual(media.courseSections(course).map((section) => section.title), ["Introduction", "Practice"]);
+  assert.equal(learning.lessonLocked(course.lessons[0]), true);
+  assert.equal(learning.lessonLocked(course.lessons[1]), false);
+  assert.equal(learning.lessonLocked({ hasAccess: false }), true);
+  assert.equal(learning.lessonLocked({ canAccess: false }), true);
+});
+
+test("Nested course responses retain curriculum and real progress", () => {
+  const course = learning.normalizeLearningCourse({ course: { title: "Practice", sections: [{ id: "intro", lessons: [{ id: "one" }] }] }, hasAccess: true, progress: { progressPercent: 50, completedLessons: 1, totalLessons: 2, lessons: [{ lessonId: "one", status: "COMPLETED" }] } });
+  assert.equal(media.lessonsOf(course)[0].id, "one");
+  assert.deepEqual(learning.courseProgress(course), { percent: 50, completed: 1, total: 2 });
+  assert.equal(learning.completedLesson(course, "one"), true);
+  assert.equal(learning.enrolledCourseId({ courseId: { id: "actual-course" } }), "actual-course");
+});

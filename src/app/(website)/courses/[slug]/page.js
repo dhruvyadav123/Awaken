@@ -1,0 +1,76 @@
+import Link from "next/link";
+import { Award, BookOpen, Check, Clock3, GraduationCap, Languages, Layers3, Star, UserRound } from "lucide-react";
+import { notFound } from "next/navigation";
+
+import { RecordDetails, RecordMedia } from "@/components/common/ApiRecordDisplay";
+import CourseEnrollmentAction from "@/components/user/learning/CourseEnrollmentAction";
+import CourseDetailTabs from "@/components/website/courses/CourseDetailTabs";
+import CourseVideoModal from "@/components/website/courses/CourseVideoModal";
+import { allPublicItems, publicApi, readableDate } from "@/lib/public-api";
+
+function ordered(items) { return Array.isArray(items) ? [...items].sort((a, b) => Number(a?.displayOrder ?? 0) - Number(b?.displayOrder ?? 0)) : []; }
+function itemText(value) { return typeof value === "string" ? value : value?.title || value?.description || value?.name || ""; }
+function formatPrice(value, currency) { if (value === undefined || value === null || value === "") return "Free"; const amount = Number(value); return `${currency || ""} ${Number.isFinite(amount) ? amount.toLocaleString("en-IN") : value}`.trim(); }
+function CoursePrice({ course }) { const price = course.discountPrice ?? course.regularPrice; const discounted = course.discountPrice !== null && course.discountPrice !== undefined && course.regularPrice !== undefined && Number(course.discountPrice) < Number(course.regularPrice); return <div className="rounded-2xl bg-[#6f66df] p-5 text-white shadow-[0_12px_24px_rgba(91,83,217,0.22)]"><p className="text-xs font-semibold tracking-wide text-white/80">This course fee</p><p className="mt-1 text-3xl font-bold tracking-tight">{formatPrice(price, course.currency)}</p>{discounted && <p className="mt-1 text-sm text-white/70 line-through">{formatPrice(course.regularPrice, course.currency)}</p>}</div>; }
+function FeatureRow({ icon: Icon, label, value }) { if (value === undefined || value === null || value === "") return null; const displayValue = label === "Duration" ? `${value} minutes` : value; return <div className="flex items-center justify-between gap-4 border-t border-[#e7e8ef] py-3 text-sm"><span className="flex min-w-0 items-center gap-2 text-[#596078]"><Icon size={16} strokeWidth={1.7} className="shrink-0 text-[#7371c9]" />{label}</span><strong className="text-right font-medium text-[#343955]">{displayValue}</strong></div>; }
+function CourseHeroMedia({ record, previewAvailable, demo, slug, title }) { return <div className="relative aspect-[16/9] overflow-hidden rounded-[24px] bg-[#e8eee5] shadow-[0_16px_40px_rgba(34,58,42,0.12)]"><div className="absolute inset-0 [&_.api-media-gallery]:!h-full [&_.api-media-gallery]:!w-full [&_.api-media-asset]:!h-full [&_.api-media-asset]:!w-full [&_.api-media-asset]:!border-0 [&_.api-media-asset]:!bg-transparent [&_.api-media-asset]:!p-0 [&_.api-media-asset_img]:!h-full [&_.api-media-asset_img]:!w-full [&_.api-media-asset_img]:!max-h-none [&_.api-media-asset_img]:!aspect-auto [&_.api-media-asset_img]:!rounded-none [&_.api-media-asset_img]:!object-cover"><RecordMedia record={record} compact imagesOnly /></div>{previewAvailable && <CourseVideoModal demo={demo} slug={slug} title={title} />}</div>; }
+function SectionHeading({ eyebrow, title, description }) { return <header><p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#7470c8]">{eyebrow}</p><h2 className="mt-2 font-[Georgia,serif] text-3xl leading-tight tracking-[-0.02em] text-[#242943]">{title}</h2>{description && <p className="mt-3 max-w-2xl text-sm leading-7 text-[#6e748a]">{description}</p>}</header>; }
+
+export async function generateMetadata({ params }) { const { slug } = await params; const result = await publicApi(`courses/${encodeURIComponent(slug)}`); const course = result.data || {}; return { title: `${course.seoTitle || course.title || course.name || "Course"} | AwakenWithMeheck`, description: course.seoDescription || course.excerpt || course.description || undefined }; }
+
+export default async function CourseDetailPage({ params }) {
+  const { slug } = await params;
+  const [result, languageResult, levelResult, reviewResult] = await Promise.all([publicApi(`courses/${encodeURIComponent(slug)}`), allPublicItems("languages"), allPublicItems("levels"), publicApi(`courses/${encodeURIComponent(slug)}/reviews`, { page: 1, limit: 10 })]);
+  if (result.status === 404 || (!result.error && !result.data)) notFound();
+  const course = result.data || {};
+  const language = course.catalogs?.language?.name || (languageResult.data || []).find((item) => [course.languageId, course.language, course.languageCode].includes(item.id) || [course.language, course.languageCode].includes(item.code))?.name;
+  const level = course.catalogs?.level?.name || (levelResult.data || []).find((item) => [course.levelId, course.level].includes(item.id) || [course.level, course.levelSlug].includes(item.slug))?.name;
+  const category = course.catalogs?.category?.name || course.categoryName || course.category?.name;
+  const facilitator = course.facilitator?.displayName || course.facilitatorName || course.instructorName;
+  const title = course.title || course.name || "Course";
+  const purchaseProductId = [
+    typeof course.productId === "object" ? course.productId?.id : course.productId,
+    course.product?.id,
+    course.purchaseProductId,
+    course.commerceProductId,
+    course.catalogProductId,
+    course.product?.productId,
+  ].find(Boolean) || "";
+  const description = course.content || course.description || course.shortDescription || course.excerpt;
+  const curriculum = ordered(course.curriculum);
+  const reviews = Array.isArray(reviewResult.data) ? reviewResult.data.filter((review) => review.content || review.comment || review.body || review.text) : [];
+  const previewAvailable = course.demoAvailable === true || course.hasDemo === true || Boolean(course.demoVideoUrl) || Boolean(course.demoVideoMediaId) || Boolean(course.demoPath);
+  const demoResult = previewAvailable ? await publicApi(`courses/${encodeURIComponent(slug)}/demo`) : { data: null };
+  const demo = demoResult.data || null;
+  const mediaRecord = course.banner || course.thumbnail ? { ...course, thumbnail: course.banner || course.thumbnail, banner: "" } : course;
+  const quizCount = course.quizCount ?? (Array.isArray(course.quizzes) ? course.quizzes.length : null);
+  const rating = course.rating ?? course.averageRating ?? course.ratingAverage;
+  const lessonCount = course.lessonCount ?? (curriculum.length ? curriculum.reduce((total, section) => total + ordered(section.lessons).length, 0) : null);
+  const sectionCount = course.sectionCount ?? (curriculum.length || null);
+
+  return <main className="min-h-screen bg-[#f7f8fc] text-[#252a45]"><div className="mx-auto max-w-7xl px-4 pb-20 pt-5 sm:px-7 lg:px-10">
+    <div className="mb-5 flex flex-wrap items-center gap-2 text-xs text-[#73788d]"><Link href="/courses" className="font-semibold text-[#5854c9] transition hover:text-[#39359e]">All courses</Link><span aria-hidden="true">/</span><span className="max-w-[220px] truncate">{title}</span></div>
+    {result.error ? <p role="alert" className="rounded-2xl border border-[#f0d9d2] bg-white p-6 text-[#8a4c3c]">{result.error}</p> : <>
+      <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_340px]">
+        <div className="min-w-0">
+          <CourseHeroMedia record={mediaRecord} previewAvailable={previewAvailable} demo={demo} slug={slug} title={title} />
+          <div className="mt-5 flex flex-wrap items-center gap-2 text-xs"><span className="rounded-full bg-[#eae9ff] px-3 py-1.5 font-semibold text-[#5c57c7]">{category || "Course"}</span>{level && <span className="rounded-full bg-[#edf0f7] px-3 py-1.5 text-[#626a82]">{level}</span>}{rating != null && <span className="inline-flex items-center gap-1 text-[#6e748a]"><Star size={14} fill="#f1b93a" className="text-[#f1b93a]" />{Number(rating).toFixed(1)} {reviews.length ? `(${reviews.length} reviews)` : "rating"}</span>}</div>
+          <h1 className="mt-3 max-w-4xl font-[Georgia,serif] text-4xl leading-[1.05] tracking-[-0.045em] text-[#20243c] sm:text-5xl lg:text-6xl">{title}</h1>
+          {(course.shortDescription || course.excerpt) && <p className="mt-5 max-w-3xl text-base leading-8 text-[#697086]">{course.shortDescription || course.excerpt}</p>}
+          {facilitator && <p className="mt-4 inline-flex items-center gap-2 text-sm text-[#697086]"><UserRound size={16} className="text-[#7371c9]" />Guided by <span className="font-semibold text-[#41476a]">{facilitator}</span></p>}
+          <div className="mt-9 rounded-[24px] border border-[#e4e6ef] bg-white p-5 shadow-[0_10px_30px_rgba(44,47,76,0.04)] sm:p-7"><CourseDetailTabs>
+            <div data-course-panel="overview" className="space-y-8">
+              {description && <section><SectionHeading eyebrow="About this course" title="A clearer way to begin" /><div className="mt-4 whitespace-pre-line text-[15px] leading-8 text-[#535a72]">{description}</div></section>}
+              {Array.isArray(course.learningOutcomes) && course.learningOutcomes.length > 0 && <section><SectionHeading eyebrow="Your progress" title="What you will learn" /><ul className="mt-5 grid gap-3 sm:grid-cols-2">{course.learningOutcomes.map((outcome, index) => <li key={`${itemText(outcome)}-${index}`} className="flex gap-3 rounded-xl border border-[#e3e7ee] bg-[#fafbfe] p-4 text-sm leading-6 text-[#535a72]"><Check size={18} className="mt-0.5 shrink-0 text-[#6f66df]" />{itemText(outcome)}</li>)}</ul></section>}
+              {Array.isArray(course.requirements) && course.requirements.length > 0 && <section><SectionHeading eyebrow="Before you start" title="Requirements" /><ul className="mt-4 grid gap-3">{course.requirements.map((requirement, index) => <li key={`${itemText(requirement)}-${index}`} className="flex gap-3 text-sm leading-7 text-[#535a72]"><span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#7c78d7]" />{itemText(requirement)}</li>)}</ul></section>}
+            </div>
+            <div data-course-panel="curriculum">{curriculum.length > 0 ? <section><SectionHeading eyebrow="Inside the course" title="Curriculum" description={`${sectionCount || curriculum.length} sections · ${lessonCount || 0} lessons`} /><div className="mt-5 grid gap-3">{curriculum.map((section, sectionIndex) => { const lessons = ordered(section.lessons); return <details key={section.id || `${section.title || "section"}-${sectionIndex}`} open={sectionIndex === 0} className="group rounded-xl border border-[#e3e7ee] bg-[#fafbfe] px-4 py-3"><summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-[#343a58] marker:hidden"><span>{section.title || `Section ${sectionIndex + 1}`}<small className="ml-2 font-normal text-[#858ba0]">{lessons.length} {lessons.length === 1 ? "lesson" : "lessons"}</small></span><span className="text-xl font-normal text-[#726ecf] transition group-open:rotate-45">+</span></summary>{section.description && <p className="mt-3 text-sm leading-7 text-[#6b7288]">{section.description}</p>}<ol className="mt-3 grid gap-1">{lessons.map((lesson, lessonIndex) => <li key={lesson.id || `${lesson.title || "lesson"}-${lessonIndex}`} className="flex items-center justify-between gap-3 border-t border-[#e8eaf1] py-2.5 text-sm text-[#5a6179]"><span className="min-w-0"><span className="mr-2 text-[10px] text-[#989db0]">{String(lessonIndex + 1).padStart(2, "0")}</span>{lesson.title || `Lesson ${lessonIndex + 1}`}{lesson.contentType && <small className="ml-2 text-[9px] uppercase text-[#716ec4]">{lesson.contentType}</small>}</span>{(lesson.isPreview === true || lesson.previewPath) && lesson.id && <Link href={`/courses/${encodeURIComponent(slug)}/lessons/${encodeURIComponent(lesson.id)}/preview`} className="shrink-0 text-xs font-semibold text-[#5c57c7] hover:underline">Preview</Link>}</li>)}</ol></details>; })}</div></section> : <p className="text-sm text-[#697086]">Curriculum details will appear here when published.</p>}</div>
+            <div data-course-panel="facilitator"><SectionHeading eyebrow="Your guide" title={facilitator || "Course facilitator"} description="Learn with a structured course experience designed for steady progress." />{facilitator ? <div className="mt-6 rounded-2xl bg-[#f4f5ff] p-5 text-sm leading-7 text-[#596079]"><div className="flex items-center gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#dcdafe] text-[#605bd0]"><GraduationCap size={20} /></span><span><strong className="block text-[#363b5a]">{facilitator}</strong><span>Course facilitator</span></span></div></div> : <p className="mt-5 text-sm text-[#697086]">Facilitator information will appear here when published.</p>}</div>
+          </CourseDetailTabs></div>
+          {reviews.length > 0 && <section className="mt-8 rounded-[24px] border border-[#e4e6ef] bg-white p-6 shadow-[0_10px_30px_rgba(44,47,76,0.04)] sm:p-8"><SectionHeading eyebrow="Learner feedback" title="Reviews" /><div className="mt-5 grid gap-4 sm:grid-cols-2">{reviews.map((review, index) => <blockquote key={review.id || `${review.title || "review"}-${index}`} className="rounded-xl bg-[#fafbfe] p-5 text-sm leading-7 text-[#687087]"><p>“{review.content || review.comment || review.body || review.text}”</p>{(review.authorName || review.name) && <footer className="mt-3 font-semibold text-[#3c4261]">{review.authorName || review.name}</footer>}</blockquote>)}</div></section>}
+        </div>
+        <aside className="lg:sticky lg:top-5 lg:self-start"><div className="rounded-[24px] border border-[#e0e2eb] bg-white p-5 shadow-[0_14px_34px_rgba(44,47,76,0.09)] sm:p-6"><CoursePrice course={course} /><p className="mt-6 text-xs font-bold text-[#363b5a]">Course includes:</p><div className="mt-2"><FeatureRow icon={Layers3} label="Level" value={level} /><FeatureRow icon={Clock3} label="Duration" value={course.duration != null ? String(course.duration) : undefined} /><FeatureRow icon={BookOpen} label="Lessons" value={lessonCount} /><FeatureRow icon={Check} label="Sections" value={sectionCount} /><FeatureRow icon={Award} label="Certificate" value={course.certificateEnabled !== undefined ? (course.certificateEnabled ? "Included" : "No") : undefined} /><FeatureRow icon={Languages} label="Language" value={language} /><FeatureRow icon={Star} label="Quizzes" value={quizCount} /></div><div className="mt-5 border-t border-[#e7e8ef] pt-5"><CourseEnrollmentAction courseId={course.id} productId={purchaseProductId} paid={Number(course.discountPrice ?? course.regularPrice ?? 0) > 0} /></div></div>{(facilitator || course.publishedAt) && <div className="mt-5 rounded-2xl border border-[#e4e6ef] bg-white p-5"><p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#7470c8]">Course details</p>{facilitator && <p className="mt-4 flex items-center gap-2 text-sm text-[#5c6379]"><UserRound size={16} className="text-[#7371c9]" />{facilitator}</p>}{course.publishedAt && <p className="mt-3 text-xs text-[#7a8094]">Published {readableDate(course.publishedAt)}</p>}</div>}{course.id && <div className="mt-5"><RecordDetails record={course} publicView exclude={["title", "name", "description", "shortDescription", "content", "body", "text"]} /></div>}</aside>
+      </div>
+    </>}
+  </div></main>;
+}

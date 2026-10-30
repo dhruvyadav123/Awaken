@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 
-export const API_BASE_URL = (process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "").replace(/\/+$/, "");
+export const API_BASE_URL = (process.env.API_BASE_URL || process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.awakenwithmeheck.com/api/v1").replace(/\/+$/, "");
 export const ACCESS_COOKIE = "awm-access-token";
 export const CSRF_COOKIE = "awm-csrf-token";
 export const REFRESH_COOKIE = "awm-refresh-cookie";

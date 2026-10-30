@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ContactTrigger } from "./ContactPopup";
 import AmbientVideo from "./AmbientVideo";
+import InlineVideoPreview from "./InlineVideoPreview";
 
 function PageLink({ href, className = "", children }) {
   if (href === "/contact") {
@@ -30,16 +31,21 @@ export default function ContentPage({
   notice,
   cards = [],
   portrait = false,
+  portraitSide = "right",
+  portraitCard = false,
   heroImage,
   immersiveHero = false,
   ambientVideo,
+  portraitVideo,
+  plainWhite = false,
+  heroTitleClassName = "",
 }) {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#fffdfb] text-[#11162d]">
+    <main className={`min-h-screen overflow-hidden text-[#11162d] ${plainWhite ? "bg-white" : "bg-[#fffdfb]"}`}>
       {/* =========================================================
           HERO
       ========================================================= */}
-      <section className="relative isolate min-h-[680px] overflow-hidden border-b border-[#ebe5e2] bg-[#f4eee8] lg:min-h-[760px]">
+      <section className={`relative isolate min-h-[680px] overflow-hidden border-b border-[#ebe5e2] lg:min-h-[760px] ${plainWhite ? "bg-white" : "bg-[#f4eee8]"}`}>
         {/* Hero background image */}
         {heroImage ? (
           <>
@@ -57,7 +63,7 @@ export default function ContentPage({
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/10" />
           </>
-        ) : (
+        ) : plainWhite ? null : (
           <>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(215,191,220,0.42),transparent_35%),radial-gradient(circle_at_20%_70%,rgba(246,214,190,0.55),transparent_40%)]" />
 
@@ -69,18 +75,10 @@ export default function ContentPage({
 
         {/* Portrait */}
         {portrait && !heroImage ? (
-          <div className="absolute inset-y-0 right-0 hidden w-[48%] lg:block">
-            <Image
-              src="/images/hero/meheck.png"
-              alt="Meheck from Awaken With Me"
-              fill
-              priority
-              quality={90}
-              sizes="48vw"
-              className="object-contain object-bottom"
-            />
+          <div className={`absolute hidden lg:block ${portraitCard ? "top-[10%] bottom-[10%] overflow-hidden rounded-[16px] border border-[#eee9ec] bg-white p-0 shadow-[0_8px_24px_rgba(48,33,55,0.07)]" : "inset-y-0"} ${portraitSide === "left" ? (portraitCard ? "left-[8%] w-[36%]" : "left-[7%] w-[40%]") : "right-0 w-[48%]"}`}>
+            {portraitVideo ? <InlineVideoPreview src={portraitVideo.src} poster={portraitVideo.poster || (portraitCard ? "" : "/images/hero/meheck.png")} title={portraitVideo.title || "Meet Meheck Mukherjee"} /> : <Image src="/images/hero/meheck.png" alt="Meheck from AwakenWithMeheck" fill priority quality={90} sizes="48vw" className="object-contain object-bottom" />}
 
-            <div className="absolute inset-0 bg-gradient-to-r from-[#f4eee8] via-transparent to-transparent" />
+            {!portraitCard && <div className={`pointer-events-none absolute inset-0 bg-gradient-to-r ${portraitSide === "left" ? "from-transparent via-transparent to-white" : `${plainWhite ? "from-white" : "from-[#f4eee8]"} via-transparent to-transparent`}`} />}
           </div>
         ) : null}
 
@@ -113,7 +111,7 @@ export default function ContentPage({
         ) : null}
 
         <div className="relative z-10 mx-auto flex min-h-[680px] w-full max-w-[1440px] items-center px-5 py-24 sm:px-8 lg:min-h-[760px] lg:px-14 xl:px-20">
-          <div className="max-w-[760px]">
+          <div className={portraitSide === "left" ? "max-w-[620px] lg:ml-[44%]" : "max-w-[760px]"}>
             {/* Top Mark */}
             <div className="mb-9 flex flex-wrap items-center gap-4 text-[10px] font-semibold uppercase tracking-[0.42em] text-[#5e4a63] sm:text-[11px]">
               <span>Awaken</span>
@@ -131,7 +129,7 @@ export default function ContentPage({
               </p>
             ) : null}
 
-            <h1 className="max-w-[760px] font-serif text-[52px] font-medium leading-[0.96] tracking-[-0.045em] text-[#11152c] sm:text-[68px] lg:text-[82px] xl:text-[92px]">
+            <h1 className={`max-w-[760px] break-words font-serif text-[52px] font-medium leading-[0.96] tracking-[-0.045em] text-[#11152c] [overflow-wrap:anywhere] sm:text-[68px] lg:text-[82px] xl:text-[92px] ${heroTitleClassName}`}>
               {title}
             </h1>
 
@@ -177,7 +175,7 @@ export default function ContentPage({
           CARDS
       ========================================================= */}
       {cards.length ? (
-        <section className="bg-[#fffdfb]">
+        <section className={plainWhite ? "bg-white" : "bg-[#fffdfb]"}>
           <div className="mx-auto w-full max-w-[1440px] px-5 py-14 sm:px-8 lg:px-14 lg:py-20 xl:px-20">
             <div className="mb-9">
               <p className="text-[11px] font-bold uppercase tracking-[0.42em] text-[#282745]">
@@ -254,7 +252,7 @@ export default function ContentPage({
           NOTICE
       ========================================================= */}
       {notice ? (
-        <section className="bg-[#fffdfb] px-5 pb-12 sm:px-8 lg:px-14 xl:px-20">
+        <section className={`${plainWhite ? "bg-white" : "bg-[#fffdfb]"} px-5 pb-12 sm:px-8 lg:px-14 xl:px-20`}>
           <div className="mx-auto flex min-h-[86px] w-full max-w-[1280px] items-center justify-center rounded-xl bg-gradient-to-r from-[#f5eaf5] via-[#f8f0f8] to-[#f4e9f2] px-6 text-center shadow-[inset_0_0_0_1px_rgba(122,84,130,0.04)]">
             <p className="flex items-center justify-center gap-4 text-sm font-medium text-[#523e60] sm:text-base">
               <span className="text-2xl text-[#a176aa]">✦</span>
@@ -269,7 +267,7 @@ export default function ContentPage({
           CONTENT SECTIONS
       ========================================================= */}
       {sections.length ? (
-        <section className="bg-[#fffdfb]">
+        <section className={plainWhite ? "bg-white" : "bg-[#fffdfb]"}>
           <div className="mx-auto w-full max-w-[1440px] px-5 pb-24 sm:px-8 lg:px-14 xl:px-20">
             {sections.map((section, index) => (
               <section

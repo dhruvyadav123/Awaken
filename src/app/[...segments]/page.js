@@ -1,14 +1,14 @@
 import { notFound, redirect } from "next/navigation";
-import CommerceCenter from "@/components/commerce/CommerceCenter";
-import MyMembership from "@/components/membership/MyMembership";
-import ProfileDetails from "@/components/account/ProfileDetails";
+import CommerceCenter from "@/components/user/commerce/CommerceCenter";
+import MyMembership from "@/components/user/membership/MyMembership";
+import ProfileDetails from "@/components/user/profile/ProfileDetails";
 import EmailVerification from "@/components/common/EmailVerification";
-import ContentPage from "../../components/common/ContentPage";
+import ContentPage from "@/components/common/ContentPage";
 import CmsPublicPage from "@/components/common/CmsPublicPage";
 import { publicApi } from "@/lib/public-api";
 
 const supportLinks = [
-  { label: "Contact Awaken With Me", description: "Ask about the service or a next step.", href: "/contact" },
+  { label: "Contact AwakenWithMeheck", description: "Ask about the service or a next step.", href: "/contact" },
 ];
 
 export default async function MissingRoutePage({ params, searchParams }) {

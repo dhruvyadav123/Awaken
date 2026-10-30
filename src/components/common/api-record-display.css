@@ -11,6 +11,11 @@
 .api-media-asset.is-compact{padding:0;border:0;background:transparent}
 .api-media-asset.is-compact img{aspect-ratio:16/10;max-height:190px;object-fit:cover}
 .api-media-asset.is-compact .api-media-loading{min-height:0;aspect-ratio:16/10}
+.blog-detail-cover{overflow:hidden}
+.blog-detail-cover .blog-cover-media,.blog-detail-cover .api-media-gallery,.blog-detail-cover .api-media-asset.is-compact{position:absolute;inset:0;height:100%;width:100%}
+.blog-detail-cover .api-media-asset.is-compact{display:block}
+.blog-detail-cover .api-media-asset.is-compact img{width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:center;border-radius:0}
+.blog-detail-cover .api-media-asset.is-compact figcaption{display:none}
 .workspace td .api-media-gallery.is-compact{width:110px;margin-bottom:10px}
 .api-record-details{margin:20px 0;border:1px solid #dfe7dd;border-radius:8px;background:#fff;padding:16px;min-width:0}
 .api-record-details summary{cursor:pointer;font-size:13px;font-weight:600;color:#315a48}
@@ -18,3 +23,17 @@
 .api-record-details dt{font-size:11px;color:#647368;margin-bottom:5px}
 .api-record-details dd{margin:0;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere;color:#29473c}
 @media(max-width:640px){.api-record-details dl{grid-template-columns:1fr}.api-media-gallery{grid-template-columns:1fr}}
+
+.meditation-detail-banner{position:relative;isolation:isolate;width:100vw;min-height:clamp(250px,27vw,360px);margin-left:calc(50% - 50vw);overflow:hidden;border-radius:0;background:radial-gradient(circle at 20% 15%,#f7f3e8,#dfe9dc 58%,#c8d9c8)}
+.meditation-detail-banner::after{position:absolute;z-index:1;inset:35% 0 0;background:linear-gradient(180deg,transparent 0%,rgb(19 42 29 / 74%) 100%);content:"";pointer-events:none}
+.meditation-detail-banner .api-media-gallery.is-compact{position:absolute;inset:0;z-index:0;height:100%;margin:0}
+.meditation-detail-banner .api-media-asset.is-compact{display:block;height:100%;padding:0;border:0;border-radius:0;background:transparent}
+.meditation-detail-banner .api-media-asset.is-compact img{display:block;width:100%;height:100%;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:center;border-radius:0;background:transparent}
+.meditation-detail-banner .api-media-asset.is-compact .api-media-loading{height:100%;min-height:0;border-radius:0;background:linear-gradient(110deg,#dfe9dc 25%,#f7f3e8 45%,#dfe9dc 65%);background-size:200% 100%}
+.meditation-detail-banner .api-media-asset.is-compact figcaption{display:none}
+.meditation-detail-banner-copy{position:absolute;z-index:2;right:0;bottom:0;left:0;padding:clamp(28px,5vw,58px) max(24px,calc((100vw - 1152px) / 2 + 24px));color:#fff}
+.meditation-detail-banner-copy p{margin:0 0 10px;color:#d8e5d1;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
+.meditation-detail-banner-copy h1{max-width:780px;margin:0;color:#fff;font:400 clamp(36px,5.5vw,72px)/1.04 Georgia,"Times New Roman",serif;letter-spacing:-.04em;text-wrap:balance}
+.meditation-detail-page{position:relative;padding-top:0}
+.meditation-detail-page > a:first-child{display:none}
+@media(max-width:640px){.meditation-detail-page{padding-top:0}.meditation-detail-banner{min-height:250px;border-radius:0}.meditation-detail-banner-copy{padding:24px 22px 26px}.meditation-detail-banner-copy h1{font-size:clamp(32px,10vw,48px)}}

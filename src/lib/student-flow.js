@@ -7,10 +7,12 @@ export function checkoutItems(cart) {
   if (!Array.isArray(cart?.items) || !cart.items.length) throw new Error("Your cart is empty.");
   if (cart.checkoutReady !== true || cart.totalsComplete !== true || cart.items.some(item => item.available === false)) throw new Error("Resolve unavailable items or incomplete prices in your cart before checkout.");
   return cart.items.map(item => {
-    const itemId = item.productId?.id || item.productId || item.product?.id;
+    const itemType = String(item.itemType || (item.productId || item.product ? "PRODUCT" : item.sessionTypeId ? "SESSION" : item.courseId ? "COURSE" : item.planId || item.membershipPlanId ? "MEMBERSHIP" : "")).toUpperCase();
+    const itemId = item.itemId?.id || item.itemId || item.productId?.id || item.productId || item.product?.id || item.courseId || item.sessionTypeId || item.planId || item.membershipPlanId;
     if (!itemId || !Number.isSafeInteger(item.quantity) || item.quantity < 1) throw new Error("A cart item is incomplete. Refresh your cart.");
     const variantId = item.variantId || item.product?.variant?.id;
-    return { itemType: "PRODUCT", itemId, ...(variantId ? { variantId } : {}), quantity: item.quantity };
+    if (!itemType) throw new Error("A cart item type is missing. Refresh your cart.");
+    return { itemType, itemId, ...(variantId ? { variantId } : {}), ...(item.availabilityId ? { availabilityId: item.availabilityId } : {}), ...(item.startsAt ? { startsAt: item.startsAt } : {}), quantity: item.quantity };
   });
 }
 

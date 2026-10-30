@@ -1,54 +1,3 @@
-const DEFAULT_MENU = [
-  { label: "Home", href: "/" },
-  { label: "Courses", href: "/courses" },
-  { label: "Sessions", href: "/sessions" },
-  {
-    label: "Workshops",
-    children: [
-      {
-        label: "Workshops and events",
-        href: "/workshops",
-      },
-      {
-        label: "Classes and training",
-        href: "/classes",
-      },
-    ],
-  },
-  { label: "Shop", href: "/shop" },
-  { label: "Blog", href: "/blog" },
-  { label: "About us", href: "/about" },
-  {
-    label: "Facilitators",
-    children: [
-      {
-        label: "All Facilitators",
-        href: "/facilitators",
-      },
-    ],
-  },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "Meditations", href: "/meditations" },
-  { label: "Infinity", href: "/infinity" },
-  { label: "Contact", href: "/contact" },
-];
-
-export const navigationLinks = [
-  ["Home", "/"],
-  ["Courses", "/courses"],
-  ["Sessions", "/sessions"],
-  ["Workshops", "/workshops"],
-  ["Classes", "/classes"],
-  ["Shop", "/shop"],
-  ["Blog", "/blog"],
-  ["About us", "/about"],
-  ["Facilitators", "/facilitators"],
-  ["Testimonials", "/testimonials"],
-  ["Meditations", "/meditations"],
-  ["Infinity", "/infinity"],
-  ["Contact", "/contact"],
-];
-
 function cleanHref(value) {
   if (typeof value !== "string") return "";
 
@@ -238,10 +187,7 @@ export function prepareNavigationItems(
   cmsMenus = [],
   facilitatorLinks = []
 ) {
-  const source =
-    Array.isArray(cmsMenus) && cmsMenus.length
-      ? cmsMenus
-      : DEFAULT_MENU;
+  const source = Array.isArray(cmsMenus) ? cmsMenus : [];
 
   const normalized = source
     .map(normalizeMenuItem)
@@ -355,10 +301,6 @@ export function prepareNavigationItems(
         "Facilitators",
         "/facilitators",
         [
-          {
-            label: "All Facilitators",
-            href: "/facilitators",
-          },
           ...item.children,
           ...dynamicLinks,
         ]
@@ -380,13 +322,12 @@ export function prepareNavigationItems(
     addDirect(item);
   }
 
-  if (!seenRoutes.has("/")) {
-    result.unshift({
-      id: "link:/",
-      label: "Home",
-      href: "/",
-      children: [],
-    });
+  const hasMediaLink = result.some(
+    (item) => item.href === "/media" || item.children.some((child) => child.href === "/media")
+  );
+
+  if (!hasMediaLink) {
+    addDirect({ label: "Media", href: "/media" });
   }
 
   return result;

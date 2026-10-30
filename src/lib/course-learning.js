@@ -1,13 +1,14 @@
 export function enrolledCourseId(record) {
-  return record?.courseId || record?.course?.id || record?.course?.courseId || "";
+  const id = record?.courseId || record?.course?.id || record?.course?.courseId;
+  return typeof id === "object" ? id?.id || id?._id || "" : id || "";
 }
 
 export function courseProgress(record) {
-  const percent = record?.progressPercent ?? record?.percentComplete ?? record?.percentage;
+  const percent = record?.progressPercent ?? record?.percentComplete ?? record?.percentage ?? record?.progress?.progressPercent ?? record?.progress?.percentComplete;
   return {
     percent: typeof percent === "number" && Number.isFinite(percent) ? Math.max(0, Math.min(100, percent)) : null,
-    completed: record?.completedLessons ?? record?.completedCount ?? null,
-    total: record?.totalLessons ?? record?.totalCount ?? null,
+    completed: record?.completedLessons ?? record?.completedCount ?? record?.progress?.completedLessons ?? null,
+    total: record?.totalLessons ?? record?.totalCount ?? record?.progress?.totalLessons ?? null,
   };
 }
 
@@ -26,7 +27,17 @@ export function courseLearningHref(record, base = "/profile/courses") {
 }
 
 export function completedLesson(progress, lessonId) {
-  return Array.isArray(progress?.lessons) && progress.lessons.some((row) => row.lessonId === lessonId && row.status === "COMPLETED");
+  const rows = progress?.lessons || progress?.progress?.lessons;
+  return Array.isArray(rows) && rows.some((row) => String(row.lessonId || row.id) === String(lessonId) && (row.status === "COMPLETED" || row.completed === true));
+}
+
+export function lessonLocked(lesson) {
+  return lesson?.hasAccess === false || lesson?.canAccess === false || lesson?.isLocked === true || lesson?.locked === true;
+}
+
+export function normalizeLearningCourse(value) {
+  const course = value?.course && typeof value.course === "object" ? value.course : {};
+  return { ...course, ...value, lessons: value?.lessons || course.lessons, sections: value?.sections || course.sections, modules: value?.modules || course.modules };
 }
 
 export function courseThumbnail(value) {
