@@ -1,9 +1,16 @@
 export const FACILITATOR_DASHBOARD_PATH = "facilitator/dashboard?limit=5";
 export function facilitatorOverview(data) {
-  const summary = data?.summary || {};
+  const source = data?.dashboard && typeof data.dashboard === "object"
+    ? data.dashboard
+    : data?.summary
+      ? data
+      : data?.data && typeof data.data === "object"
+        ? data.data
+        : data || {};
+  const summary = source?.summary || {};
   const count = value => typeof value === "number" && Number.isFinite(value) && value >= 0 ? value : null;
   return {
-    asOf: typeof data?.asOf === "string" ? data.asOf : null,
+    asOf: typeof source?.asOf === "string" ? source.asOf : null,
     metrics: [
       ["Total courses", count(summary.totalCourses), "book"],
       ["Pending courses", count(summary.pendingCourses), "book"],
@@ -15,9 +22,9 @@ export function facilitatorOverview(data) {
       ["Product sales", count(summary.productSales?.sales), "bag"],
       ["Product units sold", count(summary.productSales?.units), "bag"],
     ],
-    finances: Array.isArray(data?.financesByCurrency) ? data.financesByCurrency : [],
-    sales: Array.isArray(data?.recentSales) ? data.recentSales : [],
-    questions: Array.isArray(data?.recentQuestions) ? data.recentQuestions : [],
+    finances: Array.isArray(source?.financesByCurrency) ? source.financesByCurrency : [],
+    sales: Array.isArray(source?.recentSales) ? source.recentSales : [],
+    questions: Array.isArray(source?.recentQuestions) ? source.recentQuestions : [],
   };
 }
 

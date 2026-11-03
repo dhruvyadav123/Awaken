@@ -15,7 +15,7 @@ The custom course preview uses the same picker.
 | Form | Existing mutation | Saved field |
 | --- | --- | --- |
 | Course create | POST facilitator/courses | thumbnail (string) |
-| Class/workshop create | POST facilitator/classes | thumbnail (URL) or thumbnailMediaId (Media Library ID) |
+| Class/workshop create | POST facilitator/classes | thumbnailMediaId and bannerMediaId (Media Library IDs) |
 | Product create | POST facilitator/products | images (string array) |
 
 The checked-in `operations.json` and `docs/atlas-api-inventory.json` do not
@@ -25,9 +25,8 @@ name/reason/version; Blog and Meditation have public/learner read and playback
 flows but no facilitator authoring contracts in this project. Existing
 course/class/product PATCH examples also omit thumbnail/images. Their saved
 images remain visible in edit dialogs, but replacement cannot be submitted
-there without a documented PATCH field. Class create supports the mutually
-exclusive `thumbnail` URL and `thumbnailMediaId` Media Library alternatives;
-the UI omits the unused one.
+there without a documented PATCH field. Class create uses the documented
+`thumbnailMediaId` and optional `bannerMediaId` media references.
 
 ## Media transport and permissions
 

@@ -42,17 +42,10 @@ function hasClassValue(...values) {
 }
 function classReadiness(record) {
   const source = record?.class || record?.workshop || record || {};
-  const delivery = source.deliveryDetails || source.delivery_details || source.deliveryInfo || source.delivery_info || source.delivery;
-  const mode = String(source.mode || source.deliveryMode || source.delivery_mode || delivery?.mode || delivery?.type || "").toUpperCase();
-  const startsAt = source.startsAt || source.startAt || source.start_date || delivery?.startsAt || delivery?.startAt;
-  const endsAt = source.endsAt || source.endAt || source.end_date || delivery?.endsAt || delivery?.endAt;
-  const offlineModes = new Set(["OFFLINE", "IN_PERSON", "IN-PERSON", "INPERSON", "PHYSICAL"]);
-  const onlineDelivery = hasClassValue(source.meetingUrl, source.meetingLink, source.meeting_url, delivery?.meetingUrl, delivery?.meetingLink, delivery?.meeting_url) || hasClassValue(source.meetingType, source.meeting_type, delivery?.meetingType, delivery?.meeting_type);
   return [
     { key: "description", label: "Complete description", ready: hasClassValue(source.description, source.completeDescription, source.complete_description, source.content, source.shortDescription, source.short_description) },
     { key: "thumbnail", label: "Thumbnail", ready: hasClassValue(source.thumbnailMediaId, source.thumbnail_media_id, source.thumbnail, source.thumbnailUrl, source.thumbnail_url, source.image, source.imageUrl, source.image_url, source.coverImage, source.coverImageUrl) },
     { key: "category", label: "Category", ready: hasClassValue(source.categoryId, source.category_id, source.category, source.categoryName, source.category_name) },
-    { key: "delivery", label: "Delivery details", ready: hasClassValue(delivery) || (hasClassValue(startsAt) && hasClassValue(endsAt) && hasClassValue(mode) && (offlineModes.has(mode) || onlineDelivery)) },
   ];
 }
 function classActionsFor(record, actions) {
@@ -63,7 +56,7 @@ function classActionsFor(record, actions) {
 function ClassReadiness({ record }) {
   const checks = classReadiness(record).filter(check => !check.ready);
   const ready = checks.every(check => check.ready);
-  return <section className="ws-class-readiness" aria-labelledby="class-readiness-title"><div className="ws-class-readiness-header"><div><p className="ws-eyebrow">REVIEW CHECK</p><h3 id="class-readiness-title">{ready ? "Ready for review" : "Complete the class before review"}</h3><p className="ws-muted">The backend checks these details when the class is submitted.</p></div><Badge status={ready ? "READY" : "INCOMPLETE"} /></div><ul>{checks.map(check => <li key={check.key} data-ready={check.ready ? "true" : "false"}><span aria-hidden="true">{check.ready ? "✓" : "!"}</span><span>{check.label}</span><strong>{check.ready ? "Added" : "Missing"}</strong></li>)}</ul></section>;
+  return <section className="ws-class-readiness" aria-labelledby="class-readiness-title"><div className="ws-class-readiness-header"><div><p className="ws-eyebrow">REVIEW CHECK</p><h3 id="class-readiness-title">{ready ? "Ready for review" : "Complete the class before review"}</h3><p className="ws-muted">Add the core class information before submitting it for review.</p></div><Badge status={ready ? "READY" : "INCOMPLETE"} /></div><ul>{checks.map(check => <li key={check.key} data-ready={check.ready ? "true" : "false"}><span aria-hidden="true">{check.ready ? "✓" : "!"}</span><span>{check.label}</span><strong>{check.ready ? "Added" : "Missing"}</strong></li>)}</ul></section>;
 }
 
 export default function FacilitatorResources({ section, id }) {

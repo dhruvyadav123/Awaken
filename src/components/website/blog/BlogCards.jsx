@@ -21,6 +21,7 @@ export function BlogCover({
   className = "",
   categoryName = "",
   showCategory = false,
+  priority = false,
 }) {
   return (
     <div
@@ -32,6 +33,7 @@ export function BlogCover({
             record={post}
             imagesOnly
             compact
+            priority={priority}
           />
         </div>
       ) : (
@@ -96,7 +98,7 @@ export function CategoryLinks({
 }) {
   return (
     <nav
-      aria-label="Journal categories"
+      aria-label="blog categories"
       className="flex flex-wrap gap-2"
     >
       <Link

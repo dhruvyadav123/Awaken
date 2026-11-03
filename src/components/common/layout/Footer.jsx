@@ -59,8 +59,8 @@ function getAddressLines(address) {
   return [];
 }
 
-export default async function Footer({ website = {} }) {
-  const footerRecords = await getCmsItems("footer-settings", { cache: "no-store" });
+export default async function Footer({ website = {}, footerRecords: providedFooterRecords }) {
+  const footerRecords = providedFooterRecords || await getCmsItems("footer-settings");
   const settings = getFooterConfig(footerRecords) || {};
   const links = footerLinks(settings);
   const general = website?.general || {};

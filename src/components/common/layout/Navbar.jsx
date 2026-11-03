@@ -278,7 +278,7 @@ export default function Navbar({
             }
           />
 
-          <Suspense fallback={<div aria-hidden='true' className='ml-auto h-[38px] w-[89px] shrink-0 max-[1080px]:w-[38px]' />}>
+          <Suspense fallback={<div aria-hidden='true' className='ml-auto h-[38px] w-[140px] shrink-0 max-[1080px]:w-[38px]' />}>
             <HeaderActions
               user={account.user}
               checking={account.checking}

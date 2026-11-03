@@ -4,7 +4,7 @@ export const categoryCatalogs = {
   SESSION: { path: "/sessions", collection: "session-types", label: "Sessions" },
   PRODUCT: { path: "/shop", collection: "products", label: "Shop" },
   MEDITATION: { path: "/meditations", collection: "meditations", label: "Meditations" },
-  BLOG: { path: "/blog", collection: "blogs", label: "Journal" },
+  BLOG: { path: "/blog", collection: "blogs", label: "Blog" },
 };
 
 export function normalizePublicCategories(data) {

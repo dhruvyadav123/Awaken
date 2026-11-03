@@ -471,8 +471,7 @@ a { color: inherit; text-decoration: none; }
 .awm-nav-list { display: flex; align-items: center; justify-content: space-between; gap: clamp(9px,1.25vw,18px); margin: 0; padding: 0; list-style: none; }
 .awm-nav-link { display: inline-flex; min-height: 52px; align-items: center; padding: 0; border: 0; background: transparent; color: #29476f; font: inherit; font-size: 12px; font-weight: 500; text-decoration: none; white-space: nowrap; cursor: pointer; }
 .awm-nav-link:hover,.awm-nav-link[aria-current="page"] { color: #315b9d; }
-.awm-primary-nav-link::after { position: absolute; right: 0; bottom: 0; left: 0; height: 2px; border-radius: 999px; background: #0e4f87; content: ""; transform: scaleX(0); transform-origin: left; transition: transform 180ms ease; }
-.awm-primary-nav-link:hover::after,.awm-primary-nav-link:focus-visible::after,.awm-primary-nav-link[aria-current="page"]::after,.awm-primary-nav-link[aria-current="location"]::after { transform: scaleX(1); }
+.awm-primary-nav-link[aria-current="page"],.awm-primary-nav-link[aria-current="location"] { color: #0e4f87; }
 .awm-actions { display: flex; flex: 0 0 auto; align-items: center; gap: 8px; }
 .awm-icon-button { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid transparent; border-radius: 50%; background: transparent; color: #315b9d; cursor: pointer; }
 .awm-cart-link { position: relative; }

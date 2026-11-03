@@ -6,7 +6,7 @@ import { recordMedia, recordFields } from "@/lib/record-display";
 import { mediaAccessInfo } from "@/lib/dashboard/media";
 import "./api-record-display.css";
 
-function MediaAsset({ asset, scope, compact }) {
+function MediaAsset({ asset, scope, compact, priority }) {
   const initial = asset.source || (asset.id && !asset.protected ? `/api/public/files/media/${encodeURIComponent(asset.id)}/file` : "");
   const [source, setSource] = useState(initial); const [kind, setKind] = useState(asset.kind); const [expiresAt, setExpiresAt] = useState(0); const [expired, setExpired] = useState(false);
   const [loading, setLoading] = useState(asset.kind === "IMAGE" && (asset.protected || Boolean(initial))); const [error, setError] = useState("");
@@ -45,7 +45,7 @@ function MediaAsset({ asset, scope, compact }) {
   const hostedVideo = source && /(?:youtube\.com|youtu\.be|vimeo\.com)\//i.test(source);
   return <figure className={`api-media-asset ${compact ? "is-compact" : ""}`}>
     {loading && !source && <span className="api-media-loading" role="status" aria-label={`Loading ${kind.toLowerCase()}`} />}
-    {source && kind === "IMAGE" && <img src={source} alt={asset.alt} loading="lazy" referrerPolicy="no-referrer" onLoad={() => setLoading(false)} onError={failed} />}
+    {source && kind === "IMAGE" && <img src={source} alt={asset.alt} loading={priority ? "eager" : "lazy"} fetchPriority={priority ? "high" : undefined} referrerPolicy="no-referrer" onLoad={() => setLoading(false)} onError={failed} />}
     {source && kind === "VIDEO" && !hostedVideo && <video src={source} controls playsInline preload="metadata" aria-label={asset.title} onError={failed} />}
     {source && kind === "AUDIO" && <audio src={source} controls preload="metadata" aria-label={asset.title} onError={failed} />}
     {source && (kind === "DOCUMENT" || hostedVideo) && <a href={source} target="_blank" rel="noreferrer" className="api-media-link">{hostedVideo ? "Watch video" : "Open document"}: {asset.title}</a>}
@@ -54,11 +54,11 @@ function MediaAsset({ asset, scope, compact }) {
     {!compact && <figcaption>{asset.title}</figcaption>}
   </figure>;
 }
-export function RecordMedia({ record, scope = "public", compact = false, imagesOnly = false }) {
+export function RecordMedia({ record, scope = "public", compact = false, imagesOnly = false, priority = false }) {
   const assets = recordMedia(record, { scope, imagesOnly });
   const shown = compact ? assets.slice(0, 1) : assets;
   if (!shown.length) return null;
-  return <div className={`api-media-gallery ${compact ? "is-compact" : ""}`} aria-label="Resource media">{shown.map(asset => <MediaAsset key={`${asset.key}:${asset.kind}:${scope}:${asset.source}:${record?.version || ""}`} asset={asset} scope={scope} compact={compact} />)}</div>;
+  return <div className={`api-media-gallery ${compact ? "is-compact" : ""}`} aria-label="Resource media">{shown.map(asset => <MediaAsset key={`${asset.key}:${asset.kind}:${scope}:${asset.source}:${record?.version || ""}`} asset={asset} scope={scope} compact={compact} priority={priority} />)}</div>;
 }
 const registrationDetailExclude = ["date", "endDate", "startTime", "endTime", "originalSchedule", "registrationStartAt", "registrationEndAt", "status", "registrationStatus", "attendanceStatus", "registeredAt", "source", "paymentStatus", "hasAccess", "waitlistEnabled", "join"];
 

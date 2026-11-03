@@ -10,38 +10,14 @@ import {
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 
+import { getCsrfToken } from "@/lib/client-account";
 import {
   CART_UPDATED_EVENT,
   getCartItemCount,
-  readCart,
+  readCartSnapshot,
   refreshCart,
 } from "@/lib/cart";
-import { getCsrfToken } from "@/lib/client-account";
 import { clearSession } from "@/lib/session";
-
-function CartIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path d="M3 3.5h2l2.1 10.3a2 2 0 0 0 2 1.6h8.5a2 2 0 0 0 1.9-1.4L21 7H5.8" />
-
-      <circle
-        cx="9.5"
-        cy="19.5"
-        r="1.4"
-      />
-
-      <circle
-        cx="18"
-        cy="19.5"
-        r="1.4"
-      />
-    </svg>
-  );
-}
 
 
 function ProfileIcon() {
@@ -62,11 +38,54 @@ function ProfileIcon() {
   );
 }
 
+function CartIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path d="M3.5 4.5h2l1.7 10.2h10.9l2-7.2H6.2" />
+      <circle cx="9.2" cy="19.2" r="1.2" />
+      <circle cx="17.2" cy="19.2" r="1.2" />
+    </svg>
+  );
+}
+
 export default function HeaderActions({ user = null, checking = false }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
   const [logoutBusy, setLogoutBusy] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    let active = true;
+
+    const syncCartCount = (snapshot = readCartSnapshot()) => {
+      if (active) setCartCount(getCartItemCount(snapshot?.items || []));
+    };
+
+    syncCartCount();
+
+    const handleCartUpdate = () => syncCartCount();
+    window.addEventListener(CART_UPDATED_EVENT, handleCartUpdate);
+    window.addEventListener("cart:updated", handleCartUpdate);
+
+    if (user) {
+      refreshCart()
+        .then((cart) => syncCartCount(cart))
+        .catch(() => {
+          // The cart link remains available when the account cart is temporarily unavailable.
+        });
+    }
+
+    return () => {
+      active = false;
+      window.removeEventListener(CART_UPDATED_EVENT, handleCartUpdate);
+      window.removeEventListener("cart:updated", handleCartUpdate);
+    };
+  }, [user]);
 
   const currentPath = `${pathname || "/"}${searchParams?.toString() ? `?${searchParams.toString()}` : ""}`;
   const loginHref = pathname?.startsWith("/auth/") ? "/auth/login" : `/auth/login?next=${encodeURIComponent(currentPath)}`;
@@ -86,12 +105,6 @@ export default function HeaderActions({ user = null, checking = false }) {
     }
   }
 
-  const [cartCount, setCartCount] =
-    useState(0);
-
-  const [cartPulse, setCartPulse] =
-    useState(false);
-
   const [profileOpen, setProfileOpen] =
     useState(false);
 
@@ -103,15 +116,6 @@ export default function HeaderActions({ user = null, checking = false }) {
   const firstProfileItemRef =
     useRef(null);
 
-  const previousCartCountRef =
-    useRef(0);
-
-  const cartInitializedRef =
-    useRef(false);
-
-  const pulseTimerRef =
-    useRef(null);
-
   /*
   |--------------------------------------------------------------------------
   | CLOSE PROFILE ON ROUTE CHANGE
@@ -121,77 +125,6 @@ export default function HeaderActions({ user = null, checking = false }) {
     const timer = setTimeout(() => setProfileOpen(false), 0);
     return () => clearTimeout(timer);
   }, [pathname]);
-
-  /*
-  |--------------------------------------------------------------------------
-  | CART SYNC
-  |--------------------------------------------------------------------------
-  */
-  useEffect(() => {
-    function syncCartCount() {
-      const nextCount =
-        getCartItemCount(
-          readCart()
-        );
-
-      /*
-       * Don't animate first client sync.
-       */
-      if (
-        cartInitializedRef.current &&
-        nextCount !==
-          previousCartCountRef.current
-      ) {
-        setCartPulse(true);
-
-        window.clearTimeout(
-          pulseTimerRef.current
-        );
-
-        pulseTimerRef.current =
-          window.setTimeout(() => {
-            setCartPulse(false);
-          }, 420);
-      }
-
-      previousCartCountRef.current =
-        nextCount;
-
-      cartInitializedRef.current =
-        true;
-
-      setCartCount(nextCount);
-    }
-
-    syncCartCount();
-    refreshCart().catch(() => {});
-
-    window.addEventListener(
-      CART_UPDATED_EVENT,
-      syncCartCount
-    );
-
-    window.addEventListener(
-      "storage",
-      syncCartCount
-    );
-
-    return () => {
-      window.removeEventListener(
-        CART_UPDATED_EVENT,
-        syncCartCount
-      );
-
-      window.removeEventListener(
-        "storage",
-        syncCartCount
-      );
-
-      window.clearTimeout(
-        pulseTimerRef.current
-      );
-    };
-  }, []);
 
   /*
   |--------------------------------------------------------------------------
@@ -414,55 +347,14 @@ export default function HeaderActions({ user = null, checking = false }) {
 
   return (
     <div className="ml-auto flex shrink-0 items-center gap-[13px]">
-      {/* CART */}
       <Link
         href="/cart"
-        className="relative grid size-[38px] place-items-center rounded-full border border-transparent bg-transparent text-[#315b9d] transition-[background-color,border-color,transform] duration-200 hover:border-[#dbe4f1] hover:bg-[#f4f7fc] active:scale-[0.94] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8fb2d0] motion-reduce:transition-none [&_svg]:size-[22px] [&_svg]:stroke-current [&_svg]:stroke-[1.8] [&_svg]:stroke-linecap-round [&_svg]:stroke-linejoin-round [&_svg_circle]:fill-none"
-        aria-label={
-          cartCount
-            ? `Shopping cart, ${cartCount} item${
-                cartCount === 1
-                  ? ""
-                  : "s"
-              }`
-            : "Shopping cart, empty"
-        }
+        className="awm-icon-button awm-cart-link"
+        aria-label={cartCount ? `Cart, ${cartCount} ${cartCount === 1 ? "item" : "items"}` : "Cart"}
         title="Cart"
       >
         <CartIcon />
-
-        {cartCount > 0 ? (
-          <span
-            className={[
-              "absolute -top-0.5 -right-0.5 grid min-h-[17px] min-w-[17px]",
-              "place-items-center rounded-[9px] border border-white",
-              "bg-[#bf6255] px-1 text-[9px] leading-none font-bold text-white",
-              "transition-transform duration-300 motion-reduce:transition-none",
-              cartPulse
-                ? "scale-[1.28]"
-                : "scale-100",
-            ].join(" ")}
-            aria-hidden="true"
-          >
-            {cartCount > 99
-              ? "99+"
-              : cartCount}
-          </span>
-        ) : null}
-
-        <span
-          className="sr-only"
-          aria-live="polite"
-          aria-atomic="true"
-        >
-          {cartCount
-            ? `${cartCount} item${
-                cartCount === 1
-                  ? ""
-                  : "s"
-              } in cart`
-            : "Cart is empty"}
-        </span>
+        {cartCount > 0 && <span className="awm-cart-count">{cartCount > 99 ? "99+" : cartCount}</span>}
       </Link>
 
       {/* PROFILE */}

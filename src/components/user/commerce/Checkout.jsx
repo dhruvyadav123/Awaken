@@ -53,6 +53,16 @@ function isMembershipCartItem(item) {
   return String(item?.itemType || "").toUpperCase() === "MEMBERSHIP";
 }
 
+function classAccessLinks(cart) {
+  return (cart?.items || [])
+    .filter((item) => String(item?.itemType || "").toUpperCase() === "CLASS")
+    .map((item) => ({
+      id: item.itemId?.id || item.itemId || item.classId?.id || item.classId,
+      title: item.title || item.snapshot?.title || "Open class",
+    }))
+    .filter((item) => item.id);
+}
+
 function createIntentKey() {
   if (globalThis.crypto?.randomUUID) {
     return globalThis.crypto.randomUUID();
@@ -257,6 +267,7 @@ export default function Checkout() {
   const [order, setOrder] = useState(null);
   const [paymentState, setPaymentState] = useState("idle");
   const [paymentMessage, setPaymentMessage] = useState("");
+  const [classLinks, setClassLinks] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [working, setWorking] = useState("");
@@ -567,7 +578,10 @@ export default function Checkout() {
         }
       );
 
+      const verifiedOrder = verified?.data?.order || verified?.order;
+      if (verifiedOrder?.id) setOrder(verifiedOrder);
       setPaymentState("success");
+      setClassLinks(classAccessLinks(cart));
       const cartSyncMessage = await syncCartAfterOrder();
       setPaymentMessage(
         verified?.message ||
@@ -688,6 +702,7 @@ export default function Checkout() {
       setQuote(null);
       if (isPaidOrder(created)) {
         setPaymentState("success");
+        setClassLinks(classAccessLinks(cart));
         const cartSyncMessage = await syncCartAfterOrder();
         setPaymentMessage(
           cartSyncMessage
@@ -831,6 +846,23 @@ export default function Checkout() {
                   ? "Opening secure Razorpay checkout..."
                   : paymentMessage || "Your order is ready. Complete the secure payment to confirm it."}
             </p>
+
+            {paymentComplete && classLinks.length > 0 && (
+              <div className="mt-5 rounded-xl border border-[#d9e8dc] bg-[#f5faf5] p-4 text-left">
+                <p className="text-sm font-semibold text-[#315a48]">Your class access is ready.</p>
+                <div className="mt-3 grid gap-2">
+                  {classLinks.map((classItem) => (
+                    <Link
+                      key={classItem.id}
+                      href={"/profile/classes/" + encodeURIComponent(classItem.id)}
+                      className="inline-flex min-h-10 items-center justify-center rounded-lg bg-[#315a48] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#244535]"
+                    >
+                      Open {classItem.title}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {(order.orderStatus || order.paymentStatus) && (
               <p className="mt-3 text-xs text-[#607566]">

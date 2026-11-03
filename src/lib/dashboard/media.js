@@ -65,7 +65,7 @@ export function mediaBinding(operation, key) {
   const schema = operation.fields?.[key];
   const resource = operation.path.replace(/\/\{\{[^}]+\}\}$/, "");
   if (key === "thumbnail" && schema?.type === "string" && operation.method === "POST" && resource === "facilitator/courses") return { multiple: false };
-  if (key === "thumbnailMediaId" && schema?.type === "string" && operation.method === "POST" && resource === "facilitator/classes") return { multiple: false, valueType: "id" };
+  if (["thumbnailMediaId", "bannerMediaId"].includes(key) && schema?.type === "string" && ["POST", "PATCH"].includes(operation.method) && resource === "facilitator/classes") return { multiple: false, valueType: "id" };
   if (key === "images" && schema?.type === "array" && schema.item?.type === "string" && resource === "facilitator/products") return { multiple: true };
   if (["profileImageMediaId", "coverImageMediaId"].includes(key) && schema?.type === "string" && resource === "facilitator/profile") return { multiple: false, valueType: "id" };
   return null;

@@ -59,7 +59,7 @@ test("Expired grants are rejected and the earlier expiry bounds the preview life
 
 test("Media selection is available only in confirmed image fields", () => {
   const bindings = operations.flatMap(operation => Object.keys(operation.fields).filter(key => media.mediaBinding(operation, key)).map(key => `${operation.method} ${operation.path} ${key}`));
-  assert.deepEqual(bindings.sort(), ["PATCH facilitator/profile coverImageMediaId", "PATCH facilitator/profile profileImageMediaId", "POST facilitator/classes thumbnailMediaId", "POST facilitator/courses thumbnail", "POST facilitator/products images"]);
+  assert.deepEqual(bindings.sort(), ["PATCH facilitator/classes/{{classId}} thumbnailMediaId", "PATCH facilitator/profile coverImageMediaId", "PATCH facilitator/profile profileImageMediaId", "POST facilitator/classes bannerMediaId", "POST facilitator/classes thumbnailMediaId", "POST facilitator/courses thumbnail", "POST facilitator/products images"]);
   assert.equal(media.mediaBinding({ method: "PATCH", path: "facilitator/courses" }, "thumbnail"), null);
   assert.equal(media.mediaBinding({ method: "POST", path: "facilitator/courses/id/lessons" }, "mediaId"), null);
 });

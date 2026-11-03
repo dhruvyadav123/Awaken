@@ -15,7 +15,7 @@ export default async function CmsHomeHero() {
 
   return <section className="cms-home-hero" aria-labelledby="cms-home-title">
     <div className="cms-home-hero-copy">
-      <p className="renew-kicker">AwakenWithMeheck</p>
+      <p className="renew-kicker"></p>
       <TransformationQuote />
       {href && label && <Link className="renew-button" href={href}>{label}<span aria-hidden="true">&rarr;</span></Link>}
     </div>

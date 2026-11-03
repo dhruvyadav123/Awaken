@@ -155,13 +155,17 @@
         "type": "string",
         "nullable": true
       },
+      "bannerMediaId": {
+        "type": "string",
+        "nullable": true
+      },
       "categoryId": {
         "type": "string",
         "nullable": false
       },
       "startsAt": {
         "type": "string",
-        "nullable": false
+        "nullable": true
       },
       "endsAt": {
         "type": "string",
@@ -169,19 +173,39 @@
       },
       "timezone": {
         "type": "string",
-        "nullable": false
+        "nullable": true
       },
       "mode": {
         "type": "string",
-        "nullable": false
+        "nullable": true
       },
       "meetingType": {
         "type": "string",
-        "nullable": false
+        "nullable": true
       },
       "meetingUrl": {
         "type": "string",
-        "nullable": false
+        "nullable": true
+      },
+      "venue": {
+        "type": "string",
+        "nullable": true
+      },
+      "address": {
+        "type": "string",
+        "nullable": true
+      },
+      "city": {
+        "type": "string",
+        "nullable": true
+      },
+      "state": {
+        "type": "string",
+        "nullable": true
+      },
+      "country": {
+        "type": "string",
+        "nullable": true
       },
       "regularPrice": {
         "type": "number",
@@ -239,9 +263,97 @@
         "type": "number",
         "nullable": false
       },
+      "title": {
+        "type": "string",
+        "nullable": true
+      },
+      "kind": {
+        "type": "string",
+        "nullable": true
+      },
+      "description": {
+        "type": "string",
+        "nullable": true
+      },
+      "thumbnailMediaId": {
+        "type": "string",
+        "nullable": true
+      },
+      "categoryId": {
+        "type": "string",
+        "nullable": true
+      },
+      "startsAt": {
+        "type": "string",
+        "nullable": true
+      },
+      "endsAt": {
+        "type": "string",
+        "nullable": true
+      },
+      "timezone": {
+        "type": "string",
+        "nullable": true
+      },
+      "mode": {
+        "type": "string",
+        "nullable": true
+      },
       "meetingUrl": {
         "type": "string",
-        "nullable": false
+        "nullable": true
+      },
+      "meetingType": {
+        "type": "string",
+        "nullable": true
+      },
+      "venue": {
+        "type": "string",
+        "nullable": true
+      },
+      "address": {
+        "type": "string",
+        "nullable": true
+      },
+      "city": {
+        "type": "string",
+        "nullable": true
+      },
+      "state": {
+        "type": "string",
+        "nullable": true
+      },
+      "country": {
+        "type": "string",
+        "nullable": true
+      },
+      "regularPrice": {
+        "type": "number",
+        "nullable": true
+      },
+      "discountPrice": {
+        "type": "number",
+        "nullable": true
+      },
+      "currency": {
+        "type": "string",
+        "nullable": true
+      },
+      "capacity": {
+        "type": "number",
+        "nullable": true
+      },
+      "waitlistEnabled": {
+        "type": "boolean",
+        "nullable": true
+      },
+      "registrationStartAt": {
+        "type": "string",
+        "nullable": true
+      },
+      "registrationEndAt": {
+        "type": "string",
+        "nullable": true
       },
       "reason": {
         "type": "string",

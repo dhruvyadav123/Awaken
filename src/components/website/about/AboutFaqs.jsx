@@ -21,7 +21,7 @@ export default async function AboutFaqs() {
         <div className="lg:sticky lg:top-24 lg:self-start">
           <p className="text-[11px] font-bold uppercase tracking-[0.42em] text-[#76517d]">A little clarity</p>
           <h2 id="about-faq-title" className="mt-4 max-w-[390px] font-serif text-[42px] leading-[1.04] tracking-[-0.035em] text-[#17152d] sm:text-[52px]">Questions?<br /><em className="font-normal text-[#805c83]">Start here.</em></h2>
-          <p className="mt-5 max-w-[330px] text-[14px] leading-7 text-[#6d6b77]">Find clear answers about Awaken, the practices, and how to begin.</p>
+          <p className="mt-5 max-w-[330px] text-[14px] leading-7 text-[#6d6b77]">Find clear answers about Awakenwithmeheck, the practices, and how to begin.</p>
           <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#9a6a94]">{faqs.length} {faqs.length === 1 ? "answer" : "answers"} from Awaken</p>
         </div>
 

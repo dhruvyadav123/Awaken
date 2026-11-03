@@ -195,14 +195,14 @@ export default function CourseEditor({ initial, lookups = {}, lookupsLoading = f
     }
   }
 
-  return <div className="fixed inset-0 z-50 overflow-y-auto bg-[#102a1d]/35 p-3 backdrop-blur-sm sm:p-6">
-    <section role="dialog" aria-modal="true" aria-labelledby="course-editor-title" className="mx-auto max-w-7xl overflow-hidden rounded-2xl bg-[#f7faf7] shadow-2xl">
-      <header className="flex flex-wrap items-center justify-between gap-4 border-b border-[#dbe7dd] bg-white px-5 py-4 sm:px-8">
+  return <div className="ws-course-editor-overlay fixed inset-0 z-50 overflow-y-auto bg-[#102a1d]/35 p-3 backdrop-blur-sm sm:p-6">
+    <section role="dialog" aria-modal="true" aria-labelledby="course-editor-title" className="ws-course-editor-panel mx-auto max-w-7xl overflow-hidden rounded-2xl bg-[#f7faf7] shadow-2xl">
+      <header className="ws-course-editor-header flex flex-wrap items-center justify-between gap-4 border-b border-[#dbe7dd] bg-white px-5 py-4 sm:px-8">
         <h1 id="course-editor-title" className="text-xl font-semibold text-[#203b2a]">{editing ? "Edit course" : "Create course"}</h1>
         <button type="button" className={lightBtn} onClick={onClose}>Close</button>
       </header>
-      <div className="grid gap-5 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
-        <form onSubmit={submit} className="min-w-0 space-y-5">
+      <div className="ws-course-editor-body grid gap-5 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
+        <form onSubmit={submit} className="ws-course-editor-form min-w-0 space-y-5">
           <Note error={error || lookupsError} success={notice} />
           {lookupsError && <button type="button" className={`${lightBtn} mb-3`} onClick={onRetryLookups}>Retry options</button>}
 
@@ -260,7 +260,7 @@ export default function CourseEditor({ initial, lookups = {}, lookupsLoading = f
           </section>
         </form>
 
-        <aside className="h-fit lg:sticky lg:top-5"><div className="overflow-hidden rounded-xl border border-[#dbe7dd] bg-white shadow-sm"><div className="aspect-video bg-[#eaf2eb]">{previewThumbnail && <img src={previewThumbnail} alt="" className="h-full w-full object-cover" />}</div><div className="p-5"><div>{value.title && <h2 className="break-words text-xl font-semibold text-[#203b2a]">{value.title}</h2>}{value.shortDescription && <p className="mt-2 text-sm leading-6 text-slate-600">{value.shortDescription}</p>}</div>{previewChips.length > 0 && <div className="mt-4 flex flex-wrap gap-2">{previewChips.map((chip) => <span key={chip} className="rounded-full bg-[#edf5ee] px-2.5 py-1 text-xs font-medium text-[#315a48]">{chip}</span>)}</div>}{value.regularPrice !== "" && <div className="mt-5 border-t border-slate-100 pt-4"><p className="text-xs text-slate-500">Price</p><p className="mt-1 text-2xl font-semibold text-[#315a48]">{Number(value.discountPrice === "" ? value.regularPrice : value.discountPrice) > 0 ? `${value.currency} ${value.discountPrice === "" ? value.regularPrice : value.discountPrice}` : "Free"}</p>{value.discountPrice !== "" && <p className="mt-1 text-xs text-slate-400 line-through">{value.currency} {value.regularPrice}</p>}</div>}</div></div></aside>
+        <aside className="ws-course-editor-preview h-fit lg:sticky lg:top-5"><div className="overflow-hidden rounded-xl border border-[#dbe7dd] bg-white shadow-sm"><div className="aspect-video bg-[#eaf2eb]">{previewThumbnail && <img src={previewThumbnail} alt="" className="h-full w-full object-cover" />}</div><div className="p-5"><div>{value.title && <h2 className="break-words text-xl font-semibold text-[#203b2a]">{value.title}</h2>}{value.shortDescription && <p className="mt-2 text-sm leading-6 text-slate-600">{value.shortDescription}</p>}</div>{previewChips.length > 0 && <div className="mt-4 flex flex-wrap gap-2">{previewChips.map((chip) => <span key={chip} className="rounded-full bg-[#edf5ee] px-2.5 py-1 text-xs font-medium text-[#315a48]">{chip}</span>)}</div>}{value.regularPrice !== "" && <div className="mt-5 border-t border-slate-100 pt-4"><p className="text-xs text-slate-500">Price</p><p className="mt-1 text-2xl font-semibold text-[#315a48]">{Number(value.discountPrice === "" ? value.regularPrice : value.discountPrice) > 0 ? `${value.currency} ${value.discountPrice === "" ? value.regularPrice : value.discountPrice}` : "Free"}</p>{value.discountPrice !== "" && <p className="mt-1 text-xs text-slate-400 line-through">{value.currency} {value.regularPrice}</p>}</div>}</div></div></aside>
       </div>
     </section>
   </div>;

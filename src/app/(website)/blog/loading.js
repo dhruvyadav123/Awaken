@@ -16,7 +16,7 @@ export default function Loading() {
         </div>
 
         <h1 className="mt-7 font-[Georgia,serif] text-[30px] text-[#164736]">
-          Loading journal...
+          Loading blog...
         </h1>
 
         <div className="mt-5 h-[2px] w-20 overflow-hidden rounded-full bg-[#DCE9DF]">
@@ -24,7 +24,7 @@ export default function Loading() {
         </div>
 
         <span className="sr-only">
-          Loading journal articles
+          Loading blog articles
         </span>
       </div>
     </main>

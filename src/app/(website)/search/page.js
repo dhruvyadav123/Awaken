@@ -11,7 +11,7 @@ const entries = [
   ["Shop and free resources", "Explore the written resources and check shop availability.", "/shop"],
   ["Facilitator opportunities", "Check whether applications are open.", "/become-a-facilitator"],
   ["Meditations", "Try a short, self-guided written practice.", "/meditations"],
-  ["Journal", "Read a practical reflection for everyday life.", "/blog"],
+  ["Blog", "Read a practical reflection for everyday life.", "/blog"],
   ["Meet the facilitators", "Review what to look for in a session guide.", "/facilitators"],
   ["Contact", "Find the current ways to ask a question.", "/contact"],
   ["About AwakenWithMeheck", "Learn about our intention and approach.", "/about"],

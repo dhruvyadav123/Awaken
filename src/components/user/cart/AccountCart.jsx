@@ -55,19 +55,19 @@ export default function AccountCart({ products = [] }) {
     {error && <div role="alert" className="mt-6 rounded bg-[#fff4f0] p-4 text-sm text-[#8a4c3c]">{error}{error.toLowerCase().includes("sign in") ? <> <Link className="underline" href="/auth/login?next=%2Fcart">Sign in</Link></> : <button type="button" disabled={disabled} onClick={reload} className="ml-3 underline">Refresh cart</button>}</div>}
     {notice && <p role="status" className="mt-4 text-sm">{notice}</p>}
     {loading && <p role="status" className="mt-8">Loading your cart...</p>}
-    {cart && !loading && !items.length && <div className="mt-8 rounded-xl border border-[#dfe7dd] bg-white p-8"><h2 className="font-[Georgia,serif] text-2xl">Your cart is empty.</h2><p className="mt-3 text-sm text-[#647368]">Courses, sessions and products you add will appear here.</p><Link className="mt-5 inline-block font-semibold text-[#315a48] underline" href="/shop">Continue shopping</Link></div>}
+    {cart && !loading && !items.length && <div className="mt-8 rounded-xl border border-[#dfe7dd] bg-white p-8"><h2 className="font-[Georgia,serif] text-2xl">Your cart is empty.</h2><p className="mt-3 text-sm text-[#647368]">Classes, courses, sessions and products you add will appear here.</p><Link className="mt-5 inline-block font-semibold text-[#315a48] underline" href="/shop">Continue shopping</Link></div>}
     {items.length > 0 && <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_300px]"><section className="grid content-start gap-4" aria-label="Cart items">{items.map((item, index) => {
       const itemType = String(item.itemType || (item.productId || item.product ? "PRODUCT" : item.sessionTypeId ? "SESSION" : item.courseId ? "COURSE" : item.planId || item.membershipPlanId ? "MEMBERSHIP" : "")).toUpperCase();
       const itemId = item.itemId?.id || item.itemId || item.productId?.id || item.productId || item.product?.id || item.courseId || item.sessionTypeId || item.planId || item.membershipPlanId;
       const product = itemType === "PRODUCT" ? item.product || (typeof item.productId === "object" ? item.productId : null) || products.find((entry) => String(entry.id) === String(itemId)) : null;
-      const title = item.title || item.productName || item.snapshot?.title || product?.title || product?.name || (itemType === "SESSION" ? "Session" : itemType === "COURSE" ? "Course" : itemType === "MEMBERSHIP" ? "Membership" : "Item");
+      const title = item.title || item.productName || item.snapshot?.title || product?.title || product?.name || (itemType === "SESSION" ? "Session" : itemType === "COURSE" ? "Course" : itemType === "CLASS" ? "Class" : itemType === "MEMBERSHIP" ? "Membership" : "Item");
       const itemKey = item.id || item.cartItemId || `${itemType}-${itemId}-${index}`;
       const price = item.finalUnitPrice ?? item.unitPrice;
       const variant = item.variantName || item.variant?.name || product?.variant?.name;
       const imageRecord = cartMediaRecord(item);
       const editableQuantity = itemType === "PRODUCT";
       return <article key={itemKey} aria-busy={busyId === itemKey} className="flex flex-wrap items-start gap-4 rounded-xl border border-[#dfe7dd] bg-white p-5">
-        <div className="w-24 shrink-0 overflow-hidden rounded-lg bg-[#eef1e9] sm:w-28">{recordMedia(imageRecord, { imagesOnly: true }).length ? <RecordMedia record={imageRecord} imagesOnly compact /> : <span className="flex min-h-24 items-center justify-center p-3 text-center text-xs text-[#647368]">{itemType === "SESSION" ? "Session" : itemType === "COURSE" ? "Course" : itemType === "MEMBERSHIP" ? "Membership" : "No product image"}</span>}</div>
+        <div className="w-24 shrink-0 overflow-hidden rounded-lg bg-[#eef1e9] sm:w-28">{recordMedia(imageRecord, { imagesOnly: true }).length ? <RecordMedia record={imageRecord} imagesOnly compact /> : <span className="flex min-h-24 items-center justify-center p-3 text-center text-xs text-[#647368]">{itemType === "SESSION" ? "Session" : itemType === "COURSE" ? "Course" : itemType === "CLASS" ? "Class" : itemType === "MEMBERSHIP" ? "Membership" : "No product image"}</span>}</div>
         <div className="min-w-0 flex-1"><h2 className="font-[Georgia,serif] text-xl">{product?.slug ? <Link href={`/shop/${encodeURIComponent(product.slug)}`} className="hover:underline">{title}</Link> : title}</h2>
           {variant && <p className="mt-1 text-sm text-[#647368]">{variant}</p>}
           <p className="mt-2 text-sm text-[#647368]">{amount(price)} each · quantity {item.quantity}</p>

@@ -27,7 +27,7 @@ function getPostTags(post) {
 
 function BlogHero({ entry }) {
   if (!hasBlogImage(entry)) return null;
-  return <BlogCover post={entry} className="blog-detail-cover h-[245px] w-full sm:h-[330px] md:h-[400px] lg:h-[480px]" />;
+  return <BlogCover post={entry} priority className="blog-detail-cover h-[245px] w-full sm:h-[330px] md:h-[400px] lg:h-[480px]" />;
 }
 
 function ArticleBody({ entry }) {
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }) {
   const result = await publicApi(`blogs/${encodeURIComponent(slug)}`);
   const entry = result.data;
   return {
-    title: `${entry?.seoTitle || entry?.title || "Journal"} | AwakenWithMeheck`,
+    title: `${entry?.seoTitle || entry?.title || "Blog"} | AwakenWithMeheck`,
     description: entry?.seoDescription || entry?.excerpt || "Explore mindful reflections from AwakenWithMeheck.",
   };
 }
@@ -71,7 +71,7 @@ export default async function JournalEntryPage({ params }) {
   if (result.status === 404) notFound();
 
   if (result.error || !result.data) {
-    return <main className="min-h-screen bg-white px-5 py-16"><div className="mx-auto max-w-[1200px]"><Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-[#4E4AE0]"><ArrowLeft size={16} />Back to journal</Link><p role="alert" className="mt-8 border-l-2 border-[#C78068] bg-[#FFF6F2] p-5 text-sm text-[#995847]">{result.error || "Unable to load article."}</p></div></main>;
+    return <main className="min-h-screen bg-white px-5 py-16"><div className="mx-auto max-w-[1200px]"><Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-[#4E4AE0]"><ArrowLeft size={16} />Back to blog</Link><p role="alert" className="mt-8 border-l-2 border-[#C78068] bg-[#FFF6F2] p-5 text-sm text-[#995847]">{result.error || "Unable to load article."}</p></div></main>;
   }
 
   const entry = result.data;
@@ -91,7 +91,7 @@ export default async function JournalEntryPage({ params }) {
     <main className="min-h-screen bg-white text-[#20233E]">
       <div className="mx-auto max-w-[1240px] px-5 pb-20 pt-5 sm:px-8 sm:pt-8">
         <nav aria-label="Breadcrumb" className="mb-5">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#4E4AE0] transition hover:gap-3"><ArrowLeft size={16} />Back to journal</Link>
+          <Link href="/blog" className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#4E4AE0] transition hover:gap-3"><ArrowLeft size={16} />Back to blog</Link>
         </nav>
 
         <div className="grid items-start gap-9 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
@@ -102,7 +102,7 @@ export default async function JournalEntryPage({ params }) {
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#5854E8]">
                 {publishedAt && <time dateTime={publishedAt}>{formatDate(publishedAt)}</time>}
               </div>
-              <h1 className="mt-4 max-w-[900px] font-[Georgia,serif] text-[clamp(34px,5vw,58px)] leading-[1.08] tracking-[-0.05em] text-[#171735]">{entry.title || "Journal article"}</h1>
+              <h1 className="mt-4 max-w-[900px] font-[Georgia,serif] text-[clamp(34px,5vw,58px)] leading-[1.08] tracking-[-0.05em] text-[#171735]">{entry.title || "Blog article"}</h1>
               {entry.excerpt && <p className="mt-5 max-w-[820px] text-[15px] leading-7 text-[#72758A] sm:text-[17px]">{entry.excerpt}</p>}
               <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-3 text-[12px] text-[#85869B]">
                 {readTime && <span className="inline-flex items-center gap-2"><Clock3 size={15} />{readTime} min read</span>}

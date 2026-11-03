@@ -145,7 +145,7 @@ export default function OpeningSplash() {
           </p>
 
           <h1 className="awaken-opening__title">
-            Awaken
+            AwakenWithMeheck
           </h1>
 
           <div className="awaken-opening__tagline">

@@ -9,9 +9,9 @@ export default function BlogSidebar({ categories = [], posts = [], searchQuery =
   const latestPosts = posts.filter((post) => post?.slug).slice(0, 4);
 
   return (
-    <aside className="space-y-5 lg:sticky lg:top-6" aria-label="Journal sidebar">
+    <aside className="space-y-5 lg:sticky lg:top-6" aria-label="Blog sidebar">
       <form action="/blog" method="get" className="rounded-[14px] bg-[#F6F6F8] p-3">
-        <label htmlFor="blog-search" className="sr-only">Search the journal</label>
+        <label htmlFor="blog-search" className="sr-only">Search the blog</label>
         <div className="flex min-h-11 items-center gap-2 rounded-[10px] border border-transparent bg-white px-3.5 py-2 transition focus-within:border-[#7773EA] focus-within:ring-2 focus-within:ring-[#7773EA]/15">
           <input
             id="blog-search"

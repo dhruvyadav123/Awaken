@@ -21,7 +21,7 @@ test("PATCH payload includes changed fields and required fields, not unchanged o
 
 const fields = {
   title: { type: "string", nullable: false },
-  startsAt: { type: "string", nullable: false },
+  startsAt: { type: "string", nullable: true },
   endsAt: { type: "string", nullable: false },
   registrationStartAt: { type: "string", nullable: false },
   registrationEndAt: { type: "string", nullable: false },
@@ -62,13 +62,14 @@ const classCreateFields = {
   kind: { type: "string", nullable: false },
   description: { type: "string", nullable: false },
   thumbnailMediaId: { type: "string", nullable: true },
+  bannerMediaId: { type: "string", nullable: true },
   categoryId: { type: "string", nullable: false },
   startsAt: { type: "string", nullable: false },
   endsAt: { type: "string", nullable: true },
-  timezone: { type: "string", nullable: false },
-  mode: { type: "string", nullable: false },
-  meetingType: { type: "string", nullable: false },
-  meetingUrl: { type: "string", nullable: false },
+  timezone: { type: "string", nullable: true },
+  mode: { type: "string", nullable: true },
+  meetingType: { type: "string", nullable: true },
+  meetingUrl: { type: "string", nullable: true },
   regularPrice: { type: "number", nullable: false },
   currency: { type: "string", nullable: false },
   capacity: { type: "number", nullable: false },
@@ -97,5 +98,23 @@ test("Class creation enforces the metadata required by class review", () => {
   assert.throws(() => validateMutationBody(classCreateFields, { ...readyClass, description: "" }, { skipRequired: true, classCreate: true }), /Complete description is required/);
   assert.throws(() => validateMutationBody(classCreateFields, { ...readyClass, thumbnailMediaId: "" }, { skipRequired: true, classCreate: true }), /Thumbnail is required/);
   assert.throws(() => validateMutationBody(classCreateFields, { ...readyClass, categoryId: "" }, { skipRequired: true, classCreate: true }), /Category is required/);
-  assert.throws(() => validateMutationBody(classCreateFields, { ...readyClass, meetingUrl: "" }, { skipRequired: true, classCreate: true }), /delivery details/);
+  assert.doesNotThrow(() => validateMutationBody(classCreateFields, { ...readyClass, startsAt: null, endsAt: null, timezone: null, mode: null, meetingType: "", meetingUrl: "" }, { skipRequired: true, classCreate: true }));
+});
+
+test("Offline class creation accepts blank registration and delivery details", () => {
+  const offline = {
+    ...readyClass,
+    mode: "OFFLINE",
+    meetingType: "",
+    meetingUrl: "",
+    venue: "Awaken Studio",
+    address: "Complete venue address",
+    city: "Delhi",
+    state: "Delhi",
+    country: "India",
+    registrationStartAt: null,
+    registrationEndAt: null,
+  };
+  assert.equal(validateMutationBody(classCreateFields, offline, { skipRequired: true, classCreate: true }), offline);
+  assert.doesNotThrow(() => validateMutationBody(classCreateFields, { ...offline, venue: "", address: "", city: "", state: "", country: "" }, { skipRequired: true, classCreate: true }));
 });

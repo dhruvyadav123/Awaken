@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { addProductToCart } from "@/lib/cart";
+import { addCartItem, addProductToCart } from "@/lib/cart";
 import { formatProductPrice } from "@/lib/product-format";
 
 function getVariantId(variant) {
@@ -12,8 +12,11 @@ function getVariantId(variant) {
 }
 
 export default function AddToCartButton({
+  itemType = "PRODUCT",
+  itemId,
   productId,
   variants = [],
+  itemLabel = "Product",
   disabled = false,
   showIcon = true,
   compact = false,
@@ -47,7 +50,7 @@ export default function AddToCartButton({
     selectedVariant?.stockStatus === "OUT_OF_STOCK";
 
   const canAdd =
-    Boolean(productId) &&
+    Boolean(itemId || productId) &&
     !disabled &&
     !busy &&
     !selectedUnavailable &&
@@ -61,10 +64,9 @@ export default function AddToCartButton({
     setSuccess(false);
 
     try {
-      const result = await addProductToCart(
-        productId,
-        variantId || undefined
-      );
+      const result = itemType === "PRODUCT"
+        ? await addProductToCart(itemId || productId, variantId || undefined)
+        : await addCartItem({ itemType, itemId: itemId || productId });
 
       if (
         result?.success === false ||
@@ -73,12 +75,12 @@ export default function AddToCartButton({
         throw new Error(
           result?.message ||
           result?.error ||
-          "Unable to add this product."
+          "Unable to add this " + itemLabel.toLowerCase() + "."
         );
       }
 
       setSuccess(true);
-      setMessage("Product added to your cart.");
+      setMessage(itemLabel + " added to your cart.");
 
       // Notify cart-count components if they listen
       // for local cart updates.
@@ -92,7 +94,7 @@ export default function AddToCartButton({
       setMessage(
         error instanceof Error
           ? error.message
-          : "Could not add this product to your cart."
+          : "Could not add this " + itemLabel.toLowerCase() + " to your cart."
       );
     } finally {
       lock.current = false; setBusy(false);
@@ -186,7 +188,7 @@ export default function AddToCartButton({
                 </svg>
               )}
               {disabled || selectedUnavailable
-                ? "Out of stock"
+                ? itemType === "PRODUCT" ? "Out of stock" : itemLabel + " unavailable"
                 : "Add to cart"}
             </>
           )}

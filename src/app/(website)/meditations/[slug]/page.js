@@ -23,7 +23,7 @@ export default async function MeditationDetailPage({ params }) {
     <Link href="/meditations" className="text-sm font-semibold text-[#315a48] hover:underline">← All meditations</Link>
     {result.error ? <p role="alert" className="mt-8 text-[#8a4c3c]">{result.error}</p> : <>
       <div className="meditation-detail-banner">
-        <RecordMedia record={meditation} compact imagesOnly />
+        <RecordMedia record={meditation} compact imagesOnly priority />
         <div className="meditation-detail-banner-copy">
           <p>{meditationCategory(meditation)}</p>
           <h1>{meditation.title || meditation.name || "Meditation"}</h1>

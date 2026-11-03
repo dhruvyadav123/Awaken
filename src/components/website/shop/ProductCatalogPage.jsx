@@ -227,12 +227,6 @@ export default function ProductCatalogPage({
               )}
             </div>
 
-            <Link
-              href="/cart"
-              className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-[#d3e1d5] bg-[#f8fbf8] px-3.5 text-xs font-semibold text-[#315a48] transition hover:border-[#aec8b1] hover:bg-[#f1f7f1]"
-            >
-              My cart
-            </Link>
           </div>
         </div>
       </section>

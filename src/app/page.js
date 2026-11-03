@@ -5,6 +5,7 @@ import HomeCmsSections from "@/components/website/home/HomeCmsSections";
 import HomeContentSections from "@/components/website/home/HomeContentSections";
 import HomepageMotion from "@/components/website/home/HomepageMotion";
 import HomeAboutSection from "@/components/website/home/HomeAboutSection";
+import GoogleReviews from "@/components/GoogleReviews";
 import "./home.css";
 
 export const dynamic = "force-dynamic";
@@ -18,6 +19,7 @@ export default function Home() {
         <Suspense fallback={null}><HomeContentSections /></Suspense>
         <Suspense fallback={null}><HomeCmsSections /></Suspense>
       </HomepageMotion>
+      <GoogleReviews />
     </>
   );
 }

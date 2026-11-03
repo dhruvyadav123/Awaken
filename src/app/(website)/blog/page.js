@@ -7,7 +7,7 @@ import { BlogCards } from "@/components/website/blog/BlogCards";
 import BlogSidebar from "@/components/website/blog/BlogSidebar";
 
 export const metadata = {
-  title: "Journal | AwakenWithMeheck",
+  title: "Blog | AwakenWithMeheck",
   description: "Thoughtful reflections about mindfulness, yoga and everyday wellbeing.",
 };
 
@@ -19,7 +19,7 @@ function Pagination({ page, pages, query = "" }) {
   );
 
   return (
-    <nav aria-label="Journal pages" className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+    <nav aria-label="Blog pages" className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-5">
       {page > 1 ? (
         <Link href={`/blog?page=${page - 1}${suffix}`} className="inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-[#4E4AE0] hover:bg-[#F0F0FF]">
           <ArrowLeft size={16} /> Previous
@@ -92,7 +92,7 @@ export default async function JournalPage({ searchParams }) {
             <div className="flex flex-col items-center justify-center rounded-2xl border border-[#E5E5EC] bg-[#FAFAFC] px-6 py-20 text-center">
               <BookOpenText size={34} strokeWidth={1.35} className="text-[#7773EA]" />
               <h2 className="mt-5 font-[Georgia,serif] text-2xl text-[#171735]">No articles found.</h2>
-              <p className="mt-2 max-w-sm text-sm leading-6 text-[#7D7F92]">Try another search or browse one of the journal categories.</p>
+              <p className="mt-2 max-w-sm text-sm leading-6 text-[#7D7F92]">Try another search or browse one of the blog categories.</p>
               {searchQuery && <Link href="/blog" className="mt-5 text-sm font-semibold text-[#4E4AE0] hover:underline">Clear search</Link>}
             </div>
           )}

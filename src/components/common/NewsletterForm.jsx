@@ -39,7 +39,7 @@ export default function NewsletterForm() {
   }
 
   return <section className="mt-7 max-w-[405px]" aria-labelledby="newsletter-title">
-    <h2 id="newsletter-title" className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#476652]">Notes from Awaken</h2>
+    {/* <h2 id="newsletter-title" className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#476652]">Newsletter</h2> */}
     <p className="mt-2 text-[12px] leading-5 text-[#65746a]">Occasional reflections and updates, sent by email.</p>
     <form className="mt-3 flex gap-2 max-[560px]:flex-col" onSubmit={submit}>
       <label className="sr-only" htmlFor="newsletter-email">Email address</label>

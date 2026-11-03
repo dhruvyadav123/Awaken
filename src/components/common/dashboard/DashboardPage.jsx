@@ -12,6 +12,7 @@ const MediaLibrary = dynamic(() => import("./MediaLibrary"), { loading: PageLoad
 const TeachingScope = dynamic(() => import("./TeachingScope"), { loading: PageLoading });
 const Analytics = dynamic(() => import("./Analytics"), { loading: PageLoading });
 const Earnings = dynamic(() => import("./Earnings"), { loading: PageLoading });
+const PayoutRequests = dynamic(() => import("./PayoutRequests"), { loading: PageLoading });
 const AccountSettings = dynamic(() => import("./AccountSettings"), { loading: PageLoading });
 const ApplicationWizard = dynamic(() => import("./ApplicationWizard"), { loading: PageLoading });
 import { State } from "./Elements";
@@ -45,6 +46,7 @@ export default function DashboardPage({ section = "overview", segments = [] }) {
     if (["curriculum", "students", "registrations", "reviews"].includes(section)) return <TeachingScope key={section} section={section} />;
     if (section === "analytics") return <Analytics />;
     if (section === "earnings") return <Earnings key={id || "list"} id={id} />;
+    if (section === "payouts") return <PayoutRequests key={id || "list"} id={id} />;
     return <FacilitatorResources key={`${section}-${id || "list"}`} section={section} id={id} />;
   }
   if (section === "digital-library") return <div className="ws-embedded"><DigitalLibrary key={id || "list"} entitlementId={id} embedded /></div>;

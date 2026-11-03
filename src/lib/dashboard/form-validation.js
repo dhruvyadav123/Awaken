@@ -51,12 +51,9 @@ function validateWebUrl(value, label) {
 function validateClassCreate(body) {
   const required = [
     ["title", "Title"],
+    ["kind", "Kind"],
     ["description", "Complete description"],
     ["categoryId", "Category"],
-    ["startsAt", "Starts at"],
-    ["endsAt", "Ends at"],
-    ["timezone", "Timezone"],
-    ["mode", "Delivery mode"],
     ["currency", "Currency"],
     ["capacity", "Capacity"],
     ["reason", "Reason for this change"],
@@ -65,12 +62,10 @@ function validateClassCreate(body) {
     if (body[key] === undefined || body[key] === null || (typeof body[key] === "string" && !body[key].trim())) throw new Error(`${label} is required before creating a class.`);
   }
   if (!body.thumbnailMediaId && !body.thumbnail) throw new Error("Thumbnail is required before submitting a class for review.");
-  if (body.mode !== "OFFLINE" && (!body.meetingType || !body.meetingUrl)) throw new Error("Complete the delivery details, including the meeting type and link.");
   const hasClassSchedule = body.startsAt || body.endsAt;
   const hasRegistrationWindow = body.registrationStartAt || body.registrationEndAt;
   if (hasClassSchedule && (!body.startsAt || !body.endsAt)) throw new Error("Enter both class start and end date/time values, or leave the class schedule blank.");
   if (hasRegistrationWindow && (!body.registrationStartAt || !body.registrationEndAt)) throw new Error("Enter both registration start and end date/time values, or leave both blank.");
-  if (body.mode === "ONLINE" && body.meetingType === "GOOGLE_MEET" && !body.meetingUrl) throw new Error("Google Meet select karne par meeting URL required hai.");
 }
 
 export function validateMutationBody(fields, body, options = {}) {

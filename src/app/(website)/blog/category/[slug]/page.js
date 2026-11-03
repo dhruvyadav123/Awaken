@@ -28,7 +28,7 @@ export async function generateMetadata({ params }) {
   );
 
   return {
-    title: `${category?.name || "Journal category"} | AwakenWithMeheck`,
+    title: `${category?.name || "Blog category"} | AwakenWithMeheck`,
     description:
       category?.description ||
       "Explore thoughtful articles from AwakenWithMeheck.",
@@ -88,15 +88,15 @@ export default async function BlogCategoryPage({
             className="inline-flex items-center gap-2 text-xs font-semibold text-[#205B47]"
           >
             <ArrowLeft size={15} />
-            Back to journal
+            Back to blog
           </Link>
 
           <p className="mt-9 text-xs font-semibold uppercase tracking-[0.18em] text-[#42715B]">
-            Journal category
+            Blog category
           </p>
 
           <h1 className="mt-4 font-[Georgia,serif] text-[45px] leading-tight tracking-[-0.035em] sm:text-[62px]">
-            {category?.name || "Journal"}
+            {category?.name || "Blog"}
           </h1>
 
           {category?.description && (

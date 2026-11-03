@@ -103,10 +103,11 @@ function DetailItem({ icon: Icon, label, value }) {
 }
 
 function MediaFrame({ record, className = "", banner = false }) {
+  const imageFit = banner ? "[&_.api-media-asset_img]:!object-contain [&_.api-media-asset_img]:!object-top" : "[&_.api-media-asset_img]:!object-cover";
   return (
     <div className={`relative overflow-hidden bg-[#e8eaf4] ${className}`}>
-      <div className="absolute inset-0 [&_.api-media-gallery]:!m-0 [&_.api-media-gallery]:!h-full [&_.api-media-gallery]:!w-full [&_.api-media-asset]:!h-full [&_.api-media-asset]:!w-full [&_.api-media-asset]:!border-0 [&_.api-media-asset]:!bg-transparent [&_.api-media-asset]:!p-0 [&_.api-media-asset_img]:!h-full [&_.api-media-asset_img]:!w-full [&_.api-media-asset_img]:!max-h-none [&_.api-media-asset_img]:!aspect-auto [&_.api-media-asset_img]:!rounded-none [&_.api-media-asset_img]:!object-cover">
-        <RecordMedia record={record} compact imagesOnly />
+      <div className={`absolute inset-0 [&_.api-media-gallery]:!m-0 [&_.api-media-gallery]:!h-full [&_.api-media-gallery]:!w-full [&_.api-media-asset]:!h-full [&_.api-media-asset]:!w-full [&_.api-media-asset]:!border-0 [&_.api-media-asset]:!bg-transparent [&_.api-media-asset]:!p-0 [&_.api-media-asset_img]:!h-full [&_.api-media-asset_img]:!w-full [&_.api-media-asset_img]:!max-h-none [&_.api-media-asset_img]:!aspect-auto [&_.api-media-asset_img]:!rounded-none ${imageFit}`}>
+        <RecordMedia record={record} compact imagesOnly priority />
       </div>
       {!record.thumbnail && !record.thumbnailMediaId && (
         <div className="absolute inset-0 grid place-items-center bg-[radial-gradient(circle_at_25%_20%,#ffffff,#e8eaf4_62%,#dcdff0)] px-6 text-center text-xs font-semibold uppercase tracking-[0.18em] text-[#74789b]">
@@ -155,6 +156,12 @@ export default async function ClassDetailPage({ params }) {
   const classId = item.id || item._id;
   const mode = text(item.mode) || text(item.format) || "To be announced";
   const location = firstText(item.location, item.venue, item.city, item.address) || "To be announced";
+  const classRegistrationClosed = Boolean(
+    item.registrationOpen === false &&
+    item.startsAt &&
+    item.registrationStartAt &&
+    item.registrationEndAt
+  );
 
   return (
     <main className="min-h-screen bg-[#f7f7fb] text-[#2d3046]">
@@ -178,7 +185,7 @@ export default async function ClassDetailPage({ params }) {
         ) : (
           <>
             <section className="relative z-10 -mt-12 grid items-start gap-8 lg:grid-cols-[minmax(280px,350px)_minmax(0,1fr)] lg:gap-12" aria-labelledby="class-title">
-              <div>
+              <div className="pt-16">
                 <div className="overflow-hidden rounded-[18px] border border-[#e0e1ea] bg-white p-2 shadow-[0_18px_45px_rgba(39,40,75,.16)]">
                   <MediaFrame record={thumbnailRecord} className="aspect-[16/9] rounded-[12px]" />
                 </div>
@@ -190,14 +197,21 @@ export default async function ClassDetailPage({ params }) {
                     )}
                   </div>
                   <div className="mt-3">
-                    {productId ? (
+                    {classId ? (
+                      <AddToCartButton
+                        itemType="CLASS"
+                        itemId={classId}
+                        itemLabel="Class"
+                        disabled={classRegistrationClosed}
+                        showIcon={false}
+                        buttonClassName="!min-h-9 !rounded-full !bg-[#5b52d8] !px-4 !text-[10px] !tracking-[0.02em] hover:!bg-[#4840be]"
+                      />
+                    ) : productId ? (
                       <AddToCartButton
                         productId={productId}
                         showIcon={false}
                         buttonClassName="!min-h-9 !rounded-full !bg-[#5b52d8] !px-4 !text-[10px] !tracking-[0.02em] hover:!bg-[#4840be]"
                       />
-                    ) : classId ? (
-                      <Link href={`/profile/classes/${encodeURIComponent(classId)}`} className="inline-flex min-h-9 w-full items-center justify-center rounded-full bg-[#5b52d8] px-4 text-center text-[10px] font-bold text-white transition hover:bg-[#4840be]">Register / manage class</Link>
                     ) : null}
                   </div>
                 </div>
